@@ -1,0 +1,10 @@
+Siviso Lite TODO
+1. Map
+2. Default
+3. Home
+4. On/Off
+
+[KISS] Change Default Siviso
+[KISS] Change Home Siviso
+[KISS] Set/Change Home Area (LatLng, ?Size)
+	
