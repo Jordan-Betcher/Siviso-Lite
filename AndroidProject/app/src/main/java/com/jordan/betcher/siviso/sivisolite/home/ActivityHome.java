@@ -1,33 +1,35 @@
 package com.jordan.betcher.siviso.sivisolite.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.sivisolite.R;
+import com.jordan.betcher.siviso.sivisolite.home.sivisomap.SivisoMap;
 
 public class ActivityHome extends AppCompatActivity
 {
+    SivisoMap sivisoMap;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     
-        setupMap();
+        sivisoMap = createSivisoMap();
     }
     
-    private void setupMap()
+    private SivisoMap createSivisoMap()
     {
         SupportMapFragment mapFragment =
-        (SupportMapFragment)
-        this
-        .getSupportFragmentManager()
-        .findFragmentById(R.id.homeMap);
+            (SupportMapFragment)
+            getSupportFragmentManager()
+            .findFragmentById(R.id.homeMap);
     
-        Context context = this;
-        SivisoGoogleMap map = new SivisoGoogleMap(this, mapFragment);
+        SivisoMap sivisoMap = new SivisoMap(mapFragment);
+        
+        return sivisoMap;
     }
 }

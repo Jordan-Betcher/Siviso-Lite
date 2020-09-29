@@ -7,4 +7,27 @@ Siviso Lite TODO
 [KISS] Change Default Siviso
 [KISS] Change Home Siviso
 [KISS] Set/Change Home Area (LatLng, ?Size)
-	
+[KISS] Google Map Default Current Location Button
+
+TODO
+
+
+Learned:
+	In Tests to get context use Application Provider https://developer.android.com/reference/androidx/test/core/app/ApplicationProvider
+	https://developer.android.com/training/testing/unit-testing/local-unit-tests#java
+
+
+
+
+Resources:
+	Testing android in kotline
+		https://codelabs.developers.google.com/codelabs/advanced-android-kotlin-training-testing-basics/#0
+	Android training 
+		https://developer.android.com/courses/ 
+		https://codelabs.developers.google.com/android-training/
+		https://developer.android.com/training/testing
+	Test Examples roboelectric and espresso: https://github.com/IhorKlimov/AndroidTests
+		From youtube: https://youtu.be/zbnzypUO6bc
+
+
+
