@@ -13,6 +13,11 @@ TODO
 
 
 Learned:
+	How to mock final class
+		https://stackoverflow.com/questions/39171894/powermock-mockstatic-cannot-subclass-final-class
+		https://dzone.com/articles/mock-final-class#mock-final-class
+		https://github.com/robolectric/robolectric/wiki/Using-PowerMock
+
 	In Tests to get context use Application Provider https://developer.android.com/reference/androidx/test/core/app/ApplicationProvider
 	https://developer.android.com/training/testing/unit-testing/local-unit-tests#java
 
