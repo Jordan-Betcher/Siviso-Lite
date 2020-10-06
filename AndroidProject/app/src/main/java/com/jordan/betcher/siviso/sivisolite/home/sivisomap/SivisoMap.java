@@ -14,6 +14,12 @@ public class SivisoMap implements OnMapReadyCallback
 	@Override
 	public void onMapReady(GoogleMap googleMap)
 	{
-		googleMap.setOnMapClickListener(new OnMapClickListenerSingleCircle(this));
+		WrapperGoogleMap wrapperGoogleMap = new WrapperGoogleMap(googleMap);
+		Home home = new Home(wrapperGoogleMap);
+	}
+	
+	public void goToCurrentLocation()
+	{
+		GoogleMap googleMap;
 	}
 }

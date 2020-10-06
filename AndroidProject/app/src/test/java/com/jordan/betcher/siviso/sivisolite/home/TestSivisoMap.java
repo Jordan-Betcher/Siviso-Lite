@@ -2,7 +2,6 @@ package com.jordan.betcher.siviso.sivisolite.home;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.jordan.betcher.siviso.sivisolite.home.sivisomap.OnMapClickListenerSingleCircle;
 import com.jordan.betcher.siviso.sivisolite.home.sivisomap.SivisoMap;
 
 import org.junit.Test;
@@ -32,12 +31,12 @@ public class TestSivisoMap
 	}
 	
 	@Test
-	public void SivisoMap_OnMapCallback_addOnMapClickListener()
+	public void SivisoMap_OnMapCallback_addOnMapClickListenerHome()
 	{
 		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
 		SivisoMap sivisoMap = new SivisoMap(fakeSupportMapFragment);
 		sivisoMap.onMapReady(fakeGoogleMap);
-		verify(fakeGoogleMap).setOnMapClickListener(isA(OnMapClickListenerSingleCircle.class));
+		verify(fakeGoogleMap).setOnMapClickListener(isA(GoogleMap.OnMapClickListener.class));
 	}
 }
