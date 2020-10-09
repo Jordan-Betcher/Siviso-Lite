@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.sivisolite.home.sivisomap;
+package com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap;
 
 import com.google.android.gms.maps.GoogleMap;
 
@@ -10,23 +10,24 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.robolectric.annotation.Config;
 
+import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.verify;
 
 @RunWith(PowerMockRunner.class)
 @Config(manifest = Config.NONE)
 @PrepareForTest(GoogleMap.class)
 @PowerMockIgnore({ "org.mockito.*", "org.robolectric.*", "android.*", "androidx.*" })
-public class WrapperGoogleMapTest
+public class MapTest
 {
 	@Test
 	public void setOnMapClickListener_called_setOnMapClickListener()
 	{
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		GoogleMap.OnMapClickListener fakeOnMapClickListener = PowerMockito.mock(GoogleMap.OnMapClickListener.class);
-		WrapperGoogleMap wrapperGoogleMap = new WrapperGoogleMap(fakeGoogleMap);
+		MapClick fakeOnMapClick = PowerMockito.mock(MapClick.class);
+		Map wrapperGoogleMap = new Map(fakeGoogleMap);
 		
-		wrapperGoogleMap.setOnMapClickListener(fakeOnMapClickListener);
+		wrapperGoogleMap.setOnMapClickListener(fakeOnMapClick);
 		
-		verify(fakeGoogleMap).setOnMapClickListener(fakeOnMapClickListener);
+		verify(fakeGoogleMap).setOnMapClickListener(isA(GoogleMap.OnMapClickListener.class));
 	}
 }
