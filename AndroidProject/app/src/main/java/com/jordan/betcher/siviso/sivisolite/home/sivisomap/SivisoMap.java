@@ -3,7 +3,6 @@ package com.jordan.betcher.siviso.sivisolite.home.sivisomap;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Map;
 
 public class SivisoMap implements OnMapReadyCallback
 {
@@ -15,7 +14,7 @@ public class SivisoMap implements OnMapReadyCallback
 	@Override
 	public void onMapReady(GoogleMap googleMap)
 	{
-		Map wrapperGoogleMap = new Map(googleMap);
+		//Map wrapperGoogleMap = new Map(googleMap);
 		MapClick$Home home = new MapClick$Home();
 	}
 	

@@ -18,18 +18,11 @@ public class ActivityHome extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     
-        sivisoMap = createSivisoMap();
-    }
-    
-    private SivisoMap createSivisoMap()
-    {
         SupportMapFragment mapFragment =
-            (SupportMapFragment)
-            getSupportFragmentManager()
-            .findFragmentById(R.id.homeMap);
+        (SupportMapFragment)
+        getSupportFragmentManager()
+        .findFragmentById(R.id.homeMap);
     
-        SivisoMap sivisoMap = new SivisoMap(mapFragment);
-        
-        return sivisoMap;
+       // MapCreator mapCreator = new MapCreator(mapFragment);
     }
 }

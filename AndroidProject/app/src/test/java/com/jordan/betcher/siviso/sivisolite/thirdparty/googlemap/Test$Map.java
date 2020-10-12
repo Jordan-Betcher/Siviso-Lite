@@ -17,7 +17,7 @@ import static org.mockito.Mockito.verify;
 @Config(manifest = Config.NONE)
 @PrepareForTest(GoogleMap.class)
 @PowerMockIgnore({ "org.mockito.*", "org.robolectric.*", "android.*", "androidx.*" })
-public class MapTest
+public class Test$Map
 {
 	@Test
 	public void setOnMapClickListener_called_setOnMapClickListener()
