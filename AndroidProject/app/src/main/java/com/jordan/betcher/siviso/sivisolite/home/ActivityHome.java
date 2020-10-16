@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.sivisolite.R;
-import com.jordan.betcher.siviso.sivisolite.home.sivisomap.SivisoMap;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
 
 public class ActivityHome extends AppCompatActivity
 {
-    SivisoMap sivisoMap;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -23,6 +21,7 @@ public class ActivityHome extends AppCompatActivity
         getSupportFragmentManager()
         .findFragmentById(R.id.homeMap);
     
-       // MapCreator mapCreator = new MapCreator(mapFragment);
+       MapCreator mapCreator = new MapCreator(mapFragment);
+       //mapCreator.callWhenReady(new MapAction$GoToCurrentLocation(this));
     }
 }

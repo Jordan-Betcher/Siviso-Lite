@@ -10,9 +10,16 @@ Siviso Lite TODO
 [KISS] Google Map Default Current Location Button
 
 TODO
-
+	Automatically takes you to current location on start
+	Home Circle on click in map
+	Default Button takes you to current location
+	Home Button takes you to home
+	On/Off Button creates the service
 
 Learned:
+	Test if method was not called
+		https://stackoverflow.com/questions/12862659/how-to-verify-that-a-specific-method-was-not-called-using-mockito
+
 	How to mock final class
 		https://stackoverflow.com/questions/39171894/powermock-mockstatic-cannot-subclass-final-class
 		https://dzone.com/articles/mock-final-class#mock-final-class
