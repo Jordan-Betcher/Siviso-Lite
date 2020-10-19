@@ -12,6 +12,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import org.robolectric.annotation.Config;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @RunWith(PowerMockRunner.class)
@@ -29,7 +30,7 @@ public class Test$MapCreator
 	}
 	
 	@Test
-	public void CallWhenReady_BeforeOnMapReadyAddMapCreatedAction_CalledMapCreated()
+	public void CallWhenReady_BeforeOnMapReadyAddMapCreatedAction_CalledAction()
 	{
 		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
@@ -40,6 +41,21 @@ public class Test$MapCreator
 		mapCreator.onMapReady(fakeGoogleMap);
 		
 		verify(fakeMapAction).mapReady(mapCreator.getMapIfAvailable());
+	}
+	
+	@Test
+	public void CallWhenReady_BeforeOnMapReadyAddMapCreatedAction_CalledActionOnce()
+	{
+		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
+		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
+		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
+		MapAction fakeMapAction = mock(MapAction.class);
+		
+		mapCreator.callWhenReady(fakeMapAction);
+		mapCreator.onMapReady(fakeGoogleMap);
+		mapCreator.onMapReady(fakeGoogleMap);
+		
+		verify(fakeMapAction, times(1)).mapReady(mapCreator.getMapIfAvailable());
 	}
 	
 	@Test
