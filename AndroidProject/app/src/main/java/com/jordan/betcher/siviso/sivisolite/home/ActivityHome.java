@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
 
 public class ActivityHome extends AppCompatActivity
 {
@@ -20,8 +21,9 @@ public class ActivityHome extends AppCompatActivity
         (SupportMapFragment)
         getSupportFragmentManager()
         .findFragmentById(R.id.homeMap);
-    
-       MapCreator mapCreator = new MapCreator(mapFragment);
-       //mapCreator.callWhenReady(new MapAction$GoToCurrentLocation(this));
+        
+        MapCreator mapCreator = new MapCreator(mapFragment);
+        CurrentLocation currentLocation = new CurrentLocation(this);
+        new GoToCurrentLocation(mapCreator, currentLocation);
     }
 }
