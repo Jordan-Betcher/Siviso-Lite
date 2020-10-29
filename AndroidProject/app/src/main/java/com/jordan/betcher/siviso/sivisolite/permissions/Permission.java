@@ -1,12 +1,13 @@
 package com.jordan.betcher.siviso.sivisolite.permissions;
 
+import android.app.Activity;
 import android.content.Context;
 
 import java.util.ArrayList;
 
 class Permission
 {
-	public PermissionData permissionData;
+	private PermissionData permissionData;
 	
 	ArrayList<Listener$PermissionAccepted> listeners = new ArrayList<>();
 	
@@ -15,12 +16,12 @@ class Permission
 		this.permissionData = permissionData;
 	}
 	
-	public void callWhenAccepted(Listener$PermissionAccepted listener)
+	public void addListener(Listener$PermissionAccepted listener)
 	{
 		listeners.add(listener);
 	}
 	
-	void permissionAccepted(Context context)
+	void callListeners(Context context)
 	{
 		if(permissionData.isPermissionAccepted(context))
 		{
@@ -29,5 +30,30 @@ class Permission
 				listener.callWhenReady(permissionData);
 			}
 		}
+	}
+	
+	public boolean isManifestName(String manifestName)
+	{
+		return permissionData.manifestName().equals(manifestName);
+	}
+	
+	public boolean isPermissionAccepted(Context context)
+	{
+		return permissionData.isPermissionAccepted(context);
+	}
+	
+	public String name()
+	{
+		return permissionData.name();
+	}
+	
+	public String details()
+	{
+		return permissionData.details();
+	}
+	
+	public void acceptPermission(Activity activity)
+	{
+		permissionData.acceptPermission(activity);
 	}
 }
