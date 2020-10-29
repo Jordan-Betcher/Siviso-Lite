@@ -17,7 +17,7 @@ public class Test$Wrapper$Button
 		Wrapper$Button wrapper$Button = new Wrapper$Button(fakeButton);
 		View.OnClickListener fakeOnClickListener = mock(View.OnClickListener.class);
 		
-		wrapper$Button.addButtonClick(fakeOnClickListener);
+		wrapper$Button.addOnClickListener(fakeOnClickListener);
 		
 		verify(fakeButton).setOnClickListener(fakeOnClickListener);
 	}

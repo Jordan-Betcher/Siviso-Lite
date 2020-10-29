@@ -12,7 +12,7 @@ public class Wrapper$Button
 		this.button = button;
 	}
 	
-	public void addButtonClick(View.OnClickListener onClickListener)
+	public void addOnClickListener(View.OnClickListener onClickListener)
 	{
 		button.setOnClickListener(onClickListener);
 	}
