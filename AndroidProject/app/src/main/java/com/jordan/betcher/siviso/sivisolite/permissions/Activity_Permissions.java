@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jordan.betcher.siviso.sivisolite.R;
 
-public class Activity$Permissions extends AppCompatActivity
+public class Activity_Permissions extends AppCompatActivity
 {
 	MVVM$Permissions.View view;
 	MVVM$Permissions.Logic logic;

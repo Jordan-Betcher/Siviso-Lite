@@ -12,7 +12,7 @@ import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
 
-public class Activity$Home extends AppCompatActivity
+public class Activity_Home extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
