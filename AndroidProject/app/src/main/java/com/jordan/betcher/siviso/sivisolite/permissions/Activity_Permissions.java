@@ -16,5 +16,11 @@ public class Activity_Permissions extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_permissions);
+		
+		/*
+		RecyclerView permissionsView = findViewById(R.id.permissionsList);
+		RecyclerView.Adapter<Adapter$Permissions.ViewHolder$Permission> permissionArrayAdapter = new Adapter$Permissions();
+		permissionsView.setAdapter(permissionArrayAdapter);
+		//*/
 	}
 }
