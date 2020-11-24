@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="Name"
-        app:layout_constraintBottom_toBottomOf="@+id/permissionShowDetails"
+        app:layout_constraintBottom_toBottomOf="@+id/permissionToggleDetails"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,12 +23,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/permissionShowDetails"
+        android:id="@+id/permissionToggleDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/permission_show_details"
+        android:text="@string/permission_toggle_details"
         app:layout_constraintEnd_toStartOf="@+id/permissionAccept"
         app:layout_constraintTop_toTopOf="parent" />
 
