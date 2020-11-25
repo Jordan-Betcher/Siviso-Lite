@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.sivisolite.permissions.Permission;
 
-class Adapter$Permissions extends RecyclerView.Adapter<ViewHolder$Permission>
+public class Adapter$Permissions extends RecyclerView.Adapter<ViewHolder$Permission>
 {
 	Permission[] permissions;
 	

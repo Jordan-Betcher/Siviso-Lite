@@ -22,7 +22,6 @@ import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -235,7 +234,7 @@ public class Test$ViewHolder$Permission
 		Button permissionAccept = viewHolder.itemView.findViewById(R.id.permissionAccept);
 		permissionAccept.callOnClick();
 		
-		verify(fakePermission, times(1)).accept(isA(Context.class));
+		verify(fakePermission, times(1)).accept();
 	}
 	
 	@Test

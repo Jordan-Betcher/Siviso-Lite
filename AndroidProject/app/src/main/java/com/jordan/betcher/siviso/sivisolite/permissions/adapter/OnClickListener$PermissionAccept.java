@@ -16,6 +16,6 @@ class OnClickListener$PermissionAccept implements View.OnClickListener
 	@Override
 	public void onClick(View view)
 	{
-		permission.accept(view.getContext());
+		permission.accept();
 	}
 }

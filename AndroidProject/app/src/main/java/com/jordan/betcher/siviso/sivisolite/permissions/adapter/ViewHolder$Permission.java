@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.permissions.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +37,12 @@ class ViewHolder$Permission extends RecyclerView.ViewHolder
 	
 	public void populateView(Permission permission)
 	{
-		setNameText(permission.name());
-		setDetailsText(permission.details());
+		Context context = itemView.getContext();
+		String name = permission.name();
+		String details = permission.details();
+		
+		setNameText(name);
+		setDetailsText(details);
 		setDetailsInitialyGone();
 		setToggleAcceptOnClickListener();
 		setAcceptOnClickListener(permission);

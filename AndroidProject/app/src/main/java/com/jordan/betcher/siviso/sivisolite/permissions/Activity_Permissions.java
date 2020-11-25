@@ -18,8 +18,10 @@ public class Activity_Permissions extends AppCompatActivity
 		setContentView(R.layout.activity_permissions);
 		
 		/*
+		Permission accessFineLocationPermission = new Permission$AccessFineLocation(this);
+		
+		Adapter$Permissions permissionArrayAdapter = new Adapter$Permissions();
 		RecyclerView permissionsView = findViewById(R.id.permissionsList);
-		RecyclerView.Adapter<Adapter$Permissions.ViewHolder$Permission> permissionArrayAdapter = new Adapter$Permissions();
 		permissionsView.setAdapter(permissionArrayAdapter);
 		//*/
 	}
