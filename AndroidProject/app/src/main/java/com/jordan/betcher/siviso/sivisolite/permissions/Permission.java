@@ -7,4 +7,6 @@ public interface Permission
 	String details();
 	
 	void accept();
+	
+	boolean isGranted();
 }
