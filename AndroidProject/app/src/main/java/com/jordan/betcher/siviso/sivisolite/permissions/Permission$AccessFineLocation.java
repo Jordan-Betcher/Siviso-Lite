@@ -20,7 +20,7 @@ class Permission$AccessFineLocation implements Permission
 	}
 	
 	@Override
-	public String name()
+	public String guiName()
 	{
 		return activity.getResources().getString(R.string.permission_access_fine_location_name);
 	}
@@ -49,5 +49,11 @@ class Permission$AccessFineLocation implements Permission
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public String manifestName()
+	{
+		return manifestName;
 	}
 }

@@ -2,11 +2,13 @@ package com.jordan.betcher.siviso.sivisolite.permissions;
 
 public interface Permission
 {
-	String name();
+	String guiName();
 	
 	String details();
 	
 	void accept();
 	
 	boolean isGranted();
+	
+	String manifestName();
 }

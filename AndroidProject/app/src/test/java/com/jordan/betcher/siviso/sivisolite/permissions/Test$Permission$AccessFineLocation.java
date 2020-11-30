@@ -38,7 +38,7 @@ public class Test$Permission$AccessFineLocation
 		when(fakeResources.getString(R.string.permission_access_fine_location_name)).thenReturn(fakeName);
 		
 		Permission accessFineLocation = new Permission$AccessFineLocation(fakeActivity);
-		String name = accessFineLocation.name();
+		String name = accessFineLocation.guiName();
 		assertEquals(fakeName, name);
 	}
 	
@@ -52,7 +52,7 @@ public class Test$Permission$AccessFineLocation
 		when(fakeResources.getString(R.string.permission_access_fine_location_name)).thenReturn(fakeName);
 		
 		Permission accessFineLocation = new Permission$AccessFineLocation(fakeActivity);
-		String name = accessFineLocation.name();
+		String name = accessFineLocation.guiName();
 		assertEquals(fakeName, name);
 	}
 	
@@ -118,7 +118,6 @@ public class Test$Permission$AccessFineLocation
 	@Test
 	public void isGranted_permissionNotGranted_false()
 	{
-		
 		Activity fakeActivity = mock(Activity.class);
 		PowerMockito.mockStatic(ContextCompat.class);
 		String name = Manifest.permission.ACCESS_FINE_LOCATION;
@@ -126,8 +125,21 @@ public class Test$Permission$AccessFineLocation
 		// actually calling ContextCompat.checkSelfPermissions even though it's using ActivityCompat
 		PowerMockito.when(ActivityCompat.checkSelfPermission(fakeActivity, name)).thenReturn(status);
 		Permission accessFineLocation = new Permission$AccessFineLocation(fakeActivity);
+		
 		boolean actual = accessFineLocation.isGranted();
 		
 		assertFalse(actual);
+	}
+	
+	@Test
+	public void manifestName__ManifestName()
+	{
+		Activity fakeActivity = mock(Activity.class);
+		Permission accessFineLocation = new Permission$AccessFineLocation(fakeActivity);
+		
+		String manifestName = accessFineLocation.manifestName();
+		String expected = Manifest.permission.ACCESS_FINE_LOCATION;
+		
+		assertEquals(expected, manifestName);
 	}
 }
