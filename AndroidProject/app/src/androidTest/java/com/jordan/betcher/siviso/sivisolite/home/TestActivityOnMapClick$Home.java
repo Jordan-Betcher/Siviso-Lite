@@ -18,7 +18,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 public class TestActivityOnMapClick$Home
 {
 	@Rule
-	public ActivityScenarioRule<ActivityHome> activityRule = new ActivityScenarioRule<>(ActivityHome.class);
+	public ActivityScenarioRule<Activity_Home> activityRule = new ActivityScenarioRule<>(Activity_Home.class);
 	
 	@Test
 	public void ActivityHome_JustCreated_TitleExists()
