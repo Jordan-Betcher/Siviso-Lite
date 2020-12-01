@@ -38,7 +38,7 @@ class ViewHolder$Permission extends RecyclerView.ViewHolder
 	public void populateView(Permission permission)
 	{
 		Context context = itemView.getContext();
-		String name = permission.name();
+		String name = permission.guiName();
 		String details = permission.details();
 		
 		setNameText(name);

@@ -71,7 +71,7 @@ public class Test$ViewHolder$Permission
 		LayoutInflater layoutInflater = LayoutInflater.from(context);
 		Permission fakePermission = mock(Permission.class);
 		String fakePermissionName = "Test1";
-		when(fakePermission.name()).thenReturn(fakePermissionName);
+		when(fakePermission.guiName()).thenReturn(fakePermissionName);
 		
 		ViewHolder$Permission viewHolder = ViewHolder$Permission.create(layoutInflater, null);
 		viewHolder.populateView(fakePermission);
@@ -88,7 +88,7 @@ public class Test$ViewHolder$Permission
 		LayoutInflater layoutInflater = LayoutInflater.from(context);
 		Permission fakePermission = mock(Permission.class);
 		String fakePermissionName = "Test2";
-		when(fakePermission.name()).thenReturn(fakePermissionName);
+		when(fakePermission.guiName()).thenReturn(fakePermissionName);
 		
 		ViewHolder$Permission viewHolder = ViewHolder$Permission.create(layoutInflater, null);
 		viewHolder.populateView(fakePermission);

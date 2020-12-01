@@ -13,9 +13,6 @@ import com.jordan.betcher.siviso.sivisolite.permissions.adapter.Adapter$Permissi
 
 public class Activity_Permissions extends AppCompatActivity
 {
-	MVVM$Permissions.View view;
-	MVVM$Permissions.Logic logic;
-	
 	Permissions permissions;
 	
 	@Override
@@ -24,13 +21,16 @@ public class Activity_Permissions extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_permissions);
 		
-		Permissions permissions = new Permissions(this);
-		Permission[] permissionsList = permissions.list();
+		Permission accessFineLocation = new Permission$AccessFineLocation(this);
+		Permissions permissions = new Permissions(accessFineLocation);
+		
+		RecyclerView permissionsView = findViewById(R.id.permissionsList);
 		
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-		Adapter$Permissions permissionArrayAdapter = new Adapter$Permissions(permissionsList);
-		RecyclerView permissionsView = findViewById(R.id.permissionsList);
 		permissionsView.setLayoutManager(layoutManager);
+		
+		Permission[] permissionsArray = permissions.array();
+		Adapter$Permissions permissionArrayAdapter = new Adapter$Permissions(permissionsArray);
 		permissionsView.setAdapter(permissionArrayAdapter);
 		
 		Button continueButton = findViewById(R.id.permissionsContinue);

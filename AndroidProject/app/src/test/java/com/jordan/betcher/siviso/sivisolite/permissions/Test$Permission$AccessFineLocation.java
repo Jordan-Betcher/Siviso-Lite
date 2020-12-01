@@ -142,28 +142,4 @@ public class Test$Permission$AccessFineLocation
 		
 		assertEquals(expected, manifestName);
 	}
-	
-	@Test
-	public void matchesManifestName_manifestName_true()
-	{
-		Activity fakeActivity = mock(Activity.class);
-		Permission accessFineLocation = new Permission$AccessFineLocation(fakeActivity);
-		
-		String manifestName = Manifest.permission.ACCESS_FINE_LOCATION;
-		boolean matches = accessFineLocation.matchesManifestName(manifestName);
-		
-		assertTrue(matches);
-	}
-	
-	@Test
-	public void matchesManifestName_test_false()
-	{
-		Activity fakeActivity = mock(Activity.class);
-		Permission accessFineLocation = new Permission$AccessFineLocation(fakeActivity);
-		
-		String wrongManifestName = "test";
-		boolean matches = accessFineLocation.matchesManifestName(wrongManifestName);
-		
-		assertFalse(matches);
-	}
 }

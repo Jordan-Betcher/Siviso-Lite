@@ -12,5 +12,5 @@ public interface Permission
 	
 	String manifestName();
 	
-	boolean matchesManifestName(String manifestName);
+	void call();
 }
