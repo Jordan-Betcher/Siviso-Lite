@@ -11,4 +11,6 @@ public interface Permission
 	boolean isGranted();
 	
 	String manifestName();
+	
+	boolean matchesManifestName(String manifestName);
 }

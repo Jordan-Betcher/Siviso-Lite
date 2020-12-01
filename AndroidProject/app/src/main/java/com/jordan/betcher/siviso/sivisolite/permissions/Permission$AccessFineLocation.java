@@ -56,4 +56,10 @@ class Permission$AccessFineLocation implements Permission
 	{
 		return manifestName;
 	}
+	
+	@Override
+	public boolean matchesManifestName(String manifestName)
+	{
+		return this.manifestName.equals(manifestName);
+	}
 }
