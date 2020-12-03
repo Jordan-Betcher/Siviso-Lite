@@ -1,6 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.permissions;
 
-interface Listener
+public interface Listener
 {
 	void call();
 }

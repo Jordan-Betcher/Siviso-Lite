@@ -1,16 +1,34 @@
 package com.jordan.betcher.siviso.sivisolite.permissions;
 
-public interface Permission
+import java.util.ArrayList;
+
+public abstract class Permission
 {
-	String guiName();
+	public abstract String guiName();
 	
-	String details();
+	public abstract String details();
 	
-	void accept();
+	public abstract void accept();
 	
-	boolean isGranted();
+	public abstract boolean isGranted();
 	
-	String manifestName();
+	public abstract String manifestName();
 	
-	void call();
+	ArrayList<Listener> listeners = new ArrayList<>();
+	
+	public void callListeners_PermissionGranted()
+	{
+		if(isGranted())
+		{
+			for(Listener listener : listeners)
+			{
+				listener.call();
+			}
+		}
+	}
+	
+	public void addListener_PermissionGranted(Listener listener)
+	{
+		listeners.add(listener);
+	}
 }

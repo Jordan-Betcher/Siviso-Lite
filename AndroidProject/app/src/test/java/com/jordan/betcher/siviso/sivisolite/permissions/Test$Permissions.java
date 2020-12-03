@@ -49,7 +49,7 @@ public class Test$Permissions
 		Permissions permissions = new Permissions(fakePermission);
 		permissions.permissionGranted(fakeManifestName);
 		
-		verify(fakePermission, times(1)).call();
+		verify(fakePermission, times(1)).callListeners_PermissionGranted();
 	}
 	
 	@Test
@@ -63,7 +63,7 @@ public class Test$Permissions
 		Permissions permissions = new Permissions(fakePermission);
 		permissions.permissionGranted(wrongManifestName);
 		
-		verify(fakePermission, times(0)).call();
+		verify(fakePermission, times(0)).callListeners_PermissionGranted();
 	}
 	
 	@Test
@@ -80,7 +80,7 @@ public class Test$Permissions
 		Permissions permissions = new Permissions(fakePermission1, fakePermission2);
 		permissions.permissionGranted(fakeManifestName2);
 		
-		verify(fakePermission2, times(1)).call();
+		verify(fakePermission2, times(1)).callListeners_PermissionGranted();
 	}
 	
 	@Test

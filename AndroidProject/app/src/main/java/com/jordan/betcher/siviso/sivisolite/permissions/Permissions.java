@@ -45,7 +45,7 @@ class Permissions
 	private void callPermission(String manifestName)
 	{
 		Permission permission = manifestNamePermissions.get(manifestName);
-		permission.call();
+		permission.callListeners_PermissionGranted();
 	}
 	
 	private boolean allPermissionsGranted()

@@ -8,7 +8,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.jordan.betcher.siviso.sivisolite.R;
 
-class Permission$AccessFineLocation implements Permission
+class Permission$AccessFineLocation extends Permission
 {
 	private Activity activity;
 	private String manifestName = Manifest.permission.ACCESS_FINE_LOCATION;
@@ -55,11 +55,5 @@ class Permission$AccessFineLocation implements Permission
 	public String manifestName()
 	{
 		return manifestName;
-	}
-	
-	@Override
-	public void call()
-	{
-	
 	}
 }
