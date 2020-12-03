@@ -19,11 +19,28 @@ public class Activity_Permissions extends AppCompatActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		setupView();
+		
+		setupPermissions();
+		
+		setupPermissionList(permissions);
+		
+		setupContinueButton();
+	}
+	
+	void setupView()
+	{
 		setContentView(R.layout.activity_permissions);
-		
+	}
+	
+	void setupPermissions()
+	{
 		Permission accessFineLocation = new Permission$AccessFineLocation(this);
-		Permissions permissions = new Permissions(accessFineLocation);
-		
+		permissions = new Permissions(accessFineLocation);
+	}
+	
+	void setupPermissionList(Permissions permissions)
+	{
 		RecyclerView permissionsView = findViewById(R.id.permissionsList);
 		
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -32,7 +49,10 @@ public class Activity_Permissions extends AppCompatActivity
 		Permission[] permissionsArray = permissions.array();
 		Adapter$Permissions permissionArrayAdapter = new Adapter$Permissions(permissionsArray);
 		permissionsView.setAdapter(permissionArrayAdapter);
-		
+	}
+	
+	void setupContinueButton()
+	{
 		Button continueButton = findViewById(R.id.permissionsContinue);
 		continueButton.setEnabled(false);
 	}

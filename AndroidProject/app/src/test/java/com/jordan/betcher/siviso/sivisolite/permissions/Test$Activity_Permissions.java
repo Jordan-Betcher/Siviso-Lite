@@ -1,13 +1,22 @@
 package com.jordan.betcher.siviso.sivisolite.permissions;
 
 import android.content.pm.PackageManager;
+import android.os.Build;
+
+import androidx.test.core.app.ActivityScenario;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
 
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+@Config(sdk = Build.VERSION_CODES.JELLY_BEAN)
+@RunWith(RobolectricTestRunner.class)
 public class Test$Activity_Permissions
 {
 	
@@ -57,4 +66,25 @@ public class Test$Activity_Permissions
 		verify(fakePermissions).permissionGranted(name1);
 		verify(fakePermissions).permissionGranted(name2);
 	}
+	
+	@Test
+	public void onCreate__PermissionsNotNull()
+	{
+		try(ActivityScenario<Activity_Permissions> scenario = ActivityScenario
+		.launch(Activity_Permissions.class))
+		{
+			scenario.onActivity
+			(
+			new ActivityScenario.ActivityAction<Activity_Permissions>()
+			{
+				@Override
+				public void perform(Activity_Permissions activityPermissions)
+				{
+					assertNotNull(activityPermissions.permissions);
+				}
+			}
+			);
+		}
+	}
+	
 }
