@@ -15,10 +15,10 @@ import com.jordan.betcher.siviso.sivisolite.permissions.Permission;
 
 class ViewHolder$Permission extends RecyclerView.ViewHolder
 {
-	private TextView permissionName;
-	private TextView permissionDetails;
-	private Button toggleAcceptButton;
-	private Button acceptButton;
+	TextView permissionName;
+	TextView permissionDetails;
+	Button toggleAcceptButton;
+	Button acceptButton;
 	
 	ViewHolder$Permission(@NonNull View itemView)
 	{
@@ -46,6 +46,16 @@ class ViewHolder$Permission extends RecyclerView.ViewHolder
 		setDetailsInitialyGone();
 		setToggleAcceptOnClickListener();
 		setAcceptOnClickListener(permission);
+		
+		if(permission.isGranted())
+		{
+			acceptButton.setEnabled(false);
+			permissionName.setTextColor(context.getResources().getColor(R.color.permissionGranted));
+		}
+		
+		permission.addListener_PermissionGranted(new Listener$DisableButton(acceptButton));
+		permission.addListener_PermissionGranted(new Listener$ColorText(permissionName, context.getResources().getColor(R.color.permissionGranted)));
+		
 	}
 	
 	private void setAcceptOnClickListener(Permission permission)

@@ -14,14 +14,19 @@ import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.permissions.Activity_Permissions;
 import com.jordan.betcher.siviso.sivisolite.permissions.Permission;
 
+import org.hamcrest.Description;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatcher;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -238,7 +243,7 @@ public class Test$ViewHolder$Permission
 	}
 	
 	@Test
-	public void create_null_ToggleButtonTextMatchesResource()
+	public void create__ToggleButtonTextMatchesResource()
 	{
 		Context context = activity;
 		LayoutInflater layoutInflater = LayoutInflater.from(context);
@@ -252,7 +257,7 @@ public class Test$ViewHolder$Permission
 	}
 	
 	@Test
-	public void create_null_AcceptButtonTextMatchesResource()
+	public void create__AcceptButtonTextMatchesResource()
 	{
 		Context context = activity;
 		LayoutInflater layoutInflater = LayoutInflater.from(context);
@@ -265,5 +270,183 @@ public class Test$ViewHolder$Permission
 		assertEquals(expected, actual);
 	}
 	
+	@Test
+	public void populateView_PermissionGranted_acceptButtonDisabled()
+	{
+		Context context = activity;
+		LayoutInflater layoutInflater = LayoutInflater.from(context);
+		Permission fakePermission = mock(Permission.class);
+		ViewHolder$Permission viewHolder = ViewHolder$Permission.create(layoutInflater, null);
+		when(fakePermission.isGranted()).thenReturn(true);
+		
+		viewHolder.populateView(fakePermission);
+		
+		boolean disabled = ! viewHolder.acceptButton.isEnabled();
+		
+		assertTrue(disabled);
+	}
 	
+	@Test
+	public void populateView_PermissionNotGranted_acceptButtonEnabled()
+	{
+		Context context = activity;
+		LayoutInflater layoutInflater = LayoutInflater.from(context);
+		Permission fakePermission = mock(Permission.class);
+		ViewHolder$Permission viewHolder = ViewHolder$Permission.create(layoutInflater, null);
+		when(fakePermission.isGranted()).thenReturn(false);
+		
+		viewHolder.populateView(fakePermission);
+		
+		boolean enabled = viewHolder.acceptButton.isEnabled();
+		
+		assertTrue(enabled);
+	}
+	
+	
+	static class Eq$Listener$EnableButton extends ArgumentMatcher<Listener$DisableButton>
+	{
+		
+		private final Listener$DisableButton expected;
+		
+		public Eq$Listener$EnableButton(Listener$DisableButton expected) {
+			this.expected = expected;
+		}
+		
+		@Override
+		public boolean matches(Object actual)
+		{
+			if(actual == null || !(actual instanceof Listener$DisableButton))
+			{
+				return false;
+			}
+			else
+			{
+				Listener$DisableButton other = (Listener$DisableButton)actual;
+				return other.button.equals(expected.button);
+			}
+		}
+		
+		@Override
+		public void describeTo(Description description)
+		{
+			description.appendText(expected == null ? null : expected.toString());
+		}
+	}
+	
+	static Listener$DisableButton listener$EnableButton$eq(Listener$DisableButton expected)
+	{
+		return argThat(new Eq$Listener$EnableButton(expected));
+	}
+	
+	@Test
+	public void populateView_PermissionNotGranted_addPermissionGrantedListenerDisableButtonForAcceptButton()
+	{
+		
+		Context context = activity;
+		LayoutInflater layoutInflater = LayoutInflater.from(context);
+		Permission fakePermission = mock(Permission.class);
+		ViewHolder$Permission viewHolder = ViewHolder$Permission.create(layoutInflater, null);
+		when(fakePermission.isGranted()).thenReturn(false);
+		
+		viewHolder.populateView(fakePermission);
+		
+		Button acceptButton = viewHolder.acceptButton;
+		Listener$DisableButton expected = new Listener$DisableButton(acceptButton);
+		
+		verify(fakePermission).addListener_PermissionGranted(
+		listener$EnableButton$eq(expected));
+	}
+	
+	@Test
+	public void populateView_PermissionGranted_PermissionNameGrantedColor()
+	{
+		Context context = activity;
+		LayoutInflater layoutInflater = LayoutInflater.from(context);
+		Permission fakePermission = mock(Permission.class);
+		when(fakePermission.isGranted()).thenReturn(true);
+		
+		ViewHolder$Permission viewHolder = ViewHolder$Permission.create(layoutInflater, null);
+		viewHolder.populateView(fakePermission);
+		
+		TextView title = viewHolder.permissionName;
+		
+		int actualColor = title.getCurrentTextColor();
+		int grantedColor = activity.getResources().getColor(R.color.permissionGranted);
+		assertEquals(grantedColor, actualColor);
+	}
+	
+	@Test
+	public void populateView_PermissionNotGranted_PermissionNameGrantedColor()
+	{
+		Context context = activity;
+		LayoutInflater layoutInflater = LayoutInflater.from(context);
+		Permission fakePermission = mock(Permission.class);
+		when(fakePermission.isGranted()).thenReturn(false);
+		
+		ViewHolder$Permission viewHolder = ViewHolder$Permission.create(layoutInflater, null);
+		viewHolder.populateView(fakePermission);
+		
+		TextView title = viewHolder.permissionName;
+		
+		int actualColor = title.getCurrentTextColor();
+		int grantedColor = activity.getResources().getColor(R.color.permissionGranted);
+		assertNotEquals(grantedColor, actualColor);
+	}
+	
+	static class Eq$Listener$ColorText extends ArgumentMatcher<Listener$ColorText>
+	{
+		
+		private final Listener$ColorText expected;
+		
+		public Eq$Listener$ColorText(Listener$ColorText expected) {
+			this.expected = expected;
+		}
+		
+		@Override
+		public boolean matches(Object actual)
+		{
+			if(actual == null || !(actual instanceof Listener$ColorText))
+			{
+				return false;
+			}
+			else
+			{
+				Listener$ColorText other = (Listener$ColorText)actual;
+				
+				return (other.textView.equals(expected.textView)) && (other.color == expected.color);
+			}
+		}
+		
+		@Override
+		public void describeTo(Description description)
+		{
+			description.appendText(expected == null ? null : expected.toString());
+		}
+	}
+	
+	static Listener$ColorText listener$ColorText$eq(Listener$ColorText expected)
+	{
+		return argThat(new Eq$Listener$ColorText(expected));
+	}
+	
+	@Test
+	public void populateView_PermissionNotGranted_addPermissionGrantedListenerColorTextForPermissionName()
+	{
+		
+		Context context = activity;
+		LayoutInflater layoutInflater = LayoutInflater.from(context);
+		Permission fakePermission = mock(Permission.class);
+		ViewHolder$Permission viewHolder = ViewHolder$Permission.create(layoutInflater, null);
+		when(fakePermission.isGranted()).thenReturn(false);
+		
+		viewHolder.populateView(fakePermission);
+		
+		TextView permissionName = viewHolder.permissionName;
+		int grantedColor = activity.getResources().getColor(R.color.permissionGranted);
+		Listener$ColorText expected = new Listener$ColorText(permissionName, grantedColor);
+		
+		verify(fakePermission).addListener_PermissionGranted(
+		listener$ColorText$eq(expected));
+	}
 }
+
