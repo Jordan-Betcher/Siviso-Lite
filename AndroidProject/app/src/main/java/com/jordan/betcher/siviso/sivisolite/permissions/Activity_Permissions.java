@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.permissions;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.sivisolite.R;
+import com.jordan.betcher.siviso.sivisolite.home.Activity_Home;
 import com.jordan.betcher.siviso.sivisolite.permissions.adapter.Adapter$Permissions;
 
 public class Activity_Permissions extends AppCompatActivity
@@ -53,8 +55,13 @@ public class Activity_Permissions extends AppCompatActivity
 	
 	void setupContinueButton()
 	{
-		Button continueButton = findViewById(R.id.permissionsContinue);
+		final Button continueButton = findViewById(R.id.permissionsContinue);
 		continueButton.setEnabled(false);
+		
+		permissions.addListener_AllPermissionsAccepted(new Listener$EnableButton(continueButton));
+		
+		Intent startActivityHomeIntent = new Intent(this, Activity_Home.class);
+		continueButton.setOnClickListener(new Listener$StartActivityIntent(this, startActivityHomeIntent));
 	}
 	
 	@Override
@@ -70,4 +77,5 @@ public class Activity_Permissions extends AppCompatActivity
 			}
 		}
 	}
+	
 }

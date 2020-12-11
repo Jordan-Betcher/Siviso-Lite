@@ -87,4 +87,10 @@ public class Test$Activity_Permissions
 		}
 	}
 	
+	@Test
+	public void onCreate__()
+	{
+	
+	}
+	
 }
