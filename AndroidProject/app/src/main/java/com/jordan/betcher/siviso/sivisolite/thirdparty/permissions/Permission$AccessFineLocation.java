@@ -5,7 +5,7 @@ import android.content.Context;
 
 import androidx.core.content.ContextCompat;
 
-public class Permission$AccessFineLocation
+public class Permission$AccessFineLocation implements Permission
 {
 	private Context context;
 	int numberOfCalls = 0;
