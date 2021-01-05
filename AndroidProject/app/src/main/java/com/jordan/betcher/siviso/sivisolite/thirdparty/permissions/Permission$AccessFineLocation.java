@@ -1,28 +1,40 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.permissions;
 
 import android.Manifest;
-import android.content.Context;
+import android.app.Activity;
+import android.content.pm.PackageManager;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 public class Permission$AccessFineLocation implements Permission
 {
-	private Context context;
-	int numberOfCalls = 0;
+	private Activity activity;
 	
-	public Permission$AccessFineLocation(Context context)
+	public Permission$AccessFineLocation(Activity activity)
 	{
-		this.context = context;
+		this.activity = activity;
 	}
 	
-	public int numberOfCalls()
+	@Override
+	public void request()
 	{
-		return numberOfCalls;
+		ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
 	}
 	
-	public void check()
+	@Override
+	public boolean isGranted()
 	{
-		numberOfCalls++;
-		ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
+		int responseCode = ContextCompat
+		.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION);
+		
+		if(responseCode == PackageManager.PERMISSION_GRANTED)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

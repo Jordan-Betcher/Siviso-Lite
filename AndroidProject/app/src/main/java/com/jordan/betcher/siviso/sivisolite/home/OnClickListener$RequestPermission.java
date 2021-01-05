@@ -4,11 +4,11 @@ import android.view.View;
 
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission;
 
-class OnClickListener$CheckPermission implements View.OnClickListener
+class OnClickListener$RequestPermission implements View.OnClickListener
 {
 	Permission permission;
 	
-	public OnClickListener$CheckPermission(Permission permission)
+	public OnClickListener$RequestPermission(Permission permission)
 	{
 		this.permission = permission;
 	}
@@ -16,6 +16,6 @@ class OnClickListener$CheckPermission implements View.OnClickListener
 	@Override
 	public void onClick(View v)
 	{
-		permission.check();
+		permission.request();
 	}
 }
