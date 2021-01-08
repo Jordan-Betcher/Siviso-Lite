@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.util.ArrayList;
+
 public class Permission$AccessFineLocation implements Permission
 {
 	private Activity activity;
@@ -36,5 +38,31 @@ public class Permission$AccessFineLocation implements Permission
 		{
 			return false;
 		}
+	}
+	
+	ArrayList<Listener$PermissionGranted> listeners = new ArrayList<>();
+	
+	@Override
+	public void grant()
+	{
+		if(isGranted())
+		{
+			callAllListeners();
+		}
+	}
+	
+	private void callAllListeners()
+	{
+		for(Listener$PermissionGranted listener : listeners)
+		{
+			listener.act();
+		}
+	}
+	
+	@Override
+	public void addListener(
+	Listener$PermissionGranted listener)
+	{
+		this.listeners.add(listener);
 	}
 }

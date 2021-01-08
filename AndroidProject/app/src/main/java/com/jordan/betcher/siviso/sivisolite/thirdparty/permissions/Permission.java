@@ -5,4 +5,8 @@ public interface Permission
 	void request();
 	
 	boolean isGranted();
+	
+	void grant();
+	
+	void addListener(Listener$PermissionGranted listener);
 }

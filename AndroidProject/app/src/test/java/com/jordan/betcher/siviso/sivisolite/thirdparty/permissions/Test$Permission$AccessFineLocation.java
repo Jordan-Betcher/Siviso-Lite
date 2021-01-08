@@ -17,6 +17,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ContextCompat.class, ActivityCompat.class})
@@ -74,5 +75,88 @@ public class Test$Permission$AccessFineLocation
 		boolean actualIsGranted = permission.isGranted();
 		
 		assertFalse(actualIsGranted);
+	}
+	
+	@Test
+	public void grant_permissionGrantedPermissionListener_1CallPermissionListener()
+	{
+		PowerMockito.mockStatic(ContextCompat.class);
+		Activity activity = mock(Activity.class);
+		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
+		            .thenReturn(PackageManager.PERMISSION_GRANTED);
+		Listener$PermissionGranted listener = mock(Listener$PermissionGranted.class);
+		
+		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
+		permission.addListener(listener);
+		permission.grant();
+		
+		verify(listener, times(1)).act();
+	}
+	
+	@Test
+	public void _permissionGrantedPermissionListener_0CallPermissionListener()
+	{
+		PowerMockito.mockStatic(ContextCompat.class);
+		Activity activity = mock(Activity.class);
+		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
+		            .thenReturn(PackageManager.PERMISSION_GRANTED);
+		Listener$PermissionGranted listener = mock(Listener$PermissionGranted.class);
+		
+		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
+		permission.addListener(listener);
+		
+		verify(listener, times(0)).act();
+	}
+	
+	@Test
+	public void grant_permissionGranted2PermissionListeners_1CallPermissionListener1()
+	{
+		PowerMockito.mockStatic(ContextCompat.class);
+		Activity activity = mock(Activity.class);
+		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
+		            .thenReturn(PackageManager.PERMISSION_GRANTED);
+		Listener$PermissionGranted listener1 = mock(Listener$PermissionGranted.class);
+		Listener$PermissionGranted listener2 = mock(Listener$PermissionGranted.class);
+		
+		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
+		permission.addListener(listener1);
+		permission.addListener(listener2);
+		permission.grant();
+		
+		verify(listener1, times(1)).act();
+	}
+	
+	@Test
+	public void grant_permissionGranted2PermissionListeners_1CallPermissionListener2()
+	{
+		PowerMockito.mockStatic(ContextCompat.class);
+		Activity activity = mock(Activity.class);
+		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
+		            .thenReturn(PackageManager.PERMISSION_GRANTED);
+		Listener$PermissionGranted listener1 = mock(Listener$PermissionGranted.class);
+		Listener$PermissionGranted listener2 = mock(Listener$PermissionGranted.class);
+		
+		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
+		permission.addListener(listener1);
+		permission.addListener(listener2);
+		permission.grant();
+		
+		verify(listener2, times(1)).act();
+	}
+	
+	@Test
+	public void grant_permissionDeniedPermissionListener_0CallPermissionListener()
+	{
+		PowerMockito.mockStatic(ContextCompat.class);
+		Activity activity = mock(Activity.class);
+		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
+		            .thenReturn(PackageManager.PERMISSION_DENIED);
+		Listener$PermissionGranted listener = mock(Listener$PermissionGranted.class);
+		
+		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
+		permission.addListener(listener);
+		permission.grant();
+		
+		verify(listener, times(0)).act();
 	}
 }
