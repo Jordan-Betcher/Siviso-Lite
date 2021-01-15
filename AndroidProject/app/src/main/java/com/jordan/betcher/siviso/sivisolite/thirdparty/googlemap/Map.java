@@ -39,10 +39,11 @@ public class Map
 		return moveToLocation;
 	}
 	
-	public Circle createCircle(CircleOptions circleOptions)
+	public Wrapper$Circle createCircle(CircleOptions circleOptions)
 	{
 		Circle circle = googleMap.addCircle(circleOptions);
-		return circle;
+		Wrapper$Circle wrapper$Circle = new Wrapper$Circle(circle);
+		return wrapper$Circle;
 	}
 }
 
