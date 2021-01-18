@@ -14,8 +14,15 @@ public abstract class ArgumentMatcher$Same<T> extends ArgumentMatcher<T>
 	@Override
 	public boolean matches(Object argument)
 	{
-		T other = (T) argument;
-		return isSameValues(other);
+		try
+		{
+			T other = (T) argument;
+			return isSameValues(other);
+		}
+		catch(ClassCastException exception)
+		{
+			return false;
+		}
 	}
 	
 	protected abstract boolean isSameValues(T other);
