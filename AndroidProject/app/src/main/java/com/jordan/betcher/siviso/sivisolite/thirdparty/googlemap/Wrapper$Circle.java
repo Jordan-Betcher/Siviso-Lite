@@ -8,4 +8,9 @@ public class Wrapper$Circle
 	Circle circle;
 	
 	public Wrapper$Circle(Circle circle){this.circle = circle;}
+	
+	public void remove()
+	{
+		circle.remove();
+	}
 }
