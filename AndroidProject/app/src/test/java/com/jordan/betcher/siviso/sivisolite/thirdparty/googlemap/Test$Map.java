@@ -18,8 +18,10 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -29,17 +31,6 @@ import static org.mockito.Mockito.when;
 @PowerMockIgnore({ "org.mockito.*", "org.robolectric.*", "android.*", "androidx.*" })
 public class Test$Map
 {
-	@Test
-	public void setOnMapClickListener_called_setOnMapClickListener()
-	{
-		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		OnMapClick fakeOnMapClick = PowerMockito.mock(OnMapClick.class);
-		Map map = new Map(fakeGoogleMap);
-		
-		map.setOnMapClick(fakeOnMapClick);
-		
-		verify(fakeGoogleMap).setOnMapClickListener(isA(GoogleMap.OnMapClickListener.class));
-	}
 	
 	@Test
 	public void goToLocation_fakeLocation_CalledCameraWithLocation()
@@ -110,5 +101,41 @@ public class Test$Map
 		Wrapper$Circle actualCircle = map.createCircle(circleOptions);
 		
 		assertEquals(circle.toString(), actualCircle.circle.toString());
+	}
+	
+	@Test
+	public void __setOnMapClickListenerToMultipleOnMapClick()
+	{
+		GoogleMap googleMap = PowerMockito.mock(GoogleMap.class);
+		Map map = new Map(googleMap);
+		
+		OnMapClickListener$MultipleOnMapClick listener = map.multipleOnMapClick;
+		
+		verify(googleMap, times(1)).setOnMapClickListener(listener);
+	}
+	
+	@Test
+	public void __createMultipleOnMapClick()
+	{
+		GoogleMap googleMap = PowerMockito.mock(GoogleMap.class);
+		Map map = new Map(googleMap);
+		
+		OnMapClickListener$MultipleOnMapClick listener = map.multipleOnMapClick;
+		
+		assertNotNull(listener);
+	}
+	
+	@Test
+	public void addOnMapClick__addToMultipleOnMapClick()
+	{
+		GoogleMap googleMap = PowerMockito.mock(GoogleMap.class);
+		Map map = new Map(googleMap);
+		OnMapClick onMapClick = mock(OnMapClick.class);
+		OnMapClickListener$MultipleOnMapClick listener = mock(OnMapClickListener$MultipleOnMapClick.class);
+		
+		map.multipleOnMapClick = listener;
+		map.addOnMapClick(onMapClick);
+		
+		verify(listener, times(1)).addOnMapClick(onMapClick);
 	}
 }

@@ -5,9 +5,8 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
-class OnMapClickListener$MultipleOnMapClick implements GoogleMap.OnMapClickListener
+public class OnMapClickListener$MultipleOnMapClick implements GoogleMap.OnMapClickListener
 {
-	
 	private ArrayList<OnMapClick> onMapClicks = new ArrayList<>();
 	
 	public void addOnMapClick(OnMapClick onMapClick)

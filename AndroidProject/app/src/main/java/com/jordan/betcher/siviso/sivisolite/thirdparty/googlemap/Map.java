@@ -11,17 +11,19 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Map
 {
+	public OnMapClickListener$MultipleOnMapClick multipleOnMapClick;
 	GoogleMap googleMap;
 	
 	public Map(GoogleMap googleMap)
 	{
 		this.googleMap = googleMap;
+		multipleOnMapClick = new OnMapClickListener$MultipleOnMapClick();
+		googleMap.setOnMapClickListener(multipleOnMapClick);
 	}
 	
-	public void setOnMapClick(OnMapClick mapClick)
+	public void addOnMapClick(OnMapClick onMapClick)
 	{
-		GoogleMap.OnMapClickListener wrapper = new Wrapper$OnMapClickListener(mapClick);
-		googleMap.setOnMapClickListener(wrapper);
+		multipleOnMapClick.addOnMapClick(onMapClick);
 	}
 	
 	public void goToLocation(Location location)
