@@ -1,6 +1,5 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager;
 
-import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 
@@ -13,7 +12,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.Mockito.when;
 
 
 public class Test$CurrentLocation
@@ -22,13 +20,8 @@ public class Test$CurrentLocation
 	public void CurrentLocation_Created_AddLocationListener()
 	{
 		LocationManager fakelocationManager = mock(LocationManager.class);
-		Context fakeApplicationContext = mock(Context.class);
-		Context fakeContext = mock(Context.class);
-		when(fakeContext.getApplicationContext()).thenReturn(fakeApplicationContext);
-		when(fakeApplicationContext.getSystemService(Context.LOCATION_SERVICE))
-		.thenReturn(fakelocationManager);
 		
-		new CurrentLocation(fakeContext);
+		new CurrentLocation(fakelocationManager);
 		
 		verify(fakelocationManager).requestLocationUpdates(anyString(), anyLong(), anyLong(), any(LocationListener$CurrentLocation.class));
 	}
@@ -37,12 +30,7 @@ public class Test$CurrentLocation
 	public void CallWhenReady_HasLocationAndGivenAction_CallAction()
 	{
 		LocationManager fakelocationManager = mock(LocationManager.class);
-		Context fakeApplicationContext = mock(Context.class);
-		Context fakeContext = mock(Context.class);
-		when(fakeContext.getApplicationContext()).thenReturn(fakeApplicationContext);
-		when(fakeApplicationContext.getSystemService(Context.LOCATION_SERVICE))
-		.thenReturn(fakelocationManager);
-		CurrentLocation currentLocation = new CurrentLocation(fakeContext);
+		CurrentLocation currentLocation = new CurrentLocation(fakelocationManager);
 		
 		Location fakeLocation = mock(Location.class);
 		CurrentLocationAction fakeAction = mock(CurrentLocationAction.class);
@@ -57,12 +45,7 @@ public class Test$CurrentLocation
 	public void CallWhenReady_NullLocationAndGivenAction_NoAction()
 	{
 		LocationManager fakelocationManager = mock(LocationManager.class);
-		Context fakeApplicationContext = mock(Context.class);
-		Context fakeContext = mock(Context.class);
-		when(fakeContext.getApplicationContext()).thenReturn(fakeApplicationContext);
-		when(fakeApplicationContext.getSystemService(Context.LOCATION_SERVICE))
-		.thenReturn(fakelocationManager);
-		CurrentLocation currentLocation = new CurrentLocation(fakeContext);
+		CurrentLocation currentLocation = new CurrentLocation(fakelocationManager);
 		
 		CurrentLocationAction fakeAction = mock(CurrentLocationAction.class);
 		
@@ -76,12 +59,7 @@ public class Test$CurrentLocation
 	public void CallWhenReady_GivenActionAndLocationGivenAfter_CallAction()
 	{
 		LocationManager fakelocationManager = mock(LocationManager.class);
-		Context fakeApplicationContext = mock(Context.class);
-		Context fakeContext = mock(Context.class);
-		when(fakeContext.getApplicationContext()).thenReturn(fakeApplicationContext);
-		when(fakeApplicationContext.getSystemService(Context.LOCATION_SERVICE))
-		.thenReturn(fakelocationManager);
-		CurrentLocation currentLocation = new CurrentLocation(fakeContext);
+		CurrentLocation currentLocation = new CurrentLocation(fakelocationManager);
 		
 		Location fakeLocation = mock(Location.class);
 		CurrentLocationAction fakeAction = mock(CurrentLocationAction.class);
@@ -96,12 +74,7 @@ public class Test$CurrentLocation
 	public void CallWhenReady_GivenActionAndLocationGivenAfter_CallActionOnlyOnce()
 	{
 		LocationManager fakelocationManager = mock(LocationManager.class);
-		Context fakeApplicationContext = mock(Context.class);
-		Context fakeContext = mock(Context.class);
-		when(fakeContext.getApplicationContext()).thenReturn(fakeApplicationContext);
-		when(fakeApplicationContext.getSystemService(Context.LOCATION_SERVICE))
-		.thenReturn(fakelocationManager);
-		CurrentLocation currentLocation = new CurrentLocation(fakeContext);
+		CurrentLocation currentLocation = new CurrentLocation(fakelocationManager);
 		
 		Location fakeLocation = mock(Location.class);
 		CurrentLocationAction fakeAction = mock(CurrentLocationAction.class);
@@ -118,12 +91,7 @@ public class Test$CurrentLocation
 	public void CallWhenReady_MultipleGivenActionAndLocationGivenAfter_CallAction()
 	{
 		LocationManager fakelocationManager = mock(LocationManager.class);
-		Context fakeApplicationContext = mock(Context.class);
-		Context fakeContext = mock(Context.class);
-		when(fakeContext.getApplicationContext()).thenReturn(fakeApplicationContext);
-		when(fakeApplicationContext.getSystemService(Context.LOCATION_SERVICE))
-		.thenReturn(fakelocationManager);
-		CurrentLocation currentLocation = new CurrentLocation(fakeContext);
+		CurrentLocation currentLocation = new CurrentLocation(fakelocationManager);
 		
 		Location fakeLocation = mock(Location.class);
 		CurrentLocationAction fakeAction1 = mock(CurrentLocationAction.class);

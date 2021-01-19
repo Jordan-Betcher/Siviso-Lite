@@ -1,7 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 
@@ -17,23 +16,17 @@ public class CurrentLocation
 	Location currentLocation = null;
 	ArrayList<CurrentLocationAction> actions = new ArrayList<>();
 	
-	public CurrentLocation(Context context)
+	public CurrentLocation(LocationManager locationManager)
 	{
-		createLocationListener(context, this);
+		createLocationListener(locationManager, this);
 	}
 	
 	@SuppressLint("MissingPermission")
 	void createLocationListener(
-	Context context,
+	LocationManager locationManager,
 	CurrentLocation currentLocation)
 	{
 		LocationListener$CurrentLocation locationListener = new LocationListener$CurrentLocation(currentLocation);
-		
-		LocationManager
-		locationManager
-		= (LocationManager) context
-		.getApplicationContext()
-		.getSystemService(Context.LOCATION_SERVICE);
 		
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MAP_REQUEST_TIME_MIN,
 		                                       MINIMUM_DISTANCE, locationListener);
