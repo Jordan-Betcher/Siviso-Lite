@@ -35,12 +35,12 @@ public class Test$MapCreator
 		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
 		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
-		MapAction fakeMapAction = mock(MapAction.class);
+		OnMapReady fakeOnMapReady = mock(OnMapReady.class);
 		
-		mapCreator.callWhenReady(fakeMapAction);
+		mapCreator.callWhenReady(fakeOnMapReady);
 		mapCreator.onMapReady(fakeGoogleMap);
 		
-		verify(fakeMapAction).mapReady(mapCreator.getMapIfAvailable());
+		verify(fakeOnMapReady).mapReady(mapCreator.getMapIfAvailable());
 	}
 	
 	@Test
@@ -49,13 +49,13 @@ public class Test$MapCreator
 		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
 		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
-		MapAction fakeMapAction = mock(MapAction.class);
+		OnMapReady fakeOnMapReady = mock(OnMapReady.class);
 		
-		mapCreator.callWhenReady(fakeMapAction);
+		mapCreator.callWhenReady(fakeOnMapReady);
 		mapCreator.onMapReady(fakeGoogleMap);
 		mapCreator.onMapReady(fakeGoogleMap);
 		
-		verify(fakeMapAction, times(1)).mapReady(mapCreator.getMapIfAvailable());
+		verify(fakeOnMapReady, times(1)).mapReady(mapCreator.getMapIfAvailable());
 	}
 	
 	@Test
@@ -64,15 +64,15 @@ public class Test$MapCreator
 		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
 		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
-		MapAction fakeMapAction1 = mock(MapAction.class);
-		MapAction fakeMapAction2 = mock(MapAction.class);
+		OnMapReady fakeOnMapReady1 = mock(OnMapReady.class);
+		OnMapReady fakeOnMapReady2 = mock(OnMapReady.class);
 		
-		mapCreator.callWhenReady(fakeMapAction1);
-		mapCreator.callWhenReady(fakeMapAction2);
+		mapCreator.callWhenReady(fakeOnMapReady1);
+		mapCreator.callWhenReady(fakeOnMapReady2);
 		mapCreator.onMapReady(fakeGoogleMap);
 		
-		verify(fakeMapAction1).mapReady(mapCreator.getMapIfAvailable());
-		verify(fakeMapAction2).mapReady(mapCreator.getMapIfAvailable());
+		verify(fakeOnMapReady1).mapReady(mapCreator.getMapIfAvailable());
+		verify(fakeOnMapReady2).mapReady(mapCreator.getMapIfAvailable());
 	}
 	
 	@Test
@@ -81,11 +81,11 @@ public class Test$MapCreator
 		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
 		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
-		MapAction fakeMapAction = mock(MapAction.class);
+		OnMapReady fakeOnMapReady = mock(OnMapReady.class);
 		
 		mapCreator.onMapReady(fakeGoogleMap);
-		mapCreator.callWhenReady(fakeMapAction);
+		mapCreator.callWhenReady(fakeOnMapReady);
 		
-		verify(fakeMapAction).mapReady(mapCreator.getMapIfAvailable());
+		verify(fakeOnMapReady).mapReady(mapCreator.getMapIfAvailable());
 	}
 }

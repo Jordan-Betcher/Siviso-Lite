@@ -2,15 +2,15 @@ package com.jordan.betcher.siviso.sivisolite.home;
 
 import android.location.Location;
 
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Map;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapAction;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapReady;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocationAction;
 
-class GoToCurrentLocation implements MapAction, CurrentLocationAction
+class GoToCurrentLocation implements OnMapReady, CurrentLocationAction
 {
-	private Map map = null;
+	private Wrapper$Map wrapper$map = null;
 	private Location location = null;
 	
 	GoToCurrentLocation(MapCreator mapCreator, CurrentLocation currentLocation)
@@ -20,9 +20,9 @@ class GoToCurrentLocation implements MapAction, CurrentLocationAction
 	}
 	
 	@Override
-	public void mapReady(Map map)
+	public void mapReady(Wrapper$Map wrapper$map)
 	{
-		this.map = map;
+		this.wrapper$map = wrapper$map;
 		goToCurrentLocation();
 	}
 	
@@ -35,9 +35,9 @@ class GoToCurrentLocation implements MapAction, CurrentLocationAction
 	
 	private void goToCurrentLocation()
 	{
-		if(map != null && location != null)
+		if(wrapper$map != null && location != null)
 		{
-			map.goToLocation(location);
+			wrapper$map.goToLocation(location);
 		}
 	}
 }

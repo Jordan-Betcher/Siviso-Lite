@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.home;
 
 import android.location.Location;
 
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Map;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
 
@@ -40,13 +40,13 @@ public class Test$GoToCurrentLocation
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		GoToCurrentLocation action = new GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation);
 		
-		Map fakeMap = mock(Map.class);
+		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);
 		
-		action.mapReady(fakeMap);
+		action.mapReady(fakeWrapper$Map);
 		action.currentLocationReady(fakeLocation);
 		
-		verify(fakeMap).goToLocation(fakeLocation);
+		verify(fakeWrapper$Map).goToLocation(fakeLocation);
 	}
 	
 	@Test
@@ -56,12 +56,12 @@ public class Test$GoToCurrentLocation
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		GoToCurrentLocation action = new GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation);
 		
-		Map fakeMap = mock(Map.class);
+		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);
 		
 		action.currentLocationReady(fakeLocation);
-		action.mapReady(fakeMap);
+		action.mapReady(fakeWrapper$Map);
 		
-		verify(fakeMap).goToLocation(fakeLocation);
+		verify(fakeWrapper$Map).goToLocation(fakeLocation);
 	}
 }

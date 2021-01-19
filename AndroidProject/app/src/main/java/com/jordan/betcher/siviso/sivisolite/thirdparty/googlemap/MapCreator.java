@@ -8,40 +8,40 @@ import java.util.ArrayList;
 
 public class MapCreator implements OnMapReadyCallback
 {
-	ArrayList<MapAction> mapActions = new ArrayList<>();
-	Map map = null;
+	ArrayList<OnMapReady> onMapReadies = new ArrayList<>();
+	Wrapper$Map wrapper$map = null;
 	
 	public MapCreator(SupportMapFragment supportMapFragment){supportMapFragment.getMapAsync(this);}
 	
 	@Override
 	public void onMapReady(GoogleMap googleMap)
 	{
-		map = new Map(googleMap);
-		doActions(map);
+		wrapper$map = new Wrapper$Map(googleMap);
+		doActions(wrapper$map);
 	}
 	
-	public void callWhenReady(MapAction mapAction)
+	public void callWhenReady(OnMapReady onMapReady)
 	{
-		if(map == null)
+		if(wrapper$map == null)
 		{
-			mapActions.add(mapAction);
+			onMapReadies.add(onMapReady);
 		}
 		else
 		{
-			mapAction.mapReady(map);
+			onMapReady.mapReady(wrapper$map);
 		}
 	}
 	
-	private void doActions(Map map)
+	private void doActions(Wrapper$Map wrapper$map)
 	{
-		for(MapAction action : mapActions)
+		for(OnMapReady action : onMapReadies)
 		{
-			action.mapReady(map);
+			action.mapReady(wrapper$map);
 		}
 	}
 	
-	public Map getMapIfAvailable()
+	public Wrapper$Map getMapIfAvailable()
 	{
-		return map;
+		return wrapper$map;
 	}
 }

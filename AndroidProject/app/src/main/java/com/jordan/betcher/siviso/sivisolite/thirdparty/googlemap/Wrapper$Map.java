@@ -9,12 +9,12 @@ import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 
-public class Map
+public class Wrapper$Map
 {
 	public OnMapClickListener$MultipleOnMapClick multipleOnMapClick;
 	GoogleMap googleMap;
 	
-	public Map(GoogleMap googleMap)
+	public Wrapper$Map(GoogleMap googleMap)
 	{
 		this.googleMap = googleMap;
 		multipleOnMapClick = new OnMapClickListener$MultipleOnMapClick();

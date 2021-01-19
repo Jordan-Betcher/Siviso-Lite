@@ -1,7 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap;
 
-public interface MapAction
+public interface OnMapReady
 {
 	
-	void mapReady(Map map);
+	void mapReady(Wrapper$Map wrapper$map);
 }

@@ -29,17 +29,17 @@ import static org.mockito.Mockito.when;
 @Config(manifest = Config.NONE)
 @PrepareForTest({GoogleMap.class, CameraUpdate.class, Circle.class})
 @PowerMockIgnore({ "org.mockito.*", "org.robolectric.*", "android.*", "androidx.*" })
-public class Test$Map
+public class Test$Wrapper$Map
 {
 	
 	@Test
 	public void goToLocation_fakeLocation_CalledCameraWithLocation()
 	{
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		Map map = new Map$CameraUpdate(fakeGoogleMap);
+		Wrapper$Map wrapper$map = new Map$CameraUpdate(fakeGoogleMap);
 		
 		Location fakeLocation = PowerMockito.mock(Location.class);
-		map.goToLocation(fakeLocation);
+		wrapper$map.goToLocation(fakeLocation);
 		
 		verify(fakeGoogleMap).moveCamera(isA(CameraUpdate.class));
 	}
@@ -72,7 +72,7 @@ public class Test$Map
 		assertEquals(map.latLng, new LatLng(1.0, 1.0));
 	}
 	
-	private class Map$CameraUpdate extends Map
+	private class Map$CameraUpdate extends Wrapper$Map
 	{
 		public LatLng latLng;
 		public Map$CameraUpdate(GoogleMap googleMap)
@@ -107,9 +107,9 @@ public class Test$Map
 	public void __setOnMapClickListenerToMultipleOnMapClick()
 	{
 		GoogleMap googleMap = PowerMockito.mock(GoogleMap.class);
-		Map map = new Map(googleMap);
+		Wrapper$Map wrapper$map = new Wrapper$Map(googleMap);
 		
-		OnMapClickListener$MultipleOnMapClick listener = map.multipleOnMapClick;
+		OnMapClickListener$MultipleOnMapClick listener = wrapper$map.multipleOnMapClick;
 		
 		verify(googleMap, times(1)).setOnMapClickListener(listener);
 	}
@@ -118,9 +118,9 @@ public class Test$Map
 	public void __createMultipleOnMapClick()
 	{
 		GoogleMap googleMap = PowerMockito.mock(GoogleMap.class);
-		Map map = new Map(googleMap);
+		Wrapper$Map wrapper$map = new Wrapper$Map(googleMap);
 		
-		OnMapClickListener$MultipleOnMapClick listener = map.multipleOnMapClick;
+		OnMapClickListener$MultipleOnMapClick listener = wrapper$map.multipleOnMapClick;
 		
 		assertNotNull(listener);
 	}
@@ -129,12 +129,12 @@ public class Test$Map
 	public void addOnMapClick__addToMultipleOnMapClick()
 	{
 		GoogleMap googleMap = PowerMockito.mock(GoogleMap.class);
-		Map map = new Map(googleMap);
+		Wrapper$Map wrapper$map = new Wrapper$Map(googleMap);
 		OnMapClick onMapClick = mock(OnMapClick.class);
 		OnMapClickListener$MultipleOnMapClick listener = mock(OnMapClickListener$MultipleOnMapClick.class);
 		
-		map.multipleOnMapClick = listener;
-		map.addOnMapClick(onMapClick);
+		wrapper$map.multipleOnMapClick = listener;
+		wrapper$map.addOnMapClick(onMapClick);
 		
 		verify(listener, times(1)).addOnMapClick(onMapClick);
 	}
