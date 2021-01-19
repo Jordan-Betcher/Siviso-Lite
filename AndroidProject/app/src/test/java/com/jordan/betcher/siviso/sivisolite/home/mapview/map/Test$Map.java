@@ -1,15 +1,22 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
+import android.location.LocationManager;
+
+import com.google.android.gms.maps.SupportMapFragment;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.mock;
 
 public class Test$Map
 {
 	@Test
 	public void __startAtCurrentLocation()
 	{
-		Map map = new Map();
+		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
+		LocationManager locationManager = mock(LocationManager.class);
+		Map map = new Map(supportMapFragment, locationManager);
 		
 		OnMapReady$StartAtCurrentLocation startAtCurrentLocation = map.startAtCurrentLocation;
 		
@@ -19,7 +26,9 @@ public class Test$Map
 	@Test
 	public void __highlightLatLng()
 	{
-		Map map = new Map();
+		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
+		LocationManager locationManager = mock(LocationManager.class);
+		Map map = new Map(supportMapFragment, locationManager);
 		
 		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = map.highlightLatLng;
 		
@@ -29,7 +38,9 @@ public class Test$Map
 	@Test
 	public void __saveLatLng()
 	{
-		Map map = new Map();
+		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
+		LocationManager locationManager = mock(LocationManager.class);
+		Map map = new Map(supportMapFragment, locationManager);
 		
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng = map.saveLatLng;
 		

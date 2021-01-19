@@ -27,7 +27,7 @@ public class Test$MapView
 		Button viewLock = mock(Button.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
 		
-		MapView mapView = new MapView(locationManager, supportMapFragment, viewLock, permission);
+		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission);
 		Lock$Map lock = mapView.lock;
 		assertNotNull(lock);
 	}
@@ -43,7 +43,7 @@ public class Test$MapView
 		Button viewLock = mock(Button.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
 		
-		MapView mapView = new MapView(locationManager, supportMapFragment, viewLock, permission);
+		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission);
 		Map map = mapView.map;
 		assertNotNull(map);
 	}

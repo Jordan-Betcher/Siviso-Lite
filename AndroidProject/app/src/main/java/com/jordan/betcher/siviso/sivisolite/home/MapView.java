@@ -14,9 +14,9 @@ class MapView
 	Lock$Map lock;
 	Map map;
 	
-	public MapView(LocationManager locationManager, SupportMapFragment supportMapFragment, Button viewLock, Permission$AccessFineLocation permission)
+	public MapView(SupportMapFragment supportMapFragment, LocationManager locationManager, Button viewLock, Permission$AccessFineLocation permission)
 	{
 		lock = new Lock$Map(supportMapFragment, viewLock, permission);
-		map = new Map();
+		map = new Map(supportMapFragment, locationManager);
 	}
 }

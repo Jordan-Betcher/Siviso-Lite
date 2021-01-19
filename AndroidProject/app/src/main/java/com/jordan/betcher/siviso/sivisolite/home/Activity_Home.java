@@ -35,7 +35,7 @@ public class Activity_Home extends AppCompatActivity
         LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         Button mapLock = findViewById(R.id.mapLock);
         Permission$AccessFineLocation permission$AccessFineLocation = new Permission$AccessFineLocation(this);
-        MapView mapView = new MapView(locationManager, mapFragment, mapLock, permission$AccessFineLocation);
+        MapView mapView = new MapView(mapFragment, locationManager, mapLock, permission$AccessFineLocation);
         return mapView;
     }
     

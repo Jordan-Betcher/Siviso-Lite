@@ -1,9 +1,9 @@
-package com.jordan.betcher.siviso.sivisolite.home;
+package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import android.location.Location;
 
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
 
 import org.junit.Test;
@@ -11,14 +11,14 @@ import org.junit.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class Test$GoToCurrentLocation
+public class Test$OnMapReady$StartAtCurrentLocation
 {
 	@Test
 	public void GoToCurrentLocation_Created_MapCreatorCallWhenReady()
 	{
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
-		GoToCurrentLocation action = new GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation);
+		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation);
 		
 		verify(fakeMapCreator).callWhenReady(action);
 	}
@@ -28,7 +28,7 @@ public class Test$GoToCurrentLocation
 	{
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
-		GoToCurrentLocation action = new GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation);
+		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation);
 		
 		verify(fakeCurrentLocation).callWhenReady(action);
 	}
@@ -38,7 +38,7 @@ public class Test$GoToCurrentLocation
 	{
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
-		GoToCurrentLocation action = new GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation);
+		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation);
 		
 		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);
@@ -54,7 +54,7 @@ public class Test$GoToCurrentLocation
 	{
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
-		GoToCurrentLocation action = new GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation);
+		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation);
 		
 		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);
