@@ -1,49 +1,48 @@
 package com.jordan.betcher.siviso.sivisolite.home;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
+import android.content.Context;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.sivisolite.R;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 
 public class Activity_Home extends AppCompatActivity
 {
+    
+    public MapView mapView;
+    public OffOnView offOnView;
+    public SivisoListView sivisoListView;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     
-        SupportMapFragment mapFragment =
-        (SupportMapFragment)
-        getSupportFragmentManager()
-        .findFragmentById(R.id.homeMap);
+        mapView = createMapView();
+        offOnView = new OffOnView();
+        sivisoListView = new SivisoListView();
+    }
     
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
-           PackageManager.PERMISSION_GRANTED &&
-           ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) !=
-           PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this, new String[]
-            {Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        MapCreator mapCreator = new MapCreator(mapFragment);
-        CurrentLocation currentLocation = new CurrentLocation(this);
-        new GoToCurrentLocation(mapCreator, currentLocation);
-        
+    private MapView createMapView()
+    {
+        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.homeMap);
+        LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Button mapLock = findViewById(R.id.mapLock);
+        Permission$AccessFineLocation permission$AccessFineLocation = new Permission$AccessFineLocation(this);
+        MapView mapView = new MapView(locationManager, mapFragment, mapLock, permission$AccessFineLocation);
+        return mapView;
+    }
+    
+    //Called after a permission is asked for
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+    
     }
 }
