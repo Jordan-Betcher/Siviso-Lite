@@ -1,10 +1,10 @@
-package com.jordan.betcher.siviso.sivisolite.home.onMapReady;
+package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
 import com.jordan.betcher.siviso.sivisolite.R;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Map;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Circle;
 
 import org.junit.Test;
@@ -22,15 +22,16 @@ public class Test$Highlight
 	{
 		Highlight highlight = new Highlight();
 		LatLng latLng = new LatLng(0, 0);
-		Map map = mock(Map.class);
+		Wrapper$Map wrapper$map = mock(Wrapper$Map.class);
 		
 		CircleOptions circleOptions = new CircleOptions();
 		circleOptions.center(latLng);
 		
 		Wrapper$Circle expectedCircle = mock(Wrapper$Circle.class);
-		when(map.createCircle(argThat(new Same$CircleOptions$Center(circleOptions)))).thenReturn(expectedCircle);
+		when(wrapper$map
+		     .createCircle(argThat(new Same$CircleOptions$Center(circleOptions)))).thenReturn(expectedCircle);
 		
-		Wrapper$Circle actualCircle = highlight.createCircle(map, latLng);
+		Wrapper$Circle actualCircle = highlight.createCircle(wrapper$map, latLng);
 		assertEquals(expectedCircle, actualCircle);
 	}
 	
@@ -53,15 +54,16 @@ public class Test$Highlight
 	{
 		Highlight highlight = new Highlight();
 		LatLng latLng = new LatLng(0, 0);
-		Map map = mock(Map.class);
+		Wrapper$Map wrapper$map = mock(Wrapper$Map.class);
 		
 		CircleOptions circleOptions = new CircleOptions();
 		circleOptions.radius(R.integer.highlightRadius);
 		
 		Wrapper$Circle expectedCircle = mock(Wrapper$Circle.class);
-		when(map.createCircle(argThat(new Same$CircleOptions$Radius(circleOptions)))).thenReturn(expectedCircle);
+		when(wrapper$map
+		     .createCircle(argThat(new Same$CircleOptions$Radius(circleOptions)))).thenReturn(expectedCircle);
 		
-		Wrapper$Circle actualCircle = highlight.createCircle(map, latLng);
+		Wrapper$Circle actualCircle = highlight.createCircle(wrapper$map, latLng);
 		assertEquals(expectedCircle, actualCircle);
 	}
 	
@@ -84,15 +86,16 @@ public class Test$Highlight
 	{
 		Highlight highlight = new Highlight();
 		LatLng latLng = new LatLng(0, 0);
-		Map map = mock(Map.class);
+		Wrapper$Map wrapper$map = mock(Wrapper$Map.class);
 		
 		CircleOptions circleOptions = new CircleOptions();
 		circleOptions.visible(true);
 		
 		Wrapper$Circle expectedCircle = mock(Wrapper$Circle.class);
-		when(map.createCircle(argThat(new Same$CircleOptions$Visibility(circleOptions)))).thenReturn(expectedCircle);
+		when(wrapper$map
+		     .createCircle(argThat(new Same$CircleOptions$Visibility(circleOptions)))).thenReturn(expectedCircle);
 		
-		Wrapper$Circle actualCircle = highlight.createCircle(map, latLng);
+		Wrapper$Circle actualCircle = highlight.createCircle(wrapper$map, latLng);
 		assertEquals(expectedCircle, actualCircle);
 	}
 	
@@ -115,15 +118,16 @@ public class Test$Highlight
 	{
 		Highlight highlight = new Highlight();
 		LatLng latLng = new LatLng(0, 0);
-		Map map = mock(Map.class);
+		Wrapper$Map wrapper$map = mock(Wrapper$Map.class);
 		
 		CircleOptions circleOptions = new CircleOptions();
 		circleOptions.fillColor(R.color.highlight);
 		
 		Wrapper$Circle expectedCircle = mock(Wrapper$Circle.class);
-		when(map.createCircle(argThat(new Same$CircleOptions$FillColor(circleOptions)))).thenReturn(expectedCircle);
+		when(wrapper$map
+		     .createCircle(argThat(new Same$CircleOptions$FillColor(circleOptions)))).thenReturn(expectedCircle);
 		
-		Wrapper$Circle actualCircle = highlight.createCircle(map, latLng);
+		Wrapper$Circle actualCircle = highlight.createCircle(wrapper$map, latLng);
 		assertEquals(expectedCircle, actualCircle);
 	}
 	
