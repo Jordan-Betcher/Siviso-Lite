@@ -6,7 +6,6 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Circle;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 
 public class Wrapper$Map
@@ -41,9 +40,9 @@ public class Wrapper$Map
 		return moveToLocation;
 	}
 	
-	public Wrapper$Circle createCircle(CircleOptions circleOptions)
+	public Wrapper$Circle createCircle(CircleOptionsCreator circleOptionsCreator)
 	{
-		Circle circle = googleMap.addCircle(circleOptions);
+		Circle circle = googleMap.addCircle(circleOptionsCreator.circleOptions());
 		Wrapper$Circle wrapper$Circle = new Wrapper$Circle(circle);
 		return wrapper$Circle;
 	}

@@ -94,11 +94,13 @@ public class Test$Wrapper$Map
 		zzh zzh = mock(zzh.class);
 		Circle circle = new Circle(zzh);
 		CircleOptions circleOptions = new CircleOptions();
+		CircleOptionsCreator circleOptionsCreator = mock(CircleOptionsCreator.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		PowerMockito.when(fakeGoogleMap.addCircle(circleOptions)).thenReturn(circle);
 		Map$CameraUpdate map = new Map$CameraUpdate(fakeGoogleMap);
+		when(circleOptionsCreator.circleOptions()).thenReturn(circleOptions);
+		PowerMockito.when(fakeGoogleMap.addCircle(circleOptions)).thenReturn(circle);
 		
-		Wrapper$Circle actualCircle = map.createCircle(circleOptions);
+		Wrapper$Circle actualCircle = map.createCircle(circleOptionsCreator);
 		
 		assertEquals(circle.toString(), actualCircle.circle.toString());
 	}
