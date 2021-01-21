@@ -26,8 +26,9 @@ public class Test$MapView
 		when(supportMapFragment.getView()).thenReturn(viewMap);
 		Button viewLock = mock(Button.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
+		Database database = mock(Database.class);
+		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission, database);
 		
-		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission);
 		Lock$Map lock = mapView.lock;
 		assertNotNull(lock);
 	}
@@ -42,9 +43,10 @@ public class Test$MapView
 		when(supportMapFragment.getView()).thenReturn(viewMap);
 		Button viewLock = mock(Button.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
-		
-		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission);
-		Map map = mapView.map;
+		Database database = mock(Database.class);
+		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission, database);
+ 
+ 		Map map = mapView.map;
 		assertNotNull(map);
 	}
 }

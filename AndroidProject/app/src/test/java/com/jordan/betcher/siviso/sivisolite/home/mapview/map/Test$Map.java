@@ -3,6 +3,7 @@ package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 import android.location.LocationManager;
 
 import com.google.android.gms.maps.SupportMapFragment;
+import com.jordan.betcher.siviso.sivisolite.home.Database;
 
 import org.junit.Test;
 
@@ -16,7 +17,8 @@ public class Test$Map
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Map map = new Map(supportMapFragment, locationManager);
+		Database database = mock(Database.class);
+		Map map = new Map(supportMapFragment, locationManager, database);
 		
 		OnMapReady$StartAtCurrentLocation startAtCurrentLocation = map.startAtCurrentLocation;
 		
@@ -28,7 +30,8 @@ public class Test$Map
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Map map = new Map(supportMapFragment, locationManager);
+		Database database = mock(Database.class);
+		Map map = new Map(supportMapFragment, locationManager, database);
 		
 		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = map.highlightLatLng;
 		
@@ -40,7 +43,8 @@ public class Test$Map
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Map map = new Map(supportMapFragment, locationManager);
+		Database database = mock(Database.class);
+		Map map = new Map(supportMapFragment, locationManager, database);
 		
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng = map.saveLatLng;
 		

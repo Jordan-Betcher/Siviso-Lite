@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 
@@ -35,7 +36,26 @@ public class Activity_Home extends AppCompatActivity
         LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         Button mapLock = findViewById(R.id.mapLock);
         Permission$AccessFineLocation permission$AccessFineLocation = new Permission$AccessFineLocation(this);
-        MapView mapView = new MapView(mapFragment, locationManager, mapLock, permission$AccessFineLocation);
+        Database database = new Database(){
+            @Override
+            public void saveLocation(LatLng latLng)
+            {
+        
+            }
+    
+            @Override
+            public boolean hasHome()
+            {
+                return false;
+            }
+    
+            @Override
+            public LatLng home()
+            {
+                return null;
+            }
+        };
+        MapView mapView = new MapView(mapFragment, locationManager, mapLock, permission$AccessFineLocation, database);
         return mapView;
     }
     
