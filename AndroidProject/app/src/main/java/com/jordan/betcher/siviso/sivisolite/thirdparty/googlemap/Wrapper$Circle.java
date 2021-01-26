@@ -1,6 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap;
 
 import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.LatLng;
 
 public class Wrapper$Circle
 {
@@ -12,5 +13,9 @@ public class Wrapper$Circle
 	public void remove()
 	{
 		circle.remove();
+	}
+	
+	public void moveTo(LatLng latLng)
+	{
 	}
 }

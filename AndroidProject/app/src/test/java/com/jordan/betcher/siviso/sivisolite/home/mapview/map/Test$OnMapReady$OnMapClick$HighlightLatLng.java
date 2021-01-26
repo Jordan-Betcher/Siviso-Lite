@@ -21,6 +21,39 @@ import static org.mockito.Mockito.when;
 public class Test$OnMapReady$OnMapClick$HighlightLatLng
 {
 	@Test
+	public void onMapClick_LatLng00CircleAlreadyMade_CallCircleMoveToLatLng00()
+	{
+		Wrapper$Circle circle = mock(Wrapper$Circle.class);
+		LatLng latLng = new LatLng(0, 0);
+		MapCreator mapCreator = mock(MapCreator.class);
+		Resources resources = mock(Resources.class);
+		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(mapCreator, resources);
+		when(resources.getInteger(R.integer.highlightRadius)).thenReturn(0);
+		when(resources.getColor(R.color.highlight)).thenReturn(0);
+		
+		highlightLatLng.circle = circle;
+		highlightLatLng.onMapClick(latLng);
+		
+		verify(circle,times(1)).moveTo(latLng);
+	}
+	@Test
+	public void onMapClick_LatLng11CircleAlreadyMade_CallCircleMoveToLatLng11()
+	{
+		Wrapper$Circle circle = mock(Wrapper$Circle.class);
+		LatLng latLng = new LatLng(1, 1);
+		MapCreator mapCreator = mock(MapCreator.class);
+		Resources resources = mock(Resources.class);
+		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(mapCreator, resources);
+		when(resources.getInteger(R.integer.highlightRadius)).thenReturn(0);
+		when(resources.getColor(R.color.highlight)).thenReturn(0);
+		
+		highlightLatLng.circle = circle;
+		highlightLatLng.onMapClick(latLng);
+		
+		verify(circle,times(1)).moveTo(latLng);
+	}
+	
+	@Test
 	public void _mapCreator_addThisToMapCreator()
 	{
 		Wrapper$Map map = mock(Wrapper$Map.class);

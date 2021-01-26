@@ -34,6 +34,13 @@ class OnMapReady$OnMapClick$HighlightLatLng implements OnMapReady, OnMapClick
 	@Override
 	public void onMapClick(LatLng latLng)
 	{
-		circle = map.createCircle(new CircleOptionsCreator$Highlight(resources, latLng));
+		if(circle != null)
+		{
+			circle.moveTo(latLng);
+		}
+		else
+		{
+			circle = map.createCircle(new CircleOptionsCreator$Highlight(resources, latLng));
+		}
 	}
 }
