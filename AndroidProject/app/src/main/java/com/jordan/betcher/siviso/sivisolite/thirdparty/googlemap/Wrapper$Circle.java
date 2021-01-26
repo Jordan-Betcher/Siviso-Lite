@@ -5,7 +5,6 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Wrapper$Circle
 {
-	
 	Circle circle;
 	
 	public Wrapper$Circle(Circle circle){this.circle = circle;}
@@ -17,5 +16,6 @@ public class Wrapper$Circle
 	
 	public void moveTo(LatLng latLng)
 	{
+		circle.setCenter(latLng);
 	}
 }
