@@ -1,5 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
+import android.content.res.Resources;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapClick;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapReady;
@@ -10,6 +12,12 @@ class OnMapReady$OnMapClick$HighlightLatLng implements OnMapReady, OnMapClick
 {
 	public Wrapper$Circle circle;
 	private Wrapper$Map map;
+	private Resources resources;
+	
+	public OnMapReady$OnMapClick$HighlightLatLng(Resources resources)
+	{
+	
+	}
 	
 	@Override
 	public void mapReady(
@@ -22,6 +30,6 @@ class OnMapReady$OnMapClick$HighlightLatLng implements OnMapReady, OnMapClick
 	@Override
 	public void onMapClick(LatLng latLng)
 	{
-		circle = map.createCircle(new CircleOptionsCreator$Highlight(latLng));
+		circle = map.createCircle(new CircleOptionsCreator$Highlight(resources, latLng));
 	}
 }

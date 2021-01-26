@@ -1,5 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
+import android.content.res.Resources;
+
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
@@ -7,10 +9,14 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.CircleOptionsCr
 
 class CircleOptionsCreator$Highlight implements CircleOptionsCreator
 {
+	private int fillColor;
+	private int radius;
 	public LatLng latLng;
 	
-	public CircleOptionsCreator$Highlight(LatLng latLng)
+	public CircleOptionsCreator$Highlight(Resources resources, LatLng latLng)
 	{
+		radius = resources.getInteger(R.integer.highlightRadius);
+		fillColor = resources.getColor(R.color.highlight);
 		this.latLng = latLng;
 	}
 	
@@ -19,8 +25,8 @@ class CircleOptionsCreator$Highlight implements CircleOptionsCreator
 	{
 		CircleOptions circleOptions = new CircleOptions();
 		circleOptions.center(latLng);
-		circleOptions.radius(R.integer.highlightRadius);
-		circleOptions.fillColor(R.color.highlight);
+		circleOptions.radius(radius);
+		circleOptions.fillColor(fillColor);
 		
 		return circleOptions;
 	}

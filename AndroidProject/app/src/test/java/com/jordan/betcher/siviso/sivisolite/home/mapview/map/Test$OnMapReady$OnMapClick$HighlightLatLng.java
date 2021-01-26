@@ -1,5 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
+import android.content.res.Resources;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Circle;
@@ -20,7 +22,8 @@ public class Test$OnMapReady$OnMapClick$HighlightLatLng
 	public void mapReady__addOnMapClickSelf()
 	{
 		Wrapper$Map map = mock(Wrapper$Map.class);
-		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng();
+		Resources resources = mock(Resources.class);
+		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(resources);
 		
 		highlightLatLng.mapReady(map);
 		
@@ -33,8 +36,9 @@ public class Test$OnMapReady$OnMapClick$HighlightLatLng
 		Wrapper$Circle circle = mock(Wrapper$Circle.class);
 		LatLng latLng = new LatLng(0, 0);
 		Wrapper$Map map = mock(Wrapper$Map.class);
-		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng();
-		CircleOptionsCreator$Highlight highlight = new CircleOptionsCreator$Highlight(latLng);
+		Resources resources = mock(Resources.class);
+		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(resources);
+		CircleOptionsCreator$Highlight highlight = new CircleOptionsCreator$Highlight(resources, latLng);
 		when(map.createCircle(argThat(new Same$Wrapper$CircleOptions$Highlight(highlight)))).thenReturn(circle);
 		
 		highlightLatLng.mapReady(map);

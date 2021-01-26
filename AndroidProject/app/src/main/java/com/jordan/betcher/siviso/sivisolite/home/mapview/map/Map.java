@@ -16,10 +16,9 @@ public class Map
 	
 	public Map(SupportMapFragment supportMapFragment, LocationManager locationManager, Database database, Resources resources)
 	{
-		//resources.getInteger(R.integer.start_zoom);
 		MapCreator mapCreator = new MapCreator(supportMapFragment);
 		startAtCurrentLocation = createStartAtCurrentLocation(mapCreator, locationManager, resources);
-		highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng();
+		highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(resources);
 		saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(database);
 		mapCreator.callWhenReady(highlightLatLng);
 		mapCreator.callWhenReady(saveLatLng);

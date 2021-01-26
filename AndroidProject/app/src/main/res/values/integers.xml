@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="highlightRadius">7</integer>
+    <integer name="highlightRadius">700</integer>
+    <integer name="start_zoom">15</integer>
 </resources>
