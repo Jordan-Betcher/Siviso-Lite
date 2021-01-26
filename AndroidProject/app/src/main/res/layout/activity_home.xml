@@ -32,21 +32,41 @@
         app:layout_constraintTop_toTopOf="@+id/homeTitle" />
 
 
-    <fragment
-        android:id="@+id/homeMap"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="379dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeTitle"
-        tools:context=".Locations" />
+        app:layout_constraintTop_toBottomOf="@+id/homeTitle">
+
+        <Button
+            android:id="@+id/mapLock"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:drawable/ic_lock_lock"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <fragment
+            android:id="@+id/homeMap"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".Locations" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewDefault"
@@ -59,8 +79,9 @@
         android:layout_marginRight="16dp"
         app:cardBackgroundColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeMap">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <TextView
             android:id="@+id/textViewDefault"
@@ -111,19 +132,5 @@
             android:paddingRight="8dp" />
 
     </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/mapLock"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@android:drawable/ic_lock_lock"
-        app:layout_constraintDimensionRatio="h,1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
