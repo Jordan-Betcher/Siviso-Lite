@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home;
 
+import android.content.res.Resources;
 import android.location.LocationManager;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,8 @@ public class Test$MapView
 		Button viewLock = mock(Button.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
 		Database database = mock(Database.class);
-		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission, database);
+		Resources resources = mock(Resources.class);
+		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission, database, resources);
 		
 		Lock$Map lock = mapView.lock;
 		assertNotNull(lock);
@@ -44,7 +46,8 @@ public class Test$MapView
 		Button viewLock = mock(Button.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
 		Database database = mock(Database.class);
-		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission, database);
+		Resources resources = mock(Resources.class);
+		MapView mapView = new MapView(supportMapFragment, locationManager, viewLock, permission, database, resources);
  
  		Map map = mapView.map;
 		assertNotNull(map);

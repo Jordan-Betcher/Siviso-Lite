@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
+import android.content.res.Resources;
 import android.location.LocationManager;
 
 import com.google.android.gms.maps.SupportMapFragment;
@@ -13,18 +14,21 @@ public class Map
 	OnMapReady$OnMapClick$SaveLatLng saveLatLng;
 	OnMapReady$OnMapClick$HighlightLatLng highlightLatLng;
 	
-	public Map(SupportMapFragment supportMapFragment, LocationManager locationManager, Database database)
+	public Map(SupportMapFragment supportMapFragment, LocationManager locationManager, Database database, Resources resources)
 	{
-		startAtCurrentLocation = createStartAtCurrentLocation(supportMapFragment, locationManager);
+		//resources.getInteger(R.integer.start_zoom);
+		MapCreator mapCreator = new MapCreator(supportMapFragment);
+		startAtCurrentLocation = createStartAtCurrentLocation(mapCreator, locationManager, resources);
 		highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng();
 		saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(database);
+		mapCreator.callWhenReady(highlightLatLng);
+		mapCreator.callWhenReady(saveLatLng);
 	}
 	
-	private OnMapReady$StartAtCurrentLocation createStartAtCurrentLocation(SupportMapFragment supportMapFragment, LocationManager locationManager)
+	private OnMapReady$StartAtCurrentLocation createStartAtCurrentLocation(MapCreator mapCreator, LocationManager locationManager, Resources resources)
 	{
-		MapCreator mapCreator = new MapCreator(supportMapFragment);
 		CurrentLocation currentLocation = new CurrentLocation(locationManager);
-		OnMapReady$StartAtCurrentLocation startAtCurrentLocation = new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation);
+		OnMapReady$StartAtCurrentLocation startAtCurrentLocation = new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation, resources);
 		return startAtCurrentLocation;
 	}
 }
