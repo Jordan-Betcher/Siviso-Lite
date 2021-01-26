@@ -4,6 +4,8 @@ import android.content.res.Resources;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
+import com.jordan.betcher.siviso.sivisolite.R;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Circle;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 
@@ -19,11 +21,25 @@ import static org.mockito.Mockito.when;
 public class Test$OnMapReady$OnMapClick$HighlightLatLng
 {
 	@Test
+	public void _mapCreator_addThisToMapCreator()
+	{
+		Wrapper$Map map = mock(Wrapper$Map.class);
+		Resources resources = mock(Resources.class);
+		MapCreator mapCreator = mock(MapCreator.class);
+		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng =
+		new OnMapReady$OnMapClick$HighlightLatLng(mapCreator, resources);
+		
+		verify(mapCreator, times(1)).callWhenReady(highlightLatLng);
+	}
+	
+	@Test
 	public void mapReady__addOnMapClickSelf()
 	{
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(resources);
+		MapCreator mapCreator = mock(MapCreator.class);
+		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng =
+		new OnMapReady$OnMapClick$HighlightLatLng(mapCreator, resources);
 		
 		highlightLatLng.mapReady(map);
 		
@@ -36,10 +52,15 @@ public class Test$OnMapReady$OnMapClick$HighlightLatLng
 		Wrapper$Circle circle = mock(Wrapper$Circle.class);
 		LatLng latLng = new LatLng(0, 0);
 		Wrapper$Map map = mock(Wrapper$Map.class);
+		MapCreator mapCreator = mock(MapCreator.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(resources);
+		when(resources.getInteger(R.integer.highlightRadius)).thenReturn(0);
+		when(resources.getColor(R.color.highlight)).thenReturn(0);
+		
+		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng =
+		new OnMapReady$OnMapClick$HighlightLatLng(mapCreator, resources);
 		CircleOptionsCreator$Highlight highlight = new CircleOptionsCreator$Highlight(resources, latLng);
-		when(map.createCircle(argThat(new Same$Wrapper$CircleOptions$Highlight(highlight)))).thenReturn(circle);
+		when(map.createCircle(argThat(new Same$Highlight$latLng(highlight)))).thenReturn(circle);
 		
 		highlightLatLng.mapReady(map);
 		highlightLatLng.onMapClick(latLng);
@@ -48,11 +69,11 @@ public class Test$OnMapReady$OnMapClick$HighlightLatLng
 		assertEquals(circle, actualCircle);
 	}
 	
-	private class Same$Wrapper$CircleOptions$Highlight
+	private class Same$Highlight$latLng
 	extends ArgumentMatcher$Same<CircleOptionsCreator$Highlight>
 	{
 		
-		public Same$Wrapper$CircleOptions$Highlight(
+		public Same$Highlight$latLng(
 		CircleOptionsCreator$Highlight first)
 		{
 			super(first);

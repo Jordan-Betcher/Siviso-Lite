@@ -17,17 +17,12 @@ public class Map
 	public Map(SupportMapFragment supportMapFragment, LocationManager locationManager, Database database, Resources resources)
 	{
 		MapCreator mapCreator = new MapCreator(supportMapFragment);
-		startAtCurrentLocation = createStartAtCurrentLocation(mapCreator, locationManager, resources);
-		highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(resources);
-		saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(database);
-		mapCreator.callWhenReady(highlightLatLng);
-		mapCreator.callWhenReady(saveLatLng);
-	}
-	
-	private OnMapReady$StartAtCurrentLocation createStartAtCurrentLocation(MapCreator mapCreator, LocationManager locationManager, Resources resources)
-	{
 		CurrentLocation currentLocation = new CurrentLocation(locationManager);
-		OnMapReady$StartAtCurrentLocation startAtCurrentLocation = new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation, resources);
-		return startAtCurrentLocation;
+		
+		startAtCurrentLocation = new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation, resources);
+		highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(mapCreator, resources);
+		saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, database);
+//		mapCreator.callWhenReady(highlightLatLng);
+//		mapCreator.callWhenReady(saveLatLng);
 	}
 }
