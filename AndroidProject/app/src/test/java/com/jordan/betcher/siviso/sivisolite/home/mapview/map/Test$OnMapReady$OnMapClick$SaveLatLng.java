@@ -14,6 +14,20 @@ import static org.mockito.Mockito.verify;
 public class Test$OnMapReady$OnMapClick$SaveLatLng
 {
 	@Test
+	public void _mapCreator_addThisToMapCreatorCallWhenReady()
+	{
+		
+		Wrapper$Map map = mock(Wrapper$Map.class);
+		Database database = mock(Database.class);
+		MapCreator mapCreator = mock(MapCreator.class);
+		
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
+		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, database);
+		
+		verify(mapCreator, times(1)).callWhenReady(saveLatLng);
+	}
+	
+	@Test
 	public void mapReady__addThis()
 	{
 		Wrapper$Map map = mock(Wrapper$Map.class);
@@ -21,7 +35,9 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 		MapCreator mapCreator = mock(MapCreator.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
 		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, database);
+		
 		saveLatLng.mapReady(map);
+		
 		verify(map, times(1)).addOnMapClick(saveLatLng);
 	}
 	

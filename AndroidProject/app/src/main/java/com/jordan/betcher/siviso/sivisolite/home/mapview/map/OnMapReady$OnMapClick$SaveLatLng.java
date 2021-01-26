@@ -16,6 +16,7 @@ class OnMapReady$OnMapClick$SaveLatLng implements OnMapReady, OnMapClick
 	Database database)
 	{
 		this.database = database;
+		mapCreator.callWhenReady(this);
 	}
 	
 	@Override
