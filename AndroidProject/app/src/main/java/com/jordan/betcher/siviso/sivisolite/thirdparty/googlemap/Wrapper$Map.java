@@ -25,7 +25,7 @@ public class Wrapper$Map
 	
 	public void goToLocation(LatLng latLng, float zoom)
 	{
-		CameraUpdate moveToLocation = CameraUpdateFactory.newLatLngZoom(latLng, 0.0f);
+		CameraUpdate moveToLocation = CameraUpdateFactory.newLatLngZoom(latLng, zoom);
 		googleMap.moveCamera(moveToLocation);
 	}
 	

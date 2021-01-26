@@ -18,7 +18,6 @@ import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -31,20 +30,7 @@ import static org.mockito.Mockito.when;
 public class Test$Wrapper$Map
 {
 	@Test
-	public void goToLocation_fakeLocation_CalledCameraWithLocation()
-	{
-		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		Wrapper$Map map = new Wrapper$Map(fakeGoogleMap);
-		
-		LatLng latLng = new LatLng(0, 0);
-		float zoom = 0.0f;
-		map.goToLocation(latLng, zoom);
-		
-		verify(fakeGoogleMap).moveCamera(isA(CameraUpdate.class));
-	}
-	
-	@Test
-	public void goToLocation__moveCameraWithCameraUpdateFromFactoryLatLngZoom()
+	public void goToLocation_latLng00Zoom0_moveCameraWithCameraUpdateFromFactoryLatLng00Zoom0()
 	{
 		CameraUpdate cameraUpdate = mock(CameraUpdate.class);
 		float zoom = 0.0f;
@@ -57,6 +43,38 @@ public class Test$Wrapper$Map
 		map.goToLocation(latLng, zoom);
 		
 		verify(fakeGoogleMap, times(1)).moveCamera(cameraUpdate);
+	}
+	
+	@Test
+	public void goToLocation_latLng11Zoom0_moveCameraWithCameraUpdateFromFactoryLatLng11Zoom0()
+	{
+		CameraUpdate cameraUpdate = mock(CameraUpdate.class);
+		float zoom = 0.0f;
+		LatLng latLng = new LatLng(1, 1);
+		PowerMockito.mockStatic(CameraUpdateFactory.class);
+		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
+		Wrapper$Map map = new Wrapper$Map(fakeGoogleMap);
+		PowerMockito.when(CameraUpdateFactory.newLatLngZoom(latLng, zoom)).thenReturn(cameraUpdate);
+		
+		map.goToLocation(latLng, zoom);
+		
+		verify(fakeGoogleMap, times(1)).moveCamera(cameraUpdate);
+	}
+	
+	@Test
+	public void goToLocation_latLng00Zoom1_moveCameraWithCameraUpdateFromFactoryLatLng00Zoom1()
+	{
+		PowerMockito.mockStatic(CameraUpdateFactory.class);
+		CameraUpdate cameraUpdate = mock(CameraUpdate.class);
+		float zoom = 1;
+		LatLng latLng = new LatLng(0, 0);
+		GoogleMap googleMap = PowerMockito.mock(GoogleMap.class);
+		Wrapper$Map wrapper$map = new Wrapper$Map(googleMap);
+		when(CameraUpdateFactory.newLatLngZoom(latLng, zoom)).thenReturn(cameraUpdate);
+		
+		wrapper$map.goToLocation(latLng, zoom);
+		
+		verify(googleMap, times(1)).moveCamera(cameraUpdate);
 	}
 	
 	@Test
