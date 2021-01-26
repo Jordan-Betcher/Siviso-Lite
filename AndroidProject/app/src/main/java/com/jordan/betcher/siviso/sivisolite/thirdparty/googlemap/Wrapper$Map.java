@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap;
 
-import android.location.Location;
-
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,19 +23,10 @@ public class Wrapper$Map
 		multipleOnMapClick.addOnMapClick(onMapClick);
 	}
 	
-	public void goToLocation(Location location)
+	public void goToLocation(LatLng latLng, float zoom)
 	{
-		double lat = location.getLatitude();
-		double lng = location.getLongitude();
-		LatLng latLng = new LatLng(lat, lng);
-		CameraUpdate moveToLocation = locationCameraUpdate(latLng);
+		CameraUpdate moveToLocation = CameraUpdateFactory.newLatLngZoom(latLng, 0.0f);
 		googleMap.moveCamera(moveToLocation);
-	}
-	
-	protected CameraUpdate locationCameraUpdate(LatLng latLng)
-	{
-		CameraUpdate moveToLocation = CameraUpdateFactory.newLatLng(latLng);
-		return moveToLocation;
 	}
 	
 	public Wrapper$Circle createCircle(CircleOptionsCreator circleOptionsCreator)

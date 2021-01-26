@@ -1,9 +1,8 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap;
 
-import android.location.Location;
-
 import com.google.android.gms.internal.maps.zzh;
 import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
@@ -27,65 +26,37 @@ import static org.mockito.Mockito.when;
 
 @RunWith(PowerMockRunner.class)
 @Config(manifest = Config.NONE)
-@PrepareForTest({GoogleMap.class, CameraUpdate.class, Circle.class})
+@PrepareForTest({GoogleMap.class, CameraUpdate.class, Circle.class, CameraUpdateFactory.class})
 @PowerMockIgnore({ "org.mockito.*", "org.robolectric.*", "android.*", "androidx.*" })
 public class Test$Wrapper$Map
 {
-	
 	@Test
 	public void goToLocation_fakeLocation_CalledCameraWithLocation()
 	{
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		Wrapper$Map wrapper$map = new Map$CameraUpdate(fakeGoogleMap);
+		Wrapper$Map map = new Wrapper$Map(fakeGoogleMap);
 		
-		Location fakeLocation = PowerMockito.mock(Location.class);
-		wrapper$map.goToLocation(fakeLocation);
+		LatLng latLng = new LatLng(0, 0);
+		float zoom = 0.0f;
+		map.goToLocation(latLng, zoom);
 		
 		verify(fakeGoogleMap).moveCamera(isA(CameraUpdate.class));
 	}
 	
 	@Test
-	public void goToLocation_fakeLocation00_CalledLocationCameraUpdateWithLatLng00()
+	public void goToLocation__moveCameraWithCameraUpdateFromFactoryLatLngZoom()
 	{
+		CameraUpdate cameraUpdate = mock(CameraUpdate.class);
+		float zoom = 0.0f;
+		LatLng latLng = new LatLng(0, 0);
+		PowerMockito.mockStatic(CameraUpdateFactory.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		Map$CameraUpdate map = new Map$CameraUpdate(fakeGoogleMap);
+		Wrapper$Map map = new Wrapper$Map(fakeGoogleMap);
+		PowerMockito.when(CameraUpdateFactory.newLatLngZoom(latLng, zoom)).thenReturn(cameraUpdate);
 		
-		Location fakeLocation = PowerMockito.mock(Location.class);
-		when(fakeLocation.getLatitude()).thenReturn(0.0);
-		when(fakeLocation.getLongitude()).thenReturn(0.0);
-		map.goToLocation(fakeLocation);
+		map.goToLocation(latLng, zoom);
 		
-		assertEquals(map.latLng, new LatLng(0.0, 0.0));
-	}
-	
-	@Test
-	public void goToLocation_fakeLocation11_CalledLocationCameraUpdateWithLatLng11()
-	{
-		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		Map$CameraUpdate map = new Map$CameraUpdate(fakeGoogleMap);
-		
-		Location fakeLocation = PowerMockito.mock(Location.class);
-		when(fakeLocation.getLatitude()).thenReturn(1.0);
-		when(fakeLocation.getLongitude()).thenReturn(1.0);
-		map.goToLocation(fakeLocation);
-		
-		assertEquals(map.latLng, new LatLng(1.0, 1.0));
-	}
-	
-	private class Map$CameraUpdate extends Wrapper$Map
-	{
-		public LatLng latLng;
-		public Map$CameraUpdate(GoogleMap googleMap)
-		{
-			super(googleMap);
-		}
-		
-		@Override
-		protected CameraUpdate locationCameraUpdate(LatLng latLng)
-		{
-			this.latLng = latLng;
-			return PowerMockito.mock(CameraUpdate.class);
-		}
+		verify(fakeGoogleMap, times(1)).moveCamera(cameraUpdate);
 	}
 	
 	@Test
@@ -96,7 +67,7 @@ public class Test$Wrapper$Map
 		CircleOptions circleOptions = new CircleOptions();
 		CircleOptionsCreator circleOptionsCreator = mock(CircleOptionsCreator.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		Map$CameraUpdate map = new Map$CameraUpdate(fakeGoogleMap);
+		Wrapper$Map map = new Wrapper$Map(fakeGoogleMap);
 		when(circleOptionsCreator.circleOptions()).thenReturn(circleOptions);
 		PowerMockito.when(fakeGoogleMap.addCircle(circleOptions)).thenReturn(circle);
 		
