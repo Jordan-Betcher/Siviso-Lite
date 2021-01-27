@@ -1,6 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.permissions;
 
-public interface Listener$PermissionGranted
+public interface OnPermissionGranted
 {
-	void act();
+	void permissionGranted();
 }

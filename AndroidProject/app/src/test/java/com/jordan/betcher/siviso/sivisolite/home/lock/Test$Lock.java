@@ -112,16 +112,17 @@ public class Test$Lock
 		View view = mock(View.class);
 		Lock lock = new Lock(view, viewLock, permissionNotGranted);
 		
-		Listener$PermissionGranted$Unlock listener = new Listener$PermissionGranted$Unlock(lock.lockState);
+		OnPermissionGranted$Unlock listener = new OnPermissionGranted$Unlock(lock.lockState);
 		verify(permissionNotGranted).addListener(argThat(new ArgumentMatcher$Listener$PermissionGranted$Unlock(listener)));
 	}
 	
 	private class ArgumentMatcher$Listener$PermissionGranted$Unlock
-	extends ArgumentMatcher<com.jordan.betcher.siviso.sivisolite.home.lock.Listener$PermissionGranted$Unlock>
+	extends ArgumentMatcher<OnPermissionGranted$Unlock>
 	{
-		private Listener$PermissionGranted$Unlock requestPermission;
+		private OnPermissionGranted$Unlock requestPermission;
 		
-		public ArgumentMatcher$Listener$PermissionGranted$Unlock(Listener$PermissionGranted$Unlock requestPermission)
+		public ArgumentMatcher$Listener$PermissionGranted$Unlock(
+		OnPermissionGranted$Unlock requestPermission)
 		{
 			
 			this.requestPermission = requestPermission;
@@ -130,9 +131,9 @@ public class Test$Lock
 		@Override
 		public boolean matches(Object argument)
 		{
-			if(argument instanceof Listener$PermissionGranted$Unlock)
+			if(argument instanceof OnPermissionGranted$Unlock)
 			{
-				Listener$PermissionGranted$Unlock other = (Listener$PermissionGranted$Unlock) argument;
+				OnPermissionGranted$Unlock other = (OnPermissionGranted$Unlock) argument;
 				return requestPermission.lockState == other.lockState;
 			}
 			else

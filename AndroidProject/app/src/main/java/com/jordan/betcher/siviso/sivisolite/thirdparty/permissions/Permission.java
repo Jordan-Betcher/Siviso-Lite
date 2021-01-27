@@ -8,5 +8,5 @@ public interface Permission
 	
 	void grant();
 	
-	void addListener(Listener$PermissionGranted listener);
+	void addListener(OnPermissionGranted listener);
 }

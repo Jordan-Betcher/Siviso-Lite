@@ -29,7 +29,6 @@ public class Activity_Home extends AppCompatActivity
         mapView = createMapView();
         offOnView = new OffOnView();
         sivisoListView = new SivisoListView();
-        this.getResources().getInteger(R.integer.start_zoom);
     }
     
     private MapView createMapView()

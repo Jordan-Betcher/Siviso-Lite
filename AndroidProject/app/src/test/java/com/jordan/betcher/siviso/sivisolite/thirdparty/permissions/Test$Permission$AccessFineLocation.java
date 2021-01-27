@@ -84,13 +84,13 @@ public class Test$Permission$AccessFineLocation
 		Activity activity = mock(Activity.class);
 		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
 		            .thenReturn(PackageManager.PERMISSION_GRANTED);
-		Listener$PermissionGranted listener = mock(Listener$PermissionGranted.class);
+		OnPermissionGranted listener = mock(OnPermissionGranted.class);
 		
 		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
 		permission.addListener(listener);
 		permission.grant();
 		
-		verify(listener, times(1)).act();
+		verify(listener, times(1)).permissionGranted();
 	}
 	
 	@Test
@@ -100,12 +100,12 @@ public class Test$Permission$AccessFineLocation
 		Activity activity = mock(Activity.class);
 		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
 		            .thenReturn(PackageManager.PERMISSION_GRANTED);
-		Listener$PermissionGranted listener = mock(Listener$PermissionGranted.class);
+		OnPermissionGranted listener = mock(OnPermissionGranted.class);
 		
 		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
 		permission.addListener(listener);
 		
-		verify(listener, times(0)).act();
+		verify(listener, times(0)).permissionGranted();
 	}
 	
 	@Test
@@ -115,15 +115,15 @@ public class Test$Permission$AccessFineLocation
 		Activity activity = mock(Activity.class);
 		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
 		            .thenReturn(PackageManager.PERMISSION_GRANTED);
-		Listener$PermissionGranted listener1 = mock(Listener$PermissionGranted.class);
-		Listener$PermissionGranted listener2 = mock(Listener$PermissionGranted.class);
+		OnPermissionGranted listener1 = mock(OnPermissionGranted.class);
+		OnPermissionGranted listener2 = mock(OnPermissionGranted.class);
 		
 		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
 		permission.addListener(listener1);
 		permission.addListener(listener2);
 		permission.grant();
 		
-		verify(listener1, times(1)).act();
+		verify(listener1, times(1)).permissionGranted();
 	}
 	
 	@Test
@@ -133,15 +133,15 @@ public class Test$Permission$AccessFineLocation
 		Activity activity = mock(Activity.class);
 		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
 		            .thenReturn(PackageManager.PERMISSION_GRANTED);
-		Listener$PermissionGranted listener1 = mock(Listener$PermissionGranted.class);
-		Listener$PermissionGranted listener2 = mock(Listener$PermissionGranted.class);
+		OnPermissionGranted listener1 = mock(OnPermissionGranted.class);
+		OnPermissionGranted listener2 = mock(OnPermissionGranted.class);
 		
 		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
 		permission.addListener(listener1);
 		permission.addListener(listener2);
 		permission.grant();
 		
-		verify(listener2, times(1)).act();
+		verify(listener2, times(1)).permissionGranted();
 	}
 	
 	@Test
@@ -151,12 +151,12 @@ public class Test$Permission$AccessFineLocation
 		Activity activity = mock(Activity.class);
 		PowerMockito.when(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION))
 		            .thenReturn(PackageManager.PERMISSION_DENIED);
-		Listener$PermissionGranted listener = mock(Listener$PermissionGranted.class);
+		OnPermissionGranted listener = mock(OnPermissionGranted.class);
 		
 		Permission$AccessFineLocation permission = new Permission$AccessFineLocation(activity);
 		permission.addListener(listener);
 		permission.grant();
 		
-		verify(listener, times(0)).act();
+		verify(listener, times(0)).permissionGranted();
 	}
 }

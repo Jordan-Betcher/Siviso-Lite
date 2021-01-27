@@ -3,7 +3,7 @@ package com.jordan.betcher.siviso.sivisolite.home.lock;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Listener$PermissionGranted;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.OnPermissionGranted;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission;
 
 public class Lock
@@ -27,7 +27,7 @@ public class Lock
 	
 	private void onPermissionGrantedUnlock(Permission permission)
 	{
-		Listener$PermissionGranted unlock = new Listener$PermissionGranted$Unlock(lockState);
+		OnPermissionGranted unlock = new OnPermissionGranted$Unlock(lockState);
 		permission.addListener(unlock);
 	}
 	

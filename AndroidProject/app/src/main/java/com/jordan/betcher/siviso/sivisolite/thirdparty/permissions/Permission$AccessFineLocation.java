@@ -40,7 +40,7 @@ public class Permission$AccessFineLocation implements Permission
 		}
 	}
 	
-	ArrayList<Listener$PermissionGranted> listeners = new ArrayList<>();
+	ArrayList<OnPermissionGranted> listeners = new ArrayList<>();
 	
 	@Override
 	public void grant()
@@ -53,15 +53,15 @@ public class Permission$AccessFineLocation implements Permission
 	
 	private void callAllListeners()
 	{
-		for(Listener$PermissionGranted listener : listeners)
+		for(OnPermissionGranted listener : listeners)
 		{
-			listener.act();
+			listener.permissionGranted();
 		}
 	}
 	
 	@Override
 	public void addListener(
-	Listener$PermissionGranted listener)
+	OnPermissionGranted listener)
 	{
 		this.listeners.add(listener);
 	}
