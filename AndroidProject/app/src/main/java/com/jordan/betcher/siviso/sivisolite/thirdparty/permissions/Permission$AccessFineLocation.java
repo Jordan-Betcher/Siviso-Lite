@@ -63,6 +63,13 @@ public class Permission$AccessFineLocation implements Permission
 	public void addListener(
 	OnPermissionGranted listener)
 	{
-		this.listeners.add(listener);
+		if(isGranted())
+		{
+			listener.permissionGranted();
+		}
+		else
+		{
+			this.listeners.add(listener);
+		}
 	}
 }
