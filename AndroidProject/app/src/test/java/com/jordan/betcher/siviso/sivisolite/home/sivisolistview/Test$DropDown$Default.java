@@ -24,7 +24,7 @@ public class Test$DropDown$Default
 		
 		new DropDown$Default(spinner, adapter, storage$Default, onClick, siviso);
 		
-		verify(spinner).setOnItemClickListener(onClick);
+		verify(spinner).setOnItemSelectedListener(onClick);
 	}
 	
 	@Test

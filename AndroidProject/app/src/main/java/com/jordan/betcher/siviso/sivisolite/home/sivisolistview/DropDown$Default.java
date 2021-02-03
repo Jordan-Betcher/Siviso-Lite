@@ -15,6 +15,6 @@ public class DropDown$Default
 	{
 		spinner.setAdapter(adapter);
 		spinner.setSelection(siviso.indexOf(storage$Default.defaultSiviso()));
-		spinner.setOnItemClickListener(onClick);
+		spinner.setOnItemSelectedListener(onClick);
 	}
 }
