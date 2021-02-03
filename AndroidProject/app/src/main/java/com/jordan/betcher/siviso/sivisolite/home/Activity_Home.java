@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
+import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.Siviso;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 
 public class Activity_Home extends AppCompatActivity
@@ -35,7 +36,8 @@ public class Activity_Home extends AppCompatActivity
     private SivisoListView createSivisoListView(Database database)
     {
         Spinner defaultSpinner = findViewById(R.id.spinnerDefault);
-        return new SivisoListView(this, defaultSpinner, database);
+        Siviso siviso = new Siviso();
+        return new SivisoListView(this, defaultSpinner, database, siviso);
     }
     
     private MapView createMapView(Database database)
