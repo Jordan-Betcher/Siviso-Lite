@@ -5,7 +5,7 @@ import android.widget.AdapterView;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.Store;
 
-public class OnClick$Save implements AdapterView.OnItemSelectedListener
+class OnClick$Save implements AdapterView.OnItemSelectedListener
 {
 	private Store store;
 	
