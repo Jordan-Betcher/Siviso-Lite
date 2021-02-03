@@ -50,8 +50,8 @@ public class Test$Activity_Home
 	@Test
 	public void __offOnView()
 	{
-		OffOnView offOnView = activity.offOnView;
-		assertNotNull(offOnView);
+		OnOffView onOffView = activity.onOffView;
+		assertNotNull(onOffView);
 	}
 	
 	@Test

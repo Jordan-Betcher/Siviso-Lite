@@ -18,7 +18,7 @@ public class Activity_Home extends AppCompatActivity
 {
     
     public MapView mapView;
-    public OffOnView offOnView;
+    public OnOffView onOffView;
     public SivisoListView sivisoListView;
     
     @Override
@@ -29,7 +29,7 @@ public class Activity_Home extends AppCompatActivity
         
         Database database = new Database();
         mapView = createMapView(database);
-        offOnView = new OffOnView();
+        onOffView = new OnOffView();
         sivisoListView = createSivisoListView(database);
     }
     
