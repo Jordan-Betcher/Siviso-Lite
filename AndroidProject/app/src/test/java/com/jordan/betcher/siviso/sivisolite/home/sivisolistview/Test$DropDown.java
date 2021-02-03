@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
 
+import android.widget.AdapterView;
 import android.widget.Spinner;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.Store;
@@ -19,7 +20,7 @@ public class Test$DropDown
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
 		Store store = mock(Store.class);
-		OnClick$SaveDefault onClick = mock(OnClick$SaveDefault.class);
+		AdapterView.OnItemSelectedListener onClick = mock(AdapterView.OnItemSelectedListener.class);
 		Siviso siviso = mock(Siviso.class);
 		
 		new DropDown(spinner, adapter, store, onClick, siviso);
@@ -35,7 +36,7 @@ public class Test$DropDown
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
 		Store store = mock(Store.class);
-		OnClick$SaveDefault onClick = mock(OnClick$SaveDefault.class);
+		AdapterView.OnItemSelectedListener onClick = mock(AdapterView.OnItemSelectedListener.class);
 		Siviso siviso = mock(Siviso.class);
 		when(store.siviso()).thenReturn(sivisoName);
 		when(siviso.indexOf(sivisoName)).thenReturn(sivisoPosition);
@@ -54,7 +55,7 @@ public class Test$DropDown
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
 		Store store = mock(Store.class);
-		OnClick$SaveDefault onClick = mock(OnClick$SaveDefault.class);
+		AdapterView.OnItemSelectedListener onClick = mock(AdapterView.OnItemSelectedListener.class);
 		Siviso siviso = mock(Siviso.class);
 		when(store.siviso()).thenReturn(sivisoName);
 		when(siviso.indexOf(sivisoName)).thenReturn(sivisoPosition);
@@ -71,7 +72,7 @@ public class Test$DropDown
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
 		Store store = mock(Store.class);
-		OnClick$SaveDefault onClick = mock(OnClick$SaveDefault.class);
+		AdapterView.OnItemSelectedListener onClick = mock(AdapterView.OnItemSelectedListener.class);
 		Siviso siviso = mock(Siviso.class);
 		
 		new DropDown(spinner, adapter, store, onClick, siviso);

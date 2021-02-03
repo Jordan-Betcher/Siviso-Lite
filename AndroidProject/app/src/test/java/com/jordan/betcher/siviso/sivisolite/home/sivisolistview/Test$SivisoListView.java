@@ -3,7 +3,7 @@ package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
 import android.content.Context;
 import android.widget.Spinner;
 
-import com.jordan.betcher.siviso.sivisolite.home.Database.Store$Default;
+import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.home.Siviso;
 
 import org.junit.Test;
@@ -18,10 +18,10 @@ public class Test$SivisoListView
 	{
 		Spinner defaultSpinner = mock(Spinner.class);
 		Context context = mock(Context.class);
-		Store$Default storage = mock(Store$Default.class);
+		Database database = mock(Database.class);
 		Siviso siviso = mock(Siviso.class);
-		SivisoListView sivisoListView = new SivisoListView(context, defaultSpinner, storage, siviso);
-		DropDown defaultDropDown = sivisoListView.defaultDropDown;
+		SivisoListView sivisoListView = new SivisoListView(context, defaultSpinner, database, siviso);
+		DropDown$Default defaultDropDown = sivisoListView.defaultDropDown;
 		
 		assertNotNull(defaultDropDown);
 	}
@@ -30,8 +30,8 @@ public class Test$SivisoListView
 	{
 		Spinner defaultSpinner = mock(Spinner.class);
 		Context context = mock(Context.class);
-		Store$Default storage = mock(Store$Default.class);
-		SivisoListView sivisoListView = new SivisoListView(context, defaultSpinner, storage, mock(Siviso.class));
+		Database database = mock(Database.class);
+		SivisoListView sivisoListView = new SivisoListView(context, defaultSpinner, database, mock(Siviso.class));
 		DropDown$Home homeDropDown = sivisoListView.homeDropDown;
 		
 		assertNotNull(homeDropDown);

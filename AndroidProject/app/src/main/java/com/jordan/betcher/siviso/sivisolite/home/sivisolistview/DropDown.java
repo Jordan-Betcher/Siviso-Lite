@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
 
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -11,7 +12,7 @@ class DropDown
 	public DropDown(
 	Spinner spinner, ArrayAdapter adapter,
 	Store store,
-	OnClick$SaveDefault onClick,
+	AdapterView.OnItemSelectedListener onClick,
 	Siviso siviso)
 	{
 		spinner.setAdapter(adapter);
