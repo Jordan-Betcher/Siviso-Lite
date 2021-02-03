@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
 
 import android.widget.Spinner;
 
-import com.jordan.betcher.siviso.sivisolite.home.Database.Storage$Default;
+import com.jordan.betcher.siviso.sivisolite.home.Database.Store;
 import com.jordan.betcher.siviso.sivisolite.home.Siviso;
 
 import org.junit.Test;
@@ -11,18 +11,18 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class Test$DropDown$Default
+public class Test$DropDown
 {
 	@Test
 	public void _OnClickSaveDefault_setSpinnerOnClick()
 	{
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
-		Storage$Default storage$Default = mock(Storage$Default.class);
+		Store store = mock(Store.class);
 		OnClick$SaveDefault onClick = mock(OnClick$SaveDefault.class);
 		Siviso siviso = mock(Siviso.class);
 		
-		new DropDown$Default(spinner, adapter, storage$Default, onClick, siviso);
+		new DropDown(spinner, adapter, store, onClick, siviso);
 		
 		verify(spinner).setOnItemSelectedListener(onClick);
 	}
@@ -34,14 +34,14 @@ public class Test$DropDown$Default
 		String sivisoName = "Silent";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
-		Storage$Default storage$Default = mock(Storage$Default.class);
+		Store store = mock(Store.class);
 		OnClick$SaveDefault onClick = mock(OnClick$SaveDefault.class);
 		Siviso siviso = mock(Siviso.class);
-		when(storage$Default.defaultSiviso()).thenReturn(sivisoName);
+		when(store.siviso()).thenReturn(sivisoName);
 		when(siviso.indexOf(sivisoName)).thenReturn(sivisoPosition);
 		
 		
-		new DropDown$Default(spinner, adapter, storage$Default, onClick, siviso);
+		new DropDown(spinner, adapter, store, onClick, siviso);
 		
 		verify(spinner).setSelection(sivisoPosition);
 	}
@@ -53,14 +53,14 @@ public class Test$DropDown$Default
 		String sivisoName = "None";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
-		Storage$Default storage$Default = mock(Storage$Default.class);
+		Store store = mock(Store.class);
 		OnClick$SaveDefault onClick = mock(OnClick$SaveDefault.class);
 		Siviso siviso = mock(Siviso.class);
-		when(storage$Default.defaultSiviso()).thenReturn(sivisoName);
+		when(store.siviso()).thenReturn(sivisoName);
 		when(siviso.indexOf(sivisoName)).thenReturn(sivisoPosition);
 		
 		
-		new DropDown$Default(spinner, adapter, storage$Default, onClick, siviso);
+		new DropDown(spinner, adapter, store, onClick, siviso);
 		
 		verify(spinner).setSelection(sivisoPosition);
 	}
@@ -70,11 +70,11 @@ public class Test$DropDown$Default
 	{
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
-		Storage$Default storage$Default = mock(Storage$Default.class);
+		Store store = mock(Store.class);
 		OnClick$SaveDefault onClick = mock(OnClick$SaveDefault.class);
 		Siviso siviso = mock(Siviso.class);
 		
-		new DropDown$Default(spinner, adapter, storage$Default, onClick, siviso);
+		new DropDown(spinner, adapter, store, onClick, siviso);
 		
 		verify(spinner).setAdapter(adapter);
 	}
