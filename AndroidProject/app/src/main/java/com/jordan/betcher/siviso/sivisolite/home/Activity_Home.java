@@ -36,8 +36,9 @@ public class Activity_Home extends AppCompatActivity
     private SivisoListView createSivisoListView(Database database)
     {
         Spinner defaultSpinner = findViewById(R.id.spinnerDefault);
+        Spinner homeSpinner = findViewById(R.id.spinnerHome);
         Siviso siviso = new Siviso();
-        return new SivisoListView(this, defaultSpinner, database, siviso);
+        return new SivisoListView(this, defaultSpinner, homeSpinner, database, siviso);
     }
     
     private MapView createMapView(Database database)

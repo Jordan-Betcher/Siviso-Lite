@@ -9,6 +9,6 @@ public class Siviso
 	
 	public String[] sivisos()
 	{
-		return new String[]{};
+		return new String[]{"None", "Silent"};
 	}
 }

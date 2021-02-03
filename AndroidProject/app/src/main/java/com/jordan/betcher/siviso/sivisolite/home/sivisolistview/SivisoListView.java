@@ -11,11 +11,11 @@ public class SivisoListView
 	DropDown$Default defaultDropDown;
 	DropDown$Home homeDropDown;
 	
-	public SivisoListView(Context context, Spinner defaultSpinner, Database database, Siviso siviso)
+	public SivisoListView(Context context, Spinner defaultSpinner, Spinner homeSpinner, Database database, Siviso siviso)
 	{
 		defaultDropDown = new DropDown$Default(defaultSpinner, new ArrayAdapter$Siviso(context, siviso),
 		                                       database.defaultt(), new OnClick$Save$Default(database.defaultt()), siviso);
-		homeDropDown = new DropDown$Home(defaultSpinner, new ArrayAdapter$Siviso(context, siviso),
+		homeDropDown = new DropDown$Home(homeSpinner, new ArrayAdapter$Siviso(context, siviso),
 		                                 database.homee(), new OnClick$Save$Home(database.homee()), siviso);
 	}
 }
