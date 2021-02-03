@@ -6,7 +6,6 @@ import android.widget.Spinner;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.DropDown$Default;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.DropDown$Home;
-import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.Siviso;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
+package com.jordan.betcher.siviso.sivisolite.home;
 
 public class Siviso
 {

@@ -8,7 +8,6 @@ import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.ArrayAdapter$Siv
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.DropDown$Default;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.DropDown$Home;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.OnClick$SaveDefault;
-import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.Siviso;
 
 class SivisoListView
 {
