@@ -14,6 +14,6 @@ public class SivisoListView
 	public SivisoListView(Context context, Spinner defaultSpinner, Database database, Siviso siviso)
 	{
 		defaultDropDown = new DropDown$Default(defaultSpinner, new ArrayAdapter$Siviso(context, siviso),
-		                                       database, new OnClick$SaveDefault(), siviso);
+		                                       database, new OnClick$SaveDefault(database), siviso);
 	}
 }

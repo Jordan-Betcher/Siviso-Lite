@@ -27,4 +27,10 @@ public class Database implements Store$Home, Storage$Default
 	{
 		return null;
 	}
+	
+	@Override
+	public void saveDefaultSiviso(int sivisoPosition)
+	{
+	
+	}
 }
