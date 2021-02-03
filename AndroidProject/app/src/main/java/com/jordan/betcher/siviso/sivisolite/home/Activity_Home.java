@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,7 +29,13 @@ public class Activity_Home extends AppCompatActivity
         Database database = new Database();
         mapView = createMapView(database);
         offOnView = new OffOnView();
-        sivisoListView = new SivisoListView();
+        sivisoListView = createSivisoListView(database);
+    }
+    
+    private SivisoListView createSivisoListView(Database database)
+    {
+        Spinner defaultSpinner = findViewById(R.id.spinnerDefault);
+        return new SivisoListView(this, defaultSpinner, database);
     }
     
     private MapView createMapView(Database database)

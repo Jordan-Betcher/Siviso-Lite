@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.home.Database;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class Database implements Store$Home
+public class Database implements Store$Home, Storage$Default
 {
 	@Override
 	public void saveLocation(LatLng latLng)
@@ -18,6 +18,12 @@ public class Database implements Store$Home
 	
 	@Override
 	public LatLng home()
+	{
+		return null;
+	}
+	
+	@Override
+	public String defaultSiviso()
 	{
 		return null;
 	}
