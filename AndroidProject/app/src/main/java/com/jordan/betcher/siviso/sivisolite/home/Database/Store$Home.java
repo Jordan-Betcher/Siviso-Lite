@@ -1,8 +1,8 @@
-package com.jordan.betcher.siviso.sivisolite.home;
+package com.jordan.betcher.siviso.sivisolite.home.Database;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public interface Database
+public interface Store$Home
 {
 	void saveLocation(LatLng latLng);
 	

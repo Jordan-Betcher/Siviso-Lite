@@ -1,7 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.sivisolite.home.Database;
+import com.jordan.betcher.siviso.sivisolite.home.Database.Store$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapClick;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapReady;
@@ -9,13 +9,13 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 
 class OnMapReady$OnMapClick$SaveLatLng implements OnMapReady, OnMapClick
 {
-	Database database;
+	Store$Home store$Home;
 	
 	public OnMapReady$OnMapClick$SaveLatLng(
 	MapCreator mapCreator,
-	Database database)
+	Store$Home store$Home)
 	{
-		this.database = database;
+		this.store$Home = store$Home;
 		mapCreator.callWhenReady(this);
 	}
 	
@@ -28,6 +28,6 @@ class OnMapReady$OnMapClick$SaveLatLng implements OnMapReady, OnMapClick
 	@Override
 	public void onMapClick(LatLng latLng)
 	{
-		database.saveLocation(latLng);
+		store$Home.saveLocation(latLng);
 	}
 }

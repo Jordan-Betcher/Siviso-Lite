@@ -1,7 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.sivisolite.home.Database;
+import com.jordan.betcher.siviso.sivisolite.home.Database.Store$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 
@@ -18,11 +18,11 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	{
 		
 		Wrapper$Map map = mock(Wrapper$Map.class);
-		Database database = mock(Database.class);
+		Store$Home store$Home = mock(Store$Home.class);
 		MapCreator mapCreator = mock(MapCreator.class);
 		
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, database);
+		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		
 		verify(mapCreator, times(1)).callWhenReady(saveLatLng);
 	}
@@ -31,10 +31,10 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	public void mapReady__addThis()
 	{
 		Wrapper$Map map = mock(Wrapper$Map.class);
-		Database database = mock(Database.class);
+		Store$Home store$Home = mock(Store$Home.class);
 		MapCreator mapCreator = mock(MapCreator.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, database);
+		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		
 		saveLatLng.mapReady(map);
 		
@@ -44,24 +44,24 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	@Test
 	public void onMapClick_latLng00_SaveLatLng00()
 	{
-		Database database = mock(Database.class);
+		Store$Home store$Home = mock(Store$Home.class);
 		MapCreator mapCreator = mock(MapCreator.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, database);
+		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		LatLng latLng = new LatLng(0, 0);
 		saveLatLng.onMapClick(latLng);
-		verify(database, times(1)).saveLocation(latLng);
+		verify(store$Home, times(1)).saveLocation(latLng);
 	}
 	
 	@Test
 	public void onMapClick_latLng11_SaveLatLng11()
 	{
-		Database database = mock(Database.class);
+		Store$Home store$Home = mock(Store$Home.class);
 		MapCreator mapCreator = mock(MapCreator.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, database);
+		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		LatLng latLng = new LatLng(1, 1);
 		saveLatLng.onMapClick(latLng);
-		verify(database, times(1)).saveLocation(latLng);
+		verify(store$Home, times(1)).saveLocation(latLng);
 	}
 }

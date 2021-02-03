@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.location.LocationManager;
 
 import com.google.android.gms.maps.SupportMapFragment;
-import com.jordan.betcher.siviso.sivisolite.home.Database;
+import com.jordan.betcher.siviso.sivisolite.home.Database.Store$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 
 import org.junit.Test;
@@ -19,10 +19,10 @@ public class Test$Map
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Database database = mock(Database.class);
+		Store$Home store$Home = mock(Store$Home.class);
 		Resources resources = mock(Resources.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
-		Map map = new Map(supportMapFragment, locationManager, database, resources, permission);
+		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);
 		
 		OnMapReady$StartAtCurrentLocation startAtCurrentLocation = map.startAtCurrentLocation;
 		
@@ -34,10 +34,10 @@ public class Test$Map
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Database database = mock(Database.class);
+		Store$Home store$Home = mock(Store$Home.class);
 		Resources resources = mock(Resources.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
-		Map map = new Map(supportMapFragment, locationManager, database, resources, permission);
+		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);
 		
 		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = map.highlightLatLng;
 		
@@ -49,10 +49,10 @@ public class Test$Map
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Database database = mock(Database.class);
+		Store$Home store$Home = mock(Store$Home.class);
 		Resources resources = mock(Resources.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
-		Map map = new Map(supportMapFragment, locationManager, database, resources, permission);
+		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);
 		
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng = map.saveLatLng;
 		

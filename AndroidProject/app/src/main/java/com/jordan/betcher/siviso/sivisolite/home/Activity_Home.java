@@ -4,13 +4,12 @@ import android.content.Context;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
+import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 
 public class Activity_Home extends AppCompatActivity
@@ -25,40 +24,22 @@ public class Activity_Home extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-    
-        mapView = createMapView();
+        
+        Database database = new Database();
+        mapView = createMapView(database);
         offOnView = new OffOnView();
         sivisoListView = new SivisoListView();
     }
     
-    private MapView createMapView()
+    private MapView createMapView(Database database)
     {
         SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.homeMap);
         LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         Button mapLock = findViewById(R.id.mapLock);
         Permission$AccessFineLocation permission$AccessFineLocation = new Permission$AccessFineLocation(this);
-        Database database = new Database(){
-            @Override
-            public void saveLocation(LatLng latLng)
-            {
-                Toast.makeText(Activity_Home.this, "Location Saved",
-                               Toast.LENGTH_SHORT).show();
-            }
-    
-            @Override
-            public boolean hasHome()
-            {
-                return false;
-            }
-    
-            @Override
-            public LatLng home()
-            {
-                
-                return null;
-            }
-        };
-        MapView mapView = new MapView(mapFragment, locationManager, mapLock, permission$AccessFineLocation, database, getResources());
+        
+        MapView mapView = new MapView(mapFragment, locationManager, mapLock, permission$AccessFineLocation,
+                                      database, getResources());
         return mapView;
     }
     
