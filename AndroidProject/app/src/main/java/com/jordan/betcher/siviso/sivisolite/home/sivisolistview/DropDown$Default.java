@@ -5,7 +5,7 @@ import android.widget.Spinner;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Storage$Default;
 import com.jordan.betcher.siviso.sivisolite.home.Siviso;
 
-public class DropDown$Default
+class DropDown$Default
 {
 	public DropDown$Default(
 	Spinner spinner, ArrayAdapter$Siviso adapter,

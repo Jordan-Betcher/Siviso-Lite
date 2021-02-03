@@ -1,5 +1,5 @@
 package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
 
-public class DropDown$Home
+class DropDown$Home
 {
 }

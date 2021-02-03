@@ -5,7 +5,7 @@ import android.widget.ArrayAdapter;
 
 import com.jordan.betcher.siviso.sivisolite.home.Siviso;
 
-public class ArrayAdapter$Siviso extends ArrayAdapter<String>
+class ArrayAdapter$Siviso extends ArrayAdapter<String>
 {
 	public ArrayAdapter$Siviso(Context context, Siviso siviso)
 	{

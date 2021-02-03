@@ -1,15 +1,12 @@
-package com.jordan.betcher.siviso.sivisolite.home;
+package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
 
 import android.content.Context;
 import android.widget.Spinner;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
-import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.ArrayAdapter$Siviso;
-import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.DropDown$Default;
-import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.DropDown$Home;
-import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.OnClick$SaveDefault;
+import com.jordan.betcher.siviso.sivisolite.home.Siviso;
 
-class SivisoListView
+public class SivisoListView
 {
 	DropDown$Default defaultDropDown;
 	DropDown$Home homeDropDown = new DropDown$Home();

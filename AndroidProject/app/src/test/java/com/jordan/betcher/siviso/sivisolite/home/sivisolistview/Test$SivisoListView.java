@@ -1,11 +1,10 @@
-package com.jordan.betcher.siviso.sivisolite.home;
+package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
 
 import android.content.Context;
 import android.widget.Spinner;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
-import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.DropDown$Default;
-import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.DropDown$Home;
+import com.jordan.betcher.siviso.sivisolite.home.Siviso;
 
 import org.junit.Test;
 
