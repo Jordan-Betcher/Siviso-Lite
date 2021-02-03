@@ -21,9 +21,8 @@ public class Test$DropDown
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
 		Store store = mock(Store.class);
 		AdapterView.OnItemSelectedListener onClick = mock(AdapterView.OnItemSelectedListener.class);
-		Siviso siviso = mock(Siviso.class);
 		
-		new DropDown(spinner, adapter, store, onClick, siviso);
+		new DropDown(spinner, adapter, 0, onClick);
 		
 		verify(spinner).setOnItemSelectedListener(onClick);
 	}
@@ -32,17 +31,14 @@ public class Test$DropDown
 	public void _DatabaseWithSilentAndAdapterSilentTo1_setSpinnerSelectionTo1()
 	{
 		int sivisoPosition = 1;
-		String sivisoName = "Silent";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
 		Store store = mock(Store.class);
 		AdapterView.OnItemSelectedListener onClick = mock(AdapterView.OnItemSelectedListener.class);
-		Siviso siviso = mock(Siviso.class);
-		when(store.siviso()).thenReturn(sivisoName);
-		when(siviso.indexOf(sivisoName)).thenReturn(sivisoPosition);
+		when(store.index()).thenReturn(sivisoPosition);
 		
 		
-		new DropDown(spinner, adapter, store, onClick, siviso);
+		new DropDown(spinner, adapter, sivisoPosition, onClick);
 		
 		verify(spinner).setSelection(sivisoPosition);
 	}
@@ -51,17 +47,15 @@ public class Test$DropDown
 	public void _DatabaseWithNoneAndAdapterNoneTo0_setSpinnerSelectionTo0()
 	{
 		int sivisoPosition = 0;
-		String sivisoName = "None";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
 		Store store = mock(Store.class);
 		AdapterView.OnItemSelectedListener onClick = mock(AdapterView.OnItemSelectedListener.class);
 		Siviso siviso = mock(Siviso.class);
-		when(store.siviso()).thenReturn(sivisoName);
-		when(siviso.indexOf(sivisoName)).thenReturn(sivisoPosition);
+		when(store.index()).thenReturn(sivisoPosition);
 		
 		
-		new DropDown(spinner, adapter, store, onClick, siviso);
+		new DropDown(spinner, adapter, sivisoPosition, onClick);
 		
 		verify(spinner).setSelection(sivisoPosition);
 	}
@@ -73,9 +67,8 @@ public class Test$DropDown
 		ArrayAdapter$Siviso adapter = mock(ArrayAdapter$Siviso.class);
 		Store store = mock(Store.class);
 		AdapterView.OnItemSelectedListener onClick = mock(AdapterView.OnItemSelectedListener.class);
-		Siviso siviso = mock(Siviso.class);
 		
-		new DropDown(spinner, adapter, store, onClick, siviso);
+		new DropDown(spinner, adapter, 0, onClick);
 		
 		verify(spinner).setAdapter(adapter);
 	}

@@ -7,27 +7,26 @@ import com.google.android.gms.maps.model.LatLng;
 public class Database
 {
 	private static final String TAG = "Database";
+	private Store$Home homee;
+	private Store$Default defaultt;
 	
-	public Store$Default defaultt()
+	public Database()
 	{
-		return new Store$Default(){
+		this.defaultt = new Store$Default(){
 			@Override
-			public void saveSiviso(int position)
+			public void saveSivisoIndex(int position)
 			{
 				Log.d(TAG, "saveSiviso default: " + position);
 			}
 			
 			@Override
-			public String siviso()
+			public int index()
 			{
-				return null;
+				return 0;
 			}
 		};
-	}
-	
-	public Store$Home homee()
-	{
-		return new Store$Home(){
+		
+		this.homee = new Store$Home(){
 			@Override
 			public void saveLocation(LatLng latLng)
 			{
@@ -41,16 +40,26 @@ public class Database
 			}
 			
 			@Override
-			public void saveSiviso(int position)
+			public void saveSivisoIndex(int position)
 			{
 				Log.d(TAG, "saveSiviso home: " + position);
 			}
 			
 			@Override
-			public String siviso()
+			public int index()
 			{
-				return null;
+				return 0;
 			}
 		};
+	}
+	
+	public Store$Default defaultt()
+	{
+		return defaultt;
+	}
+	
+	public Store$Home homee()
+	{
+		return homee;
 	}
 }

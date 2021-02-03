@@ -4,19 +4,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.jordan.betcher.siviso.sivisolite.home.Database.Store;
-import com.jordan.betcher.siviso.sivisolite.home.Siviso;
-
 class DropDown
 {
 	public DropDown(
 	Spinner spinner, ArrayAdapter adapter,
-	Store store,
-	AdapterView.OnItemSelectedListener onClick,
-	Siviso siviso)
+	int initialSelection,
+	AdapterView.OnItemSelectedListener onClick)
 	{
 		spinner.setAdapter(adapter);
-		spinner.setSelection(siviso.indexOf(store.siviso()));
+		spinner.setSelection(initialSelection);
 		spinner.setOnItemSelectedListener(onClick);
 	}
 }
