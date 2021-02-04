@@ -1,6 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
 
-import com.jordan.betcher.siviso.sivisolite.home.Database.Store$Default;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Default;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class Test$OnClick$Save
 	public void onItemSelected_1_SaveSiviso1()
 	{
 		int sivisoPosition = 1;
-		Store$Default storage$Default = mock(Store$Default.class);
+		StoreSiviso$Default storage$Default = mock(StoreSiviso$Default.class);
 		OnClick$Save onClick = new OnClick$Save(storage$Default);
 		onClick.onItemSelected(null, null, sivisoPosition, 0);
 		
@@ -24,7 +24,7 @@ public class Test$OnClick$Save
 	public void onItemSelected_0_SaveSiviso0()
 	{
 		int sivisoPosition = 0;
-		Store$Default storage$Default = mock(Store$Default.class);
+		StoreSiviso$Default storage$Default = mock(StoreSiviso$Default.class);
 		OnClick$Save onClick = new OnClick$Save(storage$Default);
 		onClick.onItemSelected(null, null, sivisoPosition, 0);
 		

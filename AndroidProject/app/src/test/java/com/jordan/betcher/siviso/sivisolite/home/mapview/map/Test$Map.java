@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.location.LocationManager;
 
 import com.google.android.gms.maps.SupportMapFragment;
-import com.jordan.betcher.siviso.sivisolite.home.Database.Store$Home;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class Test$Map
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Store$Home store$Home = mock(Store$Home.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		Resources resources = mock(Resources.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
 		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);
@@ -34,7 +34,7 @@ public class Test$Map
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Store$Home store$Home = mock(Store$Home.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		Resources resources = mock(Resources.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
 		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);
@@ -49,7 +49,7 @@ public class Test$Map
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Store$Home store$Home = mock(Store$Home.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		Resources resources = mock(Resources.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
 		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);

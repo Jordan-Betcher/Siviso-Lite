@@ -3,21 +3,21 @@ package com.jordan.betcher.siviso.sivisolite.home.sivisolistview;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.jordan.betcher.siviso.sivisolite.home.Database.Store;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso;
 
 class OnClick$Save implements AdapterView.OnItemSelectedListener
 {
-	private Store store;
+	private StoreSiviso storeSiviso;
 	
-	public OnClick$Save(Store store)
+	public OnClick$Save(StoreSiviso storeSiviso)
 	{
-		this.store = store;
+		this.storeSiviso = storeSiviso;
 	}
 	
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
 	{
-		store.saveSivisoIndex(position);
+		storeSiviso.saveSivisoIndex(position);
 	}
 	
 	@Override

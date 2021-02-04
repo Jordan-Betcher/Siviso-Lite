@@ -1,7 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.sivisolite.home.Database.Store$Home;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 
@@ -18,7 +18,7 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	{
 		
 		Wrapper$Map map = mock(Wrapper$Map.class);
-		Store$Home store$Home = mock(Store$Home.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		MapCreator mapCreator = mock(MapCreator.class);
 		
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
@@ -31,7 +31,7 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	public void mapReady__addThis()
 	{
 		Wrapper$Map map = mock(Wrapper$Map.class);
-		Store$Home store$Home = mock(Store$Home.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		MapCreator mapCreator = mock(MapCreator.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
 		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
@@ -44,7 +44,7 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	@Test
 	public void onMapClick_latLng00_SaveLatLng00()
 	{
-		Store$Home store$Home = mock(Store$Home.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		MapCreator mapCreator = mock(MapCreator.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
 		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
@@ -56,7 +56,7 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	@Test
 	public void onMapClick_latLng11_SaveLatLng11()
 	{
-		Store$Home store$Home = mock(Store$Home.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		MapCreator mapCreator = mock(MapCreator.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
 		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);

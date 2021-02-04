@@ -4,8 +4,8 @@ import android.content.Context;
 import android.widget.Spinner;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
-import com.jordan.betcher.siviso.sivisolite.home.Database.Store$Default;
-import com.jordan.betcher.siviso.sivisolite.home.Database.Store$Home;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Default;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.home.Siviso;
 
 import org.junit.Test;
@@ -19,8 +19,8 @@ public class Test$SivisoListView
 	@Test
 	public void __defaultDropDown()
 	{
-		Store$Home store$Home = mock(Store$Home.class);
-		Store$Default store$Default = mock(Store$Default.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
+		StoreSiviso$Default store$Default = mock(StoreSiviso$Default.class);
 		Spinner defaultSpinner = mock(Spinner.class);
 		Spinner homeSpinner = mock(Spinner.class);
 		Context context = mock(Context.class);
@@ -37,8 +37,8 @@ public class Test$SivisoListView
 	
 	@Test public void __homeDropDown()
 	{
-		Store$Home store$Home = mock(Store$Home.class);
-		Store$Default store$Default = mock(Store$Default.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
+		StoreSiviso$Default store$Default = mock(StoreSiviso$Default.class);
 		Spinner defaultSpinner = mock(Spinner.class);
 		Spinner homeSpinner = mock(Spinner.class);
 		Context context = mock(Context.class);
