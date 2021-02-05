@@ -3,6 +3,7 @@ package com.jordan.betcher.siviso.sivisolite.home.Database;
 import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff.StoreBoolean;
 
 public class Database
 {
@@ -61,5 +62,16 @@ public class Database
 	public StoreSiviso$Home homee()
 	{
 		return homee;
+	}
+	
+	public StoreBoolean isOnn()
+	{
+		return new StoreBoolean(){
+			@Override
+			public boolean isOn()
+			{
+				return false;
+			}
+		};
 	}
 }

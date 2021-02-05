@@ -1,16 +1,19 @@
 package com.jordan.betcher.siviso.sivisolite.home;
 
+import android.widget.Switch;
+
+import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.home.onoffview.lock.Lock$OnOff;
 import com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff.OnOff;
 
 class OnOffView
 {
-	public OnOff onOff;
+	OnOff onOff;
 	Lock$OnOff lock;
 	
-	public OnOffView()
+	public OnOffView(Switch onOffSwitch, Database database)
 	{
+		onOff = new OnOff(onOffSwitch, database.isOnn());
 		lock = new Lock$OnOff();
-		onOff = new OnOff();
 	}
 }

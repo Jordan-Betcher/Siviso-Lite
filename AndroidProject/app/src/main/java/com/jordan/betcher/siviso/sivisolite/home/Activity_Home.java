@@ -5,6 +5,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,8 +30,14 @@ public class Activity_Home extends AppCompatActivity
         
         Database database = new Database();
         mapView = createMapView(database);
-        onOffView = new OnOffView();
+        onOffView = createOnOffView(database);
         sivisoListView = createSivisoListView(database);
+    }
+    
+    private OnOffView createOnOffView(Database database)
+    {
+        Switch onOffSwitch = findViewById(R.id.switchOnOff);
+        return new OnOffView(onOffSwitch, database);
     }
     
     private SivisoListView createSivisoListView(Database database)
