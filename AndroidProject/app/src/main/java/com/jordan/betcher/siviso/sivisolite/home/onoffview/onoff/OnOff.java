@@ -7,6 +7,6 @@ public class OnOff
 	public OnOff(Switch onOffSwitch, StoreBoolean isOnOff)
 	{
 		onOffSwitch.setChecked(isOnOff.isOn());
-		onOffSwitch.setOnCheckedChangeListener(new OnCheck$PowerService());
+		onOffSwitch.setOnCheckedChangeListener(new OnCheck$PowerService(new Service$Siviso()));
 	}
 }

@@ -20,7 +20,7 @@ public class Test$OnOff
 		
 		new OnOff(onOffSwitch, mock(StoreBoolean.class));
 		
-		OnCheck$PowerService onCheck = new OnCheck$PowerService();
+		OnCheck$PowerService onCheck = new OnCheck$PowerService(new Service$Siviso());
 		verify(onOffSwitch).setOnCheckedChangeListener(argThat(new Same$PowerService(onCheck)));
 	}
 	
