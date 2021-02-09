@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home;
 
+import android.content.Context;
 import android.widget.Switch;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
@@ -11,9 +12,9 @@ class OnOffView
 	OnOff onOff;
 	Lock$OnOff lock;
 	
-	public OnOffView(Switch onOffSwitch, Database database)
+	public OnOffView(Context context, Switch onOffSwitch, Database database)
 	{
-		onOff = new OnOff(onOffSwitch, database.isOnn());
+		onOff = new OnOff(context, onOffSwitch, database.isOnn());
 		lock = new Lock$OnOff();
 	}
 }

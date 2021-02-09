@@ -3,7 +3,7 @@ package com.jordan.betcher.siviso.sivisolite.home.Database;
 import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff.StoreBoolean;
+import com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff.StoreBoolean$ServiceRunning;
 
 public class Database
 {
@@ -64,14 +64,8 @@ public class Database
 		return homee;
 	}
 	
-	public StoreBoolean isOnn()
+	public StoreBoolean$ServiceRunning isOnn()
 	{
-		return new StoreBoolean(){
-			@Override
-			public boolean isOn()
-			{
-				return false;
-			}
-		};
+		return new StoreBoolean$ServiceRunning();
 	}
 }

@@ -4,9 +4,9 @@ import android.widget.CompoundButton;
 
 class OnCheck$PowerService implements CompoundButton.OnCheckedChangeListener
 {
-	private Service$Siviso service;
+	private ServiceSiviso service;
 	
-	public OnCheck$PowerService(Service$Siviso service)
+	public OnCheck$PowerService(ServiceSiviso service)
 	{
 		this.service = service;
 	}

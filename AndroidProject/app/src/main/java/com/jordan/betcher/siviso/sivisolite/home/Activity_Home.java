@@ -37,7 +37,7 @@ public class Activity_Home extends AppCompatActivity
     private OnOffView createOnOffView(Database database)
     {
         Switch onOffSwitch = findViewById(R.id.switchOnOff);
-        return new OnOffView(onOffSwitch, database);
+        return new OnOffView(this, onOffSwitch, database);
     }
     
     private SivisoListView createSivisoListView(Database database)

@@ -13,7 +13,7 @@ public class Test$OnCheck$PowerService
 	@Test
 	public void onCheckedChanged_false_startNotCalled()
 	{
-		Service$Siviso service = mock(Service$Siviso.class);
+		ServiceSiviso service = mock(ServiceSiviso.class);
 		OnCheck$PowerService powerService = new OnCheck$PowerService(service);
 		
 		powerService.onCheckedChanged(mock(CompoundButton.class), false);
@@ -24,7 +24,7 @@ public class Test$OnCheck$PowerService
 	@Test
 	public void onCheckedChanged_true_stopNotCalled()
 	{
-		Service$Siviso service = mock(Service$Siviso.class);
+		ServiceSiviso service = mock(ServiceSiviso.class);
 		OnCheck$PowerService powerService = new OnCheck$PowerService(service);
 		
 		powerService.onCheckedChanged(mock(CompoundButton.class), true);
@@ -35,7 +35,7 @@ public class Test$OnCheck$PowerService
 	@Test
 	public void onCheckedChanged_false_serviceStop()
 	{
-		Service$Siviso service = mock(Service$Siviso.class);
+		ServiceSiviso service = mock(ServiceSiviso.class);
 		OnCheck$PowerService powerService = new OnCheck$PowerService(service);
 		
 		powerService.onCheckedChanged(mock(CompoundButton.class), false);
@@ -46,7 +46,7 @@ public class Test$OnCheck$PowerService
 	@Test
 	public void onCheckedChanged_true_serviceStart()
 	{
-		Service$Siviso service = mock(Service$Siviso.class);
+		ServiceSiviso service = mock(ServiceSiviso.class);
 		OnCheck$PowerService powerService = new OnCheck$PowerService(service);
 		
 		powerService.onCheckedChanged(mock(CompoundButton.class), true);

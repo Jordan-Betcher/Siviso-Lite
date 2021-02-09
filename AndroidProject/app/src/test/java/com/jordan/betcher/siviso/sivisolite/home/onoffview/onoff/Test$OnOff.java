@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
 
+import android.content.Context;
 import android.widget.Switch;
 
 import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
@@ -17,10 +18,13 @@ public class Test$OnOff
 	public void __setOnCheckedChangeListenerToOnCheckPowerService()
 	{
 		Switch onOffSwitch = mock(Switch.class);
+		Context context = mock(Context.class);
 		
-		new OnOff(onOffSwitch, mock(StoreBoolean.class));
+		new OnOff(context, onOffSwitch, mock(StoreBoolean$ServiceRunning.class));
 		
-		OnCheck$PowerService onCheck = new OnCheck$PowerService(new Service$Siviso());
+		OnCheck$PowerService onCheck = new OnCheck$PowerService(new ServiceSiviso(context,
+		                                                                          mock(StoreBoolean$ServiceRunning.class),
+		                                                                          mock(Intent$Service$Siviso.class)));
 		verify(onOffSwitch).setOnCheckedChangeListener(argThat(new Same$PowerService(onCheck)));
 	}
 	
@@ -45,11 +49,11 @@ public class Test$OnOff
 	@Test
 	public void _ServiceOnFalse_setCheckedFalse()
 	{
-		StoreBoolean isOn = mock(StoreBoolean.class);
+		StoreBoolean$ServiceRunning isOn = mock(StoreBoolean$ServiceRunning.class);
 		Switch onOffSwitch = mock(Switch.class);
-		when(isOn.isOn()).thenReturn(false);
+		when(isOn.isTrue()).thenReturn(false);
 		
-		new OnOff(onOffSwitch, isOn);
+		new OnOff(mock(Context.class), onOffSwitch, isOn);
 		
 		verify(onOffSwitch).setChecked(false);
 	}
@@ -57,11 +61,11 @@ public class Test$OnOff
 	@Test
 	public void _ServiceOnTrue_setCheckedTrue()
 	{
-		StoreBoolean isOn = mock(StoreBoolean.class);
+		StoreBoolean$ServiceRunning isOn = mock(StoreBoolean$ServiceRunning.class);
 		Switch onOffSwitch = mock(Switch.class);
-		when(isOn.isOn()).thenReturn(true);
+		when(isOn.isTrue()).thenReturn(true);
 		
-		new OnOff(onOffSwitch, isOn);
+		new OnOff(mock(Context.class), onOffSwitch, isOn);
 		
 		verify(onOffSwitch).setChecked(true);
 	}
