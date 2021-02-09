@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Switch;
 
 import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreBoolean$ServiceRunning;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
+package com.jordan.betcher.siviso.sivisolite.home.Database;
 
 public interface StoreBoolean
 {

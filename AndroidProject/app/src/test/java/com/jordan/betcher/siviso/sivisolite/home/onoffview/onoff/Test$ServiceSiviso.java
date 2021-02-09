@@ -2,6 +2,8 @@ package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
 
 import android.content.Context;
 
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreBoolean$ServiceRunning;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

@@ -6,7 +6,7 @@ import android.widget.Switch;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.home.onoffview.lock.Lock$OnOff;
 import com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff.OnOff;
-import com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff.StoreBoolean$ServiceRunning;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreBoolean$ServiceRunning;
 
 import org.junit.Test;
 

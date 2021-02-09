@@ -3,7 +3,6 @@ package com.jordan.betcher.siviso.sivisolite.home.Database;
 import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff.StoreBoolean$ServiceRunning;
 
 public class Database
 {
