@@ -37,13 +37,15 @@ public class Test$Service_Siviso
 	@Test
 	public void onStartCommand__openNotification()
 	{
+		Wrapper$Notification$Siviso notification = mock(Wrapper$Notification$Siviso.class);
 		SivisoNotificationChannel notificationChannel = mock(SivisoNotificationChannel.class);
 		
 		Service_Siviso service = createServiceLikeSystemWould();
 		service.notificationChannel = notificationChannel;
+		service.notification = notification;
 		service.onStartCommand(null, 0,0);
 		
-		verify(notificationChannel).openChannel(service);
+		verify(notificationChannel).startForeground(notification);
 	}
 	
 	@Test
