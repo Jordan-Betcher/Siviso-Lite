@@ -11,11 +11,24 @@ import static org.mockito.Mockito.verify;
 public class Test$Service_Siviso
 {
 	@Test
+	public void onCreate__callCreateSingleSivisoNotificationChannel()
+	{
+		NotificationChannelSiviso notificationChannel = mock(NotificationChannelSiviso.class);
+		
+		Service_Siviso service = new Service_Siviso();
+		service.notificationChannel = notificationChannel;
+		service.onCreate();
+		
+		verify(notificationChannel).createSingleSivisoNotifactionChannel();
+	}
+	
+	@Test
 	public void onDestroy__callLocationListenerSivisoStop()
 	{
 		LocationListenerSiviso locationListener = mock(LocationListenerSiviso.class);
 		
-		Service_Siviso service = createServiceLikeSystemWould();
+		Service_Siviso service = new Service_Siviso();
+		service.onCreate();
 		service.locationListener = locationListener;
 		service.onDestroy();
 		
@@ -27,7 +40,8 @@ public class Test$Service_Siviso
 	{
 		LocationListenerSiviso locationListener = mock(LocationListenerSiviso.class);
 		
-		Service_Siviso service = createServiceLikeSystemWould();
+		Service_Siviso service = new Service_Siviso();
+		service.onCreate();
 		service.locationListener = locationListener;
 		service.onStartCommand(null, 0,0);
 		
@@ -35,32 +49,25 @@ public class Test$Service_Siviso
 	}
 	
 	@Test
-	public void onStartCommand__openNotification()
+	public void onStartCommand__startForeground()
 	{
-		Wrapper$Notification$Siviso notification = mock(Wrapper$Notification$Siviso.class);
-		SivisoNotificationChannel notificationChannel = mock(SivisoNotificationChannel.class);
+		NotificationChannelSiviso notificationChannel = mock(NotificationChannelSiviso.class);
 		
-		Service_Siviso service = createServiceLikeSystemWould();
+		Service_Siviso service = new Service_Siviso();
+		service.onCreate();
 		service.notificationChannel = notificationChannel;
-		service.notification = notification;
 		service.onStartCommand(null, 0,0);
 		
-		verify(notificationChannel).startForeground(notification);
+		verify(notificationChannel).startForeground();
 	}
 	
 	@Test
 	public void onStartCommand__StartSticky()
 	{
-		Service_Siviso service = createServiceLikeSystemWould();
+		Service_Siviso service = new Service_Siviso();
+		service.onCreate();
 		int actual = service.onStartCommand(null, 0, 0);
 		
 		assertEquals(actual, Service.START_STICKY);
-	}
-	
-	private Service_Siviso createServiceLikeSystemWould()
-	{
-		Service_Siviso service = new Service_Siviso();
-		service.onCreate();
-		return service;
 	}
 }

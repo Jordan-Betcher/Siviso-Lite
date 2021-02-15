@@ -8,26 +8,19 @@ import androidx.annotation.Nullable;
 
 public class Service_Siviso extends Service
 {
-	Wrapper$Notification$Siviso notification;
-	LocationListenerSiviso locationListener;
-	SivisoNotificationChannel notificationChannel;
+	LocationListenerSiviso locationListener = new LocationListenerSiviso();
+	NotificationChannelSiviso notificationChannel = new NotificationChannelSiviso(this);
 	
 	@Override
 	public void onCreate()
 	{
-		locationListener = new LocationListenerSiviso();
-		
-		Wrapper$NotificationManager$Siviso manager = new Wrapper$NotificationManager$Siviso();
-		Wrapper$NotificationChannel$Siviso channel = new Wrapper$NotificationChannel$Siviso();
-		notificationChannel = new SivisoNotificationChannel(manager, channel);
-		
-		notification = new Wrapper$Notification$Siviso();
+		notificationChannel.createSingleSivisoNotifactionChannel();
 	}
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
-		notificationChannel.startForeground(notification);
+		notificationChannel.startForeground();
 		locationListener.create();
 		return Service.START_STICKY;
 	}

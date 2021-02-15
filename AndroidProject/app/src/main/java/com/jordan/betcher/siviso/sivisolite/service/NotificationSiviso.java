@@ -1,9 +1,8 @@
 package com.jordan.betcher.siviso.sivisolite.service;
 
-class Wrapper$NotificationChannel$Siviso
+class NotificationSiviso
 {
-	
-	public void create()
+	public void startForeground()
 	{
 	}
 }
