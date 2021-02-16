@@ -20,7 +20,7 @@ public class Test$SingleSivisoNotifactionChannel
 		NotificationChannel notificationChannel = mock(NotificationChannel.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
 		when(factory$NotificationChannel.create()).thenReturn(notificationChannel);
-		when(factory$NotificationChannel.getId()).thenReturn(channelID);
+		when(factory$NotificationChannel.id()).thenReturn(channelID);
 		when(notificationManager.getNotificationChannel(channelID)).thenReturn(notificationChannel);
 		
 		new SingleSivisoNotifactionChannel(notificationManager, factory$NotificationChannel);

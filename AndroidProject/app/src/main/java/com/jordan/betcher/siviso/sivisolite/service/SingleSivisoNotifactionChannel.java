@@ -12,7 +12,7 @@ class SingleSivisoNotifactionChannel
 	public SingleSivisoNotifactionChannel(NotificationManager notificationManager, Factory$NotificationChannel$Siviso factory)
 	{
 		NotificationChannel notificationChannel = factory.create();
-		String channelId = factory.getId();
+		String channelId = factory.id();
 		if(notificationManager.getNotificationChannel(channelId) == null)
 		{
 			notificationManager.createNotificationChannel(notificationChannel);
