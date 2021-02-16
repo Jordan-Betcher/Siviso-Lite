@@ -2,6 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.service;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
 
 import org.junit.Test;
@@ -50,6 +51,7 @@ public class Test$NotificationChannelSiviso
 		Context context = mock(Context.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
 		when(context.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(context.getResources()).thenReturn(mock(Resources.class));
 		
 		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(context);
 		notificationChannelSiviso.SDK = SDK;
@@ -82,6 +84,7 @@ public class Test$NotificationChannelSiviso
 		Context context = mock(Context.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
 		when(context.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(context.getResources()).thenReturn(mock(Resources.class));
 		
 		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(context);
 		notificationChannelSiviso.SDK = SDK;
