@@ -1,7 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.service;
 
 import android.app.NotificationManager;
-import android.content.Context;
+import android.app.Service;
 import android.content.res.Resources;
 import android.os.Build;
 
@@ -18,11 +18,11 @@ public class Test$NotificationChannelSiviso
 	@Test
 	public void __NotifactionSivisoNotNull()
 	{
-		Context context = mock(Context.class);
+		Service service = mock(Service.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
-		when(context.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(service.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
 		
-		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(context);
+		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(service);
 		
 		NotificationSiviso actualNotificationSiviso = notificationChannelSiviso.notifactionSiviso;
 		assertNotNull(actualNotificationSiviso);
@@ -32,11 +32,11 @@ public class Test$NotificationChannelSiviso
 	public void startForeground__callNotifactionSivisoStartForeground()
 	{
 		NotificationSiviso notifactionSiviso = mock(NotificationSiviso.class);
-		Context context = mock(Context.class);
+		Service service = mock(Service.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
-		when(context.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(service.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
 		
-		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(context);
+		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(service);
 		notificationChannelSiviso.notifactionSiviso = notifactionSiviso;
 		notificationChannelSiviso.startForeground();
 		
@@ -48,12 +48,12 @@ public class Test$NotificationChannelSiviso
 	public void createNotifactionChannel_SDKOPlus1_createNotifactionChannelNotNull()
 	{
 		int SDK = Build.VERSION_CODES.O + 1;
-		Context context = mock(Context.class);
+		Service service = mock(Service.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
-		when(context.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
-		when(context.getResources()).thenReturn(mock(Resources.class));
+		when(service.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(service.getResources()).thenReturn(mock(Resources.class));
 		
-		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(context);
+		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(service);
 		notificationChannelSiviso.SDK = SDK;
 		notificationChannelSiviso.createSingleSivisoNotifactionChannel();
 		
@@ -65,11 +65,11 @@ public class Test$NotificationChannelSiviso
 	public void createNotifactionChannel_SDKOMinus1_createNotifactionChannelIsNull()
 	{
 		int SDK = Build.VERSION_CODES.O - 1;
-		Context context = mock(Context.class);
+		Service service = mock(Service.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
-		when(context.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(service.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
 		
-		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(context);
+		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(service);
 		notificationChannelSiviso.SDK = SDK;
 		notificationChannelSiviso.createSingleSivisoNotifactionChannel();
 		
@@ -81,12 +81,12 @@ public class Test$NotificationChannelSiviso
 	public void createNotifactionChannel_SDKO_createNotifactionChannelNotNull()
 	{
 		int SDK = Build.VERSION_CODES.O;
-		Context context = mock(Context.class);
+		Service service = mock(Service.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
-		when(context.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
-		when(context.getResources()).thenReturn(mock(Resources.class));
+		when(service.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(service.getResources()).thenReturn(mock(Resources.class));
 		
-		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(context);
+		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(service);
 		notificationChannelSiviso.SDK = SDK;
 		notificationChannelSiviso.createSingleSivisoNotifactionChannel();
 		
