@@ -19,7 +19,8 @@ class NotificationChannelSiviso
 		this.service = service;
 		Resources resources = service.getResources();
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(service, "");
-		Factory$PendingIntent factory$PendingIntent = new Factory$PendingIntent();
+		Intent$Activity$Home intent$Activity$Home = new Intent$Activity$Home();
+		Factory$PendingIntent factory$PendingIntent = new Factory$PendingIntent(service, intent$Activity$Home);
 		Factory$Notification factory = new Factory$Notification(resources, builder, factory$PendingIntent);
 		notifactionSiviso = new NotificationSiviso(service, factory);
 	}
