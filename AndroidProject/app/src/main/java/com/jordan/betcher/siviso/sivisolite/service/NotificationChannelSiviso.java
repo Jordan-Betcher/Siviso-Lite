@@ -5,6 +5,8 @@ import android.app.Service;
 import android.content.res.Resources;
 import android.os.Build;
 
+import androidx.core.app.NotificationCompat;
+
 class NotificationChannelSiviso
 {
 	SingleSivisoNotifactionChannel singleSivisoNotifactionChannel;
@@ -15,7 +17,11 @@ class NotificationChannelSiviso
 	public NotificationChannelSiviso(Service service)
 	{
 		this.service = service;
-		notifactionSiviso = new NotificationSiviso(service, new Factory$Notification());
+		Resources resources = service.getResources();
+		NotificationCompat.Builder builder = new NotificationCompat.Builder(service, "");
+		Factory$PendingIntent factory$PendingIntent = new Factory$PendingIntent();
+		Factory$Notification factory = new Factory$Notification(resources, builder, factory$PendingIntent);
+		notifactionSiviso = new NotificationSiviso(service, factory);
 	}
 	
 	public void createSingleSivisoNotifactionChannel()

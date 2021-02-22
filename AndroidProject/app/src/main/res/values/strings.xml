@@ -1,4 +1,6 @@
 <resources>
     <string name="channel_id">1</string>
     <string name="channel_name">Siviso Lite Channel</string>
+    <string name="notification_create_content_title">Content Title</string>
+    <string name="notification_create_content_text">Content Text</string>
 </resources>

@@ -21,6 +21,7 @@ public class Test$NotificationChannelSiviso
 		Service service = mock(Service.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
 		when(service.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(service.getResources()).thenReturn(mock(Resources.class));
 		
 		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(service);
 		
@@ -35,6 +36,7 @@ public class Test$NotificationChannelSiviso
 		Service service = mock(Service.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
 		when(service.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(service.getResources()).thenReturn(mock(Resources.class));
 		
 		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(service);
 		notificationChannelSiviso.notifactionSiviso = notifactionSiviso;
@@ -68,6 +70,7 @@ public class Test$NotificationChannelSiviso
 		Service service = mock(Service.class);
 		NotificationManager notificationManager = mock(NotificationManager.class);
 		when(service.getSystemService(NotificationManager.class)).thenReturn(notificationManager);
+		when(service.getResources()).thenReturn(mock(Resources.class));
 		
 		NotificationChannelSiviso notificationChannelSiviso = new NotificationChannelSiviso(service);
 		notificationChannelSiviso.SDK = SDK;
