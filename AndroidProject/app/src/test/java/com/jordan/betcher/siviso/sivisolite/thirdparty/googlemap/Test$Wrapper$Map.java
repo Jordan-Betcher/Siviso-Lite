@@ -42,7 +42,8 @@ public class Test$Wrapper$Map
 		
 		map.goToLocation(latLng, zoom);
 		
-		verify(fakeGoogleMap, times(1)).moveCamera(cameraUpdate);
+		PowerMockito.verifyStatic(times(1));
+		fakeGoogleMap.moveCamera(cameraUpdate);
 	}
 	
 	@Test
@@ -57,8 +58,9 @@ public class Test$Wrapper$Map
 		PowerMockito.when(CameraUpdateFactory.newLatLngZoom(latLng, zoom)).thenReturn(cameraUpdate);
 		
 		map.goToLocation(latLng, zoom);
-		
-		verify(fakeGoogleMap, times(1)).moveCamera(cameraUpdate);
+
+		PowerMockito.verifyStatic(times(1));
+		fakeGoogleMap.moveCamera(cameraUpdate);
 	}
 	
 	@Test
@@ -73,8 +75,9 @@ public class Test$Wrapper$Map
 		when(CameraUpdateFactory.newLatLngZoom(latLng, zoom)).thenReturn(cameraUpdate);
 		
 		wrapper$map.goToLocation(latLng, zoom);
-		
-		verify(googleMap, times(1)).moveCamera(cameraUpdate);
+
+		PowerMockito.verifyStatic(times(1));
+		googleMap.moveCamera(cameraUpdate);
 	}
 	
 	@Test
@@ -102,7 +105,8 @@ public class Test$Wrapper$Map
 		
 		OnMapClickListener$MultipleOnMapClick listener = wrapper$map.multipleOnMapClick;
 		
-		verify(googleMap, times(1)).setOnMapClickListener(listener);
+		PowerMockito.verifyStatic(times(1));
+		googleMap.setOnMapClickListener(listener);
 	}
 	
 	@Test
@@ -121,7 +125,7 @@ public class Test$Wrapper$Map
 	{
 		GoogleMap googleMap = PowerMockito.mock(GoogleMap.class);
 		Wrapper$Map wrapper$map = new Wrapper$Map(googleMap);
-		OnMapClick onMapClick = mock(OnMapClick.class);
+		OnMapClick onMapClick = PowerMockito.mock(OnMapClick.class);
 		OnMapClickListener$MultipleOnMapClick listener = mock(OnMapClickListener$MultipleOnMapClick.class);
 		
 		wrapper$map.multipleOnMapClick = listener;

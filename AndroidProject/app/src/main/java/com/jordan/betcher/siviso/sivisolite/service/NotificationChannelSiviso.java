@@ -7,7 +7,7 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
-class NotificationChannelSiviso
+public class NotificationChannelSiviso
 {
 	SingleSivisoNotifactionChannel singleSivisoNotifactionChannel;
 	NotificationSiviso notifactionSiviso;

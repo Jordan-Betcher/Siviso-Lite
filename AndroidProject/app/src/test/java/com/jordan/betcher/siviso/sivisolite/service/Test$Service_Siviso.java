@@ -1,14 +1,25 @@
 package com.jordan.betcher.siviso.sivisolite.service;
 
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.res.Resources;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+@RunWith(PowerMockRunner.class)
+@Config(manifest = Config.NONE)
+@PrepareForTest({PendingIntent.class})
 public class Test$Service_Siviso
 {
 	Resources resources = mock(Resources.class);
@@ -17,6 +28,10 @@ public class Test$Service_Siviso
 	public void onCreate__callCreateSingleSivisoNotificationChannel()
 	{
 		NotificationChannelSiviso notificationChannel = mock(NotificationChannelSiviso.class);
+		
+		PowerMockito.mockStatic(PendingIntent.class);
+		PowerMockito.when(PendingIntent.getActivity(isA(Service_Siviso.class), anyInt(), isA(Intent$Activity$Home.class), anyInt()))
+		            .thenReturn(PowerMockito.mock(PendingIntent.class));
 		
 		Service_Siviso service = createService();
 		service.notificationChannel = notificationChannel;
@@ -29,6 +44,10 @@ public class Test$Service_Siviso
 	public void onDestroy__callLocationListenerSivisoStop()
 	{
 		LocationListenerSiviso locationListener = mock(LocationListenerSiviso.class);
+		
+		PowerMockito.mockStatic(PendingIntent.class);
+		PowerMockito.when(PendingIntent.getActivity(isA(Service_Siviso.class), anyInt(), isA(Intent$Activity$Home.class), anyInt()))
+		            .thenReturn(PowerMockito.mock(PendingIntent.class));
 		
 		Service_Siviso service = createService();
 		service.onCreate();
@@ -44,6 +63,10 @@ public class Test$Service_Siviso
 		LocationListenerSiviso locationListener = mock(LocationListenerSiviso.class);
 		NotificationChannelSiviso notificationChannel = mock(NotificationChannelSiviso.class);
 		
+		PowerMockito.mockStatic(PendingIntent.class);
+		PowerMockito.when(PendingIntent.getActivity(isA(Service_Siviso.class), anyInt(), isA(Intent$Activity$Home.class), anyInt()))
+		            .thenReturn(PowerMockito.mock(PendingIntent.class));
+		
 		Service_Siviso service = createService();
 		service.onCreate();
 		service.locationListener = locationListener;
@@ -58,6 +81,10 @@ public class Test$Service_Siviso
 	{
 		NotificationChannelSiviso notificationChannel = mock(NotificationChannelSiviso.class);
 		
+		PowerMockito.mockStatic(PendingIntent.class);
+		PowerMockito.when(PendingIntent.getActivity(isA(Service_Siviso.class), anyInt(), isA(Intent$Activity$Home.class), anyInt()))
+		            .thenReturn(PowerMockito.mock(PendingIntent.class));
+		
 		Service_Siviso service = createService();
 		service.onCreate();
 		service.notificationChannel = notificationChannel;
@@ -70,6 +97,11 @@ public class Test$Service_Siviso
 	public void onStartCommand__StartSticky()
 	{
 		NotificationChannelSiviso notificationChannel = mock(NotificationChannelSiviso.class);
+		
+		PowerMockito.mockStatic(PendingIntent.class);
+		PowerMockito.when(PendingIntent.getActivity(isA(Service_Siviso.class), anyInt(), isA(Intent$Activity$Home.class), anyInt()))
+		            .thenReturn(PowerMockito.mock(PendingIntent.class));
+		
 		Service_Siviso service = createService();
 		service.onCreate();
 		service.notificationChannel = notificationChannel;

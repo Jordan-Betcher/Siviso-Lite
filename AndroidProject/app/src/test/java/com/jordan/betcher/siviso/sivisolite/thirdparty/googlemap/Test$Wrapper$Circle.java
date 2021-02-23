@@ -69,14 +69,7 @@ public class Test$Wrapper$Circle
 		Wrapper$Circle wrapper$Circle = new Wrapper$Circle(circle);
 		
 		wrapper$Circle.remove();
-		
-		try
-		{
-			verify(circle, times(1)).remove();
-		}
-		catch(NullPointerException exception)
-		{
-			//Don't know why it gives this exception when circle.remove() is called
-		}
+		PowerMockito.verifyStatic(times(1));
+		circle.remove();
 	}
 }

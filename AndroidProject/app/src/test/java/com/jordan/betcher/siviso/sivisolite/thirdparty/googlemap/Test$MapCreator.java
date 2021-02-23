@@ -24,15 +24,16 @@ public class Test$MapCreator
 	@Test
 	public void MapCreator_Created_CallsMapAsync()
 	{
-		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
+		SupportMapFragment fakeSupportMapFragment = PowerMockito.mock(SupportMapFragment.class);
 		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
-		verify(fakeSupportMapFragment).getMapAsync(mapCreator);
+		PowerMockito.verifyStatic(times(1));
+		fakeSupportMapFragment.getMapAsync(mapCreator);
 	}
 	
 	@Test
 	public void CallWhenReady_BeforeOnMapReadyAddMapCreatedAction_CalledAction()
 	{
-		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
+		SupportMapFragment fakeSupportMapFragment = PowerMockito.mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
 		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
 		OnMapReady fakeOnMapReady = mock(OnMapReady.class);
@@ -46,7 +47,7 @@ public class Test$MapCreator
 	@Test
 	public void CallWhenReady_BeforeOnMapReadyAddMapCreatedAction_CalledActionOnce()
 	{
-		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
+		SupportMapFragment fakeSupportMapFragment = PowerMockito.mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
 		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
 		OnMapReady fakeOnMapReady = mock(OnMapReady.class);
@@ -61,7 +62,7 @@ public class Test$MapCreator
 	@Test
 	public void CallWhenReady_BeforeOnMapReadyAddMultipleMapCreatedAction_CallAllActions()
 	{
-		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
+		SupportMapFragment fakeSupportMapFragment = PowerMockito.mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
 		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
 		OnMapReady fakeOnMapReady1 = mock(OnMapReady.class);
@@ -78,7 +79,7 @@ public class Test$MapCreator
 	@Test
 	public void CallWhenReady_AfterOnMapReadyAddMapCreatedAction_CalledMapCreated()
 	{
-		SupportMapFragment fakeSupportMapFragment = mock(SupportMapFragment.class);
+		SupportMapFragment fakeSupportMapFragment = PowerMockito.mock(SupportMapFragment.class);
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
 		MapCreator mapCreator = new MapCreator(fakeSupportMapFragment);
 		OnMapReady fakeOnMapReady = mock(OnMapReady.class);
