@@ -19,6 +19,7 @@ class Factory$Notification
 		builder.setContentTitle(resources.getString(R.string.notification_create_content_title));
 		builder.setContentText(resources.getString(R.string.notification_create_content_text));
 		builder.setContentIntent(factoryPendingIntent.create());
+		builder.setChannelId("1");
 	}
 	
 	public Notification create()

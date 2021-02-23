@@ -6,17 +6,33 @@ import android.content.res.Resources;
 
 import androidx.core.app.NotificationCompat.Builder;
 
+import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
 import com.jordan.betcher.siviso.sivisolite.R;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class Test$Factory$Notification
 {
+	@Test
+	public void create__setChannelIdNotEmpty()
+	{
+		Factory$PendingIntent factoryPendingIntent = mock(Factory$PendingIntent.class);
+		Resources resources = mock(Resources.class);
+		Builder builder = mock(Builder.class);
+		
+		Factory$Notification factory = new Factory$Notification(resources, builder,
+		                                                        factoryPendingIntent);
+		factory.create();
+		
+		verify(builder).setChannelId(argThat(new StringNotEmpty()));
+	}
+	
 	@Test
 	public void create__setContentIntentIntentSiviso()
 	{
@@ -110,5 +126,19 @@ public class Test$Factory$Notification
 		Notification actualNotification = factory.create();
 		
 		assertEquals(notification, actualNotification);
+	}
+	
+	private class StringNotEmpty extends ArgumentMatcher$Same<String>
+	{
+		public StringNotEmpty()
+		{
+			super("");
+		}
+		
+		@Override
+		protected boolean isSameValues(String other)
+		{
+			return ! other.equals(first);
+		}
 	}
 }

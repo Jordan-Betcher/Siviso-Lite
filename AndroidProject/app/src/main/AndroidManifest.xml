@@ -3,6 +3,7 @@
     package="com.jordan.betcher.siviso.sivisolite">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.Service_Siviso"></service>
+        <service android:name=".service.Service_Siviso" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

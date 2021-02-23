@@ -15,6 +15,6 @@ class NotificationSiviso
 	
 	public void startForeground()
 	{
-		service.startForeground(0, factory.create());
+		service.startForeground(1, factory.create());
 	}
 }
