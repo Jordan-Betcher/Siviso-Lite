@@ -5,4 +5,6 @@
     <integer name="current_location_min_time_interval">60</integer>
     <integer name="current_location_min_distance">10</integer>
     <integer name="channel_importance">3</integer>
+    <integer name="location_listener_min_milliseconds">60000</integer>
+    <integer name="location_listener_min_meters">20</integer>
 </resources>
