@@ -2,7 +2,9 @@ package com.jordan.betcher.siviso.sivisolite.service;
 
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.res.Resources;
+import android.location.LocationManager;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,14 +17,16 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @RunWith(PowerMockRunner.class)
 @Config(manifest = Config.NONE)
-@PrepareForTest({PendingIntent.class})
+@PrepareForTest({PendingIntent.class, NotificationChannelSiviso.class, Service_Siviso.class})
 public class Test$Service_Siviso
 {
 	Resources resources = mock(Resources.class);
+	LocationManager locationManager = mock(LocationManager.class);
 	
 	@Test
 	public void onCreate__callCreateSingleSivisoNotificationChannel()
@@ -33,11 +37,19 @@ public class Test$Service_Siviso
 		PowerMockito.when(PendingIntent.getActivity(isA(Service_Siviso.class), anyInt(), isA(Intent$Activity$Home.class), anyInt()))
 		            .thenReturn(PowerMockito.mock(PendingIntent.class));
 		
-		Service_Siviso service = createService();
-		service.notificationChannel = notificationChannel;
-		service.onCreate();
 		
-		verify(notificationChannel).createSingleSivisoNotifactionChannel();
+		Service_Siviso service = new Service_Siviso_Test();
+		try
+		{
+			PowerMockito.whenNew(NotificationChannelSiviso.class).withArguments(service).thenReturn(notificationChannel);
+			service.onCreate();
+			
+			verify(notificationChannel, times(1)).createSingleSivisoNotifactionChannel();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
@@ -122,6 +134,16 @@ public class Test$Service_Siviso
 		public Resources getResources()
 		{
 			return resources;
+		}
+		
+		@Override
+		public Object getSystemService(String name)
+		{
+			if(name.equals(Context.LOCATION_SERVICE))
+			{
+				return locationManager;
+			}
+			return super.getSystemService(name);
 		}
 	}
 }
