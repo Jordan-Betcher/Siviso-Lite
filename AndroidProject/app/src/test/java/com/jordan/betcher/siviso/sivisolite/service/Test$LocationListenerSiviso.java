@@ -2,6 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.service;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.location.Criteria;
 import android.location.LocationManager;
 
 import com.jordan.betcher.siviso.sivisolite.R;
@@ -31,8 +32,10 @@ public class Test$LocationListenerSiviso
 		Resources resources = mock(Resources.class);
 		LocationListener$Siviso listener = mock(LocationListener$Siviso.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Criteria$Siviso critera = mock(Criteria$Siviso.class);
-		when(locationManager.getBestProvider(critera, true)).thenReturn(provider);
+		Criteria criteria = mock(Criteria.class);
+		Factory$Criteria$Siviso factory = mock(Factory$Criteria$Siviso.class);
+		when(factory.create()).thenReturn(criteria);
+		when(locationManager.getBestProvider(criteria, true)).thenReturn(provider);
 		Service_Siviso serviceSiviso = mock(Service_Siviso.class);
 		when(serviceSiviso.getSystemService(Context.LOCATION_SERVICE)).thenReturn(locationManager);
 		when(serviceSiviso.getResources()).thenReturn(resources);
@@ -60,9 +63,9 @@ public class Test$LocationListenerSiviso
 		when(resources.getInteger(R.integer.location_listener_min_meters)).thenReturn(minMeters);
 		
 		LocationListenerSiviso locationListenerSiviso = new LocationListenerSiviso(serviceSiviso);
-		Criteria$Siviso criteria = locationListenerSiviso.criteria;
+		Factory$Criteria$Siviso factoryCriteria = locationListenerSiviso.factoryCriteria;
 		
-		assertNotNull(criteria);
+		assertNotNull(factoryCriteria);
 	}
 	
 	@Test
@@ -94,8 +97,10 @@ public class Test$LocationListenerSiviso
 		Resources resources = mock(Resources.class);
 		LocationListener$Siviso listener = mock(LocationListener$Siviso.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Criteria$Siviso critera = mock(Criteria$Siviso.class);
-		when(locationManager.getBestProvider(critera, true)).thenReturn(provider);
+		Criteria criteria = mock(Criteria.class);
+		Factory$Criteria$Siviso factory = mock(Factory$Criteria$Siviso.class);
+		when(factory.create()).thenReturn(criteria);
+		when(locationManager.getBestProvider(criteria, true)).thenReturn(provider);
 		Service_Siviso serviceSiviso = mock(Service_Siviso.class);
 		when(serviceSiviso.getSystemService(Context.LOCATION_SERVICE)).thenReturn(locationManager);
 		when(serviceSiviso.getResources()).thenReturn(resources);
@@ -104,7 +109,7 @@ public class Test$LocationListenerSiviso
 		
 		LocationListenerSiviso locationListenerSiviso = new LocationListenerSiviso(serviceSiviso);
 		locationListenerSiviso.listener = listener;
-		locationListenerSiviso.criteria = critera;
+		locationListenerSiviso.factoryCriteria = factory;
 		locationListenerSiviso.create();
 		
 		verify(locationManager, times(1)).requestLocationUpdates(anyString(), anyLong(), anyFloat(), eq(listener));
@@ -119,8 +124,10 @@ public class Test$LocationListenerSiviso
 		Resources resources = mock(Resources.class);
 		LocationListener$Siviso listener = mock(LocationListener$Siviso.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Criteria$Siviso critera = mock(Criteria$Siviso.class);
-		when(locationManager.getBestProvider(critera, true)).thenReturn(provider);
+		Criteria criteria = mock(Criteria.class);
+		Factory$Criteria$Siviso factory = mock(Factory$Criteria$Siviso.class);
+		when(factory.create()).thenReturn(criteria);
+		when(locationManager.getBestProvider(criteria, true)).thenReturn(provider);
 		Service_Siviso serviceSiviso = mock(Service_Siviso.class);
 		when(serviceSiviso.getSystemService(Context.LOCATION_SERVICE)).thenReturn(locationManager);
 		when(serviceSiviso.getResources()).thenReturn(resources);
@@ -129,7 +136,7 @@ public class Test$LocationListenerSiviso
 		
 		LocationListenerSiviso locationListenerSiviso = new LocationListenerSiviso(serviceSiviso);
 		locationListenerSiviso.listener = listener;
-		locationListenerSiviso.criteria = critera;
+		locationListenerSiviso.factoryCriteria = factory;
 		locationListenerSiviso.create();
 		
 		verify(locationManager, times(1)).requestLocationUpdates(anyString(), anyLong(), eq((float)minMeters), any(LocationListener$Siviso.class));
@@ -144,8 +151,10 @@ public class Test$LocationListenerSiviso
 		Resources resources = mock(Resources.class);
 		LocationListener$Siviso listener = mock(LocationListener$Siviso.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Criteria$Siviso critera = mock(Criteria$Siviso.class);
-		when(locationManager.getBestProvider(critera, true)).thenReturn(provider);
+		Criteria criteria = mock(Criteria.class);
+		Factory$Criteria$Siviso factory = mock(Factory$Criteria$Siviso.class);
+		when(factory.create()).thenReturn(criteria);
+		when(locationManager.getBestProvider(criteria, true)).thenReturn(provider);
 		Service_Siviso serviceSiviso = mock(Service_Siviso.class);
 		when(serviceSiviso.getSystemService(Context.LOCATION_SERVICE)).thenReturn(locationManager);
 		when(serviceSiviso.getResources()).thenReturn(resources);
@@ -154,7 +163,7 @@ public class Test$LocationListenerSiviso
 		
 		LocationListenerSiviso locationListenerSiviso = new LocationListenerSiviso(serviceSiviso);
 		locationListenerSiviso.listener = listener;
-		locationListenerSiviso.criteria = critera;
+		locationListenerSiviso.factoryCriteria = factory;
 		locationListenerSiviso.create();
 		
 		verify(locationManager, times(1)).requestLocationUpdates(anyString(), anyLong(), eq((float)minMeters), any(LocationListener$Siviso.class));
@@ -169,8 +178,10 @@ public class Test$LocationListenerSiviso
 		Resources resources = mock(Resources.class);
 		LocationListener$Siviso listener = mock(LocationListener$Siviso.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Criteria$Siviso critera = mock(Criteria$Siviso.class);
-		when(locationManager.getBestProvider(critera, true)).thenReturn(provider);
+		Criteria criteria = mock(Criteria.class);
+		Factory$Criteria$Siviso factory = mock(Factory$Criteria$Siviso.class);
+		when(factory.create()).thenReturn(criteria);
+		when(locationManager.getBestProvider(criteria, true)).thenReturn(provider);
 		Service_Siviso serviceSiviso = mock(Service_Siviso.class);
 		when(serviceSiviso.getSystemService(Context.LOCATION_SERVICE)).thenReturn(locationManager);
 		when(serviceSiviso.getResources()).thenReturn(resources);
@@ -179,7 +190,7 @@ public class Test$LocationListenerSiviso
 		
 		LocationListenerSiviso locationListenerSiviso = new LocationListenerSiviso(serviceSiviso);
 		locationListenerSiviso.listener = listener;
-		locationListenerSiviso.criteria = critera;
+		locationListenerSiviso.factoryCriteria = factory;
 		locationListenerSiviso.create();
 		
 		verify(locationManager, times(1)).requestLocationUpdates(anyString(), eq((long)minMilliseconds), anyFloat(), any(LocationListener$Siviso.class));
@@ -194,8 +205,10 @@ public class Test$LocationListenerSiviso
 		Resources resources = mock(Resources.class);
 		LocationListener$Siviso listener = mock(LocationListener$Siviso.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Criteria$Siviso critera = mock(Criteria$Siviso.class);
-		when(locationManager.getBestProvider(critera, true)).thenReturn(provider);
+		Criteria criteria = mock(Criteria.class);
+		Factory$Criteria$Siviso factory = mock(Factory$Criteria$Siviso.class);
+		when(factory.create()).thenReturn(criteria);
+		when(locationManager.getBestProvider(criteria, true)).thenReturn(provider);
 		Service_Siviso serviceSiviso = mock(Service_Siviso.class);
 		when(serviceSiviso.getSystemService(Context.LOCATION_SERVICE)).thenReturn(locationManager);
 		when(serviceSiviso.getResources()).thenReturn(resources);
@@ -204,7 +217,7 @@ public class Test$LocationListenerSiviso
 		
 		LocationListenerSiviso locationListenerSiviso = new LocationListenerSiviso(serviceSiviso);
 		locationListenerSiviso.listener = listener;
-		locationListenerSiviso.criteria = critera;
+		locationListenerSiviso.factoryCriteria = factory;
 		locationListenerSiviso.create();
 		
 		verify(locationManager, times(1)).requestLocationUpdates(anyString(), eq((long)minMilliseconds), anyFloat(), any(LocationListener$Siviso.class));
@@ -219,8 +232,10 @@ public class Test$LocationListenerSiviso
 		Resources resources = mock(Resources.class);
 		LocationListener$Siviso listener = mock(LocationListener$Siviso.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Criteria$Siviso critera = mock(Criteria$Siviso.class);
-		when(locationManager.getBestProvider(critera, true)).thenReturn(provider);
+		Criteria criteria = mock(Criteria.class);
+		Factory$Criteria$Siviso factory = mock(Factory$Criteria$Siviso.class);
+		when(factory.create()).thenReturn(criteria);
+		when(locationManager.getBestProvider(criteria, true)).thenReturn(provider);
 		Service_Siviso serviceSiviso = mock(Service_Siviso.class);
 		when(serviceSiviso.getSystemService(Context.LOCATION_SERVICE)).thenReturn(locationManager);
 		when(serviceSiviso.getResources()).thenReturn(resources);
@@ -229,7 +244,7 @@ public class Test$LocationListenerSiviso
 		
 		LocationListenerSiviso locationListenerSiviso = new LocationListenerSiviso(serviceSiviso);
 		locationListenerSiviso.listener = listener;
-		locationListenerSiviso.criteria = critera;
+		locationListenerSiviso.factoryCriteria = factory;
 		locationListenerSiviso.create();
 		
 		verify(locationManager, times(1)).requestLocationUpdates(eq(provider), anyLong(), anyFloat(), any(LocationListener$Siviso.class));
@@ -244,8 +259,10 @@ public class Test$LocationListenerSiviso
 		Resources resources = mock(Resources.class);
 		LocationListener$Siviso listener = mock(LocationListener$Siviso.class);
 		LocationManager locationManager = mock(LocationManager.class);
-		Criteria$Siviso critera = mock(Criteria$Siviso.class);
-		when(locationManager.getBestProvider(critera, true)).thenReturn(provider);
+		Criteria criteria = mock(Criteria.class);
+		Factory$Criteria$Siviso factory = mock(Factory$Criteria$Siviso.class);
+		when(factory.create()).thenReturn(criteria);
+		when(locationManager.getBestProvider(criteria, true)).thenReturn(provider);
 		Service_Siviso serviceSiviso = mock(Service_Siviso.class);
 		when(serviceSiviso.getSystemService(Context.LOCATION_SERVICE)).thenReturn(locationManager);
 		when(serviceSiviso.getResources()).thenReturn(resources);
@@ -254,7 +271,7 @@ public class Test$LocationListenerSiviso
 		
 		LocationListenerSiviso locationListenerSiviso = new LocationListenerSiviso(serviceSiviso);
 		locationListenerSiviso.listener = listener;
-		locationListenerSiviso.criteria = critera;
+		locationListenerSiviso.factoryCriteria = factory;
 		locationListenerSiviso.create();
 		
 		verify(locationManager, times(1)).requestLocationUpdates(eq(provider), anyLong(), anyFloat(), any(LocationListener$Siviso.class));
