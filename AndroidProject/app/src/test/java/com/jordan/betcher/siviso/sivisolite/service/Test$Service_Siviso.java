@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.res.Resources;
+import android.location.Criteria;
 import android.location.LocationManager;
 
 import org.junit.Test;
@@ -22,7 +23,7 @@ import static org.mockito.Mockito.verify;
 
 @RunWith(PowerMockRunner.class)
 @Config(manifest = Config.NONE)
-@PrepareForTest({PendingIntent.class, NotificationChannelSiviso.class, Service_Siviso.class})
+@PrepareForTest({PendingIntent.class, NotificationChannelSiviso.class, Service_Siviso.class, Criteria.class, Factory$Criteria$Siviso.class})
 public class Test$Service_Siviso
 {
 	Resources resources = mock(Resources.class);
@@ -96,6 +97,14 @@ public class Test$Service_Siviso
 		PowerMockito.mockStatic(PendingIntent.class);
 		PowerMockito.when(PendingIntent.getActivity(isA(Service_Siviso.class), anyInt(), isA(Intent$Activity$Home.class), anyInt()))
 		            .thenReturn(PowerMockito.mock(PendingIntent.class));
+		try
+		{
+			PowerMockito.whenNew(Criteria.class).withNoArguments().thenReturn(new Criteria_Test());
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 		Service_Siviso service = createService();
 		service.onCreate();
@@ -113,6 +122,15 @@ public class Test$Service_Siviso
 		PowerMockito.mockStatic(PendingIntent.class);
 		PowerMockito.when(PendingIntent.getActivity(isA(Service_Siviso.class), anyInt(), isA(Intent$Activity$Home.class), anyInt()))
 		            .thenReturn(PowerMockito.mock(PendingIntent.class));
+		
+		try
+		{
+			PowerMockito.whenNew(Criteria.class).withNoArguments().thenReturn(new Criteria_Test());
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 		Service_Siviso service = createService();
 		service.onCreate();
@@ -145,5 +163,32 @@ public class Test$Service_Siviso
 			}
 			return super.getSystemService(name);
 		}
+	}
+	
+	private class Criteria_Test extends Criteria
+	{
+		@Override
+		public void setPowerRequirement(int level)
+		{
+		
+		}
+		
+		@Override
+		public void setAccuracy(int accuracy)
+		{
+		
+		}
+		
+		@Override
+		public void setBearingRequired(boolean bearingRequired)
+		{
+		
+		}
+		
+		@Override
+		public void setAltitudeRequired(boolean altitudeRequired){}
+		
+		@Override
+		public void setSpeedRequired(boolean speedRequired){}
 	}
 }
