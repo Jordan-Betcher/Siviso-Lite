@@ -14,13 +14,13 @@ public class Database
 	{
 		this.defaultt = new StoreSiviso$Default(){
 			@Override
-			public void saveSivisoIndex(int position)
+			public void saveSiviso(int siviso)
 			{
-				Log.d(TAG, "saveSiviso default: " + position);
+				Log.d(TAG, "saveSiviso default: " + siviso);
 			}
 			
 			@Override
-			public int index()
+			public int siviso()
 			{
 				return 0;
 			}
@@ -40,13 +40,13 @@ public class Database
 			}
 			
 			@Override
-			public void saveSivisoIndex(int position)
+			public void saveSiviso(int siviso)
 			{
-				Log.d(TAG, "saveSiviso home: " + position);
+				Log.d(TAG, "saveSiviso home: " + siviso);
 			}
 			
 			@Override
-			public int index()
+			public int siviso()
 			{
 				return 0;
 			}

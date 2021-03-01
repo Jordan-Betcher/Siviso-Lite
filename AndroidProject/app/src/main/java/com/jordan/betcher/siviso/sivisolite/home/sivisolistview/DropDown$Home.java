@@ -11,6 +11,6 @@ class DropDown$Home extends DropDown
 	StoreSiviso$Home store,
 	OnClick$Save onClick)
 	{
-		super(spinner, adapter, store.index(), onClick);
+		super(spinner, adapter, store.siviso(), onClick);
 	}
 }

@@ -17,7 +17,7 @@ public class Test$OnClick$Save
 		OnClick$Save onClick = new OnClick$Save(storage$Default);
 		onClick.onItemSelected(null, null, sivisoPosition, 0);
 		
-		verify(storage$Default).saveSivisoIndex(sivisoPosition);
+		verify(storage$Default).saveSiviso(sivisoPosition);
 	}
 	
 	@Test
@@ -28,6 +28,6 @@ public class Test$OnClick$Save
 		OnClick$Save onClick = new OnClick$Save(storage$Default);
 		onClick.onItemSelected(null, null, sivisoPosition, 0);
 		
-		verify(storage$Default).saveSivisoIndex(sivisoPosition);
+		verify(storage$Default).saveSiviso(sivisoPosition);
 	}
 }

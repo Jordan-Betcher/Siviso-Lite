@@ -17,7 +17,7 @@ class OnClick$Save implements AdapterView.OnItemSelectedListener
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
 	{
-		storeSiviso.saveSivisoIndex(position);
+		storeSiviso.saveSiviso(position);
 	}
 	
 	@Override
