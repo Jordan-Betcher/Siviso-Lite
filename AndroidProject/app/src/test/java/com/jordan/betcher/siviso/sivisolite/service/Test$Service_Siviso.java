@@ -23,7 +23,7 @@ import static org.mockito.Mockito.verify;
 
 @RunWith(PowerMockRunner.class)
 @Config(manifest = Config.NONE)
-@PrepareForTest({PendingIntent.class, NotificationChannelSiviso.class, Service_Siviso.class, Criteria.class, Factory$Criteria$Siviso.class})
+@PrepareForTest({PendingIntent.class, NotificationChannelSiviso.class, Service_Siviso.class, Criteria.class})
 public class Test$Service_Siviso
 {
 	Resources resources = mock(Resources.class);
@@ -56,7 +56,7 @@ public class Test$Service_Siviso
 	@Test
 	public void onDestroy__callLocationListenerSivisoStop()
 	{
-		LocationListenerSiviso locationListener = mock(LocationListenerSiviso.class);
+		FusedLocationClientSiviso locationListener = mock(FusedLocationClientSiviso.class);
 		
 		PowerMockito.mockStatic(PendingIntent.class);
 		PowerMockito.when(PendingIntent.getActivity(isA(Service_Siviso.class), anyInt(), isA(Intent$Activity$Home.class), anyInt()))
@@ -67,13 +67,13 @@ public class Test$Service_Siviso
 		service.locationListener = locationListener;
 		service.onDestroy();
 		
-		verify(locationListener).destroy();
+		verify(locationListener).stop();
 	}
 	
 	@Test
 	public void onStartCommand__callLocationListenerSivisoStart()
 	{
-		LocationListenerSiviso locationListener = mock(LocationListenerSiviso.class);
+		FusedLocationClientSiviso locationListener = mock(FusedLocationClientSiviso.class);
 		NotificationChannelSiviso notificationChannel = mock(NotificationChannelSiviso.class);
 		
 		PowerMockito.mockStatic(PendingIntent.class);
@@ -86,7 +86,7 @@ public class Test$Service_Siviso
 		service.notificationChannel = notificationChannel;
 		service.onStartCommand(null, 0,0);
 		
-		verify(locationListener).create();
+		verify(locationListener).start();
 	}
 	
 	@Test

@@ -8,13 +8,13 @@ import androidx.annotation.Nullable;
 
 public class Service_Siviso extends Service
 {
-	LocationListenerSiviso locationListener;
+	FusedLocationClientSiviso locationListener;
 	NotificationChannelSiviso notificationChannel;
 	
 	@Override
 	public void onCreate()
 	{
-		locationListener = new LocationListenerSiviso(this);
+		locationListener = new FusedLocationClientSiviso(this);
 		notificationChannel = new NotificationChannelSiviso(this);
 		notificationChannel.createSingleSivisoNotifactionChannel();
 	}
@@ -23,14 +23,14 @@ public class Service_Siviso extends Service
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
 		notificationChannel.startForeground();
-		locationListener.create();
+		locationListener.start();
 		return Service.START_STICKY;
 	}
 	
 	@Override
 	public void onDestroy()
 	{
-		locationListener.destroy();
+		locationListener.stop();
 	}
 	
 	@Nullable
