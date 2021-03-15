@@ -1,12 +1,19 @@
 package com.jordan.betcher.siviso.sivisolite.service;
 
+import android.content.Context;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+
 class FusedLocationClientSiviso
 {
-	FusedLocationClient$Siviso client;
+	FusedLocationProviderClient$Siviso client;
 	
-	public FusedLocationClientSiviso(Service_Siviso serviceSiviso)
+	public FusedLocationClientSiviso(Context context)
 	{
-		client = new FusedLocationClient$Siviso();
+		Factory$LocationRequest factory$LocationRequest = new Factory$LocationRequest();
+		FusedLocationProviderClient fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
+		client = new FusedLocationProviderClient$Siviso(fusedLocationProviderClient, factory$LocationRequest);
 	}
 	
 	public void start()
