@@ -51,14 +51,14 @@ public class Test$FusedLocationClientSiviso
 	{
 		FusedLocationClientSiviso handler = new FusedLocationClientSiviso(context);
 		
-		FusedLocationProviderClient$Siviso client = handler.client;
+		LocationClient$Siviso client = handler.client;
 		assertNotNull(client);
 	}
 	
 	@Test
 	public void start__LocationCallbackStart()
 	{
-		FusedLocationProviderClient$Siviso client = mock(FusedLocationProviderClient$Siviso.class);
+		LocationClient$Siviso client = mock(LocationClient$Siviso.class);
 		
 		FusedLocationClientSiviso handler = new FusedLocationClientSiviso(context);
 		handler.client = client;
@@ -70,7 +70,7 @@ public class Test$FusedLocationClientSiviso
 	@Test
 	public void stop__LocationCallbackStop()
 	{
-		FusedLocationProviderClient$Siviso client = mock(FusedLocationProviderClient$Siviso.class);
+		LocationClient$Siviso client = mock(LocationClient$Siviso.class);
 		
 		FusedLocationClientSiviso handler = new FusedLocationClientSiviso(context);
 		handler.client = client;
