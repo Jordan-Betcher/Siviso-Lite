@@ -7,4 +7,6 @@
     <integer name="channel_importance">3</integer>
     <integer name="location_listener_min_milliseconds">60000</integer>
     <integer name="location_listener_min_meters">20</integer>
+    <integer name="location_request_interval_milliseconds">60000</integer>
+    <integer name="location_request_smallest_displacement_meters">10</integer>
 </resources>
