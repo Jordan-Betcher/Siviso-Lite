@@ -16,7 +16,10 @@ class FusedLocationClientSiviso
 		Resources resources = context.getResources();
 		Factory$LocationRequest factory$LocationRequest = new Factory$LocationRequest(resources);
 		FusedLocationProviderClient fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
-		LocationCallback callback = new LocationCallback$Siviso();
+		
+		LocationChecker locationChecker = new LocationChecker();
+		RingmodeControl ringmodeControl = new RingmodeControl();
+		LocationCallback callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
 		client = new LocationClient$Siviso(fusedLocationProviderClient, factory$LocationRequest,
 		                                   callback);
 	}
