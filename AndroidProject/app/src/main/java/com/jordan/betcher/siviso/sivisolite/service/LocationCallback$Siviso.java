@@ -20,7 +20,7 @@ class LocationCallback$Siviso extends LocationCallback
 	public void onLocationResult(
 	@NonNull LocationResult locationResult)
 	{
-		if(locationChecker.isInHome(locationResult))
+		if(locationChecker.isInHome(locationResult.getLastLocation()))
 		{
 			ringmodeControl.home();
 		}

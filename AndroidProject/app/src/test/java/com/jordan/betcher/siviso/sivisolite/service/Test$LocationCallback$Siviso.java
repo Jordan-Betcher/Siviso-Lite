@@ -15,15 +15,17 @@ import static org.mockito.Mockito.when;
 
 public class Test$LocationCallback$Siviso
 {
-	
 	@Test
 	public void onLocationResult_LocationNotInHome_0CallSetRingtoneHome()
 	{
 		boolean locationInHome = false;
 		LocationChecker locationChecker = mock(LocationChecker.class);
 		RingmodeControl ringmodeControl = mock(RingmodeControl.class);
-		LocationResult locationResult = LocationResult.create(new ArrayList<Location>());
-		when(locationChecker.isInHome(locationResult)).thenReturn(locationInHome);
+		Location location = mock(Location.class);
+		ArrayList<Location> locations = new ArrayList();
+		locations.add(location);
+		LocationResult locationResult = LocationResult.create(locations);
+		when(locationChecker.isInHome(location)).thenReturn(locationInHome);
 		
 		LocationCallback$Siviso callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
 		callback.onLocationResult(locationResult);
@@ -37,8 +39,11 @@ public class Test$LocationCallback$Siviso
 		boolean locationInHome = true;
 		LocationChecker locationChecker = mock(LocationChecker.class);
 		RingmodeControl ringmodeControl = mock(RingmodeControl.class);
-		LocationResult locationResult = LocationResult.create(new ArrayList<Location>());
-		when(locationChecker.isInHome(locationResult)).thenReturn(locationInHome);
+		Location location = mock(Location.class);
+		ArrayList<Location> locations = new ArrayList();
+		locations.add(location);
+		LocationResult locationResult = LocationResult.create(locations);
+		when(locationChecker.isInHome(location)).thenReturn(locationInHome);
 		
 		LocationCallback$Siviso callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
 		callback.onLocationResult(locationResult);
@@ -52,8 +57,11 @@ public class Test$LocationCallback$Siviso
 		boolean locationInHome = false;
 		LocationChecker locationChecker = mock(LocationChecker.class);
 		RingmodeControl ringmodeControl = mock(RingmodeControl.class);
-		LocationResult locationResult = LocationResult.create(new ArrayList<Location>());
-		when(locationChecker.isInHome(locationResult)).thenReturn(locationInHome);
+		Location location = mock(Location.class);
+		ArrayList<Location> locations = new ArrayList();
+		locations.add(location);
+		LocationResult locationResult = LocationResult.create(locations);
+		when(locationChecker.isInHome(location)).thenReturn(locationInHome);
 		
 		LocationCallback$Siviso callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
 		
@@ -66,8 +74,11 @@ public class Test$LocationCallback$Siviso
 		boolean locationInHome = true;
 		LocationChecker locationChecker = mock(LocationChecker.class);
 		RingmodeControl ringmodeControl = mock(RingmodeControl.class);
-		LocationResult locationResult = LocationResult.create(new ArrayList<Location>());
-		when(locationChecker.isInHome(locationResult)).thenReturn(locationInHome);
+		Location location = mock(Location.class);
+		ArrayList<Location> locations = new ArrayList();
+		locations.add(location);
+		LocationResult locationResult = LocationResult.create(locations);
+		when(locationChecker.isInHome(location)).thenReturn(locationInHome);
 		
 		new LocationCallback$Siviso(locationChecker, ringmodeControl);
 		
@@ -80,14 +91,18 @@ public class Test$LocationCallback$Siviso
 		boolean locationInHome = false;
 		LocationChecker locationChecker = mock(LocationChecker.class);
 		RingmodeControl ringmodeControl = mock(RingmodeControl.class);
-		LocationResult locationResult = LocationResult.create(new ArrayList<Location>());
-		when(locationChecker.isInHome(locationResult)).thenReturn(locationInHome);
+		Location location = mock(Location.class);
+		ArrayList<Location> locations = new ArrayList();
+		locations.add(location);
+		LocationResult locationResult = LocationResult.create(locations);
+		when(locationChecker.isInHome(location)).thenReturn(locationInHome);
 		
 		LocationCallback$Siviso callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
 		callback.onLocationResult(locationResult);
 		
 		verify(ringmodeControl, times(1)).defaultt();
 	}
+	//*/
 	
 	@Test
 	public void onLocationResult_LocationInHome_CallSetRingtoneHome()
@@ -95,8 +110,11 @@ public class Test$LocationCallback$Siviso
 		boolean locationInHome = true;
 		LocationChecker locationChecker = mock(LocationChecker.class);
 		RingmodeControl ringmodeControl = mock(RingmodeControl.class);
-		LocationResult locationResult = LocationResult.create(new ArrayList<Location>());
-		when(locationChecker.isInHome(locationResult)).thenReturn(locationInHome);
+		Location location = mock(Location.class);
+		ArrayList<Location> locations = new ArrayList();
+		locations.add(location);
+		LocationResult locationResult = LocationResult.create(locations);
+		when(locationChecker.isInHome(location)).thenReturn(locationInHome);
 		
 		LocationCallback$Siviso callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
 		callback.onLocationResult(locationResult);

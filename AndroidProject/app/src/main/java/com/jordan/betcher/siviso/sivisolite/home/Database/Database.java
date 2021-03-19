@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home.Database;
 
+import android.location.Location;
 import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -34,7 +35,25 @@ public class Database
 			}
 			
 			@Override
-			public LatLng home()
+			public double latitude()
+			{
+				return 0;
+			}
+			
+			@Override
+			public double longitude()
+			{
+				return 0;
+			}
+			
+			@Override
+			public boolean isLocation()
+			{
+				return false;
+			}
+			
+			@Override
+			public Location createHomeLocation(Location location)
 			{
 				return null;
 			}

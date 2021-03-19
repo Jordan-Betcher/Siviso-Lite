@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationServices;
+import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 
 class FusedLocationClientSiviso
 {
@@ -17,7 +19,9 @@ class FusedLocationClientSiviso
 		Factory$LocationRequest factory$LocationRequest = new Factory$LocationRequest(resources);
 		FusedLocationProviderClient fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
 		
-		LocationChecker locationChecker = new LocationChecker();
+		Database database = new Database();
+		StoreSiviso$Home home = database.homee();
+		LocationChecker locationChecker = new LocationChecker(home, resources);
 		RingmodeControl ringmodeControl = new RingmodeControl();
 		LocationCallback callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
 		client = new LocationClient$Siviso(fusedLocationProviderClient, factory$LocationRequest,
