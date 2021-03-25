@@ -39,7 +39,7 @@ public class Activity_Home extends AppCompatActivity
     {
         Switch onOffSwitch = findViewById(R.id.switchOnOff);
         Button onOffLock = findViewById(R.id.onOffLock);
-        Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy();
+        Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(this);
         return new OnOffView(this, onOffSwitch, onOffLock, permission, database);
     }
     

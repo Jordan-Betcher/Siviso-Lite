@@ -28,7 +28,7 @@ public class Lock
 	private void onPermissionGrantedUnlock(Permission permission)
 	{
 		OnPermissionGranted unlock = new OnPermissionGranted$Unlock(lockState);
-		permission.addListener(unlock);
+		permission.addOnPermissionGranted(unlock);
 	}
 	
 	private void onClickLockRequestPermission()

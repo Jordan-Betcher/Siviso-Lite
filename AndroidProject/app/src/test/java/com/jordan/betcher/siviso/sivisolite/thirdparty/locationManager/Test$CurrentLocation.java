@@ -124,7 +124,7 @@ public class Test$CurrentLocation
 		Resources resources = mock(Resources.class);
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission$AccessFineLocation, resources);
 		
-		verify(permission$AccessFineLocation, times(1)).addListener(currentLocation);
+		verify(permission$AccessFineLocation, times(1)).addOnPermissionGranted(currentLocation);
 	}
 	
 	@Test

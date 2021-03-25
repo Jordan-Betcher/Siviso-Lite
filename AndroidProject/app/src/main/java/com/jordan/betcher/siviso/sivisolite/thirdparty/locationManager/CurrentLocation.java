@@ -30,7 +30,7 @@ public class CurrentLocation implements OnPermissionGranted
 	Resources resources)
 	{
 		this.locationManager = locationManager;
-		permission$AccessFineLocation.addListener(this);
+		permission$AccessFineLocation.addOnPermissionGranted(this);
 		mapMinInterval = resources.getInteger(R.integer.current_location_min_time_interval);
 		mapMinDistanceToUpdate = resources.getInteger(R.integer.current_location_min_distance);
 	}

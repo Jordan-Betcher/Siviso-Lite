@@ -1,29 +1,12 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.permissions;
 
-public class Permission$AccessNotificationPolicy implements Permission
+import android.Manifest;
+import android.app.Activity;
+
+public class Permission$AccessNotificationPolicy extends Permission
 {
-	@Override
-	public void request()
+	public Permission$AccessNotificationPolicy(Activity activity)
 	{
-	
-	}
-	
-	@Override
-	public boolean isGranted()
-	{
-		return false;
-	}
-	
-	@Override
-	public void grant()
-	{
-	
-	}
-	
-	@Override
-	public void addListener(
-	OnPermissionGranted listener)
-	{
-	
+		super(activity, Manifest.permission.ACCESS_NOTIFICATION_POLICY);
 	}
 }

@@ -1,12 +1,53 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.permissions;
 
-public interface Permission
+
+import android.app.Activity;
+import android.content.pm.PackageManager;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import java.util.ArrayList;
+
+public class Permission
 {
-	void request();
+	private final Activity activity;
+	private String permissionName;
+	private ArrayList<OnPermissionGranted> onPermissionGranteds = new ArrayList<>();
 	
-	boolean isGranted();
+	public Permission(Activity activity, String permissionName)
+	{
+		this.activity = activity;
+		this.permissionName = permissionName;
+	}
 	
-	void grant();
+	public void request()
+	{
+		ActivityCompat
+		.requestPermissions(activity, new String[]{permissionName}, 0);
+	}
 	
-	void addListener(OnPermissionGranted listener);
+	public boolean isGranted()
+	{
+		int permissionCode = ContextCompat.checkSelfPermission(activity, permissionName);
+		return permissionCode == PackageManager.PERMISSION_GRANTED;
+	}
+	
+	public void grant()
+	{
+		if(isGranted())
+		{
+			for(OnPermissionGranted onPermissionGranted : onPermissionGranteds)
+			{
+				onPermissionGranted.permissionGranted();
+			}
+			onPermissionGranteds.clear();
+		}
+	}
+	
+	public void addOnPermissionGranted(OnPermissionGranted onPermissionGranted)
+	{
+		this.onPermissionGranteds.add(onPermissionGranted);
+		grant();
+	}
 }

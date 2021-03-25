@@ -113,7 +113,7 @@ public class Test$Lock
 		Lock lock = new Lock(view, viewLock, permissionNotGranted);
 		
 		OnPermissionGranted$Unlock listener = new OnPermissionGranted$Unlock(lock.lockState);
-		verify(permissionNotGranted).addListener(argThat(new ArgumentMatcher$Listener$PermissionGranted$Unlock(listener)));
+		verify(permissionNotGranted).addOnPermissionGranted(argThat(new ArgumentMatcher$Listener$PermissionGranted$Unlock(listener)));
 	}
 	
 	private class ArgumentMatcher$Listener$PermissionGranted$Unlock
