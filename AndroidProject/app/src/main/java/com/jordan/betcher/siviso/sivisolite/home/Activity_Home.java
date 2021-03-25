@@ -14,6 +14,7 @@ import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.SivisoListView;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessNotificationPolicy;
 
 public class Activity_Home extends AppCompatActivity
 {
@@ -37,7 +38,9 @@ public class Activity_Home extends AppCompatActivity
     private OnOffView createOnOffView(Database database)
     {
         Switch onOffSwitch = findViewById(R.id.switchOnOff);
-        return new OnOffView(this, onOffSwitch, database);
+        Button onOffLock = findViewById(R.id.onOffLock);
+        Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy();
+        return new OnOffView(this, onOffSwitch, onOffLock, permission, database);
     }
     
     private SivisoListView createSivisoListView(Database database)
