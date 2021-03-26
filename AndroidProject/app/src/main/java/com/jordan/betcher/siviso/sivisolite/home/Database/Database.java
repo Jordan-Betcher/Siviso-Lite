@@ -2,6 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.home.Database;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 
 public class Database
 {
@@ -13,8 +14,10 @@ public class Database
 	public Database(Context context)
 	{
 		SharedPreferences sharedPreferences = context.getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE);
+		Resources resources = context.getResources();
+		
 		homee = new Preferences$Home();
-		defaultt = new Preferences$Default();
+		defaultt = new Preferences$Default(sharedPreferences, resources);
 		serviceRunning = new Preferences$ServiceRunning(sharedPreferences);
 	}
 	
