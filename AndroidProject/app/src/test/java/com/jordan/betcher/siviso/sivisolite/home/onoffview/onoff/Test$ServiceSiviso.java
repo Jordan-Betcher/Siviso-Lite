@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
 
 import android.content.Context;
 
-import com.jordan.betcher.siviso.sivisolite.home.Database.StoreBoolean$ServiceRunning;
+import com.jordan.betcher.siviso.sivisolite.home.Database.Preferences$ServiceRunning;
 
 import org.junit.Test;
 
@@ -30,7 +30,7 @@ public class Test$ServiceSiviso
 	{
 		Context context = mock(Context.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		
 		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
 		
@@ -42,7 +42,7 @@ public class Test$ServiceSiviso
 	{
 		Context context = mock(Context.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		
 		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
 		service.stop();
@@ -55,7 +55,7 @@ public class Test$ServiceSiviso
 	{
 		Context context = mock(Context.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		when(serviceRunning.isTrue()).thenReturn(true);
 		
 		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
@@ -69,7 +69,7 @@ public class Test$ServiceSiviso
 	{
 		Context context = mock(Context.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		
 		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
 		
@@ -81,7 +81,7 @@ public class Test$ServiceSiviso
 	{
 		Context context = mock(Context.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		when(serviceRunning.isTrue()).thenReturn(false);
 		
 		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
@@ -94,7 +94,7 @@ public class Test$ServiceSiviso
 	public void __noCallSetFalse()
 	{
 		Context context = mock(Context.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
 		
 		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
@@ -106,7 +106,7 @@ public class Test$ServiceSiviso
 	public void stop__CallSetFalse()
 	{
 		Context context = mock(Context.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
 		
 		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
@@ -119,7 +119,7 @@ public class Test$ServiceSiviso
 	public void _serviceRunningFalse_noCallSetTrue()
 	{
 		Context context = mock(Context.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
 		when(serviceRunning.isTrue()).thenReturn(false);
 		
@@ -132,7 +132,7 @@ public class Test$ServiceSiviso
 	public void start_serviceRunningTrue_noCallSetTrue()
 	{
 		Context context = mock(Context.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
 		when(serviceRunning.isTrue()).thenReturn(true);
 		
@@ -146,7 +146,7 @@ public class Test$ServiceSiviso
 	public void start_serviceRunningFalse_CallSetTrue()
 	{
 		Context context = mock(Context.class);
-		StoreBoolean$ServiceRunning serviceRunning = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
 		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
 		when(serviceRunning.isTrue()).thenReturn(false);
 		

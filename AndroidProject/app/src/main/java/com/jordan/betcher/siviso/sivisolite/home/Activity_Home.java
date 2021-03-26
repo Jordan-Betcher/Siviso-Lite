@@ -29,7 +29,7 @@ public class Activity_Home extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         
-        Database database = new Database();
+        Database database = new Database(this);
         mapView = createMapView(database);
         onOffView = createOnOffView(database);
         sivisoListView = createSivisoListView(database);

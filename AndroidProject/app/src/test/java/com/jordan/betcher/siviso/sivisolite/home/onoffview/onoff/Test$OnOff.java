@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.Switch;
 
 import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
-import com.jordan.betcher.siviso.sivisolite.home.Database.StoreBoolean$ServiceRunning;
+import com.jordan.betcher.siviso.sivisolite.home.Database.Preferences$ServiceRunning;
 
 import org.junit.Test;
 
@@ -21,10 +21,11 @@ public class Test$OnOff
 		Switch onOffSwitch = mock(Switch.class);
 		Context context = mock(Context.class);
 		
-		new OnOff(context, onOffSwitch, mock(StoreBoolean$ServiceRunning.class));
+		new OnOff(context, onOffSwitch, mock(Preferences$ServiceRunning.class));
 		
 		OnCheck$PowerService onCheck = new OnCheck$PowerService(new ServiceSiviso(context,
-		                                                                          mock(StoreBoolean$ServiceRunning.class),
+		                                                                          mock(
+		                                                                          Preferences$ServiceRunning.class),
 		                                                                          mock(Intent$Service$Siviso.class)));
 		verify(onOffSwitch).setOnCheckedChangeListener(argThat(new Same$PowerService(onCheck)));
 	}
@@ -50,7 +51,7 @@ public class Test$OnOff
 	@Test
 	public void _ServiceOnFalse_setCheckedFalse()
 	{
-		StoreBoolean$ServiceRunning isOn = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning isOn = mock(Preferences$ServiceRunning.class);
 		Switch onOffSwitch = mock(Switch.class);
 		when(isOn.isTrue()).thenReturn(false);
 		
@@ -62,7 +63,7 @@ public class Test$OnOff
 	@Test
 	public void _ServiceOnTrue_setCheckedTrue()
 	{
-		StoreBoolean$ServiceRunning isOn = mock(StoreBoolean$ServiceRunning.class);
+		Preferences$ServiceRunning isOn = mock(Preferences$ServiceRunning.class);
 		Switch onOffSwitch = mock(Switch.class);
 		when(isOn.isTrue()).thenReturn(true);
 		

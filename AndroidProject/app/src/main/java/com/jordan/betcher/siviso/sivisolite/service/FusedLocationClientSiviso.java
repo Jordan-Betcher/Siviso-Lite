@@ -23,7 +23,7 @@ class FusedLocationClientSiviso
 		Factory$LocationRequest factory$LocationRequest = new Factory$LocationRequest(resources);
 		FusedLocationProviderClient fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
 		
-		Database database = new Database();
+		Database database = new Database(context);
 		StoreSiviso$Home home = database.homee();
 		LocationChecker locationChecker = new LocationChecker(home, resources);
 		
