@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.sivisolite.home.Database;
 
-import android.location.Location;
-
 import com.google.android.gms.maps.model.LatLng;
 
 public interface StoreSiviso$Home extends StoreSiviso
@@ -10,6 +8,4 @@ public interface StoreSiviso$Home extends StoreSiviso
 	double latitude();
 	double longitude();
 	boolean isLocation();
-	
-	Location createHomeLocation(Location location);
 }

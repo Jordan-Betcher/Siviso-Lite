@@ -9,6 +9,7 @@ import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -43,12 +44,10 @@ public class Test$LocationChecker
 		when(currentLocation.getLongitude()).thenReturn(currentLongitude);
 		
 		boolean isHomeLocation = true;
-		Location homeLocation = mock(Location.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
-		when(home.createHomeLocation(currentLocation)).thenReturn(homeLocation);
 		when(home.isLocation()).thenReturn(isHomeLocation);
 		
-		when(currentLocation.distanceTo(homeLocation)).thenReturn(1f);
+		when(currentLocation.distanceTo(any(Location.class))).thenReturn(1f);
 		
 		int radius = 0;
 		Resources resources = mock(Resources.class);
