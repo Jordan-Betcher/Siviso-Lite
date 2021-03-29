@@ -7,8 +7,6 @@ import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 
 class RingmodeControl
 {
-	
-	
 	private final AudioManager audioManager;
 	private StoreSiviso$Home home;
 	private StoreSiviso$Default defaultt;

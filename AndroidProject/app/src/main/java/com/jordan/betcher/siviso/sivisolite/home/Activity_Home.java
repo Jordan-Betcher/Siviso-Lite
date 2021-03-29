@@ -1,12 +1,14 @@
 package com.jordan.betcher.siviso.sivisolite.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Switch;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.SupportMapFragment;
@@ -22,13 +24,16 @@ public class Activity_Home extends AppCompatActivity
     public MapView mapView;
     public OnOffView onOffView;
     public SivisoListView sivisoListView;
+    Permission$AccessNotificationPolicy permissionNotificationPolicy;
+    Permission$AccessFineLocation permissionFineLocation;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        
+        permissionNotificationPolicy = new Permission$AccessNotificationPolicy(this);
+        permissionFineLocation = new Permission$AccessFineLocation(this);
         Database database = new Database(this);
         mapView = createMapView(database);
         onOffView = createOnOffView(database);
@@ -39,8 +44,7 @@ public class Activity_Home extends AppCompatActivity
     {
         Switch onOffSwitch = findViewById(R.id.switchOnOff);
         Button onOffLock = findViewById(R.id.onOffLock);
-        Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(this);
-        return new OnOffView(this, onOffSwitch, onOffLock, permission, database);
+        return new OnOffView(this, onOffSwitch, onOffLock, permissionNotificationPolicy, database);
     }
     
     private SivisoListView createSivisoListView(Database database)
@@ -56,9 +60,8 @@ public class Activity_Home extends AppCompatActivity
         SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.homeMap);
         LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         Button mapLock = findViewById(R.id.mapLock);
-        Permission$AccessFineLocation permission$AccessFineLocation = new Permission$AccessFineLocation(this);
         
-        MapView mapView = new MapView(mapFragment, locationManager, mapLock, permission$AccessFineLocation,
+        MapView mapView = new MapView(mapFragment, locationManager, mapLock, permissionFineLocation,
                                       database, getResources());
         return mapView;
     }
@@ -67,6 +70,14 @@ public class Activity_Home extends AppCompatActivity
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
     {
+        permissionFineLocation.grant();
+    }
     
+    //Called after permissionNotificationPolicy intent finished
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        permissionNotificationPolicy.grant();
     }
 }
