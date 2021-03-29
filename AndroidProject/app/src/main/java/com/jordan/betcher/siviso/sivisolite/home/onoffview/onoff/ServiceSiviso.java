@@ -2,16 +2,16 @@ package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
 
 import android.content.Context;
 
-import com.jordan.betcher.siviso.sivisolite.home.Database.Preferences$ServiceRunning;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreBoolean;
 
 class ServiceSiviso
 {
 	private Context context;
-	private Preferences$ServiceRunning serviceRunning;
+	private StoreBoolean serviceRunning;
 	private Intent$Service$Siviso intent;
 	
 	public ServiceSiviso(
-	Context context, Preferences$ServiceRunning serviceRunning,
+	Context context, StoreBoolean serviceRunning,
 	Intent$Service$Siviso intent)
 	{
 		this.context = context;

@@ -3,11 +3,11 @@ package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
 import android.content.Context;
 import android.widget.Switch;
 
-import com.jordan.betcher.siviso.sivisolite.home.Database.Preferences$ServiceRunning;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreBoolean;
 
 public class OnOff
 {
-	public OnOff(Context context, Switch onOffSwitch, Preferences$ServiceRunning isOnOff)
+	public OnOff(Context context, Switch onOffSwitch, StoreBoolean isOnOff)
 	{
 		onOffSwitch.setChecked(isOnOff.isTrue());
 		
