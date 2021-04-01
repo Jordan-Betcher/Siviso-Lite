@@ -27,6 +27,8 @@ class LocationChecker
 		if(home.isLocation())
 		{
 			Location homeLocation = new Location(currentLocation);
+			homeLocation.setLatitude(home.latitude());
+			homeLocation.setLongitude(home.longitude());
 			float distance = currentLocation.distanceTo(homeLocation);
 			if(radius >= distance)
 			{
