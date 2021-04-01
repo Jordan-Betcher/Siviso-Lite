@@ -23,5 +23,6 @@ public class Map
 		startAtCurrentLocation = new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation, resources);
 		highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(mapCreator, resources);
 		saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		new OnMapReady$EnableCurrentLocation(mapCreator);
 	}
 }

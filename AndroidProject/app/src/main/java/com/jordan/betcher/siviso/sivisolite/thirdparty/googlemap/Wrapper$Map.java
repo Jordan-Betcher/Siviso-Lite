@@ -1,5 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap;
 
+import android.annotation.SuppressLint;
+
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -34,6 +36,12 @@ public class Wrapper$Map
 		Circle circle = googleMap.addCircle(circleOptionsCreator.circleOptions());
 		Wrapper$Circle wrapper$Circle = new Wrapper$Circle(circle);
 		return wrapper$Circle;
+	}
+	
+	@SuppressLint("MissingPermission")
+	public void enableCurrentLocationIcon()
+	{
+		googleMap.setMyLocationEnabled(true);
 	}
 }
 

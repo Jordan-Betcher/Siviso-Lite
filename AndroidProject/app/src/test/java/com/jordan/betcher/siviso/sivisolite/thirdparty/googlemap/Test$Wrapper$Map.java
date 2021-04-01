@@ -30,6 +30,17 @@ import static org.mockito.Mockito.when;
 public class Test$Wrapper$Map
 {
 	@Test
+	public void enableCurrentLocation__setEnableCurrentLocationTrue()
+	{
+		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
+		Wrapper$Map map = new Wrapper$Map(fakeGoogleMap);
+		
+		map.enableCurrentLocationIcon();
+		
+		verify(fakeGoogleMap, times(1)).setMyLocationEnabled(true);
+	}
+	
+	@Test
 	public void goToLocation_latLng00Zoom0_moveCameraWithCameraUpdateFromFactoryLatLng00Zoom0()
 	{
 		CameraUpdate cameraUpdate = mock(CameraUpdate.class);
