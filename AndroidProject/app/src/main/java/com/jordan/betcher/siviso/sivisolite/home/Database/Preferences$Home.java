@@ -53,6 +53,12 @@ class Preferences$Home implements StoreSiviso$Home
 	}
 	
 	@Override
+	public LatLng latLng()
+	{
+		return new LatLng(latitude(), longitude());
+	}
+	
+	@Override
 	public void saveSiviso(int siviso)
 	{
 		sharedPreferences.edit().putInt(sivisoKey, siviso).apply();

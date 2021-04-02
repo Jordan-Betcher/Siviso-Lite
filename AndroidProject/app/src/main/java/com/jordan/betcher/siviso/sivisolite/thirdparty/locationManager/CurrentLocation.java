@@ -31,8 +31,8 @@ public class CurrentLocation implements OnPermissionGranted
 	{
 		this.locationManager = locationManager;
 		permission$AccessFineLocation.addOnPermissionGranted(this);
-		mapMinInterval = resources.getInteger(R.integer.current_location_min_time_interval);
-		mapMinDistanceToUpdate = resources.getInteger(R.integer.current_location_min_distance);
+		mapMinInterval = resources.getInteger(R.integer.request_location_min_time_interval_milliseconds);
+		mapMinDistanceToUpdate = resources.getInteger(R.integer.request_location_min_distance_meters);
 	}
 	
 	void setCurrentLocation(Location location)

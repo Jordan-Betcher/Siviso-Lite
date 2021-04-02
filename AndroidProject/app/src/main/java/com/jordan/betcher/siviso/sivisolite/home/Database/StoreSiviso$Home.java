@@ -8,4 +8,6 @@ public interface StoreSiviso$Home extends StoreSiviso
 	double latitude();
 	double longitude();
 	boolean isLocation();
+	
+	LatLng latLng();
 }

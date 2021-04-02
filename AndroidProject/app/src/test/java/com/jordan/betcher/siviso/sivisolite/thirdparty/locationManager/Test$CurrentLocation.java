@@ -31,7 +31,7 @@ public class Test$CurrentLocation
 		LocationManager locationManager = mock(LocationManager.class);
 		Permission$AccessFineLocation permission$AccessFineLocation = mock(Permission$AccessFineLocation.class);
 		Resources resources = mock(Resources.class);
-		when(resources.getInteger(R.integer.current_location_min_distance)).thenReturn(minDistance);
+		when(resources.getInteger(R.integer.request_location_min_distance_meters)).thenReturn(minDistance);
 		
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission$AccessFineLocation, resources);
 		currentLocation.permissionGranted();
@@ -47,7 +47,7 @@ public class Test$CurrentLocation
 		LocationManager locationManager = mock(LocationManager.class);
 		Permission$AccessFineLocation permission$AccessFineLocation = mock(Permission$AccessFineLocation.class);
 		Resources resources = mock(Resources.class);
-		when(resources.getInteger(R.integer.current_location_min_time_interval)).thenReturn(minTimeDistance);
+		when(resources.getInteger(R.integer.request_location_min_time_interval_milliseconds)).thenReturn(minTimeDistance);
 		
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission$AccessFineLocation, resources);
 		currentLocation.permissionGranted();
@@ -63,7 +63,7 @@ public class Test$CurrentLocation
 		LocationManager locationManager = mock(LocationManager.class);
 		Permission$AccessFineLocation permission$AccessFineLocation = mock(Permission$AccessFineLocation.class);
 		Resources resources = mock(Resources.class);
-		when(resources.getInteger(R.integer.current_location_min_time_interval)).thenReturn(minTimeInterval);
+		when(resources.getInteger(R.integer.request_location_min_time_interval_milliseconds)).thenReturn(minTimeInterval);
 		
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission$AccessFineLocation, resources);
 		currentLocation.permissionGranted();
@@ -79,7 +79,7 @@ public class Test$CurrentLocation
 		LocationManager locationManager = mock(LocationManager.class);
 		Permission$AccessFineLocation permission$AccessFineLocation = mock(Permission$AccessFineLocation.class);
 		Resources resources = mock(Resources.class);
-		when(resources.getInteger(R.integer.current_location_min_time_interval)).thenReturn(minTimeInterval);
+		when(resources.getInteger(R.integer.request_location_min_time_interval_milliseconds)).thenReturn(minTimeInterval);
 		
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission$AccessFineLocation, resources);
 		currentLocation.permissionGranted();

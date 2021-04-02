@@ -17,6 +17,86 @@ import static org.mockito.Mockito.when;
 public class Test$Preferences$Home
 {
 	@Test
+	public void latLng_00_latLngLongitude0()
+	{
+		double latitude = 0;
+		double longitude = 0;
+		String stringLatitude = latitude + "";
+		String stringLongitude = longitude + "";
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
+		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
+		
+		LatLng actualLatLng = preferences.latLng();
+		double actualLongitdue = actualLatLng.longitude;
+		assertEquals(longitude, actualLongitdue, 0.0001);
+	}
+	
+	@Test
+	public void latLng_01_latLngLongitude1()
+	{
+		double latitude = 0;
+		double longitude = 1;
+		String stringLatitude = latitude + "";
+		String stringLongitude = longitude + "";
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
+		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
+		
+		LatLng actualLatLng = preferences.latLng();
+		double actualLongitude = actualLatLng.longitude;
+		assertEquals(longitude, actualLongitude, 0.0001);
+	}
+	
+	@Test
+	public void latLng_10_latLngLatitude1()
+	{
+		double latitude = 1;
+		double longitude = 0;
+		String stringLatitude = latitude + "";
+		String stringLongitude = longitude + "";
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
+		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
+		
+		LatLng actualLatLng = preferences.latLng();
+		double actualLatitude = actualLatLng.latitude;
+		assertEquals(latitude, actualLatitude, 0.0001);
+	}
+	
+	@Test
+	public void latLng_00_latLngLatitude0()
+	{
+		double latitude = 0;
+		double longitude = 0;
+		String stringLatitude = latitude + "";
+		String stringLongitude = longitude + "";
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
+		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
+		
+		LatLng actualLatLng = preferences.latLng();
+		double actualLatitude = actualLatLng.latitude;
+		assertEquals(latitude, actualLatitude, 0.0001);
+	}
+	
+	@Test
 	public void siviso_default0_1()
 	{
 		int siviso = 1;
@@ -130,12 +210,12 @@ public class Test$Preferences$Home
 	public void longitude_0_0()
 	{
 		double longitude = 0;
-		String stringLatitude = longitude + "";
+		String stringLongitude = longitude + "";
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
 		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
-		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLatitude);
+		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
 		
 		double actualLongitude = preferences.longitude();
 		assertEquals(longitude, actualLongitude, 0.0001);
@@ -145,12 +225,12 @@ public class Test$Preferences$Home
 	public void longitude_1_1()
 	{
 		double longitude = 1;
-		String stringLatitude = longitude + "";
+		String stringLongitude = longitude + "";
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
 		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
-		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLatitude);
+		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
 		
 		double actualLongitude = preferences.longitude();
 		assertEquals(longitude, actualLongitude, 0.0001);
