@@ -13,7 +13,7 @@ public class Map
 {
 	OnMapReady$StartAtCurrentLocation startAtCurrentLocation;
 	OnMapReady$OnMapClick$SaveLatLng saveLatLng;
-	OnMapReady$OnMapClick$HighlightLatLng highlightLatLng;
+	OnMapReady$SetupHighlight highlightLatLng;
 	
 	public Map(SupportMapFragment supportMapFragment, LocationManager locationManager, StoreSiviso$Home store$Home, Resources resources, Permission$AccessFineLocation permission)
 	{
@@ -21,7 +21,7 @@ public class Map
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission, resources);
 		
 		startAtCurrentLocation = new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation, resources);
-		highlightLatLng = new OnMapReady$OnMapClick$HighlightLatLng(mapCreator, resources);
+		highlightLatLng = new OnMapReady$SetupHighlight(mapCreator, store$Home, resources);
 		saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		new OnMapReady$EnableCurrentLocation(mapCreator);
 	}

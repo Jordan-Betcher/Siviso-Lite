@@ -39,7 +39,7 @@ public class Test$Map
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
 		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);
 		
-		OnMapReady$OnMapClick$HighlightLatLng highlightLatLng = map.highlightLatLng;
+		OnMapReady$SetupHighlight highlightLatLng = map.highlightLatLng;
 		
 		assertNotNull(highlightLatLng);
 	}

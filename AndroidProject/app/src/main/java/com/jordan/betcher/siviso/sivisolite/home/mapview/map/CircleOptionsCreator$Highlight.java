@@ -11,7 +11,7 @@ class CircleOptionsCreator$Highlight implements CircleOptionsCreator
 {
 	private int fillColor;
 	private int radius;
-	public LatLng latLng;
+	LatLng latLng;
 	
 	public CircleOptionsCreator$Highlight(Resources resources, LatLng latLng)
 	{
@@ -29,5 +29,10 @@ class CircleOptionsCreator$Highlight implements CircleOptionsCreator
 		circleOptions.fillColor(fillColor);
 		
 		return circleOptions;
+	}
+	
+	public LatLng latLng()
+	{
+		return latLng;
 	}
 }
