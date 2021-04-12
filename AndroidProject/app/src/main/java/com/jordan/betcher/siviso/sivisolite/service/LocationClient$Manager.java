@@ -14,7 +14,7 @@ class LocationClient$Manager
 	
 	public LocationClient$Manager(
 	FusedLocationProviderClient fusedLocationProviderClient,
-	Factory$LocationRequestPowerSaver locationRequestFactory,
+	Factory$LocationRequest locationRequestFactory,
 	LocationCallback callback)
 	{
 		this.fusedLocationProviderClient = fusedLocationProviderClient;

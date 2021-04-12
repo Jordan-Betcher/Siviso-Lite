@@ -1,6 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.service;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.AudioManager;
 
@@ -20,9 +21,10 @@ class FusedLocationClientSiviso
 	public FusedLocationClientSiviso(Context context)
 	{
 		Resources resources = context.getResources();
-		Factory$LocationRequestPowerSaver factory$LocationRequestPowerSaver = new Factory$LocationRequestPowerSaver(resources);
-		Factory$LocationRequestSingleUpdate factory$LocationRequestSingleUpdate = new Factory$LocationRequestSingleUpdate();
-		FusedLocationProviderClient fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
+		Factory$LocationRequestPowerSaver locationRequestPowerSaver = new Factory$LocationRequestPowerSaver(resources);
+		Factory$LocationRequestSingleUpdate locationRequestSingleUpdate = new Factory$LocationRequestSingleUpdate();
+		FusedLocationProviderClient fusedLocation = LocationServices.getFusedLocationProviderClient(context);
+		SharedPreferences preferences = context.getSharedPreferences(Database.sharedPreferncesName, Context.MODE_PRIVATE);
 		
 		Database database = new Database(context);
 		StoreSiviso$Home home = database.homee();
@@ -32,10 +34,10 @@ class FusedLocationClientSiviso
 		AudioManager audioManager = (AudioManager) context.getSystemService(AUDIO_SERVICE);
 		RingmodeControl ringmodeControl = new RingmodeControl(audioManager, home, defaultt);
 		LocationCallback callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
-		client = new LocationClient$Manager(fusedLocationProviderClient, factory$LocationRequestPowerSaver,
-		                                    callback);
-		//LocationClient$Continual fastUpdate = new LocationClient$FastUpdate();
-		//new OnPreferenceChange$FastUpdate(preferences, fastUpdate);
+		client = new LocationClient$Manager(fusedLocation, locationRequestPowerSaver, callback);
+		LocationClient$Manager singleUpdate = new LocationClient$Manager(fusedLocation, locationRequestSingleUpdate, callback);
+		singleUpdate.start();
+		//new OnPreferenceChange$SingleUpdate(preferences, singleUpdate);
 	}
 	
 	public void start()

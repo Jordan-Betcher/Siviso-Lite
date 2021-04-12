@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.service;
 
 import com.google.android.gms.location.LocationRequest;
 
-class Factory$LocationRequestSingleUpdate
+class Factory$LocationRequestSingleUpdate implements Factory$LocationRequest
 {
 	public LocationRequest create()
 	{

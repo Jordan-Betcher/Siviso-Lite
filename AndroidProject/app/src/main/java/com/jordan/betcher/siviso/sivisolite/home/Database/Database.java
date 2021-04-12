@@ -10,10 +10,11 @@ public class Database
 	private StoreSiviso$Home homee;
 	private StoreSiviso$Default defaultt;
 	private Preferences$ServiceRunning serviceRunning;
+	public static final String sharedPreferncesName = "SharedPreferences";
 	
 	public Database(Context context)
 	{
-		SharedPreferences sharedPreferences = context.getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE);
+		SharedPreferences sharedPreferences = context.getSharedPreferences(sharedPreferncesName, Context.MODE_PRIVATE);
 		Resources resources = context.getResources();
 		
 		homee = new Preferences$Home(sharedPreferences, resources);

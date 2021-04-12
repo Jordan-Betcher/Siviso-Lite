@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import com.google.android.gms.location.LocationRequest;
 import com.jordan.betcher.siviso.sivisolite.R;
 
-class Factory$LocationRequestPowerSaver
+class Factory$LocationRequestPowerSaver implements Factory$LocationRequest
 {
 	int interval;
 	float smallestDisplacement;
