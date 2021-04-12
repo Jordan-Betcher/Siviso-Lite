@@ -17,12 +17,12 @@ import static android.content.Context.AUDIO_SERVICE;
 class FusedLocationClientSiviso
 {
 	LocationClient$Manager client;
+	OnPreferenceChange$SingleUpdate dataChangeListener;
 	
 	public FusedLocationClientSiviso(Context context)
 	{
 		Resources resources = context.getResources();
 		Factory$LocationRequestPowerSaver locationRequestPowerSaver = new Factory$LocationRequestPowerSaver(resources);
-		Factory$LocationRequestSingleUpdate locationRequestSingleUpdate = new Factory$LocationRequestSingleUpdate();
 		FusedLocationProviderClient fusedLocation = LocationServices.getFusedLocationProviderClient(context);
 		SharedPreferences preferences = context.getSharedPreferences(Database.sharedPreferncesName, Context.MODE_PRIVATE);
 		
@@ -35,9 +35,9 @@ class FusedLocationClientSiviso
 		RingmodeControl ringmodeControl = new RingmodeControl(audioManager, home, defaultt);
 		LocationCallback callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
 		client = new LocationClient$Manager(fusedLocation, locationRequestPowerSaver, callback);
-		LocationClient$Manager singleUpdate = new LocationClient$Manager(fusedLocation, locationRequestSingleUpdate, callback);
+		LocationClient$Manager$SingleUpdate singleUpdate = new LocationClient$Manager$SingleUpdate(fusedLocation, callback);
 		singleUpdate.start();
-		//new OnPreferenceChange$SingleUpdate(preferences, singleUpdate);
+		dataChangeListener = new OnPreferenceChange$SingleUpdate(preferences, singleUpdate);
 	}
 	
 	public void start()
