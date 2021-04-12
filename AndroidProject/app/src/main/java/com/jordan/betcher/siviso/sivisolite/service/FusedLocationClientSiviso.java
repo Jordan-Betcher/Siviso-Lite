@@ -15,12 +15,13 @@ import static android.content.Context.AUDIO_SERVICE;
 
 class FusedLocationClientSiviso
 {
-	LocationClient$Siviso client;
+	LocationClient$Manager client;
 	
 	public FusedLocationClientSiviso(Context context)
 	{
 		Resources resources = context.getResources();
-		Factory$LocationRequest factory$LocationRequest = new Factory$LocationRequest(resources);
+		Factory$LocationRequestPowerSaver factory$LocationRequestPowerSaver = new Factory$LocationRequestPowerSaver(resources);
+		Factory$LocationRequestSingleUpdate factory$LocationRequestSingleUpdate = new Factory$LocationRequestSingleUpdate();
 		FusedLocationProviderClient fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
 		
 		Database database = new Database(context);
@@ -31,8 +32,10 @@ class FusedLocationClientSiviso
 		AudioManager audioManager = (AudioManager) context.getSystemService(AUDIO_SERVICE);
 		RingmodeControl ringmodeControl = new RingmodeControl(audioManager, home, defaultt);
 		LocationCallback callback = new LocationCallback$Siviso(locationChecker, ringmodeControl);
-		client = new LocationClient$Siviso(fusedLocationProviderClient, factory$LocationRequest,
-		                                   callback);
+		client = new LocationClient$Manager(fusedLocationProviderClient, factory$LocationRequestPowerSaver,
+		                                    callback);
+		//LocationClient$Continual fastUpdate = new LocationClient$FastUpdate();
+		//new OnPreferenceChange$FastUpdate(preferences, fastUpdate);
 	}
 	
 	public void start()

@@ -7,8 +7,8 @@
     <integer name="channel_importance">3</integer>
     <integer name="location_listener_min_milliseconds">60000</integer>
     <integer name="location_listener_min_meters">20</integer>
-    <integer name="location_request_interval_milliseconds">0</integer>
-    <integer name="location_request_smallest_displacement_meters">10</integer>
+    <integer name="location_request_power_saver_interval_milliseconds">0</integer>
+    <integer name="location_request_power_saver_smallest_displacement_meters">10</integer>
     <integer name="ringmode_default_default">2</integer>
     <integer name="ringmode_default_home">1</integer>
 </resources>

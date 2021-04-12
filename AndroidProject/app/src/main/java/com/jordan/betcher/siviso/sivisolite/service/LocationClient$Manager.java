@@ -6,15 +6,15 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 
-class LocationClient$Siviso
+class LocationClient$Manager
 {
 	private FusedLocationProviderClient fusedLocationProviderClient;
 	private LocationRequest locationRequest;
 	private LocationCallback callback;
 	
-	public LocationClient$Siviso(
+	public LocationClient$Manager(
 	FusedLocationProviderClient fusedLocationProviderClient,
-	Factory$LocationRequest locationRequestFactory,
+	Factory$LocationRequestPowerSaver locationRequestFactory,
 	LocationCallback callback)
 	{
 		this.fusedLocationProviderClient = fusedLocationProviderClient;

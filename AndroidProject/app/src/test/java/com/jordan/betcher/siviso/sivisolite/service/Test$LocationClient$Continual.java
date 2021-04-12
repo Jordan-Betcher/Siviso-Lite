@@ -11,7 +11,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class Test$FusedLocationProviderClient$Siviso
+public class Test$LocationClient$Continual
 {
 	
 	@Test
@@ -20,10 +20,11 @@ public class Test$FusedLocationProviderClient$Siviso
 		FusedLocationProviderClient client = mock(FusedLocationProviderClient.class);
 		LocationCallback callback = mock(LocationCallback.class);
 		LocationRequest locationRequest = new LocationRequest();
-		Factory$LocationRequest factory$LocationRequest = mock(Factory$LocationRequest.class);
+		Factory$LocationRequestPowerSaver factory$LocationRequest = mock(
+		Factory$LocationRequestPowerSaver.class);
 		when(factory$LocationRequest.create()).thenReturn(locationRequest);
 		
-		LocationClient$Siviso sivisoClient = new LocationClient$Siviso(client, factory$LocationRequest, callback);
+		LocationClient$Manager sivisoClient = new LocationClient$Manager(client, factory$LocationRequest, callback);
 		sivisoClient.stop();
 		sivisoClient.stop();
 		
@@ -36,10 +37,11 @@ public class Test$FusedLocationProviderClient$Siviso
 		FusedLocationProviderClient client = mock(FusedLocationProviderClient.class);
 		LocationCallback callback = mock(LocationCallback.class);
 		LocationRequest locationRequest = new LocationRequest();
-		Factory$LocationRequest factory$LocationRequest = mock(Factory$LocationRequest.class);
+		Factory$LocationRequestPowerSaver factory$LocationRequest = mock(
+		Factory$LocationRequestPowerSaver.class);
 		when(factory$LocationRequest.create()).thenReturn(locationRequest);
 		
-		LocationClient$Siviso sivisoClient = new LocationClient$Siviso(client, factory$LocationRequest, callback);
+		LocationClient$Manager sivisoClient = new LocationClient$Manager(client, factory$LocationRequest, callback);
 		sivisoClient.stop();
 		
 		verify(client, times(1)).removeLocationUpdates(callback);
@@ -51,10 +53,11 @@ public class Test$FusedLocationProviderClient$Siviso
 		FusedLocationProviderClient client = mock(FusedLocationProviderClient.class);
 		LocationCallback callback = mock(LocationCallback.class);
 		LocationRequest locationRequest = new LocationRequest();
-		Factory$LocationRequest factory$LocationRequest = mock(Factory$LocationRequest.class);
+		Factory$LocationRequestPowerSaver factory$LocationRequest = mock(
+		Factory$LocationRequestPowerSaver.class);
 		when(factory$LocationRequest.create()).thenReturn(locationRequest);
 		
-		LocationClient$Siviso sivisoClient = new LocationClient$Siviso(client, factory$LocationRequest, callback);
+		LocationClient$Manager sivisoClient = new LocationClient$Manager(client, factory$LocationRequest, callback);
 		sivisoClient.start();
 		sivisoClient.start();
 		
@@ -67,10 +70,11 @@ public class Test$FusedLocationProviderClient$Siviso
 		FusedLocationProviderClient client = mock(FusedLocationProviderClient.class);
 		LocationCallback callback = mock(LocationCallback.class);
 		LocationRequest locationRequest = new LocationRequest();
-		Factory$LocationRequest factory$LocationRequest = mock(Factory$LocationRequest.class);
+		Factory$LocationRequestPowerSaver factory$LocationRequest = mock(
+		Factory$LocationRequestPowerSaver.class);
 		when(factory$LocationRequest.create()).thenReturn(locationRequest);
 		
-		LocationClient$Siviso sivisoClient = new LocationClient$Siviso(client, factory$LocationRequest, callback);
+		LocationClient$Manager sivisoClient = new LocationClient$Manager(client, factory$LocationRequest, callback);
 		sivisoClient.start();
 		
 		verify(client, times(1)).requestLocationUpdates(locationRequest, callback, null);
