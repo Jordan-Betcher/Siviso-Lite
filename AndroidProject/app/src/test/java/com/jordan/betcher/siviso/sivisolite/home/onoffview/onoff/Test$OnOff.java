@@ -5,6 +5,8 @@ import android.widget.Switch;
 
 import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Preferences$ServiceRunning;
+import com.jordan.betcher.siviso.sivisolite.service.Intent$Service$Siviso;
+import com.jordan.betcher.siviso.sivisolite.service.ServiceSiviso;
 
 import org.junit.Test;
 
@@ -26,7 +28,8 @@ public class Test$OnOff
 		OnCheck$PowerService onCheck = new OnCheck$PowerService(new ServiceSiviso(context,
 		                                                                          mock(
 		                                                                          Preferences$ServiceRunning.class),
-		                                                                          mock(Intent$Service$Siviso.class)));
+		                                                                          mock(
+		                                                                          Intent$Service$Siviso.class)));
 		verify(onOffSwitch).setOnCheckedChangeListener(argThat(new Same$PowerService(onCheck)));
 	}
 	

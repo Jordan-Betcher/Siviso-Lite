@@ -30,7 +30,7 @@ public class Test$Factory$LocationRequestPowerSaver
 	{
 		int displacement = 2;
 		Resources resources = mock(Resources.class);
-		when(resources.getInteger(R.integer.location_request_power_saver_smallest_displacement_meters)).thenReturn(displacement);
+		when(resources.getInteger(R.integer.service_power_saver_smallest_displacement_meters)).thenReturn(displacement);
 		
 		Factory$LocationRequestPowerSaver factory$LocationRequest = new Factory$LocationRequestPowerSaver(resources);
 		LocationRequest locationRequest = factory$LocationRequest.create();
@@ -44,7 +44,7 @@ public class Test$Factory$LocationRequestPowerSaver
 	{
 		int displacement = 1;
 		Resources resources = mock(Resources.class);
-		when(resources.getInteger(R.integer.location_request_power_saver_smallest_displacement_meters)).thenReturn(displacement);
+		when(resources.getInteger(R.integer.service_power_saver_smallest_displacement_meters)).thenReturn(displacement);
 		
 		Factory$LocationRequestPowerSaver factory$LocationRequest = new Factory$LocationRequestPowerSaver(resources);
 		LocationRequest locationRequest = factory$LocationRequest.create();
@@ -58,7 +58,7 @@ public class Test$Factory$LocationRequestPowerSaver
 	{
 		int interval = 2;
 		Resources resources = mock(Resources.class);
-		when(resources.getInteger(R.integer.location_request_power_saver_interval_milliseconds)).thenReturn(interval);
+		when(resources.getInteger(R.integer.service_power_saver_interval_milliseconds)).thenReturn(interval);
 		
 		Factory$LocationRequestPowerSaver factory$LocationRequest = new Factory$LocationRequestPowerSaver(resources);
 		LocationRequest locationRequest = factory$LocationRequest.create();
@@ -72,7 +72,7 @@ public class Test$Factory$LocationRequestPowerSaver
 	{
 		int interval = 1;
 		Resources resources = mock(Resources.class);
-		when(resources.getInteger(R.integer.location_request_power_saver_interval_milliseconds)).thenReturn(interval);
+		when(resources.getInteger(R.integer.service_power_saver_interval_milliseconds)).thenReturn(interval);
 		
 		Factory$LocationRequestPowerSaver factory$LocationRequest = new Factory$LocationRequestPowerSaver(resources);
 		LocationRequest locationRequest = factory$LocationRequest.create();

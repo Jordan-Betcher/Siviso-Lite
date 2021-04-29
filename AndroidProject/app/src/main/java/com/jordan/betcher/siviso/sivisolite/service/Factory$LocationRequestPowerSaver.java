@@ -12,8 +12,8 @@ class Factory$LocationRequestPowerSaver implements Factory$LocationRequest
 	
 	public Factory$LocationRequestPowerSaver(Resources resources)
 	{
-		interval = resources.getInteger(R.integer.location_request_power_saver_interval_milliseconds);
-		smallestDisplacement = resources.getInteger(R.integer.location_request_power_saver_smallest_displacement_meters);
+		interval = resources.getInteger(R.integer.service_power_saver_interval_milliseconds);
+		smallestDisplacement = resources.getInteger(R.integer.service_power_saver_smallest_displacement_meters);
 	}
 	
 	public LocationRequest create()

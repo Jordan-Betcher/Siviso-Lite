@@ -2,13 +2,11 @@
 <resources>
     <integer name="highlightRadius">700</integer>
     <integer name="start_zoom">15</integer>
-    <integer name="request_location_min_time_interval_milliseconds">60</integer>
-    <integer name="request_location_min_distance_meters">10</integer>
+    <integer name="map_min_time_interval_milliseconds">60</integer>
+    <integer name="map_min_distance_meters">10</integer>
     <integer name="channel_importance">3</integer>
-    <integer name="location_listener_min_milliseconds">60000</integer>
-    <integer name="location_listener_min_meters">20</integer>
-    <integer name="location_request_power_saver_interval_milliseconds">0</integer>
-    <integer name="location_request_power_saver_smallest_displacement_meters">10</integer>
+    <integer name="service_power_saver_interval_milliseconds">1000000</integer>
+    <integer name="service_power_saver_smallest_displacement_meters">10</integer>
     <integer name="ringmode_default_default">2</integer>
     <integer name="ringmode_default_home">1</integer>
 </resources>

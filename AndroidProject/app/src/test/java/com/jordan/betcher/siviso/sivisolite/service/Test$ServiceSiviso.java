@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
+package com.jordan.betcher.siviso.sivisolite.service;
 
 import android.content.Context;
 

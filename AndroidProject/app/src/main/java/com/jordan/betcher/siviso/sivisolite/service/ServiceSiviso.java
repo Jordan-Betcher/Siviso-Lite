@@ -1,10 +1,11 @@
-package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
+package com.jordan.betcher.siviso.sivisolite.service;
 
 import android.content.Context;
+import android.os.Build;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreBoolean;
 
-class ServiceSiviso
+public class ServiceSiviso
 {
 	private Context context;
 	private StoreBoolean serviceRunning;
@@ -21,11 +22,16 @@ class ServiceSiviso
 	
 	public void start()
 	{
-		if( ! serviceRunning.isTrue())
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
 		{
-			serviceRunning.setTrue();
+			context.startForegroundService(intent);
+		}
+		else
+		{
 			context.startService(intent);
 		}
+		
+		serviceRunning.setTrue();
 	}
 	
 	public void stop()

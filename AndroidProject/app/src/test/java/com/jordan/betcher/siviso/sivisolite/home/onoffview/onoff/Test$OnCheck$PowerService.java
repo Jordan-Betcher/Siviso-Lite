@@ -2,6 +2,8 @@ package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
 
 import android.widget.CompoundButton;
 
+import com.jordan.betcher.siviso.sivisolite.service.ServiceSiviso;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
