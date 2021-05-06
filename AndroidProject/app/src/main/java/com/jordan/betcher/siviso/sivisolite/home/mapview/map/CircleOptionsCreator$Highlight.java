@@ -26,6 +26,7 @@ class CircleOptionsCreator$Highlight implements CircleOptionsCreator
 		CircleOptions circleOptions = new CircleOptions();
 		circleOptions.center(latLng);
 		circleOptions.radius(radius);
+		circleOptions.strokeWidth(0f);
 		circleOptions.fillColor(fillColor);
 		
 		return circleOptions;

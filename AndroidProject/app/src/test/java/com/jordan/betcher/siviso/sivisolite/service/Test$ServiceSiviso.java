@@ -51,20 +51,6 @@ public class Test$ServiceSiviso
 	}
 	
 	@Test
-	public void start_serviceRunningTrue_notStartService()
-	{
-		Context context = mock(Context.class);
-		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
-		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
-		when(serviceRunning.isTrue()).thenReturn(true);
-		
-		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
-		service.start();
-		
-		verify(context, times(0)).startService(serviceSiviso);
-	}
-	
-	@Test
 	public void __notStartService()
 	{
 		Context context = mock(Context.class);
@@ -124,20 +110,6 @@ public class Test$ServiceSiviso
 		when(serviceRunning.isTrue()).thenReturn(false);
 		
 		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
-		
-		verify(serviceRunning, times(0)).setTrue();
-	}
-	
-	@Test
-	public void start_serviceRunningTrue_noCallSetTrue()
-	{
-		Context context = mock(Context.class);
-		Preferences$ServiceRunning serviceRunning = mock(Preferences$ServiceRunning.class);
-		Intent$Service$Siviso serviceSiviso = mock(Intent$Service$Siviso.class);
-		when(serviceRunning.isTrue()).thenReturn(true);
-		
-		ServiceSiviso service = new ServiceSiviso(context, serviceRunning, serviceSiviso);
-		service.start();
 		
 		verify(serviceRunning, times(0)).setTrue();
 	}
