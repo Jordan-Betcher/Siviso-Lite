@@ -19,7 +19,7 @@ class Factory$LocationRequestPowerSaver implements Factory$LocationRequest
 	public LocationRequest create()
 	{
 		LocationRequest locationRequest = LocationRequest.create();
-		locationRequest.setPriority(LocationRequest.PRIORITY_LOW_POWER);
+		locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 		locationRequest.setInterval(interval);
 		locationRequest.setWaitForAccurateLocation(true);
 		locationRequest.setSmallestDisplacement(smallestDisplacement);

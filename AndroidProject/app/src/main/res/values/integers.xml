@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="highlightRadius">700</integer>
-    <integer name="start_zoom">15</integer>
+    <integer name="start_zoom">14</integer>
     <integer name="map_min_time_interval_milliseconds">60</integer>
     <integer name="map_min_distance_meters">10</integer>
     <integer name="channel_importance">3</integer>
-    <integer name="service_power_saver_interval_milliseconds">1000000</integer>
-    <integer name="service_power_saver_smallest_displacement_meters">10</integer>
+    <integer name="service_power_saver_interval_milliseconds">1200000</integer>
+    <integer name="service_power_saver_smallest_displacement_meters">0</integer>
     <integer name="ringmode_default_default">2</integer>
     <integer name="ringmode_default_home">1</integer>
 </resources>
