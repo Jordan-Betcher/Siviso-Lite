@@ -8,7 +8,7 @@ import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.service.Intent$Service$Siviso;
 import com.jordan.betcher.siviso.sivisolite.service.ServiceSiviso;
 
-public class BroadcastReceiver_OnBoot extends BroadcastReceiver
+public class BroadcastReceiver_StartServiceIfOn extends BroadcastReceiver
 {
 	@Override
 	public void onReceive(Context context, Intent intent)
