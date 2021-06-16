@@ -7,6 +7,6 @@
     <integer name="channel_importance">3</integer>
     <integer name="service_power_saver_interval_milliseconds">1200000</integer>
     <integer name="service_power_saver_smallest_displacement_meters">0</integer>
-    <integer name="ringmode_default_default">2</integer>
-    <integer name="ringmode_default_home">1</integer>
+    <integer name="ringmode_default_default">1</integer>
+    <integer name="ringmode_default_home">2</integer>
 </resources>
