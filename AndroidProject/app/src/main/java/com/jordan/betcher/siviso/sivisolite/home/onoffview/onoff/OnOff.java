@@ -1,7 +1,8 @@
 package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
 
 import android.content.Context;
-import android.widget.Switch;
+
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreBoolean;
 import com.jordan.betcher.siviso.sivisolite.service.Intent$Service$Siviso;
@@ -9,7 +10,7 @@ import com.jordan.betcher.siviso.sivisolite.service.ServiceSiviso;
 
 public class OnOff
 {
-	public OnOff(Context context, Switch onOffSwitch, StoreBoolean isOnOff)
+	public OnOff(Context context, SwitchCompat onOffSwitch, StoreBoolean isOnOff)
 	{
 		onOffSwitch.setChecked(isOnOff.isTrue());
 		

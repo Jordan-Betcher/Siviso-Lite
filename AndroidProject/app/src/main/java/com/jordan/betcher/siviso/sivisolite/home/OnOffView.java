@@ -2,7 +2,8 @@ package com.jordan.betcher.siviso.sivisolite.home;
 
 import android.content.Context;
 import android.widget.Button;
-import android.widget.Switch;
+
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.home.onoffview.lock.Lock$OnOff;
@@ -14,7 +15,7 @@ class OnOffView
 	OnOff onOff;
 	Lock$OnOff lock;
 	
-	public OnOffView(Context context, Switch onOffSwitch, Button onOffLock, Permission$AccessNotificationPolicy permission, Database database)
+	public OnOffView(Context context, SwitchCompat onOffSwitch, Button onOffLock, Permission$AccessNotificationPolicy permission, Database database)
 	{
 		onOff = new OnOff(context, onOffSwitch, database.isOnn());
 		lock = new Lock$OnOff(onOffSwitch, onOffLock, permission);

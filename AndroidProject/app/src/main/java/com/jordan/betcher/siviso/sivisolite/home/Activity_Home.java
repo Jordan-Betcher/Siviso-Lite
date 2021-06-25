@@ -6,10 +6,10 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Switch;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.sivisolite.R;
@@ -42,7 +42,7 @@ public class Activity_Home extends AppCompatActivity
     
     private OnOffView createOnOffView(Database database)
     {
-        Switch onOffSwitch = findViewById(R.id.switchOnOff);
+        SwitchCompat onOffSwitch = findViewById(R.id.switchOnOff);
         Button onOffLock = findViewById(R.id.onOffLock);
         return new OnOffView(this, onOffSwitch, onOffLock, permissionNotificationPolicy, database);
     }

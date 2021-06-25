@@ -1,7 +1,8 @@
 package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
 
 import android.content.Context;
-import android.widget.Switch;
+
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Preferences$ServiceRunning;
@@ -20,7 +21,7 @@ public class Test$OnOff
 	@Test
 	public void __setOnCheckedChangeListenerToOnCheckPowerService()
 	{
-		Switch onOffSwitch = mock(Switch.class);
+		SwitchCompat onOffSwitch = mock(SwitchCompat.class);
 		Context context = mock(Context.class);
 		
 		new OnOff(context, onOffSwitch, mock(Preferences$ServiceRunning.class));
@@ -55,7 +56,7 @@ public class Test$OnOff
 	public void _ServiceOnFalse_setCheckedFalse()
 	{
 		Preferences$ServiceRunning isOn = mock(Preferences$ServiceRunning.class);
-		Switch onOffSwitch = mock(Switch.class);
+		SwitchCompat onOffSwitch = mock(SwitchCompat.class);
 		when(isOn.isTrue()).thenReturn(false);
 		
 		new OnOff(mock(Context.class), onOffSwitch, isOn);
@@ -67,7 +68,7 @@ public class Test$OnOff
 	public void _ServiceOnTrue_setCheckedTrue()
 	{
 		Preferences$ServiceRunning isOn = mock(Preferences$ServiceRunning.class);
-		Switch onOffSwitch = mock(Switch.class);
+		SwitchCompat onOffSwitch = mock(SwitchCompat.class);
 		when(isOn.isTrue()).thenReturn(true);
 		
 		new OnOff(mock(Context.class), onOffSwitch, isOn);
