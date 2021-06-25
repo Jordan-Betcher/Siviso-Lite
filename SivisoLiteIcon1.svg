@@ -9,6 +9,9 @@
    id="svg5"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
    sodipodi:docname="SivisoLiteIcon1.svg"
+   inkscape:export-filename="D:\Jordan\Projects\ProjectsProgramming\Siviso-Lite\SivisoLiteFeatureImage1.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -27,9 +30,9 @@
      width="1536px"
      inkscape:snap-global="true"
      showborder="false"
-     inkscape:zoom="1"
-     inkscape:cx="5"
-     inkscape:cy="180.5"
+     inkscape:zoom="0.9501954"
+     inkscape:cx="511.99996"
+     inkscape:cy="249.94859"
      inkscape:window-width="1821"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
@@ -49,13 +52,29 @@
      inkscape:label="Background"
      transform="translate(-522.28746,-702.99792)"
      style="display:inline">
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:3.96874"
+       id="rect38"
+       width="266.96457"
+       height="128.32292"
+       x="524.27185"
+       y="704.9823"
+       inkscape:export-filename="D:\Jordan\Projects\ProjectsProgramming\Siviso-Lite\g1623.png"
+       inkscape:export-xdpi="94.614052"
+       inkscape:export-ydpi="94.614052" />
     <path
        id="rect1559"
        style="fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
-       d="m 522.28746,702.99792 h 68.79167 v 68.79166 h -68.79167 z" />
+       d="m 625.34265,710.53856 h 68.79167 v 68.79166 h -68.79167 z"
+       inkscape:export-filename="D:\Jordan\Projects\ProjectsProgramming\Siviso-Lite\g1623.png"
+       inkscape:export-xdpi="94.614052"
+       inkscape:export-ydpi="94.614052" />
     <g
        id="g1623"
-       transform="translate(-1.0583432,-53.256419)">
+       transform="translate(100.0125,-30.899107)"
+       inkscape:export-filename="D:\Jordan\Projects\ProjectsProgramming\Siviso-Lite\g1623.png"
+       inkscape:export-xdpi="94.614052"
+       inkscape:export-ydpi="94.614052">
       <ellipse
          style="opacity:1;fill:#00ff00;fill-opacity:1;stroke-width:0.264583"
          id="path4492"
