@@ -2,6 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.home.Database;
 
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Color;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
@@ -15,10 +16,19 @@ class Preferences$Home implements StoreSiviso$Home
 	String longitudeKey = "HomeLongitudeKey";
 	String latitudeKey = "HomeLatitudeKey";
 	
+	private int radius;
+	private int colorSilent;
+	private int colorVibrate;
+	private int colorSound;
+	
 	public Preferences$Home(SharedPreferences sharedPreferences, Resources resources)
 	{
 		this.sharedPreferences = sharedPreferences;
 		defaultHomeSiviso = resources.getInteger(R.integer.ringmode_default_home);
+		radius = resources.getInteger(R.integer.highlightRadius);
+		colorSilent = resources.getColor(R.color.colorSilent);
+		colorVibrate = resources.getColor(R.color.colorVibrate);
+		colorSound = resources.getColor(R.color.colorSound);
 	}
 	
 	@Override
@@ -56,6 +66,28 @@ class Preferences$Home implements StoreSiviso$Home
 	public LatLng latLng()
 	{
 		return new LatLng(latitude(), longitude());
+	}
+	
+	@Override
+	public int radius()
+	{
+		return radius;
+	}
+	
+	@Override
+	public int color()
+	{
+		switch(siviso())
+		{
+			case 0:
+				return colorSilent;
+			case 1:
+				return colorVibrate;
+			case 2:
+				return colorSound;
+			default:
+				return Color.GRAY;
+		}
 	}
 	
 	@Override

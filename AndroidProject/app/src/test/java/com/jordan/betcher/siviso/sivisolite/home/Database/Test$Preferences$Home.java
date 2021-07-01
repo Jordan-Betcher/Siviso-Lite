@@ -17,6 +17,144 @@ import static org.mockito.Mockito.when;
 public class Test$Preferences$Home
 {
 	@Test
+	public void color_siviso2ResourcesColorSound0_0()
+	{
+		int siviso = 1;
+		int color = 0;
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		when(resources.getColor(R.color.colorSound)).thenReturn(color);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
+		
+		
+		int actualColor = preferences.color();
+		assertEquals(color, actualColor);
+	}
+	
+	@Test
+	public void color_siviso2ResourcesColorSound1_1()
+	{
+		int siviso = 2;
+		int color = 1;
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		when(resources.getColor(R.color.colorSound)).thenReturn(color);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
+		
+		
+		int actualColor = preferences.color();
+		assertEquals(color, actualColor);
+	}
+	
+	@Test
+	public void color_siviso1ResourcesColorVibrate0_0()
+	{
+		int siviso = 1;
+		int color = 0;
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		when(resources.getColor(R.color.colorVibrate)).thenReturn(color);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
+		
+		
+		int actualColor = preferences.color();
+		assertEquals(color, actualColor);
+	}
+	
+	@Test
+	public void color_siviso1ResourcesColorVibrate1_1()
+	{
+		int siviso = 1;
+		int color = 1;
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		when(resources.getColor(R.color.colorVibrate)).thenReturn(color);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
+		
+		
+		int actualColor = preferences.color();
+		assertEquals(color, actualColor);
+	}
+	
+	@Test
+	public void color_siviso0ResourcesColorSilent0_0()
+	{
+		int siviso = 0;
+		int color = 0;
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		when(resources.getColor(R.color.colorSilent)).thenReturn(color);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
+		
+		
+		int actualColor = preferences.color();
+		assertEquals(color, actualColor);
+	}
+	
+	@Test
+	public void color_siviso0ResourcesColorSilent1_1()
+	{
+		int siviso = 0;
+		int color = 1;
+		
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		when(resources.getColor(R.color.colorSilent)).thenReturn(color);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
+		
+		
+		int actualColor = preferences.color();
+		assertEquals(color, actualColor);
+	}
+	
+	@Test
+	public void radius_resourcesRadius0_0()
+	{
+		int radius = 0;
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		
+		when(resources.getInteger(R.integer.highlightRadius)).thenReturn(radius);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		
+		int actualRadius = preferences.radius();
+		assertEquals(radius, actualRadius);
+	}
+	
+	@Test
+	public void radius_resourcesRadius1_1()
+	{
+		int radius = 1;
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		
+		when(resources.getInteger(R.integer.highlightRadius)).thenReturn(radius);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		
+		int actualRadius = preferences.radius();
+		assertEquals(radius, actualRadius);
+	}
+	
+	@Test
 	public void latLng_00_latLngLongitude0()
 	{
 		double latitude = 0;

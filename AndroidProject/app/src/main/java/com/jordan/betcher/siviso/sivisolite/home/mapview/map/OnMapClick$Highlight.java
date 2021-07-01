@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
-import android.content.res.Resources;
-
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapClick;
@@ -12,20 +10,18 @@ class OnMapClick$Highlight implements OnMapClick
 {
 	Wrapper$Circle highlight;
 	private Wrapper$Map map;
-	private Resources resources;
 	private StoreSiviso$Home home;
 	
 	public OnMapClick$Highlight(
-	Wrapper$Map map, Resources resources, StoreSiviso$Home home)
+	Wrapper$Map map, StoreSiviso$Home home)
 	{
 		this.map = map;
-		this.resources = resources;
 		this.home = home;
 		map.addOnMapClick(this);
 		
 		if(home.isLocation())
 		{
-			highlight = map.createCircle(resources, home);
+			highlight = map.createCircle(home);
 		}
 	}
 	
@@ -34,7 +30,7 @@ class OnMapClick$Highlight implements OnMapClick
 	{
 		if(highlight == null)
 		{
-			highlight = map.createCircle(resources, home);
+			highlight = map.createCircle(home);
 			highlight.moveTo(latLng);
 		}
 		else

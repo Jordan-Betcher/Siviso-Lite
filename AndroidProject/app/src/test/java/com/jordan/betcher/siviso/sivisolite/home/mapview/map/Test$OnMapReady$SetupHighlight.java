@@ -23,7 +23,7 @@ public class Test$OnMapReady$SetupHighlight
 		StoreSiviso$Home storeHome = mock(StoreSiviso$Home.class);
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		
-		OnMapReady$SetupHighlight setupHighlight = new OnMapReady$SetupHighlight(mapCreator, storeHome, resources);
+		OnMapReady$SetupHighlight setupHighlight = new OnMapReady$SetupHighlight(mapCreator, storeHome);
 		setupHighlight.mapReady(map);
 		
 		OnMapClick$Highlight onMapClickHighlight = setupHighlight.onMapClickHighlight;
@@ -37,7 +37,7 @@ public class Test$OnMapReady$SetupHighlight
 		Resources resources = mock(Resources.class);
 		StoreSiviso$Home storeHome = mock(StoreSiviso$Home.class);
 		
-		OnMapReady$SetupHighlight setupHighlight = new OnMapReady$SetupHighlight(mapCreator, storeHome, resources);
+		OnMapReady$SetupHighlight setupHighlight = new OnMapReady$SetupHighlight(mapCreator, storeHome);
 		
 		verify(mapCreator, times(1)).callWhenReady(setupHighlight);
 	}

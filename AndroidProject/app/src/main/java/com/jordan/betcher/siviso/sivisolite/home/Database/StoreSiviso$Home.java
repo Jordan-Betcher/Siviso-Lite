@@ -10,4 +10,8 @@ public interface StoreSiviso$Home extends StoreSiviso
 	boolean isLocation();
 	
 	LatLng latLng();
+	
+	int radius();
+	
+	int color();
 }

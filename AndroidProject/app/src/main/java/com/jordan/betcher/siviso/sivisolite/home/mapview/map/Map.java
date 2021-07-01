@@ -21,7 +21,7 @@ public class Map
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission, resources);
 		
 		startAtCurrentLocation = new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation, resources);
-		highlightLatLng = new OnMapReady$SetupHighlight(mapCreator, store$Home, resources);
+		highlightLatLng = new OnMapReady$SetupHighlight(mapCreator, store$Home);
 		saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		new OnMapReady$OnPermissionGranted$EnableCurrentLocation(mapCreator, permission);
 	}

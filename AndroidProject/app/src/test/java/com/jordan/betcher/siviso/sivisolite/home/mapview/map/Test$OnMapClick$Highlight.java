@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
-import android.content.res.Resources;
-
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Circle;
@@ -23,14 +21,13 @@ public class Test$OnMapClick$Highlight
 		LatLng latLng = new LatLng(0, 0);
 		boolean homeIsLocation = false;
 		
-		Resources resources = mock(Resources.class);
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		when(home.isLocation()).thenReturn(homeIsLocation);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, resources, home);
+		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
 		onMapClickHighlight.highlight = highlight;
 		onMapClickHighlight.onMapClick(latLng);
 		
@@ -41,16 +38,15 @@ public class Test$OnMapClick$Highlight
 	public void onMapClick_LatLng00_highlightNotNull()
 	{
 		LatLng latLng = new LatLng(0, 0);
-		Resources resources = mock(Resources.class);
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		when(home.isLocation()).thenReturn(false);
 		
-		when(map.createCircle(resources, home)).thenReturn(highlight);
+		when(map.createCircle(home)).thenReturn(highlight);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, resources, home);
+		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
 		onMapClickHighlight.onMapClick(latLng);
 		
 		Wrapper$Circle actualHighlight = onMapClickHighlight.highlight;
@@ -61,7 +57,6 @@ public class Test$OnMapClick$Highlight
 	public void _homeIsLocationFalse_highlightNull()
 	{
 		LatLng homeLatLng = new LatLng(0, 0);
-		Resources resources = mock(Resources.class);
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		
@@ -69,7 +64,7 @@ public class Test$OnMapClick$Highlight
 		when(home.isLocation()).thenReturn(false);
 		when(home.latLng()).thenReturn(homeLatLng);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, resources, home);
+		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
 		
 		Wrapper$Circle actualHighlight = onMapClickHighlight.highlight;
 		assertEquals(null, actualHighlight);
@@ -79,16 +74,15 @@ public class Test$OnMapClick$Highlight
 	public void _homeIsLocationTrue_highlightNotNull()
 	{
 		LatLng homeLatLng = new LatLng(0, 0);
-		Resources resources = mock(Resources.class);
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		when(home.isLocation()).thenReturn(true);
 		when(home.latLng()).thenReturn(homeLatLng);
-		when(map.createCircle(resources, home)).thenReturn(highlight);
+		when(map.createCircle(home)).thenReturn(highlight);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, resources, home);
+		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
 		
 		Wrapper$Circle actualHighlight = onMapClickHighlight.highlight;
 		assertEquals(highlight, actualHighlight);
@@ -97,11 +91,10 @@ public class Test$OnMapClick$Highlight
 	@Test
 	public void __callOnMapClickThis()
 	{
-		Resources resources = mock(Resources.class);
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, resources, home);
+		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
 		
 		verify(map, times(1)).addOnMapClick(onMapClickHighlight);
 	}
