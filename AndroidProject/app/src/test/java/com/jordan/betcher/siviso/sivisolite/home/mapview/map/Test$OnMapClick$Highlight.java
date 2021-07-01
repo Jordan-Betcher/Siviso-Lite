@@ -3,7 +3,6 @@ package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 import android.content.res.Resources;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Circle;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
@@ -11,7 +10,6 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -46,11 +44,11 @@ public class Test$OnMapClick$Highlight
 		Resources resources = mock(Resources.class);
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
-		CircleOptionsCreator$Highlight expectedCicleOptionsCreator = new CircleOptionsCreator$Highlight(resources, latLng);
-		when(map.createCircle(argThat(new Same$CircleOptionsCreator$Highlight(expectedCicleOptionsCreator)))).thenReturn(highlight);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		when(home.isLocation()).thenReturn(false);
+		
+		when(map.createCircle(resources, home)).thenReturn(highlight);
 		
 		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, resources, home);
 		onMapClickHighlight.onMapClick(latLng);
@@ -66,8 +64,6 @@ public class Test$OnMapClick$Highlight
 		Resources resources = mock(Resources.class);
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
-		CircleOptionsCreator$Highlight expectedCicleOptionsCreator = new CircleOptionsCreator$Highlight(resources, homeLatLng);
-		when(map.createCircle(argThat(new Same$CircleOptionsCreator$Highlight(expectedCicleOptionsCreator)))).thenReturn(highlight);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		when(home.isLocation()).thenReturn(false);
@@ -86,12 +82,11 @@ public class Test$OnMapClick$Highlight
 		Resources resources = mock(Resources.class);
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
-		CircleOptionsCreator$Highlight expectedCicleOptionsCreator = new CircleOptionsCreator$Highlight(resources, homeLatLng);
-		when(map.createCircle(argThat(new Same$CircleOptionsCreator$Highlight(expectedCicleOptionsCreator)))).thenReturn(highlight);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		when(home.isLocation()).thenReturn(true);
 		when(home.latLng()).thenReturn(homeLatLng);
+		when(map.createCircle(resources, home)).thenReturn(highlight);
 		
 		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, resources, home);
 		
@@ -109,19 +104,5 @@ public class Test$OnMapClick$Highlight
 		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, resources, home);
 		
 		verify(map, times(1)).addOnMapClick(onMapClickHighlight);
-	}
-	
-	private class Same$CircleOptionsCreator$Highlight extends ArgumentMatcher$Same<CircleOptionsCreator$Highlight>
-	{
-		public Same$CircleOptionsCreator$Highlight(CircleOptionsCreator$Highlight first)
-		{
-			super(first);
-		}
-		
-		@Override
-		protected boolean isSameValues(CircleOptionsCreator$Highlight other)
-		{
-			return first.latLng() == other.latLng();
-		}
 	}
 }

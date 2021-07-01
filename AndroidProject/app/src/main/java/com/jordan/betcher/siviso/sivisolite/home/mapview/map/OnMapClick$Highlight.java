@@ -13,16 +13,19 @@ class OnMapClick$Highlight implements OnMapClick
 	Wrapper$Circle highlight;
 	private Wrapper$Map map;
 	private Resources resources;
+	private StoreSiviso$Home home;
 	
-	public OnMapClick$Highlight(Wrapper$Map map, Resources resources, StoreSiviso$Home home)
+	public OnMapClick$Highlight(
+	Wrapper$Map map, Resources resources, StoreSiviso$Home home)
 	{
 		this.map = map;
 		this.resources = resources;
+		this.home = home;
 		map.addOnMapClick(this);
 		
 		if(home.isLocation())
 		{
-			highlight = map.createCircle(new CircleOptionsCreator$Highlight(resources, home.latLng()));
+			highlight = map.createCircle(resources, home);
 		}
 	}
 	
@@ -31,7 +34,7 @@ class OnMapClick$Highlight implements OnMapClick
 	{
 		if(highlight == null)
 		{
-			highlight = map.createCircle(new CircleOptionsCreator$Highlight(resources, latLng));
+			highlight = map.createCircle(resources, home);
 			highlight.moveTo(latLng);
 		}
 		else

@@ -1,11 +1,9 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap;
 
-import com.google.android.gms.internal.maps.zzh;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Circle;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.junit.Test;
@@ -16,7 +14,6 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.robolectric.annotation.Config;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -90,23 +87,6 @@ public class Test$Wrapper$Map
 
 		PowerMockito.verifyStatic(times(1));
 		googleMap.moveCamera(cameraUpdate);
-	}
-	
-	@Test
-	public void createCircle_circleOptions_circle()
-	{
-		zzh zzh = mock(zzh.class);
-		Circle circle = new Circle(zzh);
-		CircleOptions circleOptions = new CircleOptions();
-		CircleOptionsCreator circleOptionsCreator = mock(CircleOptionsCreator.class);
-		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		Wrapper$Map map = new Wrapper$Map(fakeGoogleMap);
-		when(circleOptionsCreator.circleOptions()).thenReturn(circleOptions);
-		PowerMockito.when(fakeGoogleMap.addCircle(circleOptions)).thenReturn(circle);
-		
-		Wrapper$Circle actualCircle = map.createCircle(circleOptionsCreator);
-		
-		assertEquals(circle.toString(), actualCircle.circle.toString());
 	}
 	
 	@Test

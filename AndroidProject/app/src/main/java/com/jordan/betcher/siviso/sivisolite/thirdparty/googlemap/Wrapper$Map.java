@@ -1,12 +1,16 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap;
 
 import android.annotation.SuppressLint;
+import android.content.res.Resources;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
+import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Factory$CircleOptions;
 
 public class Wrapper$Map
 {
@@ -31,9 +35,12 @@ public class Wrapper$Map
 		googleMap.moveCamera(moveToLocation);
 	}
 	
-	public Wrapper$Circle createCircle(CircleOptionsCreator circleOptionsCreator)
+	public Wrapper$Circle createCircle(
+	Resources resources, StoreSiviso$Home home)
 	{
-		Circle circle = googleMap.addCircle(circleOptionsCreator.circleOptions());
+		Factory$CircleOptions factory = new Factory$CircleOptions();
+		CircleOptions circleOptions = factory.create(resources, home);
+		Circle circle = googleMap.addCircle(circleOptions);
 		Wrapper$Circle wrapper$Circle = new Wrapper$Circle(circle);
 		return wrapper$Circle;
 	}
