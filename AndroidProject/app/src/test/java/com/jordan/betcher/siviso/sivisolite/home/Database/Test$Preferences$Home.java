@@ -7,6 +7,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
 
 import org.junit.Test;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -16,6 +18,31 @@ import static org.mockito.Mockito.when;
 
 public class Test$Preferences$Home
 {
+	
+	
+	@Test
+	public void saveSiviso_onSivisoChangeSiviso0_callOnSivisoChangeAfterSavingSiviso()
+	{
+		int siviso = 0;
+		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
+		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		OnSivisoChange onSivisoChange = mock(OnSivisoChange.class);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.edit()).thenReturn(editor1);
+		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
+		preferences.addOnSivisoChange(onSivisoChange);
+		preferences.saveSiviso(siviso);
+		
+		InOrder inOrder = Mockito.inOrder(editor2, onSivisoChange);
+		
+		inOrder.verify(editor2, times(1)).apply();
+		inOrder.verify(onSivisoChange, times(1)).sivisoChanged(siviso);
+		inOrder.verifyNoMoreInteractions();
+	}
+	
 	@Test
 	public void saveSiviso_onSivisoChange1OnSivisoChange2Siviso1_callOnSivisoChange11()
 	{

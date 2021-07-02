@@ -103,12 +103,12 @@ class Preferences$Home implements StoreSiviso$Home
 	@Override
 	public void saveSiviso(int siviso)
 	{
+		sharedPreferences.edit().putInt(sivisoKey, siviso).apply();
+		
 		for(OnSivisoChange onSivisoChange : onSivisoChanges)
 		{
 			onSivisoChange.sivisoChanged(siviso);
 		}
-		
-		sharedPreferences.edit().putInt(sivisoKey, siviso).apply();
 	}
 	
 	@Override
