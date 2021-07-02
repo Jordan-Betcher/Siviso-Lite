@@ -24,6 +24,8 @@ class OnMapClick$OnSivisoChange$Highlight implements OnMapClick, OnSivisoChange
 		{
 			highlight = map.createCircle(home);
 		}
+		
+		home.addOnSivisoChange(this);
 	}
 	
 	@Override
@@ -43,6 +45,6 @@ class OnMapClick$OnSivisoChange$Highlight implements OnMapClick, OnSivisoChange
 	@Override
 	public void sivisoChanged(int siviso)
 	{
-	
+		highlight.setColor(home.color());
 	}
 }

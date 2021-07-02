@@ -13,8 +13,52 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class Test$OnMapClick$Highlight
+public class Test$OnMapClick$OnSivisoChange$Highlight
 {
+	
+	@Test
+	public void sivisoChanged_color0_changeHighlightColor0()
+	{
+		int color = 0;
+		Wrapper$Map map = mock(Wrapper$Map.class);
+		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
+		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
+		when(home.color()).thenReturn(color);
+		
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
+		onMapClickHighlight.highlight = highlight;
+		onMapClickHighlight.sivisoChanged(1);
+		
+		verify(highlight, times(1)).setColor(color);
+	}
+	
+	@Test
+	public void sivisoChanged_color1_changeHighlightColor1()
+	{
+		int color = 1;
+		Wrapper$Map map = mock(Wrapper$Map.class);
+		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
+		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
+		when(home.color()).thenReturn(color);
+		
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
+		onMapClickHighlight.highlight = highlight;
+		onMapClickHighlight.sivisoChanged(1);
+		
+		verify(highlight, times(1)).setColor(color);
+	}
+	
+	@Test
+	public void _home_addThisToHome()
+	{
+		Wrapper$Map map = mock(Wrapper$Map.class);
+		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
+		
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
+		
+		verify(home, times(1)).addOnSivisoChange(onMapClickHighlight);
+	}
+	
 	@Test
 	public void onMapClick_highlightAlreadyMade_highlightNotNull()
 	{

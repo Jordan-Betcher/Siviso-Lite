@@ -18,4 +18,9 @@ public class Wrapper$Circle
 	{
 		circle.setCenter(latLng);
 	}
+	
+	public void setColor(int color)
+	{
+	
+	}
 }
