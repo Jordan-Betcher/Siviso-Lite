@@ -21,6 +21,6 @@ public class Wrapper$Circle
 	
 	public void setColor(int color)
 	{
-	
+		circle.setFillColor(color);
 	}
 }
