@@ -45,6 +45,9 @@ class OnMapClick$OnSivisoChange$Highlight implements OnMapClick, OnSivisoChange
 	@Override
 	public void sivisoChanged(int siviso)
 	{
-		highlight.setColor(home.color());
+		if(highlight != null)
+		{
+			highlight.setColor(home.color());
+		}
 	}
 }

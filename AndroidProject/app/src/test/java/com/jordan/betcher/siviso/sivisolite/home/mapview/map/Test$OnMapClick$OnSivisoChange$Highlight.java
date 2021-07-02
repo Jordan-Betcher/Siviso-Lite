@@ -17,6 +17,21 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 {
 	
 	@Test
+	public void sivisoChanged_color0NoHiglight_0Calls()
+	{
+		int color = 0;
+		Wrapper$Map map = mock(Wrapper$Map.class);
+		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
+		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
+		when(home.color()).thenReturn(color);
+		
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
+		onMapClickHighlight.sivisoChanged(1);
+		
+		verify(highlight, times(0)).setColor(color);
+	}
+	
+	@Test
 	public void sivisoChanged_color0_changeHighlightColor0()
 	{
 		int color = 0;
