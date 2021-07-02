@@ -7,6 +7,8 @@ import android.graphics.Color;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
 
+import java.util.ArrayList;
+
 class Preferences$Home implements StoreSiviso$Home
 {
 	private SharedPreferences sharedPreferences;
@@ -20,6 +22,7 @@ class Preferences$Home implements StoreSiviso$Home
 	private int colorSilent;
 	private int colorVibrate;
 	private int colorSound;
+	private ArrayList<OnSivisoChange> onSivisoChanges = new ArrayList<>();
 	
 	public Preferences$Home(SharedPreferences sharedPreferences, Resources resources)
 	{
@@ -91,8 +94,20 @@ class Preferences$Home implements StoreSiviso$Home
 	}
 	
 	@Override
+	public void addOnSivisoChange(
+	OnSivisoChange onSivisoChange)
+	{
+		onSivisoChanges.add(onSivisoChange);
+	}
+	
+	@Override
 	public void saveSiviso(int siviso)
 	{
+		for(OnSivisoChange onSivisoChange : onSivisoChanges)
+		{
+			onSivisoChange.sivisoChanged(siviso);
+		}
+		
 		sharedPreferences.edit().putInt(sivisoKey, siviso).apply();
 	}
 	

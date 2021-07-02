@@ -27,7 +27,7 @@ public class Test$OnMapClick$Highlight
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		when(home.isLocation()).thenReturn(homeIsLocation);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
 		onMapClickHighlight.highlight = highlight;
 		onMapClickHighlight.onMapClick(latLng);
 		
@@ -46,7 +46,7 @@ public class Test$OnMapClick$Highlight
 		
 		when(map.createCircle(home)).thenReturn(highlight);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
 		onMapClickHighlight.onMapClick(latLng);
 		
 		Wrapper$Circle actualHighlight = onMapClickHighlight.highlight;
@@ -64,7 +64,7 @@ public class Test$OnMapClick$Highlight
 		when(home.isLocation()).thenReturn(false);
 		when(home.latLng()).thenReturn(homeLatLng);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
 		
 		Wrapper$Circle actualHighlight = onMapClickHighlight.highlight;
 		assertEquals(null, actualHighlight);
@@ -82,7 +82,7 @@ public class Test$OnMapClick$Highlight
 		when(home.latLng()).thenReturn(homeLatLng);
 		when(map.createCircle(home)).thenReturn(highlight);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
 		
 		Wrapper$Circle actualHighlight = onMapClickHighlight.highlight;
 		assertEquals(highlight, actualHighlight);
@@ -94,7 +94,7 @@ public class Test$OnMapClick$Highlight
 		Wrapper$Map map = mock(Wrapper$Map.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		
-		OnMapClick$Highlight onMapClickHighlight = new OnMapClick$Highlight(map, home);
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
 		
 		verify(map, times(1)).addOnMapClick(onMapClickHighlight);
 	}

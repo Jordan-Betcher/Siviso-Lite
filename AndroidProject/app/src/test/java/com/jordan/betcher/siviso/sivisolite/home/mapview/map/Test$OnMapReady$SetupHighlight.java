@@ -26,7 +26,7 @@ public class Test$OnMapReady$SetupHighlight
 		OnMapReady$SetupHighlight setupHighlight = new OnMapReady$SetupHighlight(mapCreator, storeHome);
 		setupHighlight.mapReady(map);
 		
-		OnMapClick$Highlight onMapClickHighlight = setupHighlight.onMapClickHighlight;
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = setupHighlight.onMapClickHighlight;
 		assertNotNull(onMapClickHighlight);
 	}
 	

@@ -7,7 +7,7 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 
 class OnMapReady$SetupHighlight implements OnMapReady
 {
-	public OnMapClick$Highlight onMapClickHighlight;
+	public OnMapClick$OnSivisoChange$Highlight onMapClickHighlight;
 	private StoreSiviso$Home home;
 	
 	public OnMapReady$SetupHighlight(MapCreator mapCreator, StoreSiviso$Home home)
@@ -19,6 +19,6 @@ class OnMapReady$SetupHighlight implements OnMapReady
 	@Override
 	public void mapReady(Wrapper$Map map)
 	{
-		onMapClickHighlight = new OnMapClick$Highlight(map, home);
+		onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
 	}
 }

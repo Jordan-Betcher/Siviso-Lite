@@ -14,4 +14,5 @@ public interface StoreSiviso$Home extends StoreSiviso
 	int radius();
 	
 	int color();
+	void addOnSivisoChange(OnSivisoChange onSivisoChange);
 }

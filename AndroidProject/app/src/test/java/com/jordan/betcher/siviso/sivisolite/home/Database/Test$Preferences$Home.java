@@ -17,6 +17,65 @@ import static org.mockito.Mockito.when;
 public class Test$Preferences$Home
 {
 	@Test
+	public void saveSiviso_onSivisoChange1OnSivisoChange2Siviso1_callOnSivisoChange11()
+	{
+		int siviso = 1;
+		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
+		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		OnSivisoChange onSivisoChange1 = mock(OnSivisoChange.class);
+		OnSivisoChange onSivisoChange2 = mock(OnSivisoChange.class);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.edit()).thenReturn(editor1);
+		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
+		preferences.addOnSivisoChange(onSivisoChange1);
+		preferences.addOnSivisoChange(onSivisoChange2);
+		preferences.saveSiviso(siviso);
+		
+		verify(onSivisoChange1, times(1)).sivisoChanged(siviso);
+	}
+	
+	@Test
+	public void saveSiviso_onSivisoChangeSiviso0_callOnSivisoChange0()
+	{
+		int siviso = 0;
+		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
+		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		OnSivisoChange onSivisoChange = mock(OnSivisoChange.class);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.edit()).thenReturn(editor1);
+		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
+		preferences.addOnSivisoChange(onSivisoChange);
+		preferences.saveSiviso(siviso);
+		
+		verify(onSivisoChange, times(1)).sivisoChanged(siviso);
+	}
+	
+	@Test
+	public void saveSiviso_onSivisoChangeSiviso1_callOnSivisoChange1()
+	{
+		int siviso = 1;
+		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
+		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		OnSivisoChange onSivisoChange = mock(OnSivisoChange.class);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		when(sharedPreferences.edit()).thenReturn(editor1);
+		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
+		preferences.addOnSivisoChange(onSivisoChange);
+		preferences.saveSiviso(siviso);
+		
+		verify(onSivisoChange, times(1)).sivisoChanged(siviso);
+	}
+	
+	@Test
 	public void color_siviso2ResourcesColorSound0_0()
 	{
 		int siviso = 1;
