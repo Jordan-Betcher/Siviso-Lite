@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="highlight">#AAB7B1B0</color>
-    <color name="colorSilent">#AAFF4D40</color>
-    <color name="colorVibrate">#AA2D94FC</color>
-    <color name="colorSound">#AAA2B31E</color>
+    <color name="colorSilent">#AA000000</color>
+    <color name="colorVibrate">#99888888</color>
+    <color name="colorSound">#88FFFFFF</color>
 </resources>
