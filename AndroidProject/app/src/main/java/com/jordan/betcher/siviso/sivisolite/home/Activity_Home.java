@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
@@ -57,11 +58,12 @@ public class Activity_Home extends AppCompatActivity
     
     private MapView createMapView(Database database)
     {
-        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.homeMap);
+        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
         LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         Button mapLock = findViewById(R.id.mapLock);
+        FrameLayout mapVisibility = findViewById(R.id.mapFrameLayout);
         
-        MapView mapView = new MapView(mapFragment, locationManager, mapLock, permissionFineLocation,
+        MapView mapView = new MapView(mapFragment, locationManager, mapVisibility, mapLock, permissionFineLocation,
                                       database, getResources());
         return mapView;
     }

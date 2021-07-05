@@ -3,6 +3,7 @@ package com.jordan.betcher.siviso.sivisolite.home;
 import android.content.res.Resources;
 import android.location.LocationManager;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
@@ -16,9 +17,12 @@ class MapView
 	Lock$Map lock;
 	Map map;
 	
-	public MapView(SupportMapFragment supportMapFragment, LocationManager locationManager, Button viewLock, Permission$AccessFineLocation permission, Database database, Resources resources)
+	public MapView(
+	SupportMapFragment supportMapFragment, LocationManager locationManager,
+	FrameLayout mapVisibility, Button viewLock,
+	Permission$AccessFineLocation permission, Database database, Resources resources)
 	{
-		lock = new Lock$Map(supportMapFragment, viewLock, permission);
+		lock = new Lock$Map(mapVisibility, viewLock, permission);
 		map = new Map(supportMapFragment, locationManager, database.homee(), resources, permission);
 	}
 }
