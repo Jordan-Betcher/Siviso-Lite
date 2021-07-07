@@ -11,13 +11,14 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocationAction;
 
-class OnMapReady$StartAtCurrentLocation implements OnMapReady, CurrentLocationAction
+class OnMapReady$CurrentLocationAction$GoToCurrentLocation
+implements OnMapReady, CurrentLocationAction, GoToCurrentLocation
 {
 	private Wrapper$Map wrapper$map = null;
 	private LatLng latLng = null;
 	private float zoom;
 	
-	OnMapReady$StartAtCurrentLocation(MapCreator mapCreator, CurrentLocation currentLocation, Resources resources)
+	OnMapReady$CurrentLocationAction$GoToCurrentLocation(MapCreator mapCreator, CurrentLocation currentLocation, Resources resources)
 	{
 		mapCreator.callWhenReady(this);
 		currentLocation.callWhenReady(this);
@@ -46,5 +47,11 @@ class OnMapReady$StartAtCurrentLocation implements OnMapReady, CurrentLocationAc
 		{
 			wrapper$map.goToLocation(latLng, zoom);
 		}
+	}
+	
+	@Override
+	public void go()
+	{
+		//TODO
 	}
 }

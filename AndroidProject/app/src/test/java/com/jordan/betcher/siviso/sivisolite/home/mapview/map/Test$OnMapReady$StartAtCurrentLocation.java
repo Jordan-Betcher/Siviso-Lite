@@ -31,7 +31,7 @@ public class Test$OnMapReady$StartAtCurrentLocation
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
 		
 		verify(fakeMapCreator).callWhenReady(action);
 	}
@@ -42,7 +42,7 @@ public class Test$OnMapReady$StartAtCurrentLocation
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
 		
 		verify(fakeCurrentLocation).callWhenReady(action);
 	}
@@ -53,7 +53,7 @@ public class Test$OnMapReady$StartAtCurrentLocation
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
 		
 		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);
@@ -73,7 +73,7 @@ public class Test$OnMapReady$StartAtCurrentLocation
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
 		
 		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);
@@ -95,7 +95,7 @@ public class Test$OnMapReady$StartAtCurrentLocation
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
-		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
 		
 		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);
@@ -116,7 +116,7 @@ public class Test$OnMapReady$StartAtCurrentLocation
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
-		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
 		
 		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);
@@ -135,7 +135,7 @@ public class Test$OnMapReady$StartAtCurrentLocation
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
 		
 		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);
@@ -155,7 +155,7 @@ public class Test$OnMapReady$StartAtCurrentLocation
 		MapCreator fakeMapCreator = mock(MapCreator.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$StartAtCurrentLocation action = new OnMapReady$StartAtCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
 		
 		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
 		Location fakeLocation = mock(Location.class);

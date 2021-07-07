@@ -19,8 +19,9 @@ public class SetupMap
 		MapCreator mapCreator = new MapCreator(supportMapFragment);
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission, resources);
 		
-		map.init(mapCreator, currentLocation, store$Home, resources);
-		new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation, resources);
+		GoToCurrentLocation goToCurrentLocation = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
+		map.init(goToCurrentLocation, store$Home);
+		
 		new OnMapReady$SetupHighlight(mapCreator, store$Home);
 		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		new OnMapReady$OnPermissionGranted$EnableCurrentLocation(mapCreator, permission);
