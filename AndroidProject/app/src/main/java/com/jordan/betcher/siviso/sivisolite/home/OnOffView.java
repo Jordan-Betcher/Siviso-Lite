@@ -12,16 +12,13 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$Ac
 
 class OnOffView
 {
-	OnOff onOff;
-	Lock$OnOff lock;
-	
 	public OnOffView(
 	Activity_Home activity,
 	Permission$AccessNotificationPolicy permission, Database database)
 	{
 		SwitchCompat onOffSwitch = activity.findViewById(R.id.switchOnOff);
 		Button onOffLock = activity.findViewById(R.id.onOffLock);
-		onOff = new OnOff(activity, onOffSwitch, database.isOnn());
-		lock = new Lock$OnOff(onOffSwitch, onOffLock, permission);
+		new OnOff(activity, onOffSwitch, database.isOnn());
+		new Lock$OnOff(onOffSwitch, onOffLock, permission);
 	}
 }
