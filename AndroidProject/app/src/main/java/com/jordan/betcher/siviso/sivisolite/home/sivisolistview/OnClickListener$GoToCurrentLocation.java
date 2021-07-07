@@ -6,14 +6,16 @@ import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map;
 
 class OnClickListener$GoToCurrentLocation implements View.OnClickListener
 {
+	private Map map;
+	
 	public OnClickListener$GoToCurrentLocation(Map map)
 	{
-		//TODO
+		this.map = map;
 	}
 	
 	@Override
 	public void onClick(View view)
 	{
-	
+		map.goToCurrentLocation();
 	}
 }

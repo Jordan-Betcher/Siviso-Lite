@@ -29,7 +29,13 @@ public class Activity_Home extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         
-        map = new Map(){};
+        map = new Map(){
+            @Override
+            public void goToCurrentLocation()
+            {
+        
+            }
+        };
         
         permissionNotificationPolicy = new Permission$AccessNotificationPolicy(this);
         permissionFineLocation = new Permission$AccessFineLocation(this);
