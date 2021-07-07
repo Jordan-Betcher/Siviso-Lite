@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
-import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
-
 public class Map$Siviso implements Map
 {
 	@Override
@@ -18,7 +16,7 @@ public class Map$Siviso implements Map
 	
 	public void init(
 	GoToCurrentLocation goToCurrentLocation,
-	OnMapReady$GoToHome store$Home)
+	OnMapReady$GoHome store$Home)
 	{
 		//TODO
 	}
