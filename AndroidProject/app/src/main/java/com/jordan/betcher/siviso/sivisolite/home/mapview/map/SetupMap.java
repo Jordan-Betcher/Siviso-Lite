@@ -20,7 +20,8 @@ public class SetupMap
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission, resources);
 		
 		GoToCurrentLocation goToCurrentLocation = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
-		map.init(goToCurrentLocation, store$Home);
+		OnMapReady$GoToHome goToHome = new OnMapReady$GoToHome(mapCreator, store$Home);
+		map.init(goToCurrentLocation, goToHome);
 		
 		new OnMapReady$SetupHighlight(mapCreator, store$Home);
 		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);

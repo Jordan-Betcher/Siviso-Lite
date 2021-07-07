@@ -18,7 +18,7 @@ public class Map$Siviso implements Map
 	
 	public void init(
 	GoToCurrentLocation goToCurrentLocation,
-	StoreSiviso$Home store$Home)
+	OnMapReady$GoToHome store$Home)
 	{
 		//TODO
 	}
