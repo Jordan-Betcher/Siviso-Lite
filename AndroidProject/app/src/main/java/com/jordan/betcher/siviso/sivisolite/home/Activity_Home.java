@@ -35,6 +35,12 @@ public class Activity_Home extends AppCompatActivity
             {
         
             }
+    
+            @Override
+            public void goToHome()
+            {
+        
+            }
         };
         
         permissionNotificationPolicy = new Permission$AccessNotificationPolicy(this);

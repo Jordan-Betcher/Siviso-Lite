@@ -4,4 +4,5 @@ public interface Map
 {
 	void goToCurrentLocation();
 	
+	void goToHome();
 }
