@@ -1,20 +1,14 @@
 package com.jordan.betcher.siviso.sivisolite.home;
 
-import android.content.Context;
 import android.content.Intent;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
 
-import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
+import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.SivisoListView;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessNotificationPolicy;
@@ -27,44 +21,39 @@ public class Activity_Home extends AppCompatActivity
     public SivisoListView sivisoListView;
     Permission$AccessNotificationPolicy permissionNotificationPolicy;
     Permission$AccessFineLocation permissionFineLocation;
+    Map map;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        
+        map = new Map(){};
+        
         permissionNotificationPolicy = new Permission$AccessNotificationPolicy(this);
         permissionFineLocation = new Permission$AccessFineLocation(this);
         Database database = new Database(this);
-        mapView = createMapView(database);
+        mapView = createMapView(database, map);
         onOffView = createOnOffView(database);
-        sivisoListView = createSivisoListView(database);
+        sivisoListView = createSivisoListView(database, map);
     }
     
     private OnOffView createOnOffView(Database database)
     {
-        SwitchCompat onOffSwitch = findViewById(R.id.switchOnOff);
-        Button onOffLock = findViewById(R.id.onOffLock);
-        return new OnOffView(this, onOffSwitch, onOffLock, permissionNotificationPolicy, database);
+        return new OnOffView(this, permissionNotificationPolicy, database);
     }
     
-    private SivisoListView createSivisoListView(Database database)
+    private SivisoListView createSivisoListView(
+    Database database, Map map)
     {
-        Spinner defaultSpinner = findViewById(R.id.spinnerDefault);
-        Spinner homeSpinner = findViewById(R.id.spinnerHome);
-        Siviso siviso = new Siviso();
-        return new SivisoListView(this, defaultSpinner, homeSpinner, database, siviso);
+        return new SivisoListView(this, database, map);
     }
     
-    private MapView createMapView(Database database)
+    private MapView createMapView(
+    Database database, Map map)
     {
-        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
-        LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        Button mapLock = findViewById(R.id.mapLock);
-        FrameLayout mapVisibility = findViewById(R.id.mapFrameLayout);
-        
-        MapView mapView = new MapView(mapFragment, locationManager, mapVisibility, mapLock, permissionFineLocation,
-                                      database, getResources());
+        MapView mapView = new MapView(this, permissionFineLocation, database, map);
         return mapView;
     }
     
