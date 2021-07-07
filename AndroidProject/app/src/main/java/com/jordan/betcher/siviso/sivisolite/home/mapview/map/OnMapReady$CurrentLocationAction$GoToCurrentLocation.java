@@ -16,12 +16,14 @@ implements OnMapReady, CurrentLocationAction, GoToCurrentLocation
 {
 	private Wrapper$Map wrapper$map = null;
 	private LatLng latLng = null;
+	private CurrentLocation currentLocation;
 	private float zoom;
+	private MapCreator mapCreator;
 	
 	OnMapReady$CurrentLocationAction$GoToCurrentLocation(MapCreator mapCreator, CurrentLocation currentLocation, Resources resources)
 	{
-		mapCreator.callWhenReady(this);
-		currentLocation.callWhenReady(this);
+		this.mapCreator = mapCreator;
+		this.currentLocation = currentLocation;
 		zoom = resources.getInteger(R.integer.start_zoom);
 	}
 	
@@ -52,6 +54,7 @@ implements OnMapReady, CurrentLocationAction, GoToCurrentLocation
 	@Override
 	public void go()
 	{
-		//TODO
+		mapCreator.callWhenReady(this);
+		currentLocation.callWhenReady(this);
 	}
 }

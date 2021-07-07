@@ -17,34 +17,77 @@ import static org.mockito.Matchers.argThat;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class Test$OnMapReady$StartAtCurrentLocation
+public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 {
 	
-	//when(resources.getInteger(R.integer.start_zoom)).thenReturn(0);
-	
 	@Test
-	public void GoToCurrentLocation_Created_MapCreatorCallWhenReady()
+	public void go_currentLocation_callWhenReadyThis()
 	{
-		MapCreator fakeMapCreator = mock(MapCreator.class);
-		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		int zoom = 0;
+		MapCreator mapCreator = mock(MapCreator.class);
+		CurrentLocation currentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
-		verify(fakeMapCreator).callWhenReady(action);
+		
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
+		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
+		goToCurrentLocation.go();
+		
+		verify(currentLocation, times(1)).callWhenReady(goToCurrentLocation);
 	}
 	
 	@Test
-	public void GoToCurrentLocation_Created_CurrentLocationCallWhenReady()
+	public void _currentLocation_0callWhenReadyThis()
 	{
-		MapCreator fakeMapCreator = mock(MapCreator.class);
-		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		int zoom = 0;
+		MapCreator mapCreator = mock(MapCreator.class);
+		CurrentLocation currentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
-		verify(fakeCurrentLocation).callWhenReady(action);
+		
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
+		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
+		
+		verify(currentLocation, times(0)).callWhenReady(goToCurrentLocation);
+	}
+	
+	@Test
+	public void _mapCreator_0callWhenReadyThis()
+	{
+		int zoom = 0;
+		MapCreator mapCreator = mock(MapCreator.class);
+		CurrentLocation currentLocation = mock(CurrentLocation.class);
+		Resources resources = mock(Resources.class);
+		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
+		
+		
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
+		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
+		
+		verify(mapCreator, times(0)).callWhenReady(goToCurrentLocation);
+	}
+	
+	@Test
+	public void go_mapCreator_callWhenReadyThis()
+	{
+		int zoom = 0;
+		MapCreator mapCreator = mock(MapCreator.class);
+		CurrentLocation currentLocation = mock(CurrentLocation.class);
+		Resources resources = mock(Resources.class);
+		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
+		
+		
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
+		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
+		goToCurrentLocation.go();
+		
+		verify(mapCreator, times(1)).callWhenReady(goToCurrentLocation);
 	}
 	
 	@Test
