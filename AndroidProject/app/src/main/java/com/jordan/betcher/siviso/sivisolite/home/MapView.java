@@ -10,14 +10,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.lock.Lock$Map;
-import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map;
+import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map$Siviso;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.map.SetupMap;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 
 
 class MapView
 {
-	public MapView(Activity_Home activity, Permission$AccessFineLocation permission, Database database, Map map)
+	public MapView(Activity_Home activity, Permission$AccessFineLocation permission, Database database, Map$Siviso map)
 	{
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.map);
 		LocationManager locationManager = (LocationManager)activity.getSystemService(
@@ -27,6 +27,6 @@ class MapView
 		Resources resources = activity.getResources();
 		
 		new Lock$Map(mapVisibility, mapLock, permission);
-		new SetupMap(supportMapFragment, locationManager, database.homee(), resources, permission);
+		new SetupMap(map, supportMapFragment, locationManager, database.homee(), resources, permission);
 	}
 }

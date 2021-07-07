@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map;
+import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map$Siviso;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.SivisoListView;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessNotificationPolicy;
@@ -21,7 +22,6 @@ public class Activity_Home extends AppCompatActivity
     public SivisoListView sivisoListView;
     Permission$AccessNotificationPolicy permissionNotificationPolicy;
     Permission$AccessFineLocation permissionFineLocation;
-    Map map;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -29,19 +29,7 @@ public class Activity_Home extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         
-        map = new Map(){
-            @Override
-            public void goToCurrentLocation()
-            {
-        
-            }
-    
-            @Override
-            public void goToHome()
-            {
-        
-            }
-        };
+        Map$Siviso map = new Map$Siviso();
         
         permissionNotificationPolicy = new Permission$AccessNotificationPolicy(this);
         permissionFineLocation = new Permission$AccessFineLocation(this);
@@ -63,7 +51,7 @@ public class Activity_Home extends AppCompatActivity
     }
     
     private MapView createMapView(
-    Database database, Map map)
+    Database database, Map$Siviso map)
     {
         MapView mapView = new MapView(this, permissionFineLocation, database, map);
         return mapView;

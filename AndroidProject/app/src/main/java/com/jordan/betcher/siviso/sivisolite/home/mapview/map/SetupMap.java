@@ -11,18 +11,18 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$Ac
 
 public class SetupMap
 {
-	OnMapReady$StartAtCurrentLocation startAtCurrentLocation;
-	OnMapReady$OnMapClick$SaveLatLng saveLatLng;
-	OnMapReady$SetupHighlight highlightLatLng;
-	
-	public SetupMap(SupportMapFragment supportMapFragment, LocationManager locationManager, StoreSiviso$Home store$Home, Resources resources, Permission$AccessFineLocation permission)
+	public SetupMap(
+	Map$Siviso map,
+	SupportMapFragment supportMapFragment, LocationManager locationManager,
+	StoreSiviso$Home store$Home, Resources resources, Permission$AccessFineLocation permission)
 	{
 		MapCreator mapCreator = new MapCreator(supportMapFragment);
 		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission, resources);
 		
-		startAtCurrentLocation = new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation, resources);
-		highlightLatLng = new OnMapReady$SetupHighlight(mapCreator, store$Home);
-		saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		map.init(mapCreator, currentLocation, store$Home, resources);
+		new OnMapReady$StartAtCurrentLocation(mapCreator, currentLocation, resources);
+		new OnMapReady$SetupHighlight(mapCreator, store$Home);
+		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		new OnMapReady$OnPermissionGranted$EnableCurrentLocation(mapCreator, permission);
 	}
 }
