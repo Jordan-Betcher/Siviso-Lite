@@ -31,7 +31,7 @@ public class Test$Wrapper$Map
 	public void enableCurrentLocation__setEnableCurrentLocationTrue()
 	{
 		GoogleMap fakeGoogleMap = PowerMockito.mock(GoogleMap.class);
-		Wrapper$Map map = new Wrapper$Map(fakeGoogleMap);
+		Wrapper$SetupMap map = new Wrapper$SetupMap(fakeGoogleMap);
 		
 		map.enableCurrentLocationIcon();
 		

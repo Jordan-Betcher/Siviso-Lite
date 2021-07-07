@@ -12,7 +12,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 
-public class Test$Map
+public class Test$SetupMap
 {
 	@Test
 	public void __startAtCurrentLocation()
@@ -22,9 +22,9 @@ public class Test$Map
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		Resources resources = mock(Resources.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
-		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);
+		SetupMap setupMap = new SetupMap(supportMapFragment, locationManager, store$Home, resources, permission);
 		
-		OnMapReady$StartAtCurrentLocation startAtCurrentLocation = map.startAtCurrentLocation;
+		OnMapReady$StartAtCurrentLocation startAtCurrentLocation = setupMap.startAtCurrentLocation;
 		
 		assertNotNull(startAtCurrentLocation);
 	}
@@ -37,9 +37,9 @@ public class Test$Map
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		Resources resources = mock(Resources.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
-		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);
+		SetupMap setupMap = new SetupMap(supportMapFragment, locationManager, store$Home, resources, permission);
 		
-		OnMapReady$SetupHighlight highlightLatLng = map.highlightLatLng;
+		OnMapReady$SetupHighlight highlightLatLng = setupMap.highlightLatLng;
 		
 		assertNotNull(highlightLatLng);
 	}
@@ -52,9 +52,9 @@ public class Test$Map
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		Resources resources = mock(Resources.class);
 		Permission$AccessFineLocation permission = mock(Permission$AccessFineLocation.class);
-		Map map = new Map(supportMapFragment, locationManager, store$Home, resources, permission);
+		SetupMap setupMap = new SetupMap(supportMapFragment, locationManager, store$Home, resources, permission);
 		
-		OnMapReady$OnMapClick$SaveLatLng saveLatLng = map.saveLatLng;
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = setupMap.saveLatLng;
 		
 		assertNotNull(saveLatLng);
 	}
