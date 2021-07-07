@@ -2,22 +2,32 @@ package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 public class Map$Siviso implements Map
 {
+	private GoToCurrentLocation goToCurrentLocation;
+	private OnMapReady$GoHome goHome;
+	
 	@Override
 	public void goToCurrentLocation()
 	{
-	
+		if(goToCurrentLocation != null)
+		{
+			goToCurrentLocation.go();
+		}
 	}
 	
 	@Override
 	public void goToHome()
 	{
-	
+		if(goHome != null)
+		{
+			goHome.goHome();
+		}
 	}
 	
 	public void init(
 	GoToCurrentLocation goToCurrentLocation,
-	OnMapReady$GoHome store$Home)
+	OnMapReady$GoHome goHome)
 	{
-		//TODO
+		this.goToCurrentLocation = goToCurrentLocation;
+		this.goHome = goHome;
 	}
 }
