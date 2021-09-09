@@ -1,10 +1,12 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
@@ -15,6 +17,21 @@ import org.junit.Test;
 
 public class Test$OnMapReady$OnMapClick$SaveLatLng
 {
+	@Test
+	public void _storeHomeLocationTrue_editableFalse()
+	{
+		boolean isLocation = true;
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
+		when(store$Home.isLocation()).thenReturn(isLocation);
+		
+		MapCreator mapCreator = mock(MapCreator.class);
+		
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		
+		boolean actualEditable = saveLatLng.editable;
+		assertNotEquals(isLocation, actualEditable);
+	}
+	
 	@Test
 	public void editable_false_setEditableFalse()
 	{

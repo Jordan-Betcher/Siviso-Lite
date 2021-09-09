@@ -9,7 +9,7 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 
 class OnMapReady$OnMapClick$SaveLatLng implements OnMapReady, OnMapClick
 {
-	boolean editable = true;
+	boolean editable = false;
 	StoreSiviso$Home store$Home;
 	
 	public OnMapReady$OnMapClick$SaveLatLng(
@@ -37,7 +37,6 @@ class OnMapReady$OnMapClick$SaveLatLng implements OnMapReady, OnMapClick
 	
 	public void setEditable(boolean editable)
 	{
-		//TODO OnMapReady$OnMapClick$SaveLatLng setEditable
 		this.editable = editable;
 	}
 }
