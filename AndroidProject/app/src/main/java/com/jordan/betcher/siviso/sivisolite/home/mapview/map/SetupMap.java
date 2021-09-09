@@ -28,6 +28,6 @@ public class SetupMap
 		new OnMapReady$SetupHighlight(mapCreator, store$Home);
 		new OnMapReady$OnPermissionGranted$EnableCurrentLocation(mapCreator, permission);
 		
-		goToHome.goHome();
+		goToCurrentLocation.go();
 	}
 }
