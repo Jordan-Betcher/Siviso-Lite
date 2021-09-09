@@ -7,15 +7,18 @@ import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map;
 
 class OnToggle$ToggleMapEdit implements View.OnClickListener
 {
+	private ToggleButton toggleButton;
+	private Map map;
+	
 	public OnToggle$ToggleMapEdit(ToggleButton toggleButton, Map map)
 	{
-		map.setEditable(toggleButton.isChecked());
+		this.toggleButton = toggleButton;
+		this.map = map;
 	}
 	
 	@Override
 	public void onClick(View view)
 	{
-	
+		map.setEditable(toggleButton.isChecked());
 	}
-	//TODO
 }

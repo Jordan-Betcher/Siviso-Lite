@@ -12,6 +12,17 @@ import org.junit.Test;
 public class Test$OnToggle$ToggleMapEdit
 {
 	@Test
+	public void __0mapEditable()
+	{
+		Map map = mock(Map.class);
+		ToggleButton toggleButton = mock(ToggleButton.class);
+		
+		new OnToggle$ToggleMapEdit(toggleButton, map);
+		
+		verify(map, times(0)).setEditable(anyBoolean());
+	}
+	
+	@Test
 	public void onClick_mapButtonNotToggled_mapEditableFalse()
 	{
 		boolean buttonToggled = false;
