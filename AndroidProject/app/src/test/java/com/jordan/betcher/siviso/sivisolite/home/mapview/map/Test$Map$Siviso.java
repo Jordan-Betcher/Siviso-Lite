@@ -1,14 +1,26 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+import org.junit.Test;
+
 public class Test$Map$Siviso
 {
+	@Test
+	public void setEditable_true_saveLatLngEditableTrue()
+	{
+		boolean editable = true;
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = mock(OnMapReady$OnMapClick$SaveLatLng.class);
+		
+		Map$Siviso map$Siviso = new Map$Siviso();
+		map$Siviso.init(null, null, null);
+		map$Siviso.setEditable(editable);
+		
+		verify(saveLatLng, times(1)).setEditable(editable);
+	}
+	
 	@Test
 	public void goToCurrentLocation__()
 	{
@@ -30,7 +42,7 @@ public class Test$Map$Siviso
 		GoToCurrentLocation goToCurrentLocation = mock(GoToCurrentLocation.class);
 		
 		Map$Siviso map$Siviso = new Map$Siviso();
-		map$Siviso.init(goToCurrentLocation, goHome);
+		map$Siviso.init(goToCurrentLocation, goHome, null);
 		
 		verify(goHome, times(0)).goHome();
 	}
@@ -42,7 +54,7 @@ public class Test$Map$Siviso
 		GoToCurrentLocation goToCurrentLocation = mock(GoToCurrentLocation.class);
 		
 		Map$Siviso map$Siviso = new Map$Siviso();
-		map$Siviso.init(goToCurrentLocation, goHome);
+		map$Siviso.init(goToCurrentLocation, goHome, null);
 		map$Siviso.goToHome();
 		
 		verify(goHome, times(1)).goHome();
@@ -55,7 +67,7 @@ public class Test$Map$Siviso
 		GoToCurrentLocation goToCurrentLocation = mock(GoToCurrentLocation.class);
 		
 		Map$Siviso map$Siviso = new Map$Siviso();
-		map$Siviso.init(goToCurrentLocation, goHome);
+		map$Siviso.init(goToCurrentLocation, goHome, null);
 		
 		verify(goToCurrentLocation, times(0)).go();
 	}
@@ -67,7 +79,7 @@ public class Test$Map$Siviso
 		GoToCurrentLocation goToCurrentLocation = mock(GoToCurrentLocation.class);
 		
 		Map$Siviso map$Siviso = new Map$Siviso();
-		map$Siviso.init(goToCurrentLocation, goHome);
+		map$Siviso.init(goToCurrentLocation, goHome, null);
 		map$Siviso.goToCurrentLocation();
 		
 		verify(goToCurrentLocation, times(1)).go();

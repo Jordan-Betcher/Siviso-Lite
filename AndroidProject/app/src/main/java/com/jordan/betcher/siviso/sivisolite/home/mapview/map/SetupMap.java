@@ -23,10 +23,10 @@ public class SetupMap
 		
 		GoToCurrentLocation goToCurrentLocation = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
 		OnMapReady$GoHome goToHome = new OnMapReady$GoHome(mapCreator, store$Home, defaultZoom);
-		map.init(goToCurrentLocation, goToHome);
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		map.init(goToCurrentLocation, goToHome, saveLatLng);
 		
 		new OnMapReady$SetupHighlight(mapCreator, store$Home);
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		new OnMapReady$OnPermissionGranted$EnableCurrentLocation(mapCreator, permission);
 	}
 }
