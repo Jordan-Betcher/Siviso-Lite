@@ -38,7 +38,7 @@ public class Activity_Home extends AppCompatActivity
         mapView = createMapView(database, map);
         onOffView = createOnOffView(database);
         sivisoListView = createSivisoListView(database, map);
-        EditMapView editMapView = new EditMapView(this, map);
+        EditMapView editMapView = new EditMapView(this, map, database);
     }
     
     private OnOffView createOnOffView(Database database)
