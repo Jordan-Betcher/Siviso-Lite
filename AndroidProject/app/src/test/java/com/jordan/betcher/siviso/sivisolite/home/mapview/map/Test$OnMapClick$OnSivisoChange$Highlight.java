@@ -16,6 +16,23 @@ import org.junit.Test;
 
 public class Test$OnMapClick$OnSivisoChange$Highlight
 {
+	@Test
+	public void sivisoChanged_homeLatLng00_moveHighlightTo00()
+	{
+		int color = 0;
+		LatLng latLng = new LatLng(0, 0);
+		Wrapper$Map map = mock(Wrapper$Map.class);
+		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
+		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
+		when(home.color()).thenReturn(color);
+		when(home.latLng()).thenReturn(latLng);
+		
+		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
+		onMapClickHighlight.highlight = highlight;
+		onMapClickHighlight.sivisoChanged();
+		
+		verify(highlight, times(1)).moveTo(latLng);
+	}
 	
 	@Test
 	public void sivisoChanged_color0NoHiglight_0Calls()
