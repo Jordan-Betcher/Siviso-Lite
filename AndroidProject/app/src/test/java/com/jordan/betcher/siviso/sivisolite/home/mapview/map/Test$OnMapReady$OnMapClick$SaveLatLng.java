@@ -18,6 +18,21 @@ import org.junit.Test;
 public class Test$OnMapReady$OnMapClick$SaveLatLng
 {
 	@Test
+	public void _storeHomeLocationFalse_editableTrue()
+	{
+		boolean isLocation = false;
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
+		when(store$Home.isLocation()).thenReturn(isLocation);
+		
+		MapCreator mapCreator = mock(MapCreator.class);
+		
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		
+		boolean actualEditable = saveLatLng.editable;
+		assertNotEquals(isLocation, actualEditable);
+	}
+	
+	@Test
 	public void _storeHomeLocationTrue_editableFalse()
 	{
 		boolean isLocation = true;
@@ -37,8 +52,9 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	{
 		boolean editable = false;
 		MapCreator mapCreator = mock(MapCreator.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		
-		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, null);
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		saveLatLng.setEditable(editable);
 		
 		boolean actualEditable = saveLatLng.editable;
@@ -50,8 +66,9 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	{
 		boolean editable = true;
 		MapCreator mapCreator = mock(MapCreator.class);
+		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		
-		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, null);
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		saveLatLng.setEditable(editable);
 		
 		boolean actualEditable = saveLatLng.editable;
