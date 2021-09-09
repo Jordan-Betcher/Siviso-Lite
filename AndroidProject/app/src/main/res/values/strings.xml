@@ -3,4 +3,5 @@
     <string name="channel_name">Siviso Lite Channel</string>
     <string name="notification_create_content_title">Content Title</string>
     <string name="notification_create_content_text">Content Text</string>
+    <string name="button_edit">Edit Map</string>
 </resources>
