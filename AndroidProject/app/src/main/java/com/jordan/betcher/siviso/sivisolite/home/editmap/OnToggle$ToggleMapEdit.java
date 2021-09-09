@@ -9,7 +9,7 @@ class OnToggle$ToggleMapEdit implements View.OnClickListener
 {
 	public OnToggle$ToggleMapEdit(ToggleButton toggleButton, Map map)
 	{
-		map.setEditable(true);
+		map.setEditable(toggleButton.isChecked());
 	}
 	
 	@Override

@@ -12,7 +12,21 @@ import org.junit.Test;
 public class Test$OnToggle$ToggleMapEdit
 {
 	@Test
-	public void onClick_mapButtonToggled_mapEnableEdit()
+	public void onClick_mapButtonNotToggled_mapEditableFalse()
+	{
+		boolean buttonToggled = false;
+		Map map = mock(Map.class);
+		ToggleButton toggleButton = mock(ToggleButton.class);
+		when(toggleButton.isChecked()).thenReturn(buttonToggled);
+		
+		OnToggle$ToggleMapEdit toggleMapEdit = new OnToggle$ToggleMapEdit(toggleButton, map);
+		toggleMapEdit.onClick(null);
+		
+		verify(map, times(1)).setEditable(buttonToggled);
+	}
+	
+	@Test
+	public void onClick_mapButtonToggled_mapEditableTrue()
 	{
 		boolean buttonToggled = true;
 		Map map = mock(Map.class);
@@ -20,6 +34,7 @@ public class Test$OnToggle$ToggleMapEdit
 		when(toggleButton.isChecked()).thenReturn(buttonToggled);
 		
 		OnToggle$ToggleMapEdit toggleMapEdit = new OnToggle$ToggleMapEdit(toggleButton, map);
+		toggleMapEdit.onClick(null);
 		
 		verify(map, times(1)).setEditable(buttonToggled);
 	}
