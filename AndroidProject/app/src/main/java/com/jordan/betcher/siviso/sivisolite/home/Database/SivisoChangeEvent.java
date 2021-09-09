@@ -4,12 +4,11 @@ class SivisoChangeEvent
 {
 	public void addOnSivisoChange(OnSivisoChange onSivisoChange)
 	{
-		//TODO SivisoChangeEvent addOnSivisoChange
+		onSivisoChange.sivisoChanged();
 	}
 	
 	public void callOnSivisoChanges()
 	{
-		//TODO SivisoChangeEvent callOnSivisoChanges
+	
 	}
-	//TODO
 }

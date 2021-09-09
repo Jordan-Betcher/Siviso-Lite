@@ -42,7 +42,7 @@ class OnMapClick$OnSivisoChange$Highlight implements OnMapClick, OnSivisoChange
 	}
 	
 	@Override
-	public void sivisoChanged(int siviso)
+	public void sivisoChanged()
 	{
 		if(highlight != null)
 		{

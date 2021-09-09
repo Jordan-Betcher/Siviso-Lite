@@ -1,17 +1,17 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Circle;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
 
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class Test$OnMapClick$OnSivisoChange$Highlight
 {
@@ -26,7 +26,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 		when(home.color()).thenReturn(color);
 		
 		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
-		onMapClickHighlight.sivisoChanged(1);
+		onMapClickHighlight.sivisoChanged();
 		
 		verify(highlight, times(0)).setColor(color);
 	}
@@ -42,7 +42,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 		
 		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
 		onMapClickHighlight.highlight = highlight;
-		onMapClickHighlight.sivisoChanged(1);
+		onMapClickHighlight.sivisoChanged();
 		
 		verify(highlight, times(1)).setColor(color);
 	}
@@ -58,7 +58,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 		
 		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
 		onMapClickHighlight.highlight = highlight;
-		onMapClickHighlight.sivisoChanged(1);
+		onMapClickHighlight.sivisoChanged();
 		
 		verify(highlight, times(1)).setColor(color);
 	}
