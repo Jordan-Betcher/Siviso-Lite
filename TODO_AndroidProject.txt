@@ -4,6 +4,22 @@ Siviso Lite TODO
 3. Home
 4. On/Off
 
+
+Auto zoom to current location
+
+Only change sound on passing through edge of circle
+
+? Instructions on on/off
+
+Pause map when in background
+
+What is google play internal Beta
+
+Use accelerameter to opitmize battery usage
+
+Have Home bar grayed out until home is selected in map
+
+
 [KISS] Change Default Siviso
 [KISS] Change Home Siviso
 [KISS] Set/Change Home Area (LatLng, ?Size)

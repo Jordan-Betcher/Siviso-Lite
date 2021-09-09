@@ -1,0 +1,36 @@
+To keep in mind when publishing app.
+
+https://stackoverflow.com/questions/5119633/to-do-list-before-publishing-android-app-to-market
+http://bewithandroid.blogspot.com/2012/05/publishing-android-application-on.html
+https://stuff.mit.edu/afs/sipb/project/android/docs/distribute/googleplay/publish/preparing.html
+
+
+
+https://medium.com/@Lisa7498/important-things-you-need-to-know-before-publishing-and-android-app-in-the-google-play-store-3a535a63960b
+Store the password
+Use adaptive Icons (https://developer.android.com/studio/write/image-asset-studio#create-adaptive)
+Check app on many different screen sizes
+Use keywords in name and description
+
+
+
+Walk through of publishing (https://youtu.be/AWawL5HFn64)
+Seperate work and fiddle projects into 2 different accounts
+Creating Icons https://romannurik.github.io/AndroidAssetStudio/ (https://youtu.be/WfKtNf8_9uw, https://youtu.be/rK6QhWG4C5g)
+
+
+Release Test first before moving towards actual published
+
+Ofuscation and crash reports
+
+https://stackoverflow.com/questions/39164216/how-to-upload-mapping-txt-to-playstore
+
+App Icon
+Size: 1024 to 1536 pixels square
+Website for converting 1 picture into the many icons: makeappicon.com
+
+When making icon when done, group combine then center
+
+When you upload, android automatically rounds the corners
+
+
