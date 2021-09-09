@@ -18,7 +18,8 @@ class OnToggle$ToggleMapEdit implements View.OnClickListener
 		//TODO set toggleButton to be the inverse of database.storehomee.islocation
 		this.toggleButton = toggleButton;
 		this.map = map;
-		toggleButton.setChecked(false);
+		toggleButton.setChecked(!home.isLocation());
+		map.setEditable(false);
 	}
 	
 	@Override
