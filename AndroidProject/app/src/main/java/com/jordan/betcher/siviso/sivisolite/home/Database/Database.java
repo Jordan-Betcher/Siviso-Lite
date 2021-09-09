@@ -17,7 +17,7 @@ public class Database
 		SharedPreferences sharedPreferences = context.getSharedPreferences(sharedPreferncesName, Context.MODE_PRIVATE);
 		Resources resources = context.getResources();
 		
-		homee = new Preferences$Home(sharedPreferences, resources);
+		homee = new Preferences$Home(sharedPreferences, resources, null);
 		defaultt = new Preferences$Default(sharedPreferences, resources);
 		serviceRunning = new Preferences$ServiceRunning(sharedPreferences);
 	}

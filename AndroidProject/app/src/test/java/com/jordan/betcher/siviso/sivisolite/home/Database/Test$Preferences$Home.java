@@ -1,5 +1,11 @@
 package com.jordan.betcher.siviso.sivisolite.home.Database;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 
@@ -7,99 +13,21 @@ import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
 
 import org.junit.Test;
-import org.mockito.InOrder;
-import org.mockito.Mockito;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class Test$Preferences$Home
 {
-	
-	
 	@Test
-	public void saveSiviso_onSivisoChangeSiviso0_callOnSivisoChangeAfterSavingSiviso()
+	public void addOnSivisoChange_onSivisoChange_addToSivisoChangeEvent()
 	{
-		int siviso = 0;
-		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
-		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		Resources resources = mock(Resources.class);
 		OnSivisoChange onSivisoChange = mock(OnSivisoChange.class);
-		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
-		when(sharedPreferences.edit()).thenReturn(editor1);
-		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
-		preferences.addOnSivisoChange(onSivisoChange);
-		preferences.saveSiviso(siviso);
-		
-		InOrder inOrder = Mockito.inOrder(editor2, onSivisoChange);
-		
-		inOrder.verify(editor2, times(1)).apply();
-		inOrder.verify(onSivisoChange, times(1)).sivisoChanged(siviso);
-		inOrder.verifyNoMoreInteractions();
-	}
-	
-	@Test
-	public void saveSiviso_onSivisoChange1OnSivisoChange2Siviso1_callOnSivisoChange11()
-	{
-		int siviso = 1;
-		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
-		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
-		OnSivisoChange onSivisoChange1 = mock(OnSivisoChange.class);
-		OnSivisoChange onSivisoChange2 = mock(OnSivisoChange.class);
+		SivisoChangeEvent sivisoChangeEvent = mock(SivisoChangeEvent.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
-		when(sharedPreferences.edit()).thenReturn(editor1);
-		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
-		preferences.addOnSivisoChange(onSivisoChange1);
-		preferences.addOnSivisoChange(onSivisoChange2);
-		preferences.saveSiviso(siviso);
+		Preferences$Home home = new Preferences$Home(sharedPreferences, resources, sivisoChangeEvent);
+		home.addOnSivisoChange(onSivisoChange);
 		
-		verify(onSivisoChange1, times(1)).sivisoChanged(siviso);
-	}
-	
-	@Test
-	public void saveSiviso_onSivisoChangeSiviso0_callOnSivisoChange0()
-	{
-		int siviso = 0;
-		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
-		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		Resources resources = mock(Resources.class);
-		OnSivisoChange onSivisoChange = mock(OnSivisoChange.class);
-		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
-		when(sharedPreferences.edit()).thenReturn(editor1);
-		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
-		preferences.addOnSivisoChange(onSivisoChange);
-		preferences.saveSiviso(siviso);
-		
-		verify(onSivisoChange, times(1)).sivisoChanged(siviso);
-	}
-	
-	@Test
-	public void saveSiviso_onSivisoChangeSiviso1_callOnSivisoChange1()
-	{
-		int siviso = 1;
-		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
-		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		Resources resources = mock(Resources.class);
-		OnSivisoChange onSivisoChange = mock(OnSivisoChange.class);
-		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
-		when(sharedPreferences.edit()).thenReturn(editor1);
-		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
-		preferences.addOnSivisoChange(onSivisoChange);
-		preferences.saveSiviso(siviso);
-		
-		verify(onSivisoChange, times(1)).sivisoChanged(siviso);
+		verify(sivisoChangeEvent, times(1)).addOnSivisoChange(onSivisoChange);
 	}
 	
 	@Test
@@ -112,7 +40,7 @@ public class Test$Preferences$Home
 		Resources resources = mock(Resources.class);
 		when(resources.getColor(R.color.colorSound)).thenReturn(color);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
 		
 		
@@ -130,7 +58,7 @@ public class Test$Preferences$Home
 		Resources resources = mock(Resources.class);
 		when(resources.getColor(R.color.colorSound)).thenReturn(color);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
 		
 		
@@ -148,7 +76,7 @@ public class Test$Preferences$Home
 		Resources resources = mock(Resources.class);
 		when(resources.getColor(R.color.colorVibrate)).thenReturn(color);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
 		
 		
@@ -166,7 +94,7 @@ public class Test$Preferences$Home
 		Resources resources = mock(Resources.class);
 		when(resources.getColor(R.color.colorVibrate)).thenReturn(color);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
 		
 		
@@ -184,7 +112,7 @@ public class Test$Preferences$Home
 		Resources resources = mock(Resources.class);
 		when(resources.getColor(R.color.colorSilent)).thenReturn(color);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
 		
 		
@@ -202,7 +130,7 @@ public class Test$Preferences$Home
 		Resources resources = mock(Resources.class);
 		when(resources.getColor(R.color.colorSilent)).thenReturn(color);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getInt(preferences.sivisoKey, 0)).thenReturn(siviso);
 		
 		
@@ -219,7 +147,7 @@ public class Test$Preferences$Home
 		
 		when(resources.getInteger(R.integer.highlightRadius)).thenReturn(radius);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		
 		int actualRadius = preferences.radius();
 		assertEquals(radius, actualRadius);
@@ -234,7 +162,7 @@ public class Test$Preferences$Home
 		
 		when(resources.getInteger(R.integer.highlightRadius)).thenReturn(radius);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		
 		int actualRadius = preferences.radius();
 		assertEquals(radius, actualRadius);
@@ -251,7 +179,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
 		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
 		
@@ -271,7 +199,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
 		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
 		
@@ -291,7 +219,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
 		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
 		
@@ -311,7 +239,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
 		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
 		
@@ -329,7 +257,7 @@ public class Test$Preferences$Home
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.ringmode_default_home)).thenReturn(defaultSiviso);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getInt(preferences.sivisoKey, defaultSiviso)).thenReturn(siviso);
 		
 		int actualSivso = preferences.siviso();
@@ -345,7 +273,7 @@ public class Test$Preferences$Home
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.ringmode_default_home)).thenReturn(defaultSiviso);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getInt(preferences.sivisoKey, defaultSiviso)).thenReturn(siviso);
 		
 		int actualSivso = preferences.siviso();
@@ -361,7 +289,7 @@ public class Test$Preferences$Home
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.ringmode_default_home)).thenReturn(defaultSiviso);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getInt(preferences.sivisoKey, defaultSiviso)).thenReturn(siviso);
 		
 		int actualSivso = preferences.siviso();
@@ -377,7 +305,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
 		preferences.saveSiviso(siviso);
@@ -394,7 +322,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
 		preferences.saveSiviso(siviso);
@@ -409,7 +337,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getBoolean(preferences.isLocationKey, false)).thenReturn(isLocation);
 		
 		boolean actualIsLocation = preferences.isLocation();
@@ -423,7 +351,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getBoolean(preferences.isLocationKey, false)).thenReturn(isLocation);
 		
 		boolean actualIsLocation = preferences.isLocation();
@@ -438,7 +366,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
 		
 		double actualLongitude = preferences.longitude();
@@ -453,7 +381,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getString(preferences.longitudeKey, "0.0")).thenReturn(stringLongitude);
 		
 		double actualLongitude = preferences.longitude();
@@ -468,7 +396,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
 		
 		double actualLatitude = preferences.latitude();
@@ -483,7 +411,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.getString(preferences.latitudeKey, "0.0")).thenReturn(stringLatitude);
 		
 		double actualLatitude = preferences.latitude();
@@ -501,7 +429,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putString(preferences.latitudeKey, latitude + "")).thenReturn(editor1);
 		when(editor1.putString(preferences.longitudeKey, longitude + "")).thenReturn(editor1);
@@ -522,7 +450,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putString(preferences.latitudeKey, latitude + "")).thenReturn(editor1);
 		when(editor1.putString(preferences.longitudeKey, longitude + "")).thenReturn(editor2);
@@ -543,7 +471,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putString(preferences.latitudeKey, latitude + "")).thenReturn(editor1);
 		when(editor1.putString(preferences.longitudeKey, longitude + "")).thenReturn(editor2);
@@ -564,7 +492,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putString(preferences.latitudeKey, latitude + "")).thenReturn(editor2);
 		when(editor1.putString(preferences.longitudeKey, longitude + "")).thenReturn(editor1);
@@ -585,7 +513,7 @@ public class Test$Preferences$Home
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putString(preferences.latitudeKey, latitude + "")).thenReturn(editor2);
 		when(editor1.putString(preferences.longitudeKey, longitude + "")).thenReturn(editor1);

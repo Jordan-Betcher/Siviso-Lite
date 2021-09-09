@@ -7,8 +7,6 @@ import android.graphics.Color;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
 
-import java.util.ArrayList;
-
 class Preferences$Home implements StoreSiviso$Home
 {
 	private SharedPreferences sharedPreferences;
@@ -22,9 +20,11 @@ class Preferences$Home implements StoreSiviso$Home
 	private int colorSilent;
 	private int colorVibrate;
 	private int colorSound;
-	private ArrayList<OnSivisoChange> onSivisoChanges = new ArrayList<>();
+	private SivisoChangeEvent sivisoChangeEvent;
 	
-	public Preferences$Home(SharedPreferences sharedPreferences, Resources resources)
+	public Preferences$Home(
+	SharedPreferences sharedPreferences, Resources resources,
+	SivisoChangeEvent sivisoChangeEvent)
 	{
 		this.sharedPreferences = sharedPreferences;
 		defaultHomeSiviso = resources.getInteger(R.integer.ringmode_default_home);
@@ -32,6 +32,7 @@ class Preferences$Home implements StoreSiviso$Home
 		colorSilent = resources.getColor(R.color.colorSilent);
 		colorVibrate = resources.getColor(R.color.colorVibrate);
 		colorSound = resources.getColor(R.color.colorSound);
+		this.sivisoChangeEvent = sivisoChangeEvent;
 	}
 	
 	@Override
@@ -99,18 +100,13 @@ class Preferences$Home implements StoreSiviso$Home
 	public void addOnSivisoChange(
 	OnSivisoChange onSivisoChange)
 	{
-		onSivisoChanges.add(onSivisoChange);
+		sivisoChangeEvent.addOnSivisoChange(onSivisoChange);
 	}
 	
 	@Override
 	public void saveSiviso(int siviso)
 	{
 		sharedPreferences.edit().putInt(sivisoKey, siviso).apply();
-		
-		for(OnSivisoChange onSivisoChange : onSivisoChanges)
-		{
-			onSivisoChange.sivisoChanged(siviso);
-		}
 	}
 	
 	@Override
