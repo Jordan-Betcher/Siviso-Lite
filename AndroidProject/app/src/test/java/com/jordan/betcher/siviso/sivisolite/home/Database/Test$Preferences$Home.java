@@ -17,6 +17,18 @@ import org.junit.Test;
 public class Test$Preferences$Home
 {
 	@Test
+	public void __0callOnSivisoChanges()
+	{
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		SivisoChangeEvent sivisoChangeEvent = mock(SivisoChangeEvent.class);
+		
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, sivisoChangeEvent);
+		
+		verify(sivisoChangeEvent, times(0)).callOnSivisoChanges();
+	}
+	
+	@Test
 	public void saveLocation__callOnSivisoChanges()
 	{
 		double latitude = 0;
