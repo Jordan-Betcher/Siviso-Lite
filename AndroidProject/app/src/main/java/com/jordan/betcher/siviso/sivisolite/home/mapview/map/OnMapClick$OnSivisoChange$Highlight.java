@@ -45,7 +45,7 @@ class OnMapClick$OnSivisoChange$Highlight implements OnMapClick, OnSivisoChange
 		if(highlight != null)
 		{
 			highlight.setColor(home.color());
-			highlight.moveTo(new LatLng(0, 0));
+			highlight.moveTo(home.latLng());
 		}
 	}
 }
