@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
+import com.jordan.betcher.siviso.sivisolite.home.editmap.EditMapView;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map$Siviso;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.SivisoListView;
@@ -37,6 +38,7 @@ public class Activity_Home extends AppCompatActivity
         mapView = createMapView(database, map);
         onOffView = createOnOffView(database);
         sivisoListView = createSivisoListView(database, map);
+        EditMapView editMapView = new EditMapView(this, map);
     }
     
     private OnOffView createOnOffView(Database database)
