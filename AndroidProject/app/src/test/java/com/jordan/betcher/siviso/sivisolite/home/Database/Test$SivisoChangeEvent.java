@@ -9,6 +9,20 @@ public class Test$SivisoChangeEvent
 {
 	
 	@Test
+	public void callOnSivisoChanges_onSivisoChange1onSivisoChange2_callOnSivisoChange2()
+	{
+		OnSivisoChange onSivisoChange1 = mock(OnSivisoChange.class);
+		OnSivisoChange onSivisoChange2 = mock(OnSivisoChange.class);
+		
+		SivisoChangeEvent sivisoChangeEvent = new SivisoChangeEvent();
+		sivisoChangeEvent.addOnSivisoChange(onSivisoChange1);
+		sivisoChangeEvent.addOnSivisoChange(onSivisoChange2);
+		sivisoChangeEvent.callOnSivisoChanges();
+		
+		verify(onSivisoChange2, times(1)).sivisoChanged();
+	}
+	
+	@Test
 	public void callOnSivisoChanges_onSivisoChange1onSivisoChange2_callOnSivisoChange1()
 	{
 		OnSivisoChange onSivisoChange1 = mock(OnSivisoChange.class);
