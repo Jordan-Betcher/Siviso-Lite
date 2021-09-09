@@ -17,6 +17,24 @@ import org.junit.Test;
 public class Test$Preferences$Home
 {
 	@Test
+	public void saveSiviso__SivisoChangeEventCall()
+	{
+		int siviso = 0;
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Resources resources = mock(Resources.class);
+		SivisoChangeEvent sivisoChangeEvent = mock(SivisoChangeEvent.class);
+		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
+		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
+		
+		Preferences$Home home = new Preferences$Home(sharedPreferences, resources, sivisoChangeEvent);
+		when(sharedPreferences.edit()).thenReturn(editor1);
+		when(editor1.putInt(home.sivisoKey, siviso)).thenReturn(editor2);
+		home.saveSiviso(siviso);
+		
+		verify(sivisoChangeEvent, times(1)).callOnSivisoChanges();
+	}
+	
+	@Test
 	public void addOnSivisoChange_onSivisoChange_addToSivisoChangeEvent()
 	{
 		OnSivisoChange onSivisoChange = mock(OnSivisoChange.class);
@@ -304,8 +322,9 @@ public class Test$Preferences$Home
 		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
+		SivisoChangeEvent sivisoChangeEvent = mock(SivisoChangeEvent.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, sivisoChangeEvent);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
 		preferences.saveSiviso(siviso);
@@ -321,8 +340,9 @@ public class Test$Preferences$Home
 		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Resources resources = mock(Resources.class);
+		SivisoChangeEvent sivisoChangeEvent = mock(SivisoChangeEvent.class);
 		
-		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, null);
+		Preferences$Home preferences = new Preferences$Home(sharedPreferences, resources, sivisoChangeEvent);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putInt(preferences.sivisoKey, siviso)).thenReturn(editor2);
 		preferences.saveSiviso(siviso);

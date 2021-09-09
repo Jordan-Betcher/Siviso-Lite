@@ -107,6 +107,7 @@ class Preferences$Home implements StoreSiviso$Home
 	public void saveSiviso(int siviso)
 	{
 		sharedPreferences.edit().putInt(sivisoKey, siviso).apply();
+		sivisoChangeEvent.callOnSivisoChanges();
 	}
 	
 	@Override

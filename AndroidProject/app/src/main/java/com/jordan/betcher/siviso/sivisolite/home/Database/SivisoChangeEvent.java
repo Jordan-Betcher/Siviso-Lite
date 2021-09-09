@@ -6,5 +6,10 @@ class SivisoChangeEvent
 	{
 		//TODO SivisoChangeEvent addOnSivisoChange
 	}
+	
+	public void callOnSivisoChanges()
+	{
+		//TODO SivisoChangeEvent callOnSivisoChanges
+	}
 	//TODO
 }
