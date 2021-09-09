@@ -9,13 +9,26 @@ import org.junit.Test;
 public class Test$Map$Siviso
 {
 	@Test
+	public void setEditable_false_saveLatLngEditableFalse()
+	{
+		boolean editable = false;
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = mock(OnMapReady$OnMapClick$SaveLatLng.class);
+		
+		Map$Siviso map$Siviso = new Map$Siviso();
+		map$Siviso.init(null, null, saveLatLng);
+		map$Siviso.setEditable(editable);
+		
+		verify(saveLatLng, times(1)).setEditable(editable);
+	}
+	
+	@Test
 	public void setEditable_true_saveLatLngEditableTrue()
 	{
 		boolean editable = true;
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng = mock(OnMapReady$OnMapClick$SaveLatLng.class);
 		
 		Map$Siviso map$Siviso = new Map$Siviso();
-		map$Siviso.init(null, null, null);
+		map$Siviso.init(null, null, saveLatLng);
 		map$Siviso.setEditable(editable);
 		
 		verify(saveLatLng, times(1)).setEditable(editable);

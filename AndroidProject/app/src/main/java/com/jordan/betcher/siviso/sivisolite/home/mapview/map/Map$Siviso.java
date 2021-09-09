@@ -4,6 +4,7 @@ public class Map$Siviso implements Map
 {
 	private GoToCurrentLocation goToCurrentLocation;
 	private OnMapReady$GoHome goHome;
+	private OnMapReady$OnMapClick$SaveLatLng saveLatLng;
 	
 	public void init(
 	GoToCurrentLocation goToCurrentLocation,
@@ -11,7 +12,7 @@ public class Map$Siviso implements Map
 	{
 		this.goToCurrentLocation = goToCurrentLocation;
 		this.goHome = goHome;
-		saveLatLng.setEditable(true);
+		this.saveLatLng = saveLatLng;
 	}
 	
 	@Override
@@ -35,6 +36,6 @@ public class Map$Siviso implements Map
 	@Override
 	public void setEditable(boolean editable)
 	{
-		//TODO
+		saveLatLng.setEditable(editable);
 	}
 }
