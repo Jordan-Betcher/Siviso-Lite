@@ -16,8 +16,9 @@ public class Database
 	{
 		SharedPreferences sharedPreferences = context.getSharedPreferences(sharedPreferncesName, Context.MODE_PRIVATE);
 		Resources resources = context.getResources();
+		SivisoChangeEvent sivisoChangeEvent = new SivisoChangeEvent();
 		
-		homee = new Preferences$Home(sharedPreferences, resources, null);
+		homee = new Preferences$Home(sharedPreferences, resources, sivisoChangeEvent);
 		defaultt = new Preferences$Default(sharedPreferences, resources);
 		serviceRunning = new Preferences$ServiceRunning(sharedPreferences);
 	}

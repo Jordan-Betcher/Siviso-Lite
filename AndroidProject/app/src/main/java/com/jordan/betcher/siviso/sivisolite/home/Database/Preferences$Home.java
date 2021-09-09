@@ -33,6 +33,7 @@ class Preferences$Home implements StoreSiviso$Home
 		colorVibrate = resources.getColor(R.color.colorVibrate);
 		colorSound = resources.getColor(R.color.colorSound);
 		this.sivisoChangeEvent = sivisoChangeEvent;
+		sivisoChangeEvent.callOnSivisoChanges();
 	}
 	
 	@Override
@@ -43,7 +44,6 @@ class Preferences$Home implements StoreSiviso$Home
 		editor.putString(longitudeKey, latLng.longitude + "").apply();
 		editor.putBoolean(isLocationKey, true).apply();
 		
-		//TODO call onSivisoChange
 	}
 	
 	@Override
@@ -107,7 +107,6 @@ class Preferences$Home implements StoreSiviso$Home
 	public void saveSiviso(int siviso)
 	{
 		sharedPreferences.edit().putInt(sivisoKey, siviso).apply();
-		sivisoChangeEvent.callOnSivisoChanges();
 	}
 	
 	@Override
