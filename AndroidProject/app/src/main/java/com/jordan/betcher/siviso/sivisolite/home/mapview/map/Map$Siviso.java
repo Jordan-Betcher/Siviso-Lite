@@ -23,6 +23,12 @@ public class Map$Siviso implements Map
 		}
 	}
 	
+	@Override
+	public void setEditable(boolean editable)
+	{
+		//TODO
+	}
+	
 	public void init(
 	GoToCurrentLocation goToCurrentLocation,
 	OnMapReady$GoHome goHome)
