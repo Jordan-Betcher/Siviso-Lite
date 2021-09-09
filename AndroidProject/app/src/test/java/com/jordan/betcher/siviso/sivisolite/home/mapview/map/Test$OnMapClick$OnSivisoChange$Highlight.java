@@ -1,6 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -75,7 +76,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	}
 	
 	@Test
-	public void onMapClick_highlightAlreadyMade_highlightNotNull()
+	public void onMapClick_highlightAlreadyMade_0move()
 	{
 		LatLng latLng = new LatLng(0, 0);
 		boolean homeIsLocation = false;
@@ -90,7 +91,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 		onMapClickHighlight.highlight = highlight;
 		onMapClickHighlight.onMapClick(latLng);
 		
-		verify(highlight, times(1)).moveTo(latLng);
+		verify(highlight, times(0)).moveTo(any());
 	}
 	
 	@Test
