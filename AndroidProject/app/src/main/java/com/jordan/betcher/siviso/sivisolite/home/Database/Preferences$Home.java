@@ -41,6 +41,8 @@ class Preferences$Home implements StoreSiviso$Home
 		editor.putString(latitudeKey, latLng.latitude + "").apply();
 		editor.putString(longitudeKey, latLng.longitude + "").apply();
 		editor.putBoolean(isLocationKey, true).apply();
+		
+		//TODO call onSivisoChange
 	}
 	
 	@Override

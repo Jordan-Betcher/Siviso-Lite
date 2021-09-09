@@ -25,8 +25,9 @@ public class SetupMap
 		OnMapReady$GoHome goToHome = new OnMapReady$GoHome(mapCreator, store$Home, defaultZoom);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
 		map.init(goToCurrentLocation, goToHome, saveLatLng);
-		
 		new OnMapReady$SetupHighlight(mapCreator, store$Home);
 		new OnMapReady$OnPermissionGranted$EnableCurrentLocation(mapCreator, permission);
+		
+		//TODO goToHome
 	}
 }

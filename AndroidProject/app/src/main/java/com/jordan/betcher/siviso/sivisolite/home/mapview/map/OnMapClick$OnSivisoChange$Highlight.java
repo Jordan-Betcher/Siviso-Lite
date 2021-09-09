@@ -18,13 +18,12 @@ class OnMapClick$OnSivisoChange$Highlight implements OnMapClick, OnSivisoChange
 	{
 		this.map = map;
 		this.home = home;
-		map.addOnMapClick(this);
 		
 		if(home.isLocation())
 		{
 			highlight = map.createCircle(home);
 		}
-		
+		//TODO get rid of onMapClick change so that highlight doesn't move when not in edit mode aka siviso changed
 		home.addOnSivisoChange(this);
 	}
 	
@@ -48,6 +47,7 @@ class OnMapClick$OnSivisoChange$Highlight implements OnMapClick, OnSivisoChange
 		if(highlight != null)
 		{
 			highlight.setColor(home.color());
+			//TODO move to home latlng
 		}
 	}
 }
