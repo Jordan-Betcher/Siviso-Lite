@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -14,6 +15,18 @@ import org.junit.Test;
 
 public class Test$OnMapReady$OnMapClick$SaveLatLng
 {
+	@Test
+	public void editable_true_setEditableTrue()
+	{
+		boolean editable = true;
+		MapCreator mapCreator = mock(MapCreator.class);
+		
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, null);
+		saveLatLng.setEditable(editable);
+		
+		boolean actualEditable = saveLatLng.editable;
+		assertEquals(editable, actualEditable);
+	}
 	
 	@Test
 	public void onMapClick_latLng00EditableFalse_0SaveLatLng()
