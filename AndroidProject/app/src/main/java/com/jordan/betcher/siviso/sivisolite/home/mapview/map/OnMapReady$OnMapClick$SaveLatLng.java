@@ -38,5 +38,6 @@ class OnMapReady$OnMapClick$SaveLatLng implements OnMapReady, OnMapClick
 	public void setEditable(boolean editable)
 	{
 		//TODO OnMapReady$OnMapClick$SaveLatLng setEditable
+		this.editable = editable;
 	}
 }

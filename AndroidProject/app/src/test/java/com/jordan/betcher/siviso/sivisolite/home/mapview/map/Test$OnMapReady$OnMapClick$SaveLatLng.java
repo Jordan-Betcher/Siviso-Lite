@@ -16,6 +16,19 @@ import org.junit.Test;
 public class Test$OnMapReady$OnMapClick$SaveLatLng
 {
 	@Test
+	public void editable_false_setEditableFalse()
+	{
+		boolean editable = false;
+		MapCreator mapCreator = mock(MapCreator.class);
+		
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, null);
+		saveLatLng.setEditable(editable);
+		
+		boolean actualEditable = saveLatLng.editable;
+		assertEquals(editable, actualEditable);
+	}
+	
+	@Test
 	public void editable_true_setEditableTrue()
 	{
 		boolean editable = true;
