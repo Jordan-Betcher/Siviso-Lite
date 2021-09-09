@@ -36,6 +36,9 @@ public class Map$Siviso implements Map
 	@Override
 	public void setEditable(boolean editable)
 	{
-		saveLatLng.setEditable(editable);
+		if(saveLatLng != null)
+		{
+			saveLatLng.setEditable(editable);
+		}
 	}
 }

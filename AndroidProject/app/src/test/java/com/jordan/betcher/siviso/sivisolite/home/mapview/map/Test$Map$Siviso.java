@@ -9,6 +9,13 @@ import org.junit.Test;
 public class Test$Map$Siviso
 {
 	@Test
+	public void setEditable_noInit_noError()
+	{
+		Map$Siviso map$Siviso = new Map$Siviso();
+		map$Siviso.setEditable(true);
+	}
+	
+	@Test
 	public void setEditable_false_saveLatLngEditableFalse()
 	{
 		boolean editable = false;
