@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
-import static org.mockito.Matchers.anyFloat;
-import static org.mockito.Matchers.argThat;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
@@ -13,7 +11,6 @@ import android.content.res.Resources;
 import android.location.Location;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
@@ -95,7 +92,10 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		int zoom = 0;
 		Resources resources = mock(Resources.class);
+		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
+		
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
@@ -108,7 +108,7 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		action.currentLocationReady(fakeLocation);
 		
 		LatLng expectedLatLng = new LatLng(0.0,0.0);
-		verify(fakeWrapperGoogleMap).goToLocation(argThat(new Same$LatLng$Latitude(expectedLatLng)), anyFloat());
+		verify(fakeWrapperGoogleMap).goToLocation(expectedLatLng, zoom);
 	}
 	
 	@Test
@@ -116,7 +116,9 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		int zoom = 0;
 		Resources resources = mock(Resources.class);
+		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
@@ -129,7 +131,7 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		action.currentLocationReady(fakeLocation);
 		
 		LatLng expectedLatLng = new LatLng(0.0,0.0);
-		verify(fakeWrapperGoogleMap).goToLocation(argThat(new Same$LatLng$Longitude(expectedLatLng)), anyFloat());
+		verify(fakeWrapperGoogleMap).goToLocation(expectedLatLng, zoom);
 	}
 	
 	@Test
@@ -181,7 +183,9 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		int zoom = 0;
 		Resources resources = mock(Resources.class);
+		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
@@ -194,7 +198,7 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		action.currentLocationReady(fakeLocation);
 		
 		LatLng expectedLatLng = new LatLng(1.0,1.0);
-		verify(fakeWrapperGoogleMap).goToLocation(argThat(new Same$LatLng$Latitude(expectedLatLng)), anyFloat());
+		verify(fakeWrapperGoogleMap).goToLocation(expectedLatLng, zoom);
 	}
 	
 	@Test
@@ -202,7 +206,9 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		int zoom = 0;
 		Resources resources = mock(Resources.class);
+		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
@@ -215,34 +221,6 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		action.currentLocationReady(fakeLocation);
 		
 		LatLng expectedLatLng = new LatLng(1.0,1.0);
-		verify(fakeWrapperGoogleMap).goToLocation(argThat(new Same$LatLng$Longitude(expectedLatLng)), anyFloat());
-	}
-	
-	private class Same$LatLng$Latitude extends ArgumentMatcher$Same<LatLng>
-	{
-		public Same$LatLng$Latitude(LatLng first)
-		{
-			super(first);
-		}
-		
-		@Override
-		protected boolean isSameValues(LatLng other)
-		{
-			return first.latitude == other.latitude;
-		}
-	}
-	
-	private class Same$LatLng$Longitude extends ArgumentMatcher$Same<LatLng>
-	{
-		public Same$LatLng$Longitude(LatLng first)
-		{
-			super(first);
-		}
-		
-		@Override
-		protected boolean isSameValues(LatLng other)
-		{
-			return first.longitude == other.longitude;
-		}
+		verify(fakeWrapperGoogleMap).goToLocation(expectedLatLng, zoom);
 	}
 }
