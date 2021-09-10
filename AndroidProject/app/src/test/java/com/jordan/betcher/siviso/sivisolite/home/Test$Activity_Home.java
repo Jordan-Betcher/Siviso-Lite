@@ -4,6 +4,7 @@ import android.os.Build;
 
 import androidx.test.core.app.ActivityScenario;
 
+import com.jordan.betcher.siviso.sivisolite.home.onoffview.OnOffView;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.SivisoListView;
 
 import org.junit.Before;

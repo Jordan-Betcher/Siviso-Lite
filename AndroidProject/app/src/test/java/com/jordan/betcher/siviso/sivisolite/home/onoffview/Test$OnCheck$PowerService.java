@@ -1,14 +1,14 @@
-package com.jordan.betcher.siviso.sivisolite.home.onoffview.onoff;
+package com.jordan.betcher.siviso.sivisolite.home.onoffview;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import android.widget.CompoundButton;
 
 import com.jordan.betcher.siviso.sivisolite.service.ServiceSiviso;
 
 import org.junit.Test;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 public class Test$OnCheck$PowerService
 {

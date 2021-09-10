@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.sivisolite.home.onoffview.lock;
+package com.jordan.betcher.siviso.sivisolite.home.onoffview;
 
 import android.widget.Button;
 

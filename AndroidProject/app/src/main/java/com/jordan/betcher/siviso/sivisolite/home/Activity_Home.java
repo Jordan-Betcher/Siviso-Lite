@@ -11,6 +11,7 @@ import com.jordan.betcher.siviso.sivisolite.home.Database.Database;
 import com.jordan.betcher.siviso.sivisolite.home.editmap.EditMapView;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map$Siviso;
+import com.jordan.betcher.siviso.sivisolite.home.onoffview.OnOffView;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.SivisoListView;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Intent$PermissionSettingNotification;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
