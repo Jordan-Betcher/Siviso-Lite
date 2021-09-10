@@ -5,16 +5,16 @@ import com.jordan.betcher.siviso.sivisolite.home.Database.OnSivisoChange;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapClick;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Circle;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
 
 class OnMapClick$OnSivisoChange$Highlight implements OnMapClick, OnSivisoChange
 {
 	Wrapper$Circle highlight;
-	private Wrapper$Map map;
+	private Wrapper_GoogleMap map;
 	private StoreSiviso$Home home;
 	
 	public OnMapClick$OnSivisoChange$Highlight(
-	Wrapper$Map map, StoreSiviso$Home home)
+	Wrapper_GoogleMap map, StoreSiviso$Home home)
 	{
 		this.map = map;
 		this.home = home;

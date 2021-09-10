@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Circle;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
 
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	{
 		int color = 0;
 		LatLng latLng = new LatLng(0, 1);
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		when(home.color()).thenReturn(color);
@@ -39,7 +39,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	{
 		int color = 0;
 		LatLng latLng = new LatLng(0, 0);
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		when(home.color()).thenReturn(color);
@@ -56,7 +56,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	public void sivisoChanged_color0NoHiglight_0Calls()
 	{
 		int color = 0;
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		when(home.color()).thenReturn(color);
@@ -71,7 +71,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	public void sivisoChanged_color0_changeHighlightColor0()
 	{
 		int color = 0;
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		when(home.color()).thenReturn(color);
@@ -87,7 +87,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	public void sivisoChanged_color1_changeHighlightColor1()
 	{
 		int color = 1;
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		when(home.color()).thenReturn(color);
@@ -102,7 +102,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	@Test
 	public void _home_addThisToHome()
 	{
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		
 		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);
@@ -116,7 +116,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 		LatLng latLng = new LatLng(0, 0);
 		boolean homeIsLocation = false;
 		
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
@@ -133,7 +133,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	public void onMapClick_LatLng00_highlightNotNull()
 	{
 		LatLng latLng = new LatLng(0, 0);
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
@@ -152,7 +152,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	public void _homeIsLocationFalse_highlightNull()
 	{
 		LatLng homeLatLng = new LatLng(0, 0);
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
@@ -169,7 +169,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	public void _homeIsLocationTrue_highlightNotNull()
 	{
 		LatLng homeLatLng = new LatLng(0, 0);
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		Wrapper$Circle highlight = mock(Wrapper$Circle.class);
 		
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
@@ -186,7 +186,7 @@ public class Test$OnMapClick$OnSivisoChange$Highlight
 	@Test
 	public void __callOnMapClickThis()
 	{
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		StoreSiviso$Home home = mock(StoreSiviso$Home.class);
 		
 		OnMapClick$OnSivisoChange$Highlight onMapClickHighlight = new OnMapClick$OnSivisoChange$Highlight(map, home);

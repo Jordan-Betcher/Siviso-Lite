@@ -10,8 +10,8 @@ import static org.mockito.Mockito.when;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
 
 import org.junit.Test;
 
@@ -24,9 +24,10 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		when(store$Home.isLocation()).thenReturn(isLocation);
 		
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		
-		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(
+		multipleOnMapReady, store$Home);
 		
 		boolean actualEditable = saveLatLng.editable;
 		assertNotEquals(isLocation, actualEditable);
@@ -39,9 +40,10 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		when(store$Home.isLocation()).thenReturn(isLocation);
 		
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		
-		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(
+		multipleOnMapReady, store$Home);
 		
 		boolean actualEditable = saveLatLng.editable;
 		assertNotEquals(isLocation, actualEditable);
@@ -51,10 +53,11 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	public void editable_false_setEditableFalse()
 	{
 		boolean editable = false;
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		
-		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(
+		multipleOnMapReady, store$Home);
 		saveLatLng.setEditable(editable);
 		
 		boolean actualEditable = saveLatLng.editable;
@@ -65,10 +68,11 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	public void editable_true_setEditableTrue()
 	{
 		boolean editable = true;
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
 		
-		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(
+		multipleOnMapReady, store$Home);
 		saveLatLng.setEditable(editable);
 		
 		boolean actualEditable = saveLatLng.editable;
@@ -80,9 +84,9 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	{
 		boolean editable = false;
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		new OnMapReady$OnMapClick$SaveLatLng(multipleOnMapReady, store$Home);
 		LatLng latLng = new LatLng(0, 0);
 		saveLatLng.editable = editable;
 		saveLatLng.onMapClick(latLng);
@@ -93,24 +97,24 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	public void _mapCreator_addThisToMapCreatorCallWhenReady()
 	{
 		
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		new OnMapReady$OnMapClick$SaveLatLng(multipleOnMapReady, store$Home);
 		
-		verify(mapCreator, times(1)).callWhenReady(saveLatLng);
+		verify(multipleOnMapReady, times(1)).addOnMapReady(saveLatLng);
 	}
 	
 	@Test
 	public void mapReady__addThis()
 	{
-		Wrapper$Map map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap map = mock(Wrapper_GoogleMap.class);
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		new OnMapReady$OnMapClick$SaveLatLng(multipleOnMapReady, store$Home);
 		
 		saveLatLng.mapReady(map);
 		
@@ -122,9 +126,9 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	{
 		boolean editable = true;
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		new OnMapReady$OnMapClick$SaveLatLng(multipleOnMapReady, store$Home);
 		LatLng latLng = new LatLng(0, 0);
 		saveLatLng.editable = editable;
 		saveLatLng.onMapClick(latLng);
@@ -136,9 +140,9 @@ public class Test$OnMapReady$OnMapClick$SaveLatLng
 	{
 		boolean editable = true;
 		StoreSiviso$Home store$Home = mock(StoreSiviso$Home.class);
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng =
-		new OnMapReady$OnMapClick$SaveLatLng(mapCreator, store$Home);
+		new OnMapReady$OnMapClick$SaveLatLng(multipleOnMapReady, store$Home);
 		LatLng latLng = new LatLng(1, 1);
 		saveLatLng.editable = editable;
 		saveLatLng.onMapClick(latLng);

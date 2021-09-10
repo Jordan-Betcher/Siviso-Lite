@@ -6,31 +6,31 @@ import android.location.Location;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapReady;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocationAction;
 
 class OnMapReady$CurrentLocationAction$GoToCurrentLocation
 implements OnMapReady, CurrentLocationAction, GoToCurrentLocation
 {
-	private Wrapper$Map wrapper$map = null;
+	private Wrapper_GoogleMap wrapperGoogleMap = null;
 	private LatLng latLng = null;
 	private CurrentLocation currentLocation;
 	private float zoom;
-	private MapCreator mapCreator;
+	private MultipleOnMapReady multipleOnMapReady;
 	
-	OnMapReady$CurrentLocationAction$GoToCurrentLocation(MapCreator mapCreator, CurrentLocation currentLocation, Resources resources)
+	OnMapReady$CurrentLocationAction$GoToCurrentLocation(MultipleOnMapReady multipleOnMapReady, CurrentLocation currentLocation, Resources resources)
 	{
-		this.mapCreator = mapCreator;
+		this.multipleOnMapReady = multipleOnMapReady;
 		this.currentLocation = currentLocation;
 		zoom = resources.getInteger(R.integer.start_zoom);
 	}
 	
 	@Override
-	public void mapReady(Wrapper$Map wrapper$map)
+	public void mapReady(Wrapper_GoogleMap wrapperGoogleMap)
 	{
-		this.wrapper$map = wrapper$map;
+		this.wrapperGoogleMap = wrapperGoogleMap;
 		goToCurrentLocation();
 	}
 	
@@ -45,16 +45,16 @@ implements OnMapReady, CurrentLocationAction, GoToCurrentLocation
 	
 	private void goToCurrentLocation()
 	{
-		if(wrapper$map != null && latLng != null)
+		if(wrapperGoogleMap != null && latLng != null)
 		{
-			wrapper$map.goToLocation(latLng, zoom);
+			wrapperGoogleMap.goToLocation(latLng, zoom);
 		}
 	}
 	
 	@Override
 	public void go()
 	{
-		mapCreator.callWhenReady(this);
+		multipleOnMapReady.addOnMapReady(this);
 		currentLocation.callWhenReady(this);
 	}
 }

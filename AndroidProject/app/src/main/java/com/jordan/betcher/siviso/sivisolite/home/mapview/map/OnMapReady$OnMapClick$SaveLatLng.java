@@ -2,10 +2,10 @@ package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapClick;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapReady;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
 
 class OnMapReady$OnMapClick$SaveLatLng implements OnMapReady, OnMapClick
 {
@@ -13,18 +13,18 @@ class OnMapReady$OnMapClick$SaveLatLng implements OnMapReady, OnMapClick
 	StoreSiviso$Home store$Home;
 	
 	public OnMapReady$OnMapClick$SaveLatLng(
-	MapCreator mapCreator,
+	MultipleOnMapReady multipleOnMapReady,
 	StoreSiviso$Home store$Home)
 	{
 		this.store$Home = store$Home;
-		mapCreator.callWhenReady(this);
+		multipleOnMapReady.addOnMapReady(this);
 		editable = !store$Home.isLocation();
 	}
 	
 	@Override
-	public void mapReady(Wrapper$Map wrapper$map)
+	public void mapReady(Wrapper_GoogleMap wrapperGoogleMap)
 	{
-		wrapper$map.addOnMapClick(this);
+		wrapperGoogleMap.addOnMapClick(this);
 	}
 	
 	@Override

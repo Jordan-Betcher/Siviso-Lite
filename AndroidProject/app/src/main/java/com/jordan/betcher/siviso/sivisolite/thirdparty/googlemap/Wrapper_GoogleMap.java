@@ -11,12 +11,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Factory$CircleOptions;
 
-public class Wrapper$Map
+public class Wrapper_GoogleMap
 {
 	public OnMapClickListener$MultipleOnMapClick multipleOnMapClick;
 	GoogleMap googleMap;
 	
-	public Wrapper$Map(GoogleMap googleMap)
+	public Wrapper_GoogleMap(GoogleMap googleMap)
 	{
 		this.googleMap = googleMap;
 		multipleOnMapClick = new OnMapClickListener$MultipleOnMapClick();

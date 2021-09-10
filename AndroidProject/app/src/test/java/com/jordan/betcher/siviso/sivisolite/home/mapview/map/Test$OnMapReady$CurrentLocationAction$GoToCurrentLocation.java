@@ -1,17 +1,5 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
-import android.content.res.Resources;
-import android.location.Location;
-
-import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
-import com.jordan.betcher.siviso.sivisolite.R;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MapCreator;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper$Map;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
-
-import org.junit.Test;
-
 import static org.mockito.Matchers.anyFloat;
 import static org.mockito.Matchers.argThat;
 import static org.mockito.Matchers.eq;
@@ -21,6 +9,18 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import android.content.res.Resources;
+import android.location.Location;
+
+import com.google.android.gms.maps.model.LatLng;
+import com.jordan.betcher.siviso.sivisolite.ArgumentMatcher$Same;
+import com.jordan.betcher.siviso.sivisolite.R;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
+
+import org.junit.Test;
+
 public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 {
 	
@@ -28,14 +28,14 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	public void go_currentLocation_callWhenReadyThis()
 	{
 		int zoom = 0;
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation currentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
 		
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
-		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
+		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		goToCurrentLocation.go();
 		
 		verify(currentLocation, times(1)).callWhenReady(goToCurrentLocation);
@@ -45,14 +45,14 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	public void _currentLocation_0callWhenReadyThis()
 	{
 		int zoom = 0;
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation currentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
 		
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
-		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
+		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		
 		verify(currentLocation, times(0)).callWhenReady(goToCurrentLocation);
 	}
@@ -61,155 +61,161 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	public void _mapCreator_0callWhenReadyThis()
 	{
 		int zoom = 0;
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation currentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
 		
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
-		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
+		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		
-		verify(mapCreator, times(0)).callWhenReady(goToCurrentLocation);
+		verify(multipleOnMapReady, times(0)).addOnMapReady(goToCurrentLocation);
 	}
 	
 	@Test
 	public void go_mapCreator_callWhenReadyThis()
 	{
 		int zoom = 0;
-		MapCreator mapCreator = mock(MapCreator.class);
+		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation currentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
 		
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
-		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(mapCreator, currentLocation, resources);
+		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		goToCurrentLocation.go();
 		
-		verify(mapCreator, times(1)).callWhenReady(goToCurrentLocation);
+		verify(multipleOnMapReady, times(1)).addOnMapReady(goToCurrentLocation);
 	}
 	
 	@Test
 	public void GoToCurrentLocation_MapLocation00_goToLocationLatLng0X()
 	{
-		MapCreator fakeMapCreator = mock(MapCreator.class);
+		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
-		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
 		Location fakeLocation = mock(Location.class);
 		when(fakeLocation.getLatitude()).thenReturn(0.0);
 		when(fakeLocation.getLongitude()).thenReturn(0.0);
 		
-		action.mapReady(fakeWrapper$Map);
+		action.mapReady(fakeWrapperGoogleMap);
 		action.currentLocationReady(fakeLocation);
 		
 		LatLng expectedLatLng = new LatLng(0.0,0.0);
-		verify(fakeWrapper$Map).goToLocation(argThat(new Same$LatLng$Latitude(expectedLatLng)), anyFloat());
+		verify(fakeWrapperGoogleMap).goToLocation(argThat(new Same$LatLng$Latitude(expectedLatLng)), anyFloat());
 	}
 	
 	@Test
 	public void GoToCurrentLocation_MapLocation00_goToLocationLatLngX0()
 	{
-		MapCreator fakeMapCreator = mock(MapCreator.class);
+		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
-		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
 		Location fakeLocation = mock(Location.class);
 		when(fakeLocation.getLatitude()).thenReturn(0.0);
 		when(fakeLocation.getLongitude()).thenReturn(0.0);
 		
-		action.mapReady(fakeWrapper$Map);
+		action.mapReady(fakeWrapperGoogleMap);
 		action.currentLocationReady(fakeLocation);
 		
 		LatLng expectedLatLng = new LatLng(0.0,0.0);
-		verify(fakeWrapper$Map).goToLocation(argThat(new Same$LatLng$Longitude(expectedLatLng)), anyFloat());
+		verify(fakeWrapperGoogleMap).goToLocation(argThat(new Same$LatLng$Longitude(expectedLatLng)), anyFloat());
 	}
 	
 	@Test
 	public void GoToCurrentLocation_ResourceZoom0_goToLocationZoomMatchesResource()
 	{
 		int zoom = 0;
-		MapCreator fakeMapCreator = mock(MapCreator.class);
+		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
-		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
 		Location fakeLocation = mock(Location.class);
 		when(fakeLocation.getLatitude()).thenReturn(0.0);
 		when(fakeLocation.getLongitude()).thenReturn(0.0);
 		
-		action.mapReady(fakeWrapper$Map);
+		action.mapReady(fakeWrapperGoogleMap);
 		action.currentLocationReady(fakeLocation);
 		
-		verify(fakeWrapper$Map).goToLocation(isA(LatLng.class), eq((float)zoom));
+		verify(fakeWrapperGoogleMap).goToLocation(isA(LatLng.class), eq((float)zoom));
 	}
 	
 	@Test
 	public void GoToCurrentLocation_ResourceZoom1_goToLocationZoomMatchesResource()
 	{
 		int zoom = 1;
-		MapCreator fakeMapCreator = mock(MapCreator.class);
+		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
-		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
 		Location fakeLocation = mock(Location.class);
 		when(fakeLocation.getLatitude()).thenReturn(0.0);
 		when(fakeLocation.getLongitude()).thenReturn(0.0);
 		
-		action.mapReady(fakeWrapper$Map);
+		action.mapReady(fakeWrapperGoogleMap);
 		action.currentLocationReady(fakeLocation);
 		
-		verify(fakeWrapper$Map).goToLocation(isA(LatLng.class), eq((float)zoom));
+		verify(fakeWrapperGoogleMap).goToLocation(isA(LatLng.class), eq((float)zoom));
 	}
 	
 	@Test
 	public void GoToCurrentLocation_MapLocation11_goToLocationLatLng1X()
 	{
-		MapCreator fakeMapCreator = mock(MapCreator.class);
+		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
-		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
 		Location fakeLocation = mock(Location.class);
 		when(fakeLocation.getLatitude()).thenReturn(1.0);
 		when(fakeLocation.getLongitude()).thenReturn(1.0);
 		
-		action.mapReady(fakeWrapper$Map);
+		action.mapReady(fakeWrapperGoogleMap);
 		action.currentLocationReady(fakeLocation);
 		
 		LatLng expectedLatLng = new LatLng(1.0,1.0);
-		verify(fakeWrapper$Map).goToLocation(argThat(new Same$LatLng$Latitude(expectedLatLng)), anyFloat());
+		verify(fakeWrapperGoogleMap).goToLocation(argThat(new Same$LatLng$Latitude(expectedLatLng)), anyFloat());
 	}
 	
 	@Test
 	public void GoToCurrentLocation_MapLocation11_goToLocationLatLngX1()
 	{
-		MapCreator fakeMapCreator = mock(MapCreator.class);
+		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
 		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
 		Resources resources = mock(Resources.class);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(fakeMapCreator, fakeCurrentLocation, resources);
+		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
-		Wrapper$Map fakeWrapper$Map = mock(Wrapper$Map.class);
+		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
 		Location fakeLocation = mock(Location.class);
 		when(fakeLocation.getLatitude()).thenReturn(1.0);
 		when(fakeLocation.getLongitude()).thenReturn(1.0);
 		
-		action.mapReady(fakeWrapper$Map);
+		action.mapReady(fakeWrapperGoogleMap);
 		action.currentLocationReady(fakeLocation);
 		
 		LatLng expectedLatLng = new LatLng(1.0,1.0);
-		verify(fakeWrapper$Map).goToLocation(argThat(new Same$LatLng$Longitude(expectedLatLng)), anyFloat());
+		verify(fakeWrapperGoogleMap).goToLocation(argThat(new Same$LatLng$Longitude(expectedLatLng)), anyFloat());
 	}
 	
 	private class Same$LatLng$Latitude extends ArgumentMatcher$Same<LatLng>
