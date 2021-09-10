@@ -1,25 +1,18 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.permissions;
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
-
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({ContextCompat.class, ActivityCompat.class})
+import android.app.Activity;
+import android.content.pm.PackageManager;
+
+import org.junit.Test;
+
+
 public class Test$Permission
 {
 	
@@ -29,18 +22,16 @@ public class Test$Permission
 		String permissionName = "1";
 		int isGranted1 = PackageManager.PERMISSION_DENIED;
 		int isGranted2 = PackageManager.PERMISSION_GRANTED;
-		PowerMockito.mockStatic(ContextCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted1);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted1);
 		OnPermissionGranted listener1 = mock(OnPermissionGranted.class);
 		OnPermissionGranted listener2 = mock(OnPermissionGranted.class);
 		
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		permission.addOnPermissionGranted(listener1);
 		permission.addOnPermissionGranted(listener2);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted2);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted2);
 		permission.grant();
 		
 		verify(listener2, times(1)).permissionGranted();
@@ -52,18 +43,16 @@ public class Test$Permission
 		String permissionName = "1";
 		int isGranted1 = PackageManager.PERMISSION_DENIED;
 		int isGranted2 = PackageManager.PERMISSION_GRANTED;
-		PowerMockito.mockStatic(ContextCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted1);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted1);
 		OnPermissionGranted listener1 = mock(OnPermissionGranted.class);
 		OnPermissionGranted listener2 = mock(OnPermissionGranted.class);
 		
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		permission.addOnPermissionGranted(listener1);
 		permission.addOnPermissionGranted(listener2);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted2);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted2);
 		permission.grant();
 		
 		verify(listener1, times(1)).permissionGranted();
@@ -76,16 +65,14 @@ public class Test$Permission
 		String permissionName = "1";
 		int isGranted1 = PackageManager.PERMISSION_DENIED;
 		int isGranted2 = PackageManager.PERMISSION_DENIED;
-		PowerMockito.mockStatic(ContextCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted1);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted1);
 		OnPermissionGranted listener = mock(OnPermissionGranted.class);
 		
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		permission.addOnPermissionGranted(listener);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted2);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted2);
 		permission.grant();
 		
 		verify(listener, times(0)).permissionGranted();
@@ -98,16 +85,14 @@ public class Test$Permission
 		String permissionName = "1";
 		int isGranted1 = PackageManager.PERMISSION_GRANTED;
 		int isGranted2 = PackageManager.PERMISSION_GRANTED;
-		PowerMockito.mockStatic(ContextCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted1);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted1);
 		OnPermissionGranted listener = mock(OnPermissionGranted.class);
 		
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		permission.addOnPermissionGranted(listener);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted2);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted2);
 		permission.grant();
 		
 		verify(listener, times(1)).permissionGranted();
@@ -118,13 +103,12 @@ public class Test$Permission
 	{
 		String permissionName = "1";
 		int isGranted1 = PackageManager.PERMISSION_GRANTED;
-		PowerMockito.mockStatic(ContextCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted1);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted1);
 		OnPermissionGranted listener = mock(OnPermissionGranted.class);
 		
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		permission.addOnPermissionGranted(listener);
 		
 		verify(listener, times(1)).permissionGranted();
@@ -136,16 +120,14 @@ public class Test$Permission
 		String permissionName = "1";
 		int isGranted1 = PackageManager.PERMISSION_DENIED;
 		int isGranted2 = PackageManager.PERMISSION_GRANTED;
-		PowerMockito.mockStatic(ContextCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted1);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted1);
 		OnPermissionGranted listener = mock(OnPermissionGranted.class);
 		
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		permission.addOnPermissionGranted(listener);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted2);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted2);
 		permission.grant();
 		
 		verify(listener, times(1)).permissionGranted();
@@ -157,12 +139,11 @@ public class Test$Permission
 		String permissionName = "1";
 		int isGranted = PackageManager.PERMISSION_DENIED;
 		
-		PowerMockito.mockStatic(ContextCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted);
 		
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		
 		boolean actualGrant = permission.isGranted();
 		assertFalse(actualGrant);
@@ -174,12 +155,11 @@ public class Test$Permission
 		String permissionName = "1";
 		int isGranted = PackageManager.PERMISSION_GRANTED;
 		
-		PowerMockito.mockStatic(ContextCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		PowerMockito.when(ContextCompat.checkSelfPermission(activity, permissionName))
-		            .thenReturn(isGranted);
+		when(activityCompat.checkSelfPermission(activity, permissionName)).thenReturn(isGranted);
 		
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		
 		boolean actualGrant = permission.isGranted();
 		assertTrue(actualGrant);
@@ -190,44 +170,38 @@ public class Test$Permission
 	public void _1_noCallRequestPermissions()
 	{
 		String permissionName = "1";
-		PowerMockito.mockStatic(ActivityCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
 		
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		
-		PowerMockito.verifyStatic(times(0));
-		ActivityCompat
-		.requestPermissions(activity, new String[]{permissionName}, 0);
+		verify(activityCompat, times(0)).requestPermissions(activity, new String[]{permissionName}, 0);
 	}
 	
 	@Test
 	public void request_2_callRequestPermissions2()
 	{
 		String permissionName = "2";
-		PowerMockito.mockStatic(ActivityCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		
 		permission.request();
 		
-		PowerMockito.verifyStatic(times(1));
-		ActivityCompat
-		.requestPermissions(activity, new String[]{permissionName}, 0);
+		verify(activityCompat, times(1)).requestPermissions(activity, new String[]{permissionName}, 0);
 	}
 	
 	@Test
 	public void request_1_callRequestPermissions1()
 	{
 		String permissionName = "1";
-		PowerMockito.mockStatic(ActivityCompat.class);
+		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		Activity activity = mock(Activity.class);
-		Permission permission = new Permission(activity, permissionName);
+		Permission permission = new Permission(activity, activityCompat, permissionName);
 		
 		permission.request();
 		
-		PowerMockito.verifyStatic(times(1));
-		ActivityCompat
-		.requestPermissions(activity, new String[]{permissionName}, 0);
+		verify(activityCompat, times(1)).requestPermissions(activity, new String[]{permissionName}, 0);
 	}
 	
 }

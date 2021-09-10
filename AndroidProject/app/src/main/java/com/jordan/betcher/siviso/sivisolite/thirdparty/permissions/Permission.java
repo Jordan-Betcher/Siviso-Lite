@@ -4,32 +4,34 @@ package com.jordan.betcher.siviso.sivisolite.thirdparty.permissions;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import java.util.ArrayList;
 
 public class Permission
 {
 	private final Activity activity;
+	private Wrapper_ActivityCompat activityCompat;
 	private String permissionName;
 	private ArrayList<OnPermissionGranted> onPermissionGranteds = new ArrayList<>();
 	
-	public Permission(Activity activity, String permissionName)
+	public Permission(
+	Activity activity,
+	Wrapper_ActivityCompat activityCompat,
+	String permissionName)
 	{
 		this.activity = activity;
+		this.activityCompat = activityCompat;
 		this.permissionName = permissionName;
 	}
 	
 	public void request()
 	{
-		ActivityCompat
+		activityCompat
 		.requestPermissions(activity, new String[]{permissionName}, 0);
 	}
 	
 	public boolean isGranted()
 	{
-		int permissionCode = ContextCompat.checkSelfPermission(activity, permissionName);
+		int permissionCode = activityCompat.checkSelfPermission(activity, permissionName);
 		return permissionCode == PackageManager.PERMISSION_GRANTED;
 	}
 	

@@ -14,7 +14,7 @@ public class Permission$AccessNotificationPolicy extends Permission
 	
 	public Permission$AccessNotificationPolicy(Activity activity, Intent$PermissionSettingNotification intent)
 	{
-		super(activity, Manifest.permission.ACCESS_NOTIFICATION_POLICY);
+		super(activity, new Wrapper_ActivityCompat(), Manifest.permission.ACCESS_NOTIFICATION_POLICY);
 		this.activity = activity;
 		this.intent = intent;
 	}

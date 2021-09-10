@@ -7,6 +7,6 @@ public class Permission$AccessFineLocation extends Permission
 {
 	public Permission$AccessFineLocation(Activity activity)
 	{
-		super(activity, Manifest.permission.ACCESS_FINE_LOCATION);
+		super(activity, new Wrapper_ActivityCompat(), Manifest.permission.ACCESS_FINE_LOCATION);
 	}
 }
