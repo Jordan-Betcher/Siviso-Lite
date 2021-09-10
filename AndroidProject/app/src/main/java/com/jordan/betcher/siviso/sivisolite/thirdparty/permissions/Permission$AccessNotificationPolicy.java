@@ -8,20 +8,21 @@ import android.os.Build;
 
 public class Permission$AccessNotificationPolicy extends Permission
 {
-	private static final String TAG = "Permission$AccessNotifi";
 	private Activity activity;
+	private Intent$PermissionSettingNotification intent;
 	int buildVersion = Build.VERSION.SDK_INT;
 	
-	public Permission$AccessNotificationPolicy(Activity activity)
+	public Permission$AccessNotificationPolicy(Activity activity, Intent$PermissionSettingNotification intent)
 	{
 		super(activity, Manifest.permission.ACCESS_NOTIFICATION_POLICY);
 		this.activity = activity;
+		this.intent = intent;
 	}
 	
 	@Override
 	public void request()
 	{
-		activity.startActivityForResult(new Intent$PermissionSettingNotification(), 1);
+		activity.startActivityForResult(intent, 1);
 	}
 	
 	@Override

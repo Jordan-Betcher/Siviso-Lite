@@ -1,18 +1,18 @@
 package com.jordan.betcher.siviso.sivisolite.thirdparty.permissions;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.isA;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
 
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class Test$Permission$AccessNotificationPolicy
 {
@@ -26,8 +26,9 @@ public class Test$Permission$AccessNotificationPolicy
 		Activity activity = mock(Activity.class);
 		when(activity.getSystemService(Context.NOTIFICATION_SERVICE)).thenReturn(notificationManager);
 		when(notificationManager.isNotificationPolicyAccessGranted()).thenReturn(isGranted);
+		Intent$PermissionSettingNotification intent = mock(Intent$PermissionSettingNotification.class);
 		
-		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity);
+		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity, intent);
 		permission.buildVersion = version;
 		boolean actualIsGranted = permission.isGranted();
 		assertEquals(false, actualIsGranted);
@@ -42,8 +43,9 @@ public class Test$Permission$AccessNotificationPolicy
 		Activity activity = mock(Activity.class);
 		when(activity.getSystemService(Context.NOTIFICATION_SERVICE)).thenReturn(notificationManager);
 		when(notificationManager.isNotificationPolicyAccessGranted()).thenReturn(isGranted);
+		Intent$PermissionSettingNotification intent = mock(Intent$PermissionSettingNotification.class);
 		
-		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity);
+		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity, intent);
 		permission.buildVersion = version;
 		boolean actualIsGranted = permission.isGranted();
 		assertEquals(true, actualIsGranted);
@@ -58,8 +60,9 @@ public class Test$Permission$AccessNotificationPolicy
 		Activity activity = mock(Activity.class);
 		when(activity.getSystemService(Context.NOTIFICATION_SERVICE)).thenReturn(notificationManager);
 		when(notificationManager.isNotificationPolicyAccessGranted()).thenReturn(isGranted);
+		Intent$PermissionSettingNotification intent = mock(Intent$PermissionSettingNotification.class);
 		
-		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity);
+		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity, intent);
 		permission.buildVersion = version;
 		boolean actualIsGranted = permission.isGranted();
 		assertEquals(false, actualIsGranted);
@@ -74,8 +77,9 @@ public class Test$Permission$AccessNotificationPolicy
 		Activity activity = mock(Activity.class);
 		when(activity.getSystemService(Context.NOTIFICATION_SERVICE)).thenReturn(notificationManager);
 		when(notificationManager.isNotificationPolicyAccessGranted()).thenReturn(isGranted);
+		Intent$PermissionSettingNotification intent = mock(Intent$PermissionSettingNotification.class);
 		
-		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity);
+		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity, intent);
 		permission.buildVersion = version;
 		boolean actualIsGranted = permission.isGranted();
 		assertEquals(true, actualIsGranted);
@@ -85,8 +89,9 @@ public class Test$Permission$AccessNotificationPolicy
 	public void request__callStartActivityForResult()
 	{
 		Activity activity = mock(Activity.class);
+		Intent$PermissionSettingNotification intent = mock(Intent$PermissionSettingNotification.class);
 		
-		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity);
+		Permission$AccessNotificationPolicy permission = new Permission$AccessNotificationPolicy(activity, intent);
 		permission.request();
 		
 		verify(activity, times(1)).startActivityForResult(isA(Intent$PermissionSettingNotification.class), eq(1));

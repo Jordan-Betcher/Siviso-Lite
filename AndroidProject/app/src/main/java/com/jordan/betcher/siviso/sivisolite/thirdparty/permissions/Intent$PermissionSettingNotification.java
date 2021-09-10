@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.thirdparty.permissions;
 
 import android.content.Intent;
 
-class Intent$PermissionSettingNotification extends Intent
+public class Intent$PermissionSettingNotification extends Intent
 {
 	public Intent$PermissionSettingNotification()
 	{

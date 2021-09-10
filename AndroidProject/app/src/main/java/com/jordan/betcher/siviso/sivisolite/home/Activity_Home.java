@@ -12,6 +12,7 @@ import com.jordan.betcher.siviso.sivisolite.home.editmap.EditMapView;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map;
 import com.jordan.betcher.siviso.sivisolite.home.mapview.map.Map$Siviso;
 import com.jordan.betcher.siviso.sivisolite.home.sivisolistview.SivisoListView;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Intent$PermissionSettingNotification;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessNotificationPolicy;
 
@@ -31,8 +32,10 @@ public class Activity_Home extends AppCompatActivity
         setContentView(R.layout.activity_home);
         
         Map$Siviso map = new Map$Siviso();
-        
-        permissionNotificationPolicy = new Permission$AccessNotificationPolicy(this);
+    
+    
+        Intent$PermissionSettingNotification intent = new Intent$PermissionSettingNotification();
+        permissionNotificationPolicy = new Permission$AccessNotificationPolicy(this, intent);
         permissionFineLocation = new Permission$AccessFineLocation(this);
         Database database = new Database(this);
         mapView = createMapView(database, map);
