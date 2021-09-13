@@ -13,6 +13,7 @@ implements OnPermissionGranted
 {
 	private LocationManager locationManager;
 	private long minTimeMilliseconds;
+	private float minDistanceMeters;
 	
 	@SuppressLint("MissingPermission")
 	public OnPermissionGranted_StartCurrentLocation(
@@ -20,15 +21,15 @@ implements OnPermissionGranted
 	LocationListener_CurrentLocation currentLocation)
 	{
 		this.locationManager = locationManager;
-		
 		minTimeMilliseconds = resources.getInteger(R.integer.map_min_time_interval_milliseconds);
+		minDistanceMeters = resources.getInteger(R.integer.map_min_distance_meters);
 	}
 	
 	@SuppressLint("MissingPermission")
 	@Override
 	public void permissionGranted()
 	{
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTimeMilliseconds, 1,
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTimeMilliseconds, minDistanceMeters,
 		                                       new LocationListener_CurrentLocation(new Event<LatLng>()));
 	}
 }
