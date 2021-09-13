@@ -4,4 +4,11 @@
     <string name="notification_create_content_title">Content Title</string>
     <string name="notification_create_content_text">Content Text</string>
     <string name="button_edit">Edit Map</string>
+    <string name="lock_on_off">Permission for running in the background</string>
+    <string name="home">Home</string>
+    <string name="defaultt">Default</string>
+    <string name="lock_map">Permission for you location</string>
+    <string name="default_spinner">Selector for the default ringmode</string>
+    <string name="home_spinner">Spinner for ringmode while home</string>
+    <string name="map_frame">Google maps showing your location and the saved home area</string>
 </resources>
