@@ -13,6 +13,19 @@ import org.junit.Test;
 public class Test$OnPermissionGranted_StartCurrentLocation
 {
 	@Test
+	public void permissionGranted_locationListenerCurrentLocation_requestLocationUpdatesLocationListenerCurrentLocation()
+	{
+		Resources resources = mock(Resources.class);
+		LocationManager locationManager = mock(LocationManager.class);
+		LocationListener_CurrentLocation currentLocation = mock(LocationListener_CurrentLocation.class);
+		
+		OnPermissionGranted_StartCurrentLocation startCurrentLocation = new OnPermissionGranted_StartCurrentLocation(resources, locationManager, currentLocation);
+		startCurrentLocation.permissionGranted();
+		
+		verify(locationManager, times(1)).requestLocationUpdates(anyString(), anyLong(), anyFloat(), eq(currentLocation));
+	}
+	
+	@Test
 	public void permissionGranted_minDistance0_requestLocationUpdatesMinDistance0()
 	{
 		int minDistance = 0;
