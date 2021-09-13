@@ -22,6 +22,6 @@ public class LocationListener_CurrentLocation implements LocationListener
 	
 	public void callWhenReady(OnCurrentLocation onCurrentLocation)
 	{
-		//TODO LocationListener_CurrentLocation callWhenReady
+		onCurrentLocation.currentLocation(new LatLng(0, 0));
 	}
 }
