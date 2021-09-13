@@ -26,7 +26,7 @@ public class SetupMap
 		
 		Event<LatLng> currentLocationEvent = new Event<>();
 		LocationListener_CurrentLocation currentLocation = new LocationListener_CurrentLocation(currentLocationEvent);
-		OnPermissionGranted_StartCurrentLocation startCurrentLocation = new OnPermissionGranted_StartCurrentLocation(currentLocation);
+		OnPermissionGranted_StartCurrentLocation startCurrentLocation = new OnPermissionGranted_StartCurrentLocation(resources, locationManager, currentLocation);
 		permission.addOnPermissionGranted(startCurrentLocation);
 		float defaultZoom = resources.getInteger(R.integer.start_zoom);
 		
