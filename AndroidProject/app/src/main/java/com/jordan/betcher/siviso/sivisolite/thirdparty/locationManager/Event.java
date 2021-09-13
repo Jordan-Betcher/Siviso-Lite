@@ -2,14 +2,16 @@ package com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager;
 
 public class Event<T>
 {
+	private On<T> on;
 	
 	public void call(T t)
 	{
-		//TODO Event call
+		on.call(t);
 	}
 	
-	public void add(On<T> onCurrentLocation)
+	public void add(On<T> on)
 	{
-		//TODO Event add
+		
+		this.on = on;
 	}
 }
