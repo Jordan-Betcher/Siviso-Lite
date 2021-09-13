@@ -35,7 +35,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		new OnMapReady$OnCurrentLocation$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		goToCurrentLocation.go();
 		
-		verify(currentLocation, times(1)).add(goToCurrentLocation);
+		verify(currentLocation, times(1)).callOnce(goToCurrentLocation);
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		OnMapReady$OnCurrentLocation$GoToCurrentLocation goToCurrentLocation =
 		new OnMapReady$OnCurrentLocation$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		
-		verify(currentLocation, times(0)).add(goToCurrentLocation);
+		verify(currentLocation, times(0)).callOnce(goToCurrentLocation);
 	}
 	
 	@Test

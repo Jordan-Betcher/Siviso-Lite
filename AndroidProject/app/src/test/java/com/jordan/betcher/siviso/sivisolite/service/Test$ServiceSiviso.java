@@ -1,15 +1,15 @@
 package com.jordan.betcher.siviso.sivisolite.service;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import android.content.Context;
 
 import com.jordan.betcher.siviso.sivisolite.home.Database.Preferences$ServiceRunning;
 
 import org.junit.Test;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class Test$ServiceSiviso
 {
@@ -20,7 +20,7 @@ public class Test$ServiceSiviso
 	 * onBind
 	 *  Return null
 	 * onStartCommand
-	 *  add listener to location manager
+	 *  callOnce listener to location manager
 	 * destroy
 	 *  remove listener from location manager
 	 */

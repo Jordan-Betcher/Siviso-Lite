@@ -1,6 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import android.content.res.Resources;
+import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
@@ -47,7 +48,8 @@ implements OnMapReady, OnCurrentLocation, GoToCurrentLocation
 	public void go()
 	{
 		multipleOnMapReady.addOnMapReady(this);
-		currentLocation.add(this);
+		currentLocation.callOnce(this);
+		Log.d("GoToCurrentLocation", "go: ");
 	}
 	
 	@Override

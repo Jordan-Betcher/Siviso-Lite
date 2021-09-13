@@ -13,11 +13,11 @@ public class Test$LocationListener_CurrentLocation
 	@Test
 	public void add_onCurrentLocation_eventAddOnCurrentLocation()
 	{
-		EventOnce<LatLng> event = mock(EventOnce.class);
+		CallOnce<LatLng> event = mock(CallOnce.class);
 		OnCurrentLocation onCurrentLocation = mock(OnCurrentLocation.class);
 		
 		LocationListener_CurrentLocation currentLocation = new LocationListener_CurrentLocation(event);
-		currentLocation.add(onCurrentLocation);
+		currentLocation.callOnce(onCurrentLocation);
 		
 		verify(event, times(1)).add(onCurrentLocation);
 	}
@@ -27,7 +27,7 @@ public class Test$LocationListener_CurrentLocation
 	{
 		LatLng latLng = new LatLng(1, 0);
 		Location location = mock(Location.class);
-		EventOnce<LatLng> event = mock(EventOnce.class);
+		CallOnce<LatLng> event = mock(CallOnce.class);
 		when(location.getLatitude()).thenReturn(latLng.latitude);
 		when(location.getLongitude()).thenReturn(latLng.longitude);
 		
@@ -42,7 +42,7 @@ public class Test$LocationListener_CurrentLocation
 	{
 		LatLng latLng = new LatLng(0, 1);
 		Location location = mock(Location.class);
-		EventOnce<LatLng> event = mock(EventOnce.class);
+		CallOnce<LatLng> event = mock(CallOnce.class);
 		when(location.getLatitude()).thenReturn(latLng.latitude);
 		when(location.getLongitude()).thenReturn(latLng.longitude);
 		
@@ -57,7 +57,7 @@ public class Test$LocationListener_CurrentLocation
 	{
 		LatLng latLng = new LatLng(0, 0);
 		Location location = mock(Location.class);
-		EventOnce<LatLng> event = mock(EventOnce.class);
+		CallOnce<LatLng> event = mock(CallOnce.class);
 		when(location.getLatitude()).thenReturn(latLng.latitude);
 		when(location.getLongitude()).thenReturn(latLng.longitude);
 		

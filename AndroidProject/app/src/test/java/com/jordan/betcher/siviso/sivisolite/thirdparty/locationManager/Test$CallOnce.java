@@ -4,15 +4,44 @@ import static org.mockito.Mockito.*;
 
 import org.junit.Test;
 
-public class Test$EventOnce
+public class Test$CallOnce
 {
+	@Test
+	public void callAddCall_0On1_0on1()
+	{
+		
+		int number1 = 0;
+		int number2 = 1;
+		On<Integer> on = mock(On.class);
+		
+		CallOnce<Integer> event = new CallOnce<>();
+		event.call(number1);
+		event.add(on);
+		event.call(number2);
+		
+		verify(on, times(0)).call(number2);
+	}
+	
+	@Test
+	public void callAdd_0On_on0()
+	{
+		int number = 0;
+		On<Integer> on = mock(On.class);
+		
+		CallOnce<Integer> event = new CallOnce<>();
+		event.call(number);
+		event.add(on);
+		
+		verify(on, times(1)).call(number);
+	}
+	
 	@Test
 	public void callCall_0On_1on0()
 	{
 		int number = 0;
 		On<Integer> on = mock(On.class);
 		
-		EventOnce<Integer> event = new EventOnce<>();
+		CallOnce<Integer> event = new CallOnce<>();
 		event.add(on);
 		event.call(number);
 		event.call(number);
@@ -27,7 +56,7 @@ public class Test$EventOnce
 		On<Integer> on1 = mock(On.class);
 		On<Integer> on2 = mock(On.class);
 		
-		EventOnce<Integer> event = new EventOnce<>();
+		CallOnce<Integer> event = new CallOnce<>();
 		event.add(on1);
 		event.add(on2);
 		event.call(number);
@@ -42,7 +71,7 @@ public class Test$EventOnce
 		On<Integer> on1 = mock(On.class);
 		On<Integer> on2 = mock(On.class);
 		
-		EventOnce<Integer> event = new EventOnce<>();
+		CallOnce<Integer> event = new CallOnce<>();
 		event.add(on1);
 		event.add(on2);
 		event.call(number);
@@ -56,7 +85,7 @@ public class Test$EventOnce
 		int number = 0;
 		On<Integer> on = mock(On.class);
 		
-		EventOnce<Integer> event = new EventOnce<>();
+		CallOnce<Integer> event = new CallOnce<>();
 		event.add(on);
 		event.call(number);
 		
