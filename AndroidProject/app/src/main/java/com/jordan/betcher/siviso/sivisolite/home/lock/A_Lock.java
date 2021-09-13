@@ -6,16 +6,14 @@ import android.view.View.OnClickListener;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.OnPermissionGranted;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission;
 
-public class Lock
+public class A_Lock
 {
-	private View view;
 	private View lock;
 	private Permission permission;
 	LockState lockState;
 	
-	public Lock(View view, View lock, Permission permission)
+	public A_Lock(View view, View lock, Permission permission)
 	{
-		this.view = view;
 		this.lock = lock;
 		this.permission = permission;
 		this.lockState = new LockState(view, lock);
