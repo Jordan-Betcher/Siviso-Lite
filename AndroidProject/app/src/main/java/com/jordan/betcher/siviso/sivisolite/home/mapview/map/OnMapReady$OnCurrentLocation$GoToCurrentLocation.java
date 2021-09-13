@@ -33,12 +33,7 @@ implements OnMapReady, OnCurrentLocation, GoToCurrentLocation
 		goToCurrentLocation();
 	}
 	
-	@Override
-	public void currentLocation(LatLng current)
-	{
-		latLng = current;
-		goToCurrentLocation();
-	}
+	
 	
 	private void goToCurrentLocation()
 	{
@@ -52,6 +47,13 @@ implements OnMapReady, OnCurrentLocation, GoToCurrentLocation
 	public void go()
 	{
 		multipleOnMapReady.addOnMapReady(this);
-		currentLocation.callWhenReady(this);
+		currentLocation.add(this);
+	}
+	
+	@Override
+	public void call(LatLng latLng)
+	{
+		this.latLng = latLng;
+		goToCurrentLocation();
 	}
 }

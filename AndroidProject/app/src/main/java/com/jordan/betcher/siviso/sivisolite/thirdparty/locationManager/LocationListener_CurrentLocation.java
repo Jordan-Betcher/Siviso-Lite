@@ -23,8 +23,8 @@ public class LocationListener_CurrentLocation implements LocationListener
 		currentLocationEvent.call(latLng);
 	}
 	
-	public void callWhenReady(OnCurrentLocation onCurrentLocation)
+	public void add(OnCurrentLocation onCurrentLocation)
 	{
-	
+		currentLocationEvent.add(onCurrentLocation);
 	}
 }

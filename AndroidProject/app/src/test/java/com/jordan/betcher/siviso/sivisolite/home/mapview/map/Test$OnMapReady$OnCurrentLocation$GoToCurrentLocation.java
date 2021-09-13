@@ -35,7 +35,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		new OnMapReady$OnCurrentLocation$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		goToCurrentLocation.go();
 		
-		verify(currentLocation, times(1)).callWhenReady(goToCurrentLocation);
+		verify(currentLocation, times(1)).add(goToCurrentLocation);
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		OnMapReady$OnCurrentLocation$GoToCurrentLocation goToCurrentLocation =
 		new OnMapReady$OnCurrentLocation$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		
-		verify(currentLocation, times(0)).callWhenReady(goToCurrentLocation);
+		verify(currentLocation, times(0)).add(goToCurrentLocation);
 	}
 	
 	@Test
@@ -107,7 +107,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		LatLng latLng = new LatLng(0.0,0.0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocation(latLng);
+		action.call(latLng);
 		
 		LatLng expectedLatLng = new LatLng(0.0,0.0);
 		verify(fakeWrapperGoogleMap).goToLocation(expectedLatLng, zoom);
@@ -129,7 +129,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		LatLng latLng = new LatLng(0.0,0.0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocation(latLng);
+		action.call(latLng);
 		
 		verify(fakeWrapperGoogleMap).goToLocation(latLng, zoom);
 	}
@@ -150,7 +150,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		LatLng latLng = new LatLng(0, 0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocation(latLng);
+		action.call(latLng);
 		
 		verify(fakeWrapperGoogleMap).goToLocation(isA(LatLng.class), eq((float)zoom));
 	}
@@ -171,7 +171,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		LatLng latLng = new LatLng(0, 0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocation(latLng);
+		action.call(latLng);
 		
 		verify(fakeWrapperGoogleMap).goToLocation(isA(LatLng.class), eq((float)zoom));
 	}
@@ -192,7 +192,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		LatLng latLng = new LatLng(1.0,1.0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocation(latLng);
+		action.call(latLng);
 		
 		verify(fakeWrapperGoogleMap).goToLocation(latLng, zoom);
 	}
@@ -213,7 +213,7 @@ public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 		LatLng latLng = new LatLng(1.0,1.0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocation(latLng);
+		action.call(latLng);
 		verify(fakeWrapperGoogleMap).goToLocation(latLng, zoom);
 	}
 }

@@ -7,4 +7,9 @@ public class Event<T>
 	{
 		//TODO Event call
 	}
+	
+	public void add(On<T> onCurrentLocation)
+	{
+		//TODO Event add
+	}
 }
