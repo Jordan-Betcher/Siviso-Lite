@@ -9,19 +9,21 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class LocationListener_CurrentLocation implements LocationListener
 {
+	private Event<LatLng> currentLocationEvent;
+	
 	public LocationListener_CurrentLocation(Event<LatLng> currentLocationEvent)
 	{
-
+		this.currentLocationEvent = currentLocationEvent;
 	}
 	
 	@Override
 	public void onLocationChanged(@NonNull Location location)
 	{
-	
+		currentLocationEvent.call(new LatLng(0, 0));
 	}
 	
 	public void callWhenReady(OnCurrentLocation onCurrentLocation)
 	{
-		onCurrentLocation.currentLocation(new LatLng(0, 0));
+	
 	}
 }
