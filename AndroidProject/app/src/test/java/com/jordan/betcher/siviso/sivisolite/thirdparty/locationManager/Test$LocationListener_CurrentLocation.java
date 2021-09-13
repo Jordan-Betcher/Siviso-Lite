@@ -11,6 +11,21 @@ import org.junit.Test;
 public class Test$LocationListener_CurrentLocation
 {
 	@Test
+	public void onLocationChanged_10_EventCall10()
+	{
+		LatLng latLng = new LatLng(1, 0);
+		Location location = mock(Location.class);
+		Event<LatLng> event = mock(Event.class);
+		when(location.getLatitude()).thenReturn(latLng.latitude);
+		when(location.getLongitude()).thenReturn(latLng.longitude);
+		
+		LocationListener_CurrentLocation currentLocation = new LocationListener_CurrentLocation(event);
+		currentLocation.onLocationChanged(location);
+		
+		verify(event, times(1)).call(latLng);
+	}
+	
+	@Test
 	public void onLocationChanged_01_EventCall01()
 	{
 		LatLng latLng = new LatLng(0, 1);
