@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager;
 
 import java.util.ArrayList;
 
-public class Event<T>
+public class EventOnce<T>
 {
 	private ArrayList<On<T>> ons = new ArrayList<>();
 	
@@ -12,6 +12,8 @@ public class Event<T>
 		{
 			on.call(t);
 		}
+		
+		ons.clear();
 	}
 	
 	public void add(On<T> on)

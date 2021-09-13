@@ -9,9 +9,9 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class LocationListener_CurrentLocation implements LocationListener
 {
-	private Event<LatLng> currentLocationEvent;
+	private EventOnce<LatLng> currentLocationEvent;
 	
-	public LocationListener_CurrentLocation(Event<LatLng> currentLocationEvent)
+	public LocationListener_CurrentLocation(EventOnce<LatLng> currentLocationEvent)
 	{
 		this.currentLocationEvent = currentLocationEvent;
 	}
