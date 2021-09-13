@@ -8,7 +8,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import android.content.res.Resources;
-import android.location.Location;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
@@ -18,7 +17,7 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.LocationL
 
 import org.junit.Test;
 
-public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
+public class Test$OnMapReady$OnCurrentLocation$GoToCurrentLocation
 {
 	
 	@Test
@@ -32,8 +31,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
 		
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
-		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation goToCurrentLocation =
+		new OnMapReady$OnCurrentLocation$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		goToCurrentLocation.go();
 		
 		verify(currentLocation, times(1)).callWhenReady(goToCurrentLocation);
@@ -50,8 +49,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
 		
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
-		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation goToCurrentLocation =
+		new OnMapReady$OnCurrentLocation$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		
 		verify(currentLocation, times(0)).callWhenReady(goToCurrentLocation);
 	}
@@ -67,8 +66,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
 		
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
-		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation goToCurrentLocation =
+		new OnMapReady$OnCurrentLocation$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		
 		verify(multipleOnMapReady, times(0)).addOnMapReady(goToCurrentLocation);
 	}
@@ -84,8 +83,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
 		
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation goToCurrentLocation =
-		new OnMapReady$CurrentLocationAction$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation goToCurrentLocation =
+		new OnMapReady$OnCurrentLocation$GoToCurrentLocation(multipleOnMapReady, currentLocation, resources);
 		goToCurrentLocation.go();
 		
 		verify(multipleOnMapReady, times(1)).addOnMapReady(goToCurrentLocation);
@@ -101,16 +100,14 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation action = new OnMapReady$OnCurrentLocation$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
 		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
-		Location fakeLocation = mock(Location.class);
-		when(fakeLocation.getLatitude()).thenReturn(0.0);
-		when(fakeLocation.getLongitude()).thenReturn(0.0);
+		LatLng latLng = new LatLng(0.0,0.0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocationReady(fakeLocation);
+		action.currentLocation(latLng);
 		
 		LatLng expectedLatLng = new LatLng(0.0,0.0);
 		verify(fakeWrapperGoogleMap).goToLocation(expectedLatLng, zoom);
@@ -125,19 +122,16 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		int zoom = 0;
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation action = new OnMapReady$OnCurrentLocation$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
 		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
-		Location fakeLocation = mock(Location.class);
-		when(fakeLocation.getLatitude()).thenReturn(0.0);
-		when(fakeLocation.getLongitude()).thenReturn(0.0);
+		LatLng latLng = new LatLng(0.0,0.0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocationReady(fakeLocation);
+		action.currentLocation(latLng);
 		
-		LatLng expectedLatLng = new LatLng(0.0,0.0);
-		verify(fakeWrapperGoogleMap).goToLocation(expectedLatLng, zoom);
+		verify(fakeWrapperGoogleMap).goToLocation(latLng, zoom);
 	}
 	
 	@Test
@@ -149,16 +143,14 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		LocationListener_CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation action = new OnMapReady$OnCurrentLocation$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
 		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
-		Location fakeLocation = mock(Location.class);
-		when(fakeLocation.getLatitude()).thenReturn(0.0);
-		when(fakeLocation.getLongitude()).thenReturn(0.0);
+		LatLng latLng = new LatLng(0, 0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocationReady(fakeLocation);
+		action.currentLocation(latLng);
 		
 		verify(fakeWrapperGoogleMap).goToLocation(isA(LatLng.class), eq((float)zoom));
 	}
@@ -172,16 +164,14 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		LocationListener_CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation action = new OnMapReady$OnCurrentLocation$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
 		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
-		Location fakeLocation = mock(Location.class);
-		when(fakeLocation.getLatitude()).thenReturn(0.0);
-		when(fakeLocation.getLongitude()).thenReturn(0.0);
+		LatLng latLng = new LatLng(0, 0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocationReady(fakeLocation);
+		action.currentLocation(latLng);
 		
 		verify(fakeWrapperGoogleMap).goToLocation(isA(LatLng.class), eq((float)zoom));
 	}
@@ -195,19 +185,16 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		int zoom = 0;
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation action = new OnMapReady$OnCurrentLocation$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
 		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
-		Location fakeLocation = mock(Location.class);
-		when(fakeLocation.getLatitude()).thenReturn(1.0);
-		when(fakeLocation.getLongitude()).thenReturn(1.0);
+		LatLng latLng = new LatLng(1.0,1.0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocationReady(fakeLocation);
+		action.currentLocation(latLng);
 		
-		LatLng expectedLatLng = new LatLng(1.0,1.0);
-		verify(fakeWrapperGoogleMap).goToLocation(expectedLatLng, zoom);
+		verify(fakeWrapperGoogleMap).goToLocation(latLng, zoom);
 	}
 	
 	@Test
@@ -219,18 +206,14 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 		int zoom = 0;
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
-		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		OnMapReady$OnCurrentLocation$GoToCurrentLocation action = new OnMapReady$OnCurrentLocation$GoToCurrentLocation(
 		fakeMultipleOnMapReady, fakeCurrentLocation, resources);
 		
 		Wrapper_GoogleMap fakeWrapperGoogleMap = mock(Wrapper_GoogleMap.class);
-		Location fakeLocation = mock(Location.class);
-		when(fakeLocation.getLatitude()).thenReturn(1.0);
-		when(fakeLocation.getLongitude()).thenReturn(1.0);
+		LatLng latLng = new LatLng(1.0,1.0);
 		
 		action.mapReady(fakeWrapperGoogleMap);
-		action.currentLocationReady(fakeLocation);
-		
-		LatLng expectedLatLng = new LatLng(1.0,1.0);
-		verify(fakeWrapperGoogleMap).goToLocation(expectedLatLng, zoom);
+		action.currentLocation(latLng);
+		verify(fakeWrapperGoogleMap).goToLocation(latLng, zoom);
 	}
 }

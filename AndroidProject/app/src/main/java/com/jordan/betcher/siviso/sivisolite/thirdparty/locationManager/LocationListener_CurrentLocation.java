@@ -6,13 +6,12 @@ import android.location.LocationListener;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapReady;
 
 public class LocationListener_CurrentLocation implements LocationListener
 {
 	public LocationListener_CurrentLocation(Event<LatLng> currentLocationEvent)
 	{
-		//TODO LocationListener_CurrentLocation LocationListener_CurrentLocation
+
 	}
 	
 	@Override
@@ -21,7 +20,7 @@ public class LocationListener_CurrentLocation implements LocationListener
 	
 	}
 	
-	public void callWhenReady(OnMapReady onMapReady)
+	public void callWhenReady(OnCurrentLocation onCurrentLocation)
 	{
 		//TODO LocationListener_CurrentLocation callWhenReady
 	}

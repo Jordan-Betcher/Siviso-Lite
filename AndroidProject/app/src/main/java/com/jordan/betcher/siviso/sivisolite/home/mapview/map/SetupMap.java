@@ -30,7 +30,7 @@ public class SetupMap
 		permission.addOnPermissionGranted(startCurrentLocation);
 		float defaultZoom = resources.getInteger(R.integer.start_zoom);
 		
-		GoToCurrentLocation goToCurrentLocation = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
+		GoToCurrentLocation goToCurrentLocation = new OnMapReady$OnCurrentLocation$GoToCurrentLocation(
 		multipleOnMapReady, currentLocation, resources);
 		OnMapReady$GoHome goToHome = new OnMapReady$GoHome(multipleOnMapReady, store$Home, defaultZoom);
 		OnMapReady$OnMapClick$SaveLatLng saveLatLng = new OnMapReady$OnMapClick$SaveLatLng(

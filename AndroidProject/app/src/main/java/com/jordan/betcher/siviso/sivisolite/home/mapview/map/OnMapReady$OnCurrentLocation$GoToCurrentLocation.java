@@ -1,7 +1,6 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import android.content.res.Resources;
-import android.location.Location;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
@@ -9,10 +8,10 @@ import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.LocationListener_CurrentLocation;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocationAction;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.OnCurrentLocation;
 
-class OnMapReady$CurrentLocationAction$GoToCurrentLocation
-implements OnMapReady, CurrentLocationAction, GoToCurrentLocation
+class OnMapReady$OnCurrentLocation$GoToCurrentLocation
+implements OnMapReady, OnCurrentLocation, GoToCurrentLocation
 {
 	private Wrapper_GoogleMap wrapperGoogleMap = null;
 	private LatLng latLng = null;
@@ -20,7 +19,7 @@ implements OnMapReady, CurrentLocationAction, GoToCurrentLocation
 	private float zoom;
 	private MultipleOnMapReady multipleOnMapReady;
 	
-	OnMapReady$CurrentLocationAction$GoToCurrentLocation(MultipleOnMapReady multipleOnMapReady, LocationListener_CurrentLocation currentLocation, Resources resources)
+	OnMapReady$OnCurrentLocation$GoToCurrentLocation(MultipleOnMapReady multipleOnMapReady, LocationListener_CurrentLocation currentLocation, Resources resources)
 	{
 		this.multipleOnMapReady = multipleOnMapReady;
 		this.currentLocation = currentLocation;
@@ -35,11 +34,9 @@ implements OnMapReady, CurrentLocationAction, GoToCurrentLocation
 	}
 	
 	@Override
-	public void currentLocationReady(Location location)
+	public void currentLocation(LatLng current)
 	{
-		double latitude = location.getLatitude();
-		double longitude = location.getLongitude();
-		latLng = new LatLng(latitude, longitude);
+		latLng = current;
 		goToCurrentLocation();
 	}
 	
