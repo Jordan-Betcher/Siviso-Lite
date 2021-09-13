@@ -11,7 +11,6 @@ public class Event<T>
 	
 	public void add(On<T> on)
 	{
-		
-		this.on = on;
+		if(this.on == null) this.on = on;
 	}
 }
