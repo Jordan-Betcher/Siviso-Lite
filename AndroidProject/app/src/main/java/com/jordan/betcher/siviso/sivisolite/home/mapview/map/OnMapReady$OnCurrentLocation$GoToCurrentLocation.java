@@ -1,13 +1,12 @@
 package com.jordan.betcher.siviso.sivisolite.home.mapview.map;
 
 import android.content.res.Resources;
-import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.LocationListener_CurrentLocation;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.OnCurrentLocation;
 
@@ -49,7 +48,6 @@ implements OnMapReady, OnCurrentLocation, GoToCurrentLocation
 	{
 		multipleOnMapReady.addOnMapReady(this);
 		currentLocation.callOnce(this);
-		Log.d("GoToCurrentLocation", "go: ");
 	}
 	
 	@Override
