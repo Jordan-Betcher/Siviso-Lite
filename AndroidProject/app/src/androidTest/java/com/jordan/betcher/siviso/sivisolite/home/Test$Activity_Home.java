@@ -1,5 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.home;
 
+import static org.junit.Assert.assertNotNull;
+
 import android.os.Build;
 
 import androidx.test.core.app.ActivityScenario;
@@ -12,8 +14,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
-
-import static org.junit.Assert.assertNotNull;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = Build.VERSION_CODES.JELLY_BEAN)

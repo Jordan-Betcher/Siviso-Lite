@@ -1,5 +1,7 @@
 package com.jordan.betcher.siviso.sivisolite.service;
 
+import static org.junit.Assert.assertNotNull;
+
 import android.content.Context;
 import android.os.Build;
 
@@ -10,13 +12,9 @@ import com.jordan.betcher.siviso.sivisolite.home.Activity_Home;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
-
-import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = Build.VERSION_CODES.JELLY_BEAN)
@@ -58,25 +56,25 @@ public class Test$FusedLocationClientSiviso
 	@Test
 	public void start__LocationCallbackStart()
 	{
-		LocationClient$Manager client = mock(LocationClient$Manager.class);
+		LocationClient$Manager client = Mockito.mock(LocationClient$Manager.class);
 		
 		FusedLocationClientSiviso handler = new FusedLocationClientSiviso(context);
 		handler.client = client;
 		handler.start();
 		
-		verify(client, times(1)).start();
+		Mockito.verify(client, Mockito.times(1)).start();
 	}
 	
 	@Test
 	public void stop__LocationCallbackStop()
 	{
-		LocationClient$Manager client = mock(LocationClient$Manager.class);
+		LocationClient$Manager client = Mockito.mock(LocationClient$Manager.class);
 		
 		FusedLocationClientSiviso handler = new FusedLocationClientSiviso(context);
 		handler.client = client;
 		handler.stop();
 		
-		verify(client, times(1)).stop();
+		Mockito.verify(client, Mockito.times(1)).stop();
 	}
 	
 }
