@@ -28,7 +28,7 @@ implements OnPermissionGranted
 	@Override
 	public void permissionGranted()
 	{
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTimeMilliseconds, 0,
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTimeMilliseconds, 1,
 		                                       new LocationListener_CurrentLocation(new Event<LatLng>()));
 	}
 }
