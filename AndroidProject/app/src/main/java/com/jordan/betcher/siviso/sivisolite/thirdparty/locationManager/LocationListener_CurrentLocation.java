@@ -19,7 +19,7 @@ public class LocationListener_CurrentLocation implements LocationListener
 	@Override
 	public void onLocationChanged(@NonNull Location location)
 	{
-		currentLocationEvent.call(new LatLng(0, 0));
+		currentLocationEvent.call(new LatLng(0, location.getLongitude()));
 	}
 	
 	public void callWhenReady(OnCurrentLocation onCurrentLocation)
