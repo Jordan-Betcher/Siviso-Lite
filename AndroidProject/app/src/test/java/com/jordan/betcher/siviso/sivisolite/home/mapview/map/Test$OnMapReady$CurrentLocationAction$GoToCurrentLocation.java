@@ -14,7 +14,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.LocationListener_CurrentLocation;
 
 import org.junit.Test;
 
@@ -26,7 +26,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		int zoom = 0;
 		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation currentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation currentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
@@ -43,7 +44,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		int zoom = 0;
 		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation currentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation currentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
@@ -59,7 +61,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		int zoom = 0;
 		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation currentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation currentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
@@ -75,7 +78,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		int zoom = 0;
 		MultipleOnMapReady multipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation currentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation currentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		
@@ -91,7 +95,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	public void GoToCurrentLocation_MapLocation00_goToLocationLatLng0X()
 	{
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation fakeCurrentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		int zoom = 0;
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
@@ -115,7 +120,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	public void GoToCurrentLocation_MapLocation00_goToLocationLatLngX0()
 	{
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation fakeCurrentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		int zoom = 0;
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
@@ -139,7 +145,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		int zoom = 0;
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation fakeCurrentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
@@ -161,7 +168,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	{
 		int zoom = 1;
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation fakeCurrentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
 		OnMapReady$CurrentLocationAction$GoToCurrentLocation action = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
@@ -182,7 +190,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	public void GoToCurrentLocation_MapLocation11_goToLocationLatLng1X()
 	{
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation fakeCurrentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		int zoom = 0;
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);
@@ -205,7 +214,8 @@ public class Test$OnMapReady$CurrentLocationAction$GoToCurrentLocation
 	public void GoToCurrentLocation_MapLocation11_goToLocationLatLngX1()
 	{
 		MultipleOnMapReady fakeMultipleOnMapReady = mock(MultipleOnMapReady.class);
-		CurrentLocation fakeCurrentLocation = mock(CurrentLocation.class);
+		LocationListener_CurrentLocation fakeCurrentLocation = mock(
+		LocationListener_CurrentLocation.class);
 		int zoom = 0;
 		Resources resources = mock(Resources.class);
 		when(resources.getInteger(R.integer.start_zoom)).thenReturn(zoom);

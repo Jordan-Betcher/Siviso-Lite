@@ -8,7 +8,7 @@ import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.OnMapReady;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.Wrapper_GoogleMap;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.LocationListener_CurrentLocation;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocationAction;
 
 class OnMapReady$CurrentLocationAction$GoToCurrentLocation
@@ -16,11 +16,11 @@ implements OnMapReady, CurrentLocationAction, GoToCurrentLocation
 {
 	private Wrapper_GoogleMap wrapperGoogleMap = null;
 	private LatLng latLng = null;
-	private CurrentLocation currentLocation;
+	private LocationListener_CurrentLocation currentLocation;
 	private float zoom;
 	private MultipleOnMapReady multipleOnMapReady;
 	
-	OnMapReady$CurrentLocationAction$GoToCurrentLocation(MultipleOnMapReady multipleOnMapReady, CurrentLocation currentLocation, Resources resources)
+	OnMapReady$CurrentLocationAction$GoToCurrentLocation(MultipleOnMapReady multipleOnMapReady, LocationListener_CurrentLocation currentLocation, Resources resources)
 	{
 		this.multipleOnMapReady = multipleOnMapReady;
 		this.currentLocation = currentLocation;

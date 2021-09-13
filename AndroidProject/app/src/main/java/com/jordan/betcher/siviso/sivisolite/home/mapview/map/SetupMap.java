@@ -4,10 +4,13 @@ import android.content.res.Resources;
 import android.location.LocationManager;
 
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.sivisolite.R;
 import com.jordan.betcher.siviso.sivisolite.home.Database.StoreSiviso$Home;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.googlemap.MultipleOnMapReady;
-import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.CurrentLocation;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.Event;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.LocationListener_CurrentLocation;
+import com.jordan.betcher.siviso.sivisolite.thirdparty.locationManager.OnPermissionGranted_StartCurrentLocation;
 import com.jordan.betcher.siviso.sivisolite.thirdparty.permissions.Permission$AccessFineLocation;
 
 public class SetupMap
@@ -20,7 +23,11 @@ public class SetupMap
 		MultipleOnMapReady multipleOnMapReady = new MultipleOnMapReady();
 		Wrapper_OnMapReadyCallback onMapReadyCallback = new Wrapper_OnMapReadyCallback(multipleOnMapReady);
 		supportMapFragment.getMapAsync(onMapReadyCallback);
-		CurrentLocation currentLocation = new CurrentLocation(locationManager, permission, resources);
+		
+		Event<LatLng> currentLocationEvent = new Event<>();
+		LocationListener_CurrentLocation currentLocation = new LocationListener_CurrentLocation(currentLocationEvent);
+		OnPermissionGranted_StartCurrentLocation startCurrentLocation = new OnPermissionGranted_StartCurrentLocation(currentLocation);
+		permission.addOnPermissionGranted(startCurrentLocation);
 		float defaultZoom = resources.getInteger(R.integer.start_zoom);
 		
 		GoToCurrentLocation goToCurrentLocation = new OnMapReady$CurrentLocationAction$GoToCurrentLocation(
