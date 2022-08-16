@@ -1,0 +1,1 @@
+URL for Siviso Lite Privacy Policy Hosted On AWS S3: http://sivisoliteprivacypolicy.s3-website-us-west-2.amazonaws.com/
