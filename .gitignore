@@ -83,3 +83,4 @@ lint/tmp/
 # lint/reports/
 AndroidProject/.idea/codeStyles/Project.xml
 AndroidProject/.idea/gradle.xml
+AndroidProject/app/src/main/res/values/google_maps_api.xml
